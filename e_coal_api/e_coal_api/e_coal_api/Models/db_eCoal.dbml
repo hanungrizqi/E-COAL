@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_ENG_ECOAL_MASS_KPT" Class="db_eCoalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=kphosq101\shpol;Initial Catalog=DB_ENG_ECOAL_MASS_KPT;User ID=sqlservices" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_ENG_ECOAL_MASS_KPTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBL_M_PROFILE" Member="TBL_M_PROFILEs">
+    <Type Name="TBL_M_PROFILE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PROFILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
