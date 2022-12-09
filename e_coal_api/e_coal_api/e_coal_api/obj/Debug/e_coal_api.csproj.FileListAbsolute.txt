@@ -83,3 +83,6 @@ C:\Users\fjarp\Documents\Projects\E-COAL\source code\e_coal_api\e_coal_api\e_coa
 C:\Users\fjarp\Documents\Projects\E-COAL\source code\e_coal_api\e_coal_api\e_coal_api\obj\Debug\e_coal_api.csproj.CopyComplete
 C:\Users\fjarp\Documents\Projects\E-COAL\source code\e_coal_api\e_coal_api\e_coal_api\obj\Debug\e_coal_api.dll
 C:\Users\fjarp\Documents\Projects\E-COAL\source code\e_coal_api\e_coal_api\e_coal_api\obj\Debug\e_coal_api.pdb
+C:\Users\fjarp\Documents\Projects\E-COAL\source code\e_coal_api\e_coal_api\e_coal_api\bin\System.Web.Cors.dll
+C:\Users\fjarp\Documents\Projects\E-COAL\source code\e_coal_api\e_coal_api\e_coal_api\bin\System.Web.Http.Cors.dll
+C:\Users\fjarp\Documents\Projects\E-COAL\source code\e_coal_api\e_coal_api\e_coal_api\bin\System.Web.Http.Cors.xml
