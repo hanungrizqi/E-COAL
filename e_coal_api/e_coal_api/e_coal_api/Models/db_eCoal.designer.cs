@@ -33,6 +33,15 @@ namespace e_coal_api.Models
     partial void InsertTBL_M_PROFILE(TBL_M_PROFILE instance);
     partial void UpdateTBL_M_PROFILE(TBL_M_PROFILE instance);
     partial void DeleteTBL_M_PROFILE(TBL_M_PROFILE instance);
+    partial void InsertTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
+    partial void UpdateTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
+    partial void DeleteTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
+    partial void InsertTBL_M_SEAM(TBL_M_SEAM instance);
+    partial void UpdateTBL_M_SEAM(TBL_M_SEAM instance);
+    partial void DeleteTBL_M_SEAM(TBL_M_SEAM instance);
+    partial void InsertTBL_T_PAIRING_OPERATOR_UNIT(TBL_T_PAIRING_OPERATOR_UNIT instance);
+    partial void UpdateTBL_T_PAIRING_OPERATOR_UNIT(TBL_T_PAIRING_OPERATOR_UNIT instance);
+    partial void DeleteTBL_T_PAIRING_OPERATOR_UNIT(TBL_T_PAIRING_OPERATOR_UNIT instance);
     #endregion
 		
 		public db_eCoalDataContext() : 
@@ -71,6 +80,42 @@ namespace e_coal_api.Models
 			{
 				return this.GetTable<TBL_M_PROFILE>();
 			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_PEKERJAAN> TBL_M_PEKERJAANs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_PEKERJAAN>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_SEAM> TBL_M_SEAMs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_SEAM>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_T_PAIRING_OPERATOR_UNIT> TBL_T_PAIRING_OPERATOR_UNITs
+		{
+			get
+			{
+				return this.GetTable<TBL_T_PAIRING_OPERATOR_UNIT>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getListOperatorByRating", IsComposable=true)]
+		public IQueryable<cufn_getListOperatorByRatingResult> cufn_getListOperatorByRating([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PEKERJAAN", DbType="Int")] System.Nullable<int> pEKERJAAN)
+		{
+			return this.CreateMethodCallQuery<cufn_getListOperatorByRatingResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pEKERJAAN);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getAlatByPekerjanSeam", IsComposable=true)]
+		public IQueryable<cufn_getAlatByPekerjanSeamResult> cufn_getAlatByPekerjanSeam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PEKERJAAN", DbType="Int")] System.Nullable<int> pEKERJAAN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SEAM", DbType="Int")] System.Nullable<int> sEAM)
+		{
+			return this.CreateMethodCallQuery<cufn_getAlatByPekerjanSeamResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pEKERJAAN, sEAM);
 		}
 	}
 	
@@ -156,6 +201,838 @@ namespace e_coal_api.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_PEKERJAAN")]
+	public partial class TBL_M_PEKERJAAN : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _NAMA_PEKERJAAN;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnNAMA_PEKERJAANChanging(string value);
+    partial void OnNAMA_PEKERJAANChanged();
+    #endregion
+		
+		public TBL_M_PEKERJAAN()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEKERJAAN", DbType="VarChar(50)")]
+		public string NAMA_PEKERJAAN
+		{
+			get
+			{
+				return this._NAMA_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._NAMA_PEKERJAAN != value))
+				{
+					this.OnNAMA_PEKERJAANChanging(value);
+					this.SendPropertyChanging();
+					this._NAMA_PEKERJAAN = value;
+					this.SendPropertyChanged("NAMA_PEKERJAAN");
+					this.OnNAMA_PEKERJAANChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_SEAM")]
+	public partial class TBL_M_SEAM : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _NAMA_SEAM;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnNAMA_SEAMChanging(string value);
+    partial void OnNAMA_SEAMChanged();
+    #endregion
+		
+		public TBL_M_SEAM()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_SEAM", DbType="VarChar(50)")]
+		public string NAMA_SEAM
+		{
+			get
+			{
+				return this._NAMA_SEAM;
+			}
+			set
+			{
+				if ((this._NAMA_SEAM != value))
+				{
+					this.OnNAMA_SEAMChanging(value);
+					this.SendPropertyChanging();
+					this._NAMA_SEAM = value;
+					this.SendPropertyChanged("NAMA_SEAM");
+					this.OnNAMA_SEAMChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_PAIRING_OPERATOR_UNIT")]
+	public partial class TBL_T_PAIRING_OPERATOR_UNIT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _OPERATOR;
+		
+		private System.Nullable<int> _ID_EQUIPMENT;
+		
+		private string _EQUIPMENT;
+		
+		private System.Nullable<int> _ID_PEKERJAAN;
+		
+		private System.Nullable<int> _ID_SEAM;
+		
+		private System.Nullable<decimal> _VOLUME;
+		
+		private System.Nullable<int> _TIME_H;
+		
+		private System.Nullable<int> _TIME_M;
+		
+		private System.Nullable<int> _TIME_S;
+		
+		private string _GRADE;
+		
+		private System.Nullable<System.DateTime> _INPUT_DATE;
+		
+		private string _INPUT_BY;
+		
+		private System.Nullable<int> _STATUS;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnOPERATORChanging(string value);
+    partial void OnOPERATORChanged();
+    partial void OnID_EQUIPMENTChanging(System.Nullable<int> value);
+    partial void OnID_EQUIPMENTChanged();
+    partial void OnEQUIPMENTChanging(string value);
+    partial void OnEQUIPMENTChanged();
+    partial void OnID_PEKERJAANChanging(System.Nullable<int> value);
+    partial void OnID_PEKERJAANChanged();
+    partial void OnID_SEAMChanging(System.Nullable<int> value);
+    partial void OnID_SEAMChanged();
+    partial void OnVOLUMEChanging(System.Nullable<decimal> value);
+    partial void OnVOLUMEChanged();
+    partial void OnTIME_HChanging(System.Nullable<int> value);
+    partial void OnTIME_HChanged();
+    partial void OnTIME_MChanging(System.Nullable<int> value);
+    partial void OnTIME_MChanged();
+    partial void OnTIME_SChanging(System.Nullable<int> value);
+    partial void OnTIME_SChanged();
+    partial void OnGRADEChanging(string value);
+    partial void OnGRADEChanged();
+    partial void OnINPUT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnINPUT_DATEChanged();
+    partial void OnINPUT_BYChanging(string value);
+    partial void OnINPUT_BYChanged();
+    partial void OnSTATUSChanging(System.Nullable<int> value);
+    partial void OnSTATUSChanged();
+    #endregion
+		
+		public TBL_T_PAIRING_OPERATOR_UNIT()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPERATOR", DbType="VarChar(20)")]
+		public string OPERATOR
+		{
+			get
+			{
+				return this._OPERATOR;
+			}
+			set
+			{
+				if ((this._OPERATOR != value))
+				{
+					this.OnOPERATORChanging(value);
+					this.SendPropertyChanging();
+					this._OPERATOR = value;
+					this.SendPropertyChanged("OPERATOR");
+					this.OnOPERATORChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_EQUIPMENT", DbType="Int")]
+		public System.Nullable<int> ID_EQUIPMENT
+		{
+			get
+			{
+				return this._ID_EQUIPMENT;
+			}
+			set
+			{
+				if ((this._ID_EQUIPMENT != value))
+				{
+					this.OnID_EQUIPMENTChanging(value);
+					this.SendPropertyChanging();
+					this._ID_EQUIPMENT = value;
+					this.SendPropertyChanged("ID_EQUIPMENT");
+					this.OnID_EQUIPMENTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT", DbType="VarChar(50)")]
+		public string EQUIPMENT
+		{
+			get
+			{
+				return this._EQUIPMENT;
+			}
+			set
+			{
+				if ((this._EQUIPMENT != value))
+				{
+					this.OnEQUIPMENTChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT = value;
+					this.SendPropertyChanged("EQUIPMENT");
+					this.OnEQUIPMENTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PEKERJAAN", DbType="Int")]
+		public System.Nullable<int> ID_PEKERJAAN
+		{
+			get
+			{
+				return this._ID_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._ID_PEKERJAAN != value))
+				{
+					this.OnID_PEKERJAANChanging(value);
+					this.SendPropertyChanging();
+					this._ID_PEKERJAAN = value;
+					this.SendPropertyChanged("ID_PEKERJAAN");
+					this.OnID_PEKERJAANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SEAM", DbType="Int")]
+		public System.Nullable<int> ID_SEAM
+		{
+			get
+			{
+				return this._ID_SEAM;
+			}
+			set
+			{
+				if ((this._ID_SEAM != value))
+				{
+					this.OnID_SEAMChanging(value);
+					this.SendPropertyChanging();
+					this._ID_SEAM = value;
+					this.SendPropertyChanged("ID_SEAM");
+					this.OnID_SEAMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLUME", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> VOLUME
+		{
+			get
+			{
+				return this._VOLUME;
+			}
+			set
+			{
+				if ((this._VOLUME != value))
+				{
+					this.OnVOLUMEChanging(value);
+					this.SendPropertyChanging();
+					this._VOLUME = value;
+					this.SendPropertyChanged("VOLUME");
+					this.OnVOLUMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIME_H", DbType="Int")]
+		public System.Nullable<int> TIME_H
+		{
+			get
+			{
+				return this._TIME_H;
+			}
+			set
+			{
+				if ((this._TIME_H != value))
+				{
+					this.OnTIME_HChanging(value);
+					this.SendPropertyChanging();
+					this._TIME_H = value;
+					this.SendPropertyChanged("TIME_H");
+					this.OnTIME_HChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIME_M", DbType="Int")]
+		public System.Nullable<int> TIME_M
+		{
+			get
+			{
+				return this._TIME_M;
+			}
+			set
+			{
+				if ((this._TIME_M != value))
+				{
+					this.OnTIME_MChanging(value);
+					this.SendPropertyChanging();
+					this._TIME_M = value;
+					this.SendPropertyChanged("TIME_M");
+					this.OnTIME_MChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIME_S", DbType="Int")]
+		public System.Nullable<int> TIME_S
+		{
+			get
+			{
+				return this._TIME_S;
+			}
+			set
+			{
+				if ((this._TIME_S != value))
+				{
+					this.OnTIME_SChanging(value);
+					this.SendPropertyChanging();
+					this._TIME_S = value;
+					this.SendPropertyChanged("TIME_S");
+					this.OnTIME_SChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRADE", DbType="VarChar(5)")]
+		public string GRADE
+		{
+			get
+			{
+				return this._GRADE;
+			}
+			set
+			{
+				if ((this._GRADE != value))
+				{
+					this.OnGRADEChanging(value);
+					this.SendPropertyChanging();
+					this._GRADE = value;
+					this.SendPropertyChanged("GRADE");
+					this.OnGRADEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> INPUT_DATE
+		{
+			get
+			{
+				return this._INPUT_DATE;
+			}
+			set
+			{
+				if ((this._INPUT_DATE != value))
+				{
+					this.OnINPUT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._INPUT_DATE = value;
+					this.SendPropertyChanged("INPUT_DATE");
+					this.OnINPUT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_BY", DbType="VarChar(50)")]
+		public string INPUT_BY
+		{
+			get
+			{
+				return this._INPUT_BY;
+			}
+			set
+			{
+				if ((this._INPUT_BY != value))
+				{
+					this.OnINPUT_BYChanging(value);
+					this.SendPropertyChanging();
+					this._INPUT_BY = value;
+					this.SendPropertyChanged("INPUT_BY");
+					this.OnINPUT_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="Int")]
+		public System.Nullable<int> STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this.OnSTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS = value;
+					this.SendPropertyChanged("STATUS");
+					this.OnSTATUSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class cufn_getListOperatorByRatingResult
+	{
+		
+		private string _EMPLOYEE_ID;
+		
+		private string _NAME;
+		
+		private string _POSITION_ID;
+		
+		private string _POS_TITLE;
+		
+		private string _DSTRCT_CODE;
+		
+		private int _ID_PEKERJAAN;
+		
+		private string _NAMA_PEKERJAAN;
+		
+		private decimal _AVG_AP;
+		
+		public cufn_getListOperatorByRatingResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string EMPLOYEE_ID
+		{
+			get
+			{
+				return this._EMPLOYEE_ID;
+			}
+			set
+			{
+				if ((this._EMPLOYEE_ID != value))
+				{
+					this._EMPLOYEE_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(100)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POSITION_ID", DbType="VarChar(100)")]
+		public string POSITION_ID
+		{
+			get
+			{
+				return this._POSITION_ID;
+			}
+			set
+			{
+				if ((this._POSITION_ID != value))
+				{
+					this._POSITION_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_TITLE", DbType="VarChar(100)")]
+		public string POS_TITLE
+		{
+			get
+			{
+				return this._POS_TITLE;
+			}
+			set
+			{
+				if ((this._POS_TITLE != value))
+				{
+					this._POS_TITLE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSTRCT_CODE", DbType="VarChar(100)")]
+		public string DSTRCT_CODE
+		{
+			get
+			{
+				return this._DSTRCT_CODE;
+			}
+			set
+			{
+				if ((this._DSTRCT_CODE != value))
+				{
+					this._DSTRCT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PEKERJAAN", DbType="Int NOT NULL")]
+		public int ID_PEKERJAAN
+		{
+			get
+			{
+				return this._ID_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._ID_PEKERJAAN != value))
+				{
+					this._ID_PEKERJAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEKERJAAN", DbType="VarChar(50)")]
+		public string NAMA_PEKERJAAN
+		{
+			get
+			{
+				return this._NAMA_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._NAMA_PEKERJAAN != value))
+				{
+					this._NAMA_PEKERJAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AVG_AP", DbType="Decimal(38,6) NOT NULL")]
+		public decimal AVG_AP
+		{
+			get
+			{
+				return this._AVG_AP;
+			}
+			set
+			{
+				if ((this._AVG_AP != value))
+				{
+					this._AVG_AP = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getAlatByPekerjanSeamResult
+	{
+		
+		private int _ID_MAPPING;
+		
+		private int _ID_PEKERJAAN;
+		
+		private string _NAMA_PEKERJAAN;
+		
+		private System.Nullable<int> _ID_SEAM;
+		
+		private string _NAMA_SEAM;
+		
+		private System.Nullable<int> _ID_ALAT;
+		
+		private string _NAMA_ALAT;
+		
+		public cufn_getAlatByPekerjanSeamResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_MAPPING", DbType="Int NOT NULL")]
+		public int ID_MAPPING
+		{
+			get
+			{
+				return this._ID_MAPPING;
+			}
+			set
+			{
+				if ((this._ID_MAPPING != value))
+				{
+					this._ID_MAPPING = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PEKERJAAN", DbType="Int NOT NULL")]
+		public int ID_PEKERJAAN
+		{
+			get
+			{
+				return this._ID_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._ID_PEKERJAAN != value))
+				{
+					this._ID_PEKERJAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEKERJAAN", DbType="VarChar(50)")]
+		public string NAMA_PEKERJAAN
+		{
+			get
+			{
+				return this._NAMA_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._NAMA_PEKERJAAN != value))
+				{
+					this._NAMA_PEKERJAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SEAM", DbType="Int")]
+		public System.Nullable<int> ID_SEAM
+		{
+			get
+			{
+				return this._ID_SEAM;
+			}
+			set
+			{
+				if ((this._ID_SEAM != value))
+				{
+					this._ID_SEAM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_SEAM", DbType="VarChar(50)")]
+		public string NAMA_SEAM
+		{
+			get
+			{
+				return this._NAMA_SEAM;
+			}
+			set
+			{
+				if ((this._NAMA_SEAM != value))
+				{
+					this._NAMA_SEAM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ALAT", DbType="Int")]
+		public System.Nullable<int> ID_ALAT
+		{
+			get
+			{
+				return this._ID_ALAT;
+			}
+			set
+			{
+				if ((this._ID_ALAT != value))
+				{
+					this._ID_ALAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_ALAT", DbType="VarChar(100)")]
+		public string NAMA_ALAT
+		{
+			get
+			{
+				return this._NAMA_ALAT;
+			}
+			set
+			{
+				if ((this._NAMA_ALAT != value))
+				{
+					this._NAMA_ALAT = value;
+				}
 			}
 		}
 	}

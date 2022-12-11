@@ -13,7 +13,7 @@ namespace e_coal_api.View_Model
 
         public string PROFILE { get; set; }
 
-        public IQueryable<TBL_M_PROFILE> getProfile()
+        public IQueryable<TBL_M_PROFILE> getListProfile()
         {
             var data = db.TBL_M_PROFILEs.ToList().AsQueryable();
             return data;

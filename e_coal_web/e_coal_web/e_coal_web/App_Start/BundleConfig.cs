@@ -25,6 +25,20 @@ namespace e_coal_web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //kendo script
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+                     "~/Scripts/kendo/jquery.min.js",
+                     "~/Scripts/kendo/kendo.all.min.js",
+                     "~/Scripts/kendo/kendo.web.js",
+                     "~/Scripts/kendo/jszip.min.js"));
+
+            //kendo css
+            bundles.Add(new StyleBundle("~/Content/kendo/css").Include(
+                     "~/Content/kendo/kendo.common.css",
+                     "~/Content/kendo/kendo.common.min.css",
+                     "~/Content/kendo/kendo.blueopal.css",
+                     "~/Content/kendo/kendo.blueopal.min.css"));
         }
     }
 }
