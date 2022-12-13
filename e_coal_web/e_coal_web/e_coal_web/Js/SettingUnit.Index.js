@@ -1,11 +1,12 @@
 ﻿var settingModel;
+var protyAlat = 0;
 
 $(document).ready(function () {
     settingModel = kendo.observable({
         id_pekerjaan: "",
         id_seam: "",
 
-        ds_grid_dataAsset: new kendo.data.DataSource({
+        ds_grid_dataSource: new kendo.data.DataSource({
             transport: {
                 read: {
                     type: "GET",
@@ -21,16 +22,18 @@ $(document).ready(function () {
                 data: "Data",
                 total: "Total",
                 model: {
-                    id: "EMPLOYEE_ID",
+                    id: "NRP",
                     fields: {
-                        EMPLOYEE_ID: { type: "string", editable: false, sortable: true },
-                        NAME: { type: "string", editable: false, sortable: true },
-                        POSITION_ID: { type: "string", editable: false, sortable: true },
-                        POS_TITLE: { type: "string", editable: false, sortable: true },
-                        DSTRCT_CODE: { type: "string", editable: false, sortable: true },
+                        NRP: { type: "string", editable: false, sortable: true },
+                        NAMA: { type: "string", editable: false, sortable: true },
+                        SUBCONT_CODE: { type: "string", editable: false, sortable: true },
+                        ID_JABATAN: { type: "string", editable: false, sortable: true },
+                        JABATAN: { type: "string", editable: false, sortable: true },
+                        DISTRICT: { type: "string", editable: false, sortable: true },
                         ID_PEKERJAAN: { type: "string", editable: false, sortable: true },
                         NAMA_PEKERJAAN: { type: "string", editable: false, sortable: true },
-                        AVG_AP: { type: "string", editable: false, sortable: true }
+                        AVG_AP: { type: "string", editable: false, sortable: true },
+                        STATUS_AVALIABLE: { type: "string", editable: false, sortable: true }
                     }
                 }
             },
@@ -40,11 +43,12 @@ $(document).ready(function () {
     })
     kendo.bind($("#form_main"), settingModel);
 
-})
+    var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById('txt_startJamKerja').value = now.toISOString().slice(0, 16);
 
-function getListOperator() {
     $("#grid").kendoGrid({
-        dataSource: settingModel.ds_grid_dataAsset,
+        dataSource: settingModel.ds_grid_dataSource,
         resizable: "true",
         editable: "inline",
         scrollable: "true",
@@ -54,13 +58,20 @@ function getListOperator() {
         height: "500px",
         columns: [
             //{ title: 'Action', width: 50, template: $("#tmp_action").html() },
-            { field: 'EMPLOYEE_ID', title: 'NRP', width: 80 },
-            { field: 'NAME', title: 'Name', width: 100 },
+            { field: 'NRP', title: 'NRP', width: 80 },
+            { field: 'NAMA', title: 'Name', width: 100 },
             { field: 'NAMA_PEKERJAAN', title: 'Pekerjaan', width: 100 },
             { field: 'AVG_AP', title: 'Nilai', width: 50 },
             { title: 'Pilih', template: $('#tmp_check').html(), width: 30 },
         ]
     }).data("kendoGrid");
+
+})
+
+function getListOperator() {
+    var get = settingModel.get();
+    settingModel.ds_grid_dataSource.transport.options.read.data.ID_PEKERJAAN = get.id_pekerjaan;
+    settingModel.ds_grid_dataSource.read();
 }
 
 $("#txt_pekerjaan").kendoDropDownList({
@@ -84,7 +95,7 @@ $("#txt_pekerjaan").kendoDropDownList({
     optionLabel: "Pilih",
     select: function (e) {
         var dataItem = this.dataItem(e.item.index());
-        settingModel.ds_grid_dataAsset.transport.options.read.data.ID_PEKERJAAN = dataItem.id;
+        /*settingModel.ds_grid_dataSource.transport.options.read.data.ID_PEKERJAAN = dataItem.id;*/
         settingModel.set("id_pekerjaan", dataItem.id);
         getListOperator();
     }
@@ -128,6 +139,7 @@ function getAlat() {
                 var obj = result.Data
                 $("#txt_rekomendasiAlat").val(obj.NAMA_ALAT)
                 $("#hd_rekomendasiAlat").val(obj.ID_ALAT)
+                protyAlat = obj.PROTY;
             } else {
                 alert(result.Remark);
             }
@@ -135,8 +147,22 @@ function getAlat() {
     })
 }
 
+function setEstimasiJamKerja() {
+    var volume = $("#txt_volume").val();
+    //console.log(volume);
+    var estimasi = volume / protyAlat;
+    var est_st = estimasi.toString();
+    var split = est_st.split(".");
+    //console.log(split);
+    $("#txt_estimasi_h").val(split[0]);
+    var minute = "0." + split[1].toString();
+    //console.log(minute);
+    var m = minute * 60;
+    $("#txt_estimasi_m").val(m.toFixed());
+}
+
 function submmit() {
-    var grid = settingModel.ds_grid_dataAsset.data();
+    var grid = settingModel.ds_grid_dataSource.data();
     var total_checked = $("[name='PILIH_OP']:checked").length;
     var grid_obj;
     console.log(total_checked);
@@ -150,25 +176,27 @@ function submmit() {
         for (var i_inc = 0; i_inc < grid.length; i_inc++) {
             i_cls_data = grid[i_inc];
 
-            var check = $("[id='" + i_cls_data.EMPLOYEE_ID + "_CHECK']").is(":checked");
+            var check = $("[id='" + i_cls_data.NRP + "_CHECK']").is(":checked");
             if (check == true) {
                 grid_obj = i_cls_data;
+                //console.log(grid_obj);
             }
         }
 
-        console.log(grid_obj);
+        //console.log(grid_obj);
         var obj = {
-            OPERATOR: grid_obj.EMPLOYEE_ID,
+            OPERATOR: grid_obj.NRP,
             ID_EQUIPMENT: $("#hd_rekomendasiAlat").val(),
             EQUIPMENT: $("#txt_rekomendasiAlat").val(),
             ID_PEKERJAAN: $("#txt_pekerjaan").val(),
             ID_SEAM: $("#txt_seam").val(),
             VOLUME: $("#txt_volume").val(),
+            STAR_WORK_HOUR: $("#txt_startJamKerja").val(), 
             TIME_H: $("#txt_estimasi_h").val(),
             TIME_M: $("#txt_estimasi_m").val(),
-            GRADE: "A",
+            //GRADE: "A",
         }
-        console.log(obj);
+        //console.log(obj);
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -178,6 +206,7 @@ function submmit() {
             success: function (result) {
                 if (result.Status == true) {
                     alert("Success");
+                    getListOperator();
                 } else {
                     alert(result.Remark);
                 }

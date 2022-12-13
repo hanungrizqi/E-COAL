@@ -22,7 +22,7 @@
                         <label class="form-label">Pekerjaan</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="k-dropdown" id="txt_pekerjaan" style="width:100%"/>
+                        <input type="text" class="k-dropdown" id="txt_pekerjaan" style="width:100%" />
                     </div>
                 </div>
                 <div class="row mb-4">
@@ -39,7 +39,7 @@
                         <label class="form-label">Volume</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="number" class="form-control" id="txt_volume" />
+                        <input type="number" class="form-control" id="txt_volume" onkeyup="setEstimasiJamKerja()"/>
                     </div>
                 </div>
                 <div class="row mb-4">
@@ -53,17 +53,25 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-md-3">
+                        <label class="form-label">Start Jam Kerja</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="datetime-local" class="form-control" id="txt_startJamKerja" />
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-3">
                         <label class="form-label">Estimasi Jam Kerja</label>
                     </div>
                     <div class="col-md-9 row">
                         <div class="col-md-5">
-                            <input type="number" class="form-control" id="txt_estimasi_h" placeholder="Hour" />
+                            <input type="number" class="form-control" id="txt_estimasi_h" placeholder="Hour" readonly="readonly"/>
                         </div>
                         <div class="col-md-1">
                             <label class="form-label">H</label>
                         </div>
                         <div class="col-md-5">
-                            <input type="number" class="form-control" id="txt_estimasi_m" placeholder="Minute" />
+                            <input type="number" class="form-control" id="txt_estimasi_m" placeholder="Minute" readonly="readonly" />
                         </div>
                         <div class="col-md-1">
                             <label class="form-label">M</label>
@@ -77,9 +85,9 @@
             </div>
         </div>
         <div class="block-content block-content-full block-content-sm bg-body-light text-end">
-            <button type="reset" class="btn btn-alt-secondary">
+            @*<button type="reset" class="btn btn-alt-secondary">
                 <i class="fa fa-sync-alt opacity-50 me-1"></i> Reset
-            </button>
+            </button>*@
             <button type="submit" class="btn btn-alt-primary" onclick="submmit()">
                 <i class="fa fa-check opacity-50 me-1"></i> Submit Operator
             </button>
@@ -88,7 +96,11 @@
 </div>
 
 <script type="text/x-kendo-tmpl" id="tmp_check">
-    <center><input type="checkbox" id="#=EMPLOYEE_ID#_CHECK" name="PILIH_OP"></center>
+    #if(STATUS_AVALIABLE == 0){#
+        <center><input type="checkbox" id="#=NRP#_CHECK" name="PILIH_OP" disabled="disabled"></center>
+    #} else{#
+        <center><input type="checkbox" id="#=NRP#_CHECK" name="PILIH_OP"></center>
+    #}#
 </script>
 
 <script src="~/Js/SettingUnit.Index.js"></script>

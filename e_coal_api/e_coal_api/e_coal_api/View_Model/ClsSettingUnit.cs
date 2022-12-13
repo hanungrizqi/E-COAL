@@ -16,6 +16,7 @@ namespace e_coal_api.View_Model
         public int ID_PEKERJAAN { get; set; }
         public int ID_SEAM { get; set; }
         public decimal VOLUME { get; set; }
+        public DateTime STAR_WORK_HOUR { get; set; }
         public int TIME_H { get; set; }
         public int TIME_M { get; set; }
         public int TIME_S { get; set; }
@@ -45,9 +46,10 @@ namespace e_coal_api.View_Model
             tbl.ID_PEKERJAAN = ID_PEKERJAAN;
             tbl.ID_SEAM = ID_SEAM;
             tbl.VOLUME = VOLUME;
+            tbl.START_WORK_HOUR = STAR_WORK_HOUR;
             tbl.TIME_H = TIME_H;
             tbl.TIME_M = TIME_M;
-            tbl.GRADE = GRADE;
+            //tbl.GRADE = GRADE;
             tbl.INPUT_DATE = DateTime.Now;
             tbl.INPUT_BY = "test";
             tbl.STATUS = 1;

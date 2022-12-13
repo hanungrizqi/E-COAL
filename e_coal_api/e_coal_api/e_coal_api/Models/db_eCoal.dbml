@@ -27,6 +27,7 @@
       <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="VOLUME" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="START_WORK_HOUR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="TIME_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TIME_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -36,30 +37,50 @@
       <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Function Name="dbo.cufn_getListOperatorByRating" Method="cufn_getListOperatorByRating" IsComposable="true">
-    <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
-    <ElementType Name="cufn_getListOperatorByRatingResult">
-      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="POSITION_ID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="POS_TITLE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="AVG_AP" Type="System.Decimal" DbType="Decimal(38,6) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
     <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
     <Parameter Name="SEAM" Parameter="sEAM" Type="System.Int32" DbType="Int" />
     <ElementType Name="cufn_getAlatByPekerjanSeamResult">
       <Column Name="ID_MAPPING" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NAMA_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ID_ALAT" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NAMA_ALAT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PROTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getListOperatorByRating" Method="cufn_getListOperatorByRating" IsComposable="true">
+    <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cufn_getListOperatorByRatingResult">
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JABATAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AVG_AP" Type="System.Decimal" DbType="Decimal(38,6) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS_AVALIABLE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cusp_getListPenilaian" Method="cusp_getListPenilaian">
+    <ElementType Name="cusp_getListPenilaianResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OPERATOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ID_EQUIPMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VOLUME" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="START_WORK_HOUR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TIME_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -20,10 +20,10 @@
         <elementListCompartment Id="69693c85-e729-400e-a386-3ce952fd53f4" absoluteBounds="4.765, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="50135e4d-1fab-486e-8dda-cc7157b65b95" absoluteBounds="0.5, 2, 2, 3.5016097005208326">
+    <classShape Id="b8fc0b5e-f681-483f-8a2f-3bf8f9807fa3" absoluteBounds="0.5, 1.875, 2, 3.6939111328124996">
       <DataClassMoniker Name="/db_eCoalDataContext/TBL_T_PAIRING_OPERATOR_UNIT" />
       <nestedChildShapes>
-        <elementListCompartment Id="94345d2d-a08c-46fd-9f7a-cd69640ac9dc" absoluteBounds="0.51499999999999968, 2.46, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c2e4e072-862a-48b0-a33d-e5ef6d8aeab9" absoluteBounds="0.51499999999999968, 2.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

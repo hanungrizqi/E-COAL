@@ -8,15 +8,29 @@
         @foreach (var item in Menu.Where(a => a.PARENT_ID == 0))
         {
             <li class="nav-main-item">
-                <a class="nav-main-link active" href="@item.MENU_PATH">
-                    <i class="nav-main-link-icon fa @item.MENU_ICON"></i>
-                    <span class="nav-main-link-name">@item.MENU_DESC</span>
-                </a>
-                @if(item.MENU_PATH == "#")
+                @if (item.MENU_PATH == "#")
                 {
-                    <ul class="nav-main-submenu">
-                        @SubMenu(Menu, item)
-                    </ul>
+                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                        <i class="nav-main-link-icon fa @item.MENU_ICON"></i>
+                        <span class="nav-main-link-name">@item.MENU_DESC</span>
+                    </a>
+                }
+                else
+                {
+                    <a class="nav-main-link active" href="@item.MENU_PATH">
+                        <i class="nav-main-link-icon fa @item.MENU_ICON"></i>
+                        <span class="nav-main-link-name">@item.MENU_DESC</span>
+                    </a>
+                }
+
+                @if (item.MENU_PATH == "#")
+                {
+                    @:<ul class="nav-main-submenu">
+                    }
+                @SubMenu(Menu, item)
+                @if (item.MENU_PATH == "#")
+                {
+                @:</ul>
                 }
             </li>
         }
@@ -25,9 +39,9 @@
             foreach(var sub in SubMenu.Where(a => a.PARENT_ID == item.ID))
             {
                 <li class="nav-main-item">
-                    <a class="nav-main-link active" href="@item.MENU_PATH">
-                        <i class="nav-main-link-icon fa @item.MENU_ICON"></i>
-                        <span class="nav-main-link-name">@item.MENU_DESC</span>
+                    <a class="nav-main-link active" href="@sub.MENU_PATH">
+                        <i class="nav-main-link-icon fa @sub.MENU_ICON"></i>
+                        <span class="nav-main-link-name">@sub.MENU_DESC</span>
                     </a>
                 </li>
             }

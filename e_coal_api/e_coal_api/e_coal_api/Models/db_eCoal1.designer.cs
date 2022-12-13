@@ -106,16 +106,23 @@ namespace e_coal_api.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getAlatByPekerjanSeam", IsComposable=true)]
+		public IQueryable<cufn_getAlatByPekerjanSeamResult> cufn_getAlatByPekerjanSeam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PEKERJAAN", DbType="Int")] System.Nullable<int> pEKERJAAN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SEAM", DbType="Int")] System.Nullable<int> sEAM)
+		{
+			return this.CreateMethodCallQuery<cufn_getAlatByPekerjanSeamResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pEKERJAAN, sEAM);
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getListOperatorByRating", IsComposable=true)]
 		public IQueryable<cufn_getListOperatorByRatingResult> cufn_getListOperatorByRating([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PEKERJAAN", DbType="Int")] System.Nullable<int> pEKERJAAN)
 		{
 			return this.CreateMethodCallQuery<cufn_getListOperatorByRatingResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pEKERJAAN);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getAlatByPekerjanSeam", IsComposable=true)]
-		public IQueryable<cufn_getAlatByPekerjanSeamResult> cufn_getAlatByPekerjanSeam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PEKERJAAN", DbType="Int")] System.Nullable<int> pEKERJAAN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SEAM", DbType="Int")] System.Nullable<int> sEAM)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cusp_getListPenilaian")]
+		public ISingleResult<cusp_getListPenilaianResult> cusp_getListPenilaian()
 		{
-			return this.CreateMethodCallQuery<cufn_getAlatByPekerjanSeamResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pEKERJAAN, sEAM);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<cusp_getListPenilaianResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -397,6 +404,8 @@ namespace e_coal_api.Models
 		
 		private System.Nullable<decimal> _VOLUME;
 		
+		private System.Nullable<System.DateTime> _START_WORK_HOUR;
+		
 		private System.Nullable<int> _TIME_H;
 		
 		private System.Nullable<int> _TIME_M;
@@ -429,6 +438,8 @@ namespace e_coal_api.Models
     partial void OnID_SEAMChanged();
     partial void OnVOLUMEChanging(System.Nullable<decimal> value);
     partial void OnVOLUMEChanged();
+    partial void OnSTART_WORK_HOURChanging(System.Nullable<System.DateTime> value);
+    partial void OnSTART_WORK_HOURChanged();
     partial void OnTIME_HChanging(System.Nullable<int> value);
     partial void OnTIME_HChanged();
     partial void OnTIME_MChanging(System.Nullable<int> value);
@@ -586,6 +597,26 @@ namespace e_coal_api.Models
 					this._VOLUME = value;
 					this.SendPropertyChanged("VOLUME");
 					this.OnVOLUMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_START_WORK_HOUR", DbType="DateTime")]
+		public System.Nullable<System.DateTime> START_WORK_HOUR
+		{
+			get
+			{
+				return this._START_WORK_HOUR;
+			}
+			set
+			{
+				if ((this._START_WORK_HOUR != value))
+				{
+					this.OnSTART_WORK_HOURChanging(value);
+					this.SendPropertyChanging();
+					this._START_WORK_HOUR = value;
+					this.SendPropertyChanged("START_WORK_HOUR");
+					this.OnSTART_WORK_HOURChanged();
 				}
 			}
 		}
@@ -751,166 +782,10 @@ namespace e_coal_api.Models
 		}
 	}
 	
-	public partial class cufn_getListOperatorByRatingResult
-	{
-		
-		private string _EMPLOYEE_ID;
-		
-		private string _NAME;
-		
-		private string _POSITION_ID;
-		
-		private string _POS_TITLE;
-		
-		private string _DSTRCT_CODE;
-		
-		private int _ID_PEKERJAAN;
-		
-		private string _NAMA_PEKERJAAN;
-		
-		private decimal _AVG_AP;
-		
-		public cufn_getListOperatorByRatingResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string EMPLOYEE_ID
-		{
-			get
-			{
-				return this._EMPLOYEE_ID;
-			}
-			set
-			{
-				if ((this._EMPLOYEE_ID != value))
-				{
-					this._EMPLOYEE_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(100)")]
-		public string NAME
-		{
-			get
-			{
-				return this._NAME;
-			}
-			set
-			{
-				if ((this._NAME != value))
-				{
-					this._NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POSITION_ID", DbType="VarChar(100)")]
-		public string POSITION_ID
-		{
-			get
-			{
-				return this._POSITION_ID;
-			}
-			set
-			{
-				if ((this._POSITION_ID != value))
-				{
-					this._POSITION_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_TITLE", DbType="VarChar(100)")]
-		public string POS_TITLE
-		{
-			get
-			{
-				return this._POS_TITLE;
-			}
-			set
-			{
-				if ((this._POS_TITLE != value))
-				{
-					this._POS_TITLE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSTRCT_CODE", DbType="VarChar(100)")]
-		public string DSTRCT_CODE
-		{
-			get
-			{
-				return this._DSTRCT_CODE;
-			}
-			set
-			{
-				if ((this._DSTRCT_CODE != value))
-				{
-					this._DSTRCT_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PEKERJAAN", DbType="Int NOT NULL")]
-		public int ID_PEKERJAAN
-		{
-			get
-			{
-				return this._ID_PEKERJAAN;
-			}
-			set
-			{
-				if ((this._ID_PEKERJAAN != value))
-				{
-					this._ID_PEKERJAAN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEKERJAAN", DbType="VarChar(50)")]
-		public string NAMA_PEKERJAAN
-		{
-			get
-			{
-				return this._NAMA_PEKERJAAN;
-			}
-			set
-			{
-				if ((this._NAMA_PEKERJAAN != value))
-				{
-					this._NAMA_PEKERJAAN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AVG_AP", DbType="Decimal(38,6) NOT NULL")]
-		public decimal AVG_AP
-		{
-			get
-			{
-				return this._AVG_AP;
-			}
-			set
-			{
-				if ((this._AVG_AP != value))
-				{
-					this._AVG_AP = value;
-				}
-			}
-		}
-	}
-	
 	public partial class cufn_getAlatByPekerjanSeamResult
 	{
 		
 		private int _ID_MAPPING;
-		
-		private int _ID_PEKERJAAN;
-		
-		private string _NAMA_PEKERJAAN;
 		
 		private System.Nullable<int> _ID_SEAM;
 		
@@ -919,6 +794,8 @@ namespace e_coal_api.Models
 		private System.Nullable<int> _ID_ALAT;
 		
 		private string _NAMA_ALAT;
+		
+		private System.Nullable<int> _PROTY;
 		
 		public cufn_getAlatByPekerjanSeamResult()
 		{
@@ -936,38 +813,6 @@ namespace e_coal_api.Models
 				if ((this._ID_MAPPING != value))
 				{
 					this._ID_MAPPING = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PEKERJAAN", DbType="Int NOT NULL")]
-		public int ID_PEKERJAAN
-		{
-			get
-			{
-				return this._ID_PEKERJAAN;
-			}
-			set
-			{
-				if ((this._ID_PEKERJAAN != value))
-				{
-					this._ID_PEKERJAAN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEKERJAAN", DbType="VarChar(50)")]
-		public string NAMA_PEKERJAAN
-		{
-			get
-			{
-				return this._NAMA_PEKERJAAN;
-			}
-			set
-			{
-				if ((this._NAMA_PEKERJAAN != value))
-				{
-					this._NAMA_PEKERJAAN = value;
 				}
 			}
 		}
@@ -1032,6 +877,488 @@ namespace e_coal_api.Models
 				if ((this._NAMA_ALAT != value))
 				{
 					this._NAMA_ALAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROTY", DbType="Int")]
+		public System.Nullable<int> PROTY
+		{
+			get
+			{
+				return this._PROTY;
+			}
+			set
+			{
+				if ((this._PROTY != value))
+				{
+					this._PROTY = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getListOperatorByRatingResult
+	{
+		
+		private string _NRP;
+		
+		private string _NAMA;
+		
+		private string _SUBCONT_CODE;
+		
+		private System.Nullable<int> _ID_JABATAN;
+		
+		private string _JABATAN;
+		
+		private string _DISTRICT;
+		
+		private int _ID_PEKERJAAN;
+		
+		private string _NAMA_PEKERJAAN;
+		
+		private decimal _AVG_AP;
+		
+		private int _STATUS_AVALIABLE;
+		
+		public cufn_getListOperatorByRatingResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA", DbType="VarChar(150)")]
+		public string NAMA
+		{
+			get
+			{
+				return this._NAMA;
+			}
+			set
+			{
+				if ((this._NAMA != value))
+				{
+					this._NAMA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBCONT_CODE", DbType="VarChar(5)")]
+		public string SUBCONT_CODE
+		{
+			get
+			{
+				return this._SUBCONT_CODE;
+			}
+			set
+			{
+				if ((this._SUBCONT_CODE != value))
+				{
+					this._SUBCONT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_JABATAN", DbType="Int")]
+		public System.Nullable<int> ID_JABATAN
+		{
+			get
+			{
+				return this._ID_JABATAN;
+			}
+			set
+			{
+				if ((this._ID_JABATAN != value))
+				{
+					this._ID_JABATAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JABATAN", DbType="VarChar(100)")]
+		public string JABATAN
+		{
+			get
+			{
+				return this._JABATAN;
+			}
+			set
+			{
+				if ((this._JABATAN != value))
+				{
+					this._JABATAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(5)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this._DISTRICT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PEKERJAAN", DbType="Int NOT NULL")]
+		public int ID_PEKERJAAN
+		{
+			get
+			{
+				return this._ID_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._ID_PEKERJAAN != value))
+				{
+					this._ID_PEKERJAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEKERJAAN", DbType="VarChar(50)")]
+		public string NAMA_PEKERJAAN
+		{
+			get
+			{
+				return this._NAMA_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._NAMA_PEKERJAAN != value))
+				{
+					this._NAMA_PEKERJAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AVG_AP", DbType="Decimal(38,6) NOT NULL")]
+		public decimal AVG_AP
+		{
+			get
+			{
+				return this._AVG_AP;
+			}
+			set
+			{
+				if ((this._AVG_AP != value))
+				{
+					this._AVG_AP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_AVALIABLE", DbType="Int NOT NULL")]
+		public int STATUS_AVALIABLE
+		{
+			get
+			{
+				return this._STATUS_AVALIABLE;
+			}
+			set
+			{
+				if ((this._STATUS_AVALIABLE != value))
+				{
+					this._STATUS_AVALIABLE = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cusp_getListPenilaianResult
+	{
+		
+		private System.Nullable<int> _ID;
+		
+		private string _OPERATOR;
+		
+		private string _NAMA;
+		
+		private System.Nullable<int> _ID_EQUIPMENT;
+		
+		private string _EQUIPMENT;
+		
+		private System.Nullable<int> _ID_PEKERJAAN;
+		
+		private string _PEKERJAAN;
+		
+		private System.Nullable<int> _ID_SEAM;
+		
+		private string _SEAM;
+		
+		private System.Nullable<decimal> _VOLUME;
+		
+		private System.Nullable<System.DateTime> _START_WORK_HOUR;
+		
+		private System.Nullable<int> _TIME_H;
+		
+		private System.Nullable<int> _TIME_M;
+		
+		private System.Nullable<int> _STATUS;
+		
+		private System.Nullable<decimal> _NILAI;
+		
+		public cusp_getListPenilaianResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int")]
+		public System.Nullable<int> ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPERATOR", DbType="VarChar(50)")]
+		public string OPERATOR
+		{
+			get
+			{
+				return this._OPERATOR;
+			}
+			set
+			{
+				if ((this._OPERATOR != value))
+				{
+					this._OPERATOR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA", DbType="VarChar(100)")]
+		public string NAMA
+		{
+			get
+			{
+				return this._NAMA;
+			}
+			set
+			{
+				if ((this._NAMA != value))
+				{
+					this._NAMA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_EQUIPMENT", DbType="Int")]
+		public System.Nullable<int> ID_EQUIPMENT
+		{
+			get
+			{
+				return this._ID_EQUIPMENT;
+			}
+			set
+			{
+				if ((this._ID_EQUIPMENT != value))
+				{
+					this._ID_EQUIPMENT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT", DbType="VarChar(50)")]
+		public string EQUIPMENT
+		{
+			get
+			{
+				return this._EQUIPMENT;
+			}
+			set
+			{
+				if ((this._EQUIPMENT != value))
+				{
+					this._EQUIPMENT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PEKERJAAN", DbType="Int")]
+		public System.Nullable<int> ID_PEKERJAAN
+		{
+			get
+			{
+				return this._ID_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._ID_PEKERJAAN != value))
+				{
+					this._ID_PEKERJAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PEKERJAAN", DbType="VarChar(50)")]
+		public string PEKERJAAN
+		{
+			get
+			{
+				return this._PEKERJAAN;
+			}
+			set
+			{
+				if ((this._PEKERJAAN != value))
+				{
+					this._PEKERJAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SEAM", DbType="Int")]
+		public System.Nullable<int> ID_SEAM
+		{
+			get
+			{
+				return this._ID_SEAM;
+			}
+			set
+			{
+				if ((this._ID_SEAM != value))
+				{
+					this._ID_SEAM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEAM", DbType="VarChar(50)")]
+		public string SEAM
+		{
+			get
+			{
+				return this._SEAM;
+			}
+			set
+			{
+				if ((this._SEAM != value))
+				{
+					this._SEAM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLUME", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> VOLUME
+		{
+			get
+			{
+				return this._VOLUME;
+			}
+			set
+			{
+				if ((this._VOLUME != value))
+				{
+					this._VOLUME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_START_WORK_HOUR", DbType="DateTime")]
+		public System.Nullable<System.DateTime> START_WORK_HOUR
+		{
+			get
+			{
+				return this._START_WORK_HOUR;
+			}
+			set
+			{
+				if ((this._START_WORK_HOUR != value))
+				{
+					this._START_WORK_HOUR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIME_H", DbType="Int")]
+		public System.Nullable<int> TIME_H
+		{
+			get
+			{
+				return this._TIME_H;
+			}
+			set
+			{
+				if ((this._TIME_H != value))
+				{
+					this._TIME_H = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIME_M", DbType="Int")]
+		public System.Nullable<int> TIME_M
+		{
+			get
+			{
+				return this._TIME_M;
+			}
+			set
+			{
+				if ((this._TIME_M != value))
+				{
+					this._TIME_M = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="Int")]
+		public System.Nullable<int> STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this._STATUS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NILAI", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> NILAI
+		{
+			get
+			{
+				return this._NILAI;
+			}
+			set
+			{
+				if ((this._NILAI != value))
+				{
+					this._NILAI = value;
 				}
 			}
 		}
