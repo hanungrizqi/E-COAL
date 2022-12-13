@@ -10,6 +10,7 @@ namespace e_coal_api.Controllers
 {
     public class MastersController : ApiController
     {
+        
         [HttpGet]
         [Route("api/Masters/getListProfile")]
         public IHttpActionResult getListProfile()
@@ -26,7 +27,7 @@ namespace e_coal_api.Controllers
                 return Ok(new { Status = false, Error = e.ToString() });
             }
         }
-
+        
         [HttpGet]
         [Route("api/Masters/getListPekerjaan")]
         public IHttpActionResult getListPekerjaan()
@@ -43,7 +44,7 @@ namespace e_coal_api.Controllers
                 return Ok(new { Status = false, Error = e.ToString() });
             }
         }
-
+        
         [HttpGet]
         [Route("api/Masters/getListSeam")]
         public IHttpActionResult getListSeam()
@@ -52,6 +53,57 @@ namespace e_coal_api.Controllers
             {
                 ClsSeam clsSeam = new ClsSeam();
                 var data = clsSeam.getListSeam();
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpGet]
+        [Route("api/Masters/getListSubcont")]
+        public IHttpActionResult getListSubcont()
+        {
+            try
+            {
+                ClsSubcont clsSubcont = new ClsSubcont();
+                var data = clsSubcont.getListSubcont();
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpGet]
+        [Route("api/Masters/getListJabatan")]
+        public IHttpActionResult getListJabatan()
+        {
+            try
+            {
+                ClsJabatan clsJabatan = new ClsJabatan();
+                var data = clsJabatan.getListJabatan();
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpGet]
+        [Route("api/Masters/getListDepartment")]
+        public IHttpActionResult getListDepartment()
+        {
+            try
+            {
+                ClsDepartment clsDepartment = new ClsDepartment();
+                var data = clsDepartment.getListDepartment();
 
                 return Ok(new { Status = true, Data = data });
             }

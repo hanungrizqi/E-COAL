@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<h2>Create</h2>
+
+<form method="post">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">NAMA PEKERJAAN</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="nama_pekerjaan" id="nama_pekerjaan">
+        </div>
+    </div>
+</form>
+<button type="button" class="btn btn-primary" onclick="create();">Submit</button>
+<button class="btn btn-danger" onclick="location.href='@Url.Action("Get", "Pekerjaan")'">Back</button>
+@*<script src="~/Scripts/biodata.js"></script>*@
+<script src="~/Js/GuideMaster/getpekerjaan.js"></script>
