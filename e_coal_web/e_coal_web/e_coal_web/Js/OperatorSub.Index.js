@@ -1,8 +1,8 @@
 ﻿var settingModel;
 
 $("#txt_subcont").kendoDropDownList({
-    dataTextField: "SUBCONT_CODE",
-    dataValueField: "SUBCONT_NAME",
+    dataTextField: "SUBCONT_NAME",
+    dataValueField: "SUBCONT_CODE",
     dataSource: {
         type: "json",
         transport: {
@@ -21,8 +21,8 @@ $("#txt_subcont").kendoDropDownList({
     optionLabel: "Pilih",
     select: function (e) {
         var dataItem = this.dataItem(e.item.index());
-        settingModel.set("id_subcont", dataItem.id);
-        getListSubcont();
+        /*getListSubcont();*/
+        console.log(dataItem);
     }
 });
 
@@ -47,8 +47,8 @@ $("#txt_jabatan").kendoDropDownList({
     optionLabel: "Pilih",
     select: function (e) {
         var dataItem = this.dataItem(e.item.index());
-        settingModel.set("id_jabatan", dataItem.id);
-        getListJabatan();
+        /*settingModel.set("id_jabatan", dataItem.id);*/
+        /*getListJabatan();*/
     }
 });
 
@@ -73,8 +73,8 @@ $("#txt_department").kendoDropDownList({
     optionLabel: "Pilih",
     select: function (e) {
         var dataItem = this.dataItem(e.item.index());
-        settingModel.set("id_department", dataItem.id);
-        getListDepartment();
+        /*settingModel.set("id_department", dataItem.id);*/
+        /*getListDepartment();*/
     }
 });
 
@@ -109,7 +109,7 @@ function submmit() {
             if (result.Status == true) {
                 alert("Success");
             } else {
-                alert(result.Remark);
+                alert(result.Error);
             }
         }
     })

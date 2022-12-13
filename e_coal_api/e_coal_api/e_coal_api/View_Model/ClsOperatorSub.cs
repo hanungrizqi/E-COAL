@@ -19,8 +19,8 @@ namespace e_coal_api.View_Model
         public DateTime TGL_MASUK { get; set; }
         public DateTime INPUT_DATE { get; set; }
         public string INPUT_BY { get; set; }
-        public int STATUS { get; set; }
-        
+        /*public int STATUS { get; set; }*/
+
 
         /*public IQueryable<cufn_getListOperatorByRatingResult> getListOperatorByReting()
         {
@@ -44,9 +44,9 @@ namespace e_coal_api.View_Model
             tbl.DEPT_CODE = DEPT_CODE;
             tbl.DISTRICT = DISTRICT;
             tbl.TGL_MASUK = TGL_MASUK;
-            tbl.INPUT_DATE = INPUT_DATE;
+            tbl.INPUT_DATE = DateTime.Now;
             tbl.INPUT_BY = INPUT_BY;
-            tbl.STATUS = STATUS;
+            /*tbl.STATUS = STATUS;*/
 
             /*tbl.OPERATOR = OPERATOR;
             tbl.ID_EQUIPMENT = ID_EQUIPMENT;
