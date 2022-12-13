@@ -26,5 +26,11 @@
         <elementListCompartment Id="c2e4e072-862a-48b0-a33d-e5ef6d8aeab9" absoluteBounds="0.51499999999999968, 2.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="6204d86c-490d-4073-aa6e-d8facd3b655a" absoluteBounds="2.625, 1.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/db_eCoalDataContext/TBL_T_APPRAISAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89d6adbe-3873-4ea8-86a7-77ce85888042" absoluteBounds="2.6399999999999997, 2.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

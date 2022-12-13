@@ -37,6 +37,16 @@
       <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_T_APPRAISAL" Member="TBL_T_APPRAISALs">
+    <Type Name="TBL_T_APPRAISAL">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PAIRING_OU_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OPERATOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SAFETY" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="KOMUNIKASI" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="METODE_KERJA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
     <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
     <Parameter Name="SEAM" Parameter="sEAM" Type="System.Int32" DbType="Int" />
@@ -81,6 +91,25 @@
       <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NILAI" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getDetailOperator" Method="cufn_getDetailOperator" IsComposable="true">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cufn_getDetailOperatorResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OPERATOR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ID_EQUIPMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAMA_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VOLUME" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="START_WORK_HOUR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TIME_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

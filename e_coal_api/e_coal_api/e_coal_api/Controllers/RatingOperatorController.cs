@@ -26,5 +26,55 @@ namespace e_coal_api.Controllers
                 return Ok(new { Status = false, Error = e.ToString() });
             }
         }
+
+        [HttpGet]
+        [Route("api/RatingOperator/getDetailOperator")]
+        public IHttpActionResult getDetailOperator(int idPairing)
+        {
+            try
+            {
+                ClsRatingOperator clsRatingOperator = new ClsRatingOperator();
+                clsRatingOperator.ID_PAIRING = idPairing;
+                var data = clsRatingOperator.getDetailOperator();
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        //[HttpPost]
+        //[Route("api/RatingOperator/nilaiOperator")]
+        //public IHttpActionResult nilaiOperator(ClsRatingOperator clsRatingOperator)
+        //{
+        //    try
+        //    {
+        //        clsRatingOperator.nilaiOperator();
+
+        //        return Ok(new { Status = true });
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return Ok(new { Status = false, Error = e.ToString() });
+        //    }
+        //}
+
+        [HttpPost]
+        [Route("api/RatingOperator/nilaiOperator")]
+        public IHttpActionResult nilaiOperator(ClsRatingOperator clsRatingOperator)
+        {
+            try
+            {
+                clsRatingOperator.nilaiOperator();
+
+                return Ok(new { Status = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
     }
 }
