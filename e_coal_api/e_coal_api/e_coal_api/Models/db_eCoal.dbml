@@ -119,6 +119,13 @@
       <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_M_LOCATION" Member="TBL_M_LOCATIONs">
+    <Type Name="TBL_M_LOCATION">
+      <Column Name="ID_LOC" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LOCATION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
     <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
     <Parameter Name="SEAM" Parameter="sEAM" Type="System.Int32" DbType="Int" />

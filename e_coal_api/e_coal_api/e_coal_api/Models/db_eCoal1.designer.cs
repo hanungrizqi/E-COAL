@@ -63,6 +63,9 @@ namespace e_coal_api.Models
     partial void InsertTBL_M_SUBCONT(TBL_M_SUBCONT instance);
     partial void UpdateTBL_M_SUBCONT(TBL_M_SUBCONT instance);
     partial void DeleteTBL_M_SUBCONT(TBL_M_SUBCONT instance);
+    partial void InsertTBL_M_LOCATION(TBL_M_LOCATION instance);
+    partial void UpdateTBL_M_LOCATION(TBL_M_LOCATION instance);
+    partial void DeleteTBL_M_LOCATION(TBL_M_LOCATION instance);
     #endregion
 		
 		public db_eCoalDataContext() : 
@@ -188,6 +191,14 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<VW_DEPT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_LOCATION> TBL_M_LOCATIONs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_LOCATION>();
 			}
 		}
 		
@@ -2326,6 +2337,116 @@ namespace e_coal_api.Models
 				{
 					this._DSTRCT_CODE = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_LOCATION")]
+	public partial class TBL_M_LOCATION : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_LOC;
+		
+		private string _LOCATION;
+		
+		private string _DISTRICT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_LOCChanging(int value);
+    partial void OnID_LOCChanged();
+    partial void OnLOCATIONChanging(string value);
+    partial void OnLOCATIONChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    #endregion
+		
+		public TBL_M_LOCATION()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_LOC", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_LOC
+		{
+			get
+			{
+				return this._ID_LOC;
+			}
+			set
+			{
+				if ((this._ID_LOC != value))
+				{
+					this.OnID_LOCChanging(value);
+					this.SendPropertyChanging();
+					this._ID_LOC = value;
+					this.SendPropertyChanged("ID_LOC");
+					this.OnID_LOCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOCATION", DbType="VarChar(50)")]
+		public string LOCATION
+		{
+			get
+			{
+				return this._LOCATION;
+			}
+			set
+			{
+				if ((this._LOCATION != value))
+				{
+					this.OnLOCATIONChanging(value);
+					this.SendPropertyChanging();
+					this._LOCATION = value;
+					this.SendPropertyChanged("LOCATION");
+					this.OnLOCATIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(50)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
