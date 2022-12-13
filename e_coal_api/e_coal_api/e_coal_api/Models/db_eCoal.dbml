@@ -12,12 +12,6 @@
       <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_M_SEAM" Member="TBL_M_SEAMs">
-    <Type Name="TBL_M_SEAM">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NAMA_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_T_PAIRING_OPERATOR_UNIT" Member="TBL_T_PAIRING_OPERATOR_UNITs">
     <Type Name="TBL_T_PAIRING_OPERATOR_UNIT">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -34,6 +28,63 @@
       <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_REQUEST_COAL" Member="TBL_T_REQUEST_COALs">
+    <Type Name="TBL_T_REQUEST_COAL">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MOMCOST" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VOLUMECOAL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGETGCV" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DEADLINE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPLOAD_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPLOAD_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IMAGE_PATH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_OPERATOR_EX" Member="TBL_M_OPERATOR_EXes">
+    <Type Name="TBL_M_OPERATOR_EX">
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TGL_MASUK" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_JABATAN" Member="TBL_M_JABATANs">
+    <Type Name="TBL_M_JABATAN">
+      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JABATAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_SUBCONT" Member="TBL_M_SUBCONTs">
+    <Type Name="TBL_M_SUBCONT">
+      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SUBCONT_NAME" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRETATE_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_DEPT" Member="VW_DEPTs">
+    <Type Name="VW_DEPT">
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_SEAM" Member="TBL_M_SEAMs">
+    <Type Name="TBL_M_SEAM">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NAMA_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.cufn_getListOperatorByRating" Method="cufn_getListOperatorByRating" IsComposable="true">

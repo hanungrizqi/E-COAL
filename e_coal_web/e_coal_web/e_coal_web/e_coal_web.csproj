@@ -124,6 +124,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\OperatorSubController.cs" />
+    <Compile Include="Controllers\PekerjaanController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\RequestCoalController.cs" />
+    <Compile Include="Controllers\SeamController.cs" />
     <Compile Include="Controllers\SettingUnitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -4266,6 +4271,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Js\GuideMaster\getpekerjaan.js" />
+    <Content Include="Js\GuideMaster\getprofile.js" />
+    <Content Include="Js\GuideMaster\getseam.js" />
+    <Content Include="Js\GuideMaster\pekerjaan.js" />
+    <Content Include="Js\GuideMaster\profile.js" />
+    <Content Include="Js\GuideMaster\seam.js" />
+    <Content Include="Js\GuideMaster\updatepekerjaan.js" />
+    <Content Include="Js\GuideMaster\updateprofile.js" />
+    <Content Include="Js\GuideMaster\updateseam.js" />
+    <Content Include="Js\OperatorSub.Index.js" />
+    <Content Include="Js\RequestCoal.Index.js" />
     <Content Include="Js\SettingUnit.Index.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -5433,6 +5449,17 @@
     <Content Include="Scripts\kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\kendo\kendo.all.min.js.old" />
     <Content Include="Views\Shared\SideMenu.cshtml" />
+    <Content Include="Views\Profile\Create.cshtml" />
+    <Content Include="Views\Profile\Get.cshtml" />
+    <Content Include="Views\Profile\Update.cshtml" />
+    <Content Include="Views\Pekerjaan\Create.cshtml" />
+    <Content Include="Views\Pekerjaan\Get.cshtml" />
+    <Content Include="Views\Pekerjaan\Update.cshtml" />
+    <Content Include="Views\Seam\Create.cshtml" />
+    <Content Include="Views\Seam\Get.cshtml" />
+    <Content Include="Views\Seam\Update.cshtml" />
+    <Content Include="Views\RequestCoal\Index.cshtml" />
+    <Content Include="Views\OperatorSub\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

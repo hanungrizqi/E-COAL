@@ -14,16 +14,46 @@
         <elementListCompartment Id="f0d9008e-7420-46ae-8970-412d85d516e7" absoluteBounds="2.6399999999999997, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8a67c36b-b93e-40b4-ac6f-cf0f1393aafc" absoluteBounds="4.75, 0.5, 2, 1.1939925130208333">
-      <DataClassMoniker Name="/db_eCoalDataContext/TBL_M_SEAM" />
-      <nestedChildShapes>
-        <elementListCompartment Id="69693c85-e729-400e-a386-3ce952fd53f4" absoluteBounds="4.765, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="50135e4d-1fab-486e-8dda-cc7157b65b95" absoluteBounds="0.5, 2, 2, 3.5016097005208326">
       <DataClassMoniker Name="/db_eCoalDataContext/TBL_T_PAIRING_OPERATOR_UNIT" />
       <nestedChildShapes>
         <elementListCompartment Id="94345d2d-a08c-46fd-9f7a-cd69640ac9dc" absoluteBounds="0.51499999999999968, 2.46, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="814b6db2-b728-4b03-b2a4-71874f2f7b34" absoluteBounds="2.625, 2, 2, 2.5401025390625">
+      <DataClassMoniker Name="/db_eCoalDataContext/TBL_T_REQUEST_COAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6d5939ee-aeab-481e-9f29-1c82f00bec68" absoluteBounds="2.6399999999999997, 2.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bce798bf-b6a9-40e0-a460-957131990201" absoluteBounds="4.75, 2, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/db_eCoalDataContext/TBL_M_OPERATOR_EX" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c7a8546-0700-485d-9b5b-a5a65ad336ca" absoluteBounds="4.765, 2.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0b1202b7-28b3-43a0-a638-23cfcc583b4b" absoluteBounds="4.75, 4.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/db_eCoalDataContext/TBL_M_JABATAN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a87e8d05-0ae5-4ecc-9b26-1bc27f007ad3" absoluteBounds="4.765, 5.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c6917cee-9e98-43d4-82d0-896d4cf0aa19" absoluteBounds="6.875, 4.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/db_eCoalDataContext/TBL_M_SUBCONT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="569d6d33-efb0-40e4-a680-c5090fb1f806" absoluteBounds="6.89, 5.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="70a31e00-a212-4cd8-8fd7-46de259e1750" absoluteBounds="2.625, 4.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/db_eCoalDataContext/VW_DEPT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="43a5b4cd-b427-4363-8156-f5b118c4339a" absoluteBounds="2.64, 5.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d3aa18d-d7ab-446e-8151-b7db48e13701" absoluteBounds="4.75, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/db_eCoalDataContext/TBL_M_SEAM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77afe6c7-7055-4320-bb2f-367f8c03c9c1" absoluteBounds="4.765, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

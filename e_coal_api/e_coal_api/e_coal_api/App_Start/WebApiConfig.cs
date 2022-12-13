@@ -18,6 +18,8 @@ namespace e_coal_api
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -29,6 +31,8 @@ namespace e_coal_api
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
         }
     }
 }
