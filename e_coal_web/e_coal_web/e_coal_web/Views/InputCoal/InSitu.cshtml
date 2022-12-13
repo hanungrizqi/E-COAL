@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "In SITU";
+}
+
+<input type="hidden" id="hd_path" value="@ViewBag.path" />
+
+<div id="form_main">
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Input Grade dan Tonase in SITU</h3>
+        </div>
+        <div class="block-content">
+            <div class="row justify-content-center py-sm-3 py-md-5">
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Seam</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="k-dropdown" id="txt_seam" style="width:100%" />
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Estimasi GAR</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txt_estimasiGar" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">GAR Actual</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control" id="txt_garActual" onkeyup="setKondisiCoal()" />
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Kondisi Coal</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txt_kondisiCoal" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Total Tonase</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="col-md-5">
+                            <input type="number" class="form-control" id="txt_totalTonase" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Tanggal</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="col-md-5">
+                            <input type="date" class="form-control" id="txt_tanggal" />
+                        </div>
+                    </div>
+                </div>
+                <div id="notif_success" style="display:none">
+                    <table class="table table-borderless table-vcenter">
+                        <tbody>
+                            <tr class="table-primary">
+                                <td>Data berhasil diinputkan ke in SITU</td>
+                                <td><label id="id_inSitu"></label></td>
+                                <td><label id="vol_tonase"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="block-content block-content-full block-content-sm bg-body-light text-end">
+            <button type="submit" class="btn btn-alt-primary" onclick="submmit()">
+                <i class="fa fa-check opacity-50 me-1"></i> Submit
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="~/Js/InputCoal.InSitu.js"></script>

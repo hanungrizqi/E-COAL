@@ -123,6 +123,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InputCoalController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\RatingOperatorController.cs" />
     <Compile Include="Controllers\SettingUnitController.cs" />
@@ -4267,6 +4268,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Js\InputCoal.InSitu.js" />
     <Content Include="Js\RatingOperator.Index.js" />
     <Content Include="Js\SettingUnit.Index.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -5436,6 +5438,9 @@
     <Content Include="Scripts\kendo\kendo.all.min.js.old" />
     <Content Include="Views\Shared\SideMenu.cshtml" />
     <Content Include="Views\RatingOperator\Index.cshtml" />
+    <Content Include="Views\InputCoal\InSitu.cshtml" />
+    <Content Include="Views\InputCoal\InRom.cshtml" />
+    <Content Include="Views\InputCoal\OutRom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

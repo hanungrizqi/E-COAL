@@ -12,12 +12,6 @@
       <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_M_SEAM" Member="TBL_M_SEAMs">
-    <Type Name="TBL_M_SEAM">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NAMA_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_T_PAIRING_OPERATOR_UNIT" Member="TBL_T_PAIRING_OPERATOR_UNITs">
     <Type Name="TBL_T_PAIRING_OPERATOR_UNIT">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -45,6 +39,34 @@
       <Column Name="SAFETY" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="KOMUNIKASI" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="METODE_KERJA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_GRADE" Member="TBL_M_GRADEs">
+    <Type Name="TBL_M_GRADE">
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GAR_MIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GAR_MAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_SEAM" Member="TBL_M_SEAMs">
+    <Type Name="TBL_M_SEAM">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NAMA_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INITIAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_IN_SITU" Member="TBL_T_IN_SITUs">
+    <Type Name="TBL_T_IN_SITU">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="GAR_ACTUAL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
