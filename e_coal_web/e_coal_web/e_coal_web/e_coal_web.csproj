@@ -124,6 +124,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InputCoalController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\OperatorSubController.cs" />
     <Compile Include="Controllers\PekerjaanController.cs" />
@@ -5468,6 +5469,7 @@
     <Content Include="Views\InputCoal\InSitu.cshtml" />
     <Content Include="Views\InputCoal\InRom.cshtml" />
     <Content Include="Views\InputCoal\OutRom.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

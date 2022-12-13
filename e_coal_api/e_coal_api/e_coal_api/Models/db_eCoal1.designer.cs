@@ -66,6 +66,9 @@ namespace e_coal_api.Models
     partial void InsertTBL_M_LOCATION(TBL_M_LOCATION instance);
     partial void UpdateTBL_M_LOCATION(TBL_M_LOCATION instance);
     partial void DeleteTBL_M_LOCATION(TBL_M_LOCATION instance);
+    partial void InsertTBL_M_USER(TBL_M_USER instance);
+    partial void UpdateTBL_M_USER(TBL_M_USER instance);
+    partial void DeleteTBL_M_USER(TBL_M_USER instance);
     #endregion
 		
 		public db_eCoalDataContext() : 
@@ -199,6 +202,22 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<TBL_M_LOCATION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_USER> TBL_M_USERs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_USER>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_USER_PROFILE> VW_USER_PROFILEs
+		{
+			get
+			{
+				return this.GetTable<VW_USER_PROFILE>();
 			}
 		}
 		
@@ -2447,6 +2466,377 @@ namespace e_coal_api.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_USER")]
+	public partial class TBL_M_USER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _NRP;
+		
+		private System.Nullable<int> _ID_PROFILE;
+		
+		private string _DISTRICT;
+		
+		private System.Nullable<System.DateTime> _CREATE_DATE;
+		
+		private System.Nullable<System.DateTime> _CRETAE_BY;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNRPChanging(string value);
+    partial void OnNRPChanged();
+    partial void OnID_PROFILEChanging(System.Nullable<int> value);
+    partial void OnID_PROFILEChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    partial void OnCREATE_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCREATE_DATEChanged();
+    partial void OnCRETAE_BYChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRETAE_BYChanged();
+    #endregion
+		
+		public TBL_M_USER()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this.OnNRPChanging(value);
+					this.SendPropertyChanging();
+					this._NRP = value;
+					this.SendPropertyChanged("NRP");
+					this.OnNRPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PROFILE", DbType="Int")]
+		public System.Nullable<int> ID_PROFILE
+		{
+			get
+			{
+				return this._ID_PROFILE;
+			}
+			set
+			{
+				if ((this._ID_PROFILE != value))
+				{
+					this.OnID_PROFILEChanging(value);
+					this.SendPropertyChanging();
+					this._ID_PROFILE = value;
+					this.SendPropertyChanged("ID_PROFILE");
+					this.OnID_PROFILEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(50)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATE_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATE_DATE
+		{
+			get
+			{
+				return this._CREATE_DATE;
+			}
+			set
+			{
+				if ((this._CREATE_DATE != value))
+				{
+					this.OnCREATE_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CREATE_DATE = value;
+					this.SendPropertyChanged("CREATE_DATE");
+					this.OnCREATE_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRETAE_BY", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRETAE_BY
+		{
+			get
+			{
+				return this._CRETAE_BY;
+			}
+			set
+			{
+				if ((this._CRETAE_BY != value))
+				{
+					this.OnCRETAE_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRETAE_BY = value;
+					this.SendPropertyChanged("CRETAE_BY");
+					this.OnCRETAE_BYChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_USER_PROFILE")]
+	public partial class VW_USER_PROFILE
+	{
+		
+		private int _ID;
+		
+		private string _NRP;
+		
+		private string _NAME;
+		
+		private System.Nullable<int> _ID_PROFILE;
+		
+		private string _PROFILE;
+		
+		private string _DISTRICT;
+		
+		private string _POSITION_ID;
+		
+		private string _POS_TITLE;
+		
+		private System.Nullable<System.DateTime> _CREATE_DATE;
+		
+		private System.Nullable<System.DateTime> _CRETAE_BY;
+		
+		public VW_USER_PROFILE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(100)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_PROFILE", DbType="Int")]
+		public System.Nullable<int> ID_PROFILE
+		{
+			get
+			{
+				return this._ID_PROFILE;
+			}
+			set
+			{
+				if ((this._ID_PROFILE != value))
+				{
+					this._ID_PROFILE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROFILE", DbType="VarChar(50)")]
+		public string PROFILE
+		{
+			get
+			{
+				return this._PROFILE;
+			}
+			set
+			{
+				if ((this._PROFILE != value))
+				{
+					this._PROFILE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(50)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this._DISTRICT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POSITION_ID", DbType="VarChar(100)")]
+		public string POSITION_ID
+		{
+			get
+			{
+				return this._POSITION_ID;
+			}
+			set
+			{
+				if ((this._POSITION_ID != value))
+				{
+					this._POSITION_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_TITLE", DbType="VarChar(100)")]
+		public string POS_TITLE
+		{
+			get
+			{
+				return this._POS_TITLE;
+			}
+			set
+			{
+				if ((this._POS_TITLE != value))
+				{
+					this._POS_TITLE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATE_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATE_DATE
+		{
+			get
+			{
+				return this._CREATE_DATE;
+			}
+			set
+			{
+				if ((this._CREATE_DATE != value))
+				{
+					this._CREATE_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRETAE_BY", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRETAE_BY
+		{
+			get
+			{
+				return this._CRETAE_BY;
+			}
+			set
+			{
+				if ((this._CRETAE_BY != value))
+				{
+					this._CRETAE_BY = value;
+				}
 			}
 		}
 	}
