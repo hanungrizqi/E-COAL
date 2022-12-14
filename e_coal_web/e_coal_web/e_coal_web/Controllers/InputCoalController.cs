@@ -12,18 +12,33 @@ namespace e_coal_web.Controllers
         // GET: InputCoal
         public ActionResult InSitu()
         {
+            if (Session["Nrp"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
             ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
             return View();
         }
 
         public ActionResult InRom()
         {
+            if (Session["Nrp"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
             ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
             return View();
         }
 
         public ActionResult OutRom()
         {
+            if (Session["Nrp"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
             ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
             return View();
         }

@@ -143,6 +143,7 @@
     </Compile>
     <Compile Include="Models\ViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View_Model\ClsLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\css\codebase.css" />
@@ -4283,6 +4284,8 @@
     <Content Include="Js\GuideMaster\updatepekerjaan.js" />
     <Content Include="Js\GuideMaster\updateprofile.js" />
     <Content Include="Js\GuideMaster\updateseam.js" />
+    <Content Include="Js\InputCoal.ToRom.js" />
+    <Content Include="Js\Login.Index.js" />
     <Content Include="Js\OperatorSub.Index.js" />
     <Content Include="Js\RequestCoal.Index.js" />
     <Content Include="Js\InputCoal.InSitu.js" />

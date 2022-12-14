@@ -48,8 +48,7 @@ namespace e_coal_api.View_Model
                 }
                 else
                 {
-                    //status = false;
-                    status = true;
+                    status = false;
                 }
             }
 
@@ -97,5 +96,11 @@ namespace e_coal_api.View_Model
 
         //    return status;
         //}
+
+        public VW_USER_PROFILE getSession()
+        {
+            var data = db.VW_USER_PROFILEs.Where(a => a.NRP == username).FirstOrDefault();
+            return data;
+        }
     }
 }

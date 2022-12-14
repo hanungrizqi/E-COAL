@@ -11,6 +11,11 @@ namespace e_coal_web.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["Nrp"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
             ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
             return View();
         }
