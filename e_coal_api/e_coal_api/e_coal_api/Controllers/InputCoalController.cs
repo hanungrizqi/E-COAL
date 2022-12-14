@@ -98,5 +98,5 @@ namespace e_coal_api.Controllers
             }
         }
         #endregion
-    }b 
+    }
 }
