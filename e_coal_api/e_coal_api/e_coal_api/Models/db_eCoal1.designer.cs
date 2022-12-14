@@ -63,6 +63,9 @@ namespace e_coal_api.Models
     partial void InsertTBL_M_SUBCONT(TBL_M_SUBCONT instance);
     partial void UpdateTBL_M_SUBCONT(TBL_M_SUBCONT instance);
     partial void DeleteTBL_M_SUBCONT(TBL_M_SUBCONT instance);
+    partial void InsertTBL_M_IMAGE(TBL_M_IMAGE instance);
+    partial void UpdateTBL_M_IMAGE(TBL_M_IMAGE instance);
+    partial void DeleteTBL_M_IMAGE(TBL_M_IMAGE instance);
     #endregion
 		
 		public db_eCoalDataContext() : 
@@ -188,6 +191,14 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<VW_DEPT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_IMAGE> TBL_M_IMAGEs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_IMAGE>();
 			}
 		}
 		
@@ -2326,6 +2337,188 @@ namespace e_coal_api.Models
 				{
 					this._DSTRCT_CODE = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_IMAGE")]
+	public partial class TBL_M_IMAGE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _IMAGE_TITLE;
+		
+		private System.Data.Linq.Binary _IMAGE_BYTE;
+		
+		private string _IMAGE_PATH;
+		
+		private System.Nullable<System.DateTime> _UPLOAD_DATE;
+		
+		private string _UPLOAD_BY;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnIMAGE_TITLEChanging(string value);
+    partial void OnIMAGE_TITLEChanged();
+    partial void OnIMAGE_BYTEChanging(System.Data.Linq.Binary value);
+    partial void OnIMAGE_BYTEChanged();
+    partial void OnIMAGE_PATHChanging(string value);
+    partial void OnIMAGE_PATHChanged();
+    partial void OnUPLOAD_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnUPLOAD_DATEChanged();
+    partial void OnUPLOAD_BYChanging(string value);
+    partial void OnUPLOAD_BYChanged();
+    #endregion
+		
+		public TBL_M_IMAGE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_TITLE", DbType="NVarChar(50)")]
+		public string IMAGE_TITLE
+		{
+			get
+			{
+				return this._IMAGE_TITLE;
+			}
+			set
+			{
+				if ((this._IMAGE_TITLE != value))
+				{
+					this.OnIMAGE_TITLEChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_TITLE = value;
+					this.SendPropertyChanged("IMAGE_TITLE");
+					this.OnIMAGE_TITLEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_BYTE", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary IMAGE_BYTE
+		{
+			get
+			{
+				return this._IMAGE_BYTE;
+			}
+			set
+			{
+				if ((this._IMAGE_BYTE != value))
+				{
+					this.OnIMAGE_BYTEChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_BYTE = value;
+					this.SendPropertyChanged("IMAGE_BYTE");
+					this.OnIMAGE_BYTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_PATH", DbType="NVarChar(50)")]
+		public string IMAGE_PATH
+		{
+			get
+			{
+				return this._IMAGE_PATH;
+			}
+			set
+			{
+				if ((this._IMAGE_PATH != value))
+				{
+					this.OnIMAGE_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_PATH = value;
+					this.SendPropertyChanged("IMAGE_PATH");
+					this.OnIMAGE_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLOAD_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPLOAD_DATE
+		{
+			get
+			{
+				return this._UPLOAD_DATE;
+			}
+			set
+			{
+				if ((this._UPLOAD_DATE != value))
+				{
+					this.OnUPLOAD_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._UPLOAD_DATE = value;
+					this.SendPropertyChanged("UPLOAD_DATE");
+					this.OnUPLOAD_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLOAD_BY", DbType="VarChar(50)")]
+		public string UPLOAD_BY
+		{
+			get
+			{
+				return this._UPLOAD_BY;
+			}
+			set
+			{
+				if ((this._UPLOAD_BY != value))
+				{
+					this.OnUPLOAD_BYChanging(value);
+					this.SendPropertyChanging();
+					this._UPLOAD_BY = value;
+					this.SendPropertyChanged("UPLOAD_BY");
+					this.OnUPLOAD_BYChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

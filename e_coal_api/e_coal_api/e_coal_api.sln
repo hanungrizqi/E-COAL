@@ -5,8 +5,6 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e_coal_api", "e_coal_api\e_coal_api.csproj", "{C6F47339-2662-4B7A-9A96-99B42D00E1E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e_coal_web", "..\..\e_coal_web\e_coal_web\e_coal_web\e_coal_web.csproj", "{3BBA31E1-3604-4249-B78E-69629ED27A15}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{C6F47339-2662-4B7A-9A96-99B42D00E1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6F47339-2662-4B7A-9A96-99B42D00E1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6F47339-2662-4B7A-9A96-99B42D00E1E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3BBA31E1-3604-4249-B78E-69629ED27A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3BBA31E1-3604-4249-B78E-69629ED27A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3BBA31E1-3604-4249-B78E-69629ED27A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3BBA31E1-3604-4249-B78E-69629ED27A15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
