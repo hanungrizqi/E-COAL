@@ -1,4 +1,5 @@
-﻿function submmit() {
+﻿
+function submmit() {
     var obj = {
         
         MOMCOST: $("#txt_momcost").val(),
@@ -23,26 +24,26 @@
     })
 }
 
-var UploadImage = function () {
-    var file = $("#SelectImage").get(0).files;
-    var data = new FormData;
-    data.append("ImageFile", file[0]);
-    $.ajax({
-        type: "POST",
-        /*url: "api/Home/ImageUpload",*/
-        /*url: $("#hd_path").val() + "api/Home/ImageUpload",*/
-        url: '/Home/ImageUpload',
-        data: data,
-        contentType: false,
-        processData: false,
-        success: function (imgID) {
-            console.log(imgID);
-            $("#DisplayImage").append('<img src="https://localhost:44397/UploadImage/' + imgID + '"class=img-responsive thumbnail"  width="200" height="200"/>');
+//var UploadImage = function () {
+//    var file = $("#SelectImage").get(0).files;
+//    var data = new FormData;
+//    data.append("ImageFile", file[0]);
+//    $.ajax({
+//        type: "POST",
+//        /*url: "api/Home/ImageUpload",*/
+//        /*url: $("#hd_path").val() + "api/Home/ImageUpload",*/
+//        url: '/Home/ImageUpload',
+//        data: data,
+//        contentType: false,
+//        processData: false,
+//        success: function (imgID) {
+//            console.log(imgID);
+//            $("#DisplayImage").append('<img src="https://localhost:44397/UploadImage/' + imgID + '"class=img-responsive thumbnail"  width="200" height="200"/>');
             
-        }
+//        }
 
-    })
-}
+//    })
+//}
 /*function UploadImage() {
     var imgcanvas = document.getElementById("#canv1");
     var fileinput = document.getElementById("#SelectImage");

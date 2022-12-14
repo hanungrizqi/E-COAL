@@ -33,7 +33,7 @@ namespace e_coal_api.Controllers
 
                 TBL_M_IMAGE img = new TBL_M_IMAGE();
                 img.IMAGE_TITLE = file.FileName;
-                img.IMAGE_BYTE = imagebyte;
+                //img.IMAGE_BYTE = imagebyte;
                 img.IMAGE_PATH = "/UploadImage/" + file.FileName;
                 db.TBL_M_IMAGEs.InsertOnSubmit(img);
                 db.SubmitChanges();

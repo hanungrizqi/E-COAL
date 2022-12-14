@@ -6,12 +6,6 @@
       <Column Name="PROFILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_M_PEKERJAAN" Member="TBL_M_PEKERJAANs">
-    <Type Name="TBL_M_PEKERJAAN">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_T_PAIRING_OPERATOR_UNIT" Member="TBL_T_PAIRING_OPERATOR_UNITs">
     <Type Name="TBL_T_PAIRING_OPERATOR_UNIT">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -167,6 +161,23 @@
       <Column Name="TANGGAL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_IMAGE" Member="TBL_M_IMAGEs">
+    <Type Name="TBL_M_IMAGE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IMAGE_TITLE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IMAGE_BYTE" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IMAGE_PATH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="UPLOAD_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPLOAD_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_PEKERJAAN" Member="TBL_M_PEKERJAANs">
+    <Type Name="TBL_M_PEKERJAAN">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">

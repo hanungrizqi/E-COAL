@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +17,7 @@ namespace e_coal_web.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
+            ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
             return View();
         }
 
@@ -26,6 +28,7 @@ namespace e_coal_web.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
+            ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
             return View();
         }
 
@@ -36,6 +39,7 @@ namespace e_coal_web.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
+            ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
             return View();
         }
 
@@ -46,6 +50,7 @@ namespace e_coal_web.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
+            ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
             Session["updateid"] = id.ToString();
             return View();
         }

@@ -6,6 +6,7 @@
       <Column Name="IMAGE_TITLE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IMAGE_BYTE" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="IMAGE_PATH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
       <Column Name="UPLOAD_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPLOAD_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>

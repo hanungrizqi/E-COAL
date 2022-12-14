@@ -95,6 +95,8 @@ namespace e_coal_web.Models
 		
 		private string _IMAGE_PATH;
 		
+		private string _DISTRICT;
+		
 		private System.Nullable<System.DateTime> _UPLOAD_DATE;
 		
 		private string _UPLOAD_BY;
@@ -111,6 +113,8 @@ namespace e_coal_web.Models
     partial void OnIMAGE_BYTEChanged();
     partial void OnIMAGE_PATHChanging(string value);
     partial void OnIMAGE_PATHChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
     partial void OnUPLOAD_DATEChanging(System.Nullable<System.DateTime> value);
     partial void OnUPLOAD_DATEChanged();
     partial void OnUPLOAD_BYChanging(string value);
@@ -198,6 +202,26 @@ namespace e_coal_web.Models
 					this._IMAGE_PATH = value;
 					this.SendPropertyChanged("IMAGE_PATH");
 					this.OnIMAGE_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(5)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
 				}
 			}
 		}

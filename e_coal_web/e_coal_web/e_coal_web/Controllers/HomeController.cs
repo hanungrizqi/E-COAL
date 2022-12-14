@@ -37,8 +37,11 @@ namespace e_coal_web.Controllers
 
                 TBL_M_IMAGE img = new TBL_M_IMAGE();
                 img.IMAGE_TITLE = file.FileName;
-                img.IMAGE_BYTE = imagebyte;
+                //img.IMAGE_BYTE = imagebyte;
                 img.IMAGE_PATH = "/UploadImage/" + file.FileName;
+                img.UPLOAD_DATE = DateTime.Now;
+                img.UPLOAD_BY = Session["Nrp"].ToString();
+                img.DISTRICT = Session["District"].ToString();
                 db.TBL_M_IMAGEs.InsertOnSubmit(img);
                 db.SubmitChanges();
                 imgId = img.ID;

@@ -33,9 +33,6 @@ namespace e_coal_api.Models
     partial void InsertTBL_M_PROFILE(TBL_M_PROFILE instance);
     partial void UpdateTBL_M_PROFILE(TBL_M_PROFILE instance);
     partial void DeleteTBL_M_PROFILE(TBL_M_PROFILE instance);
-    partial void InsertTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
-    partial void UpdateTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
-    partial void DeleteTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
     partial void InsertTBL_T_PAIRING_OPERATOR_UNIT(TBL_T_PAIRING_OPERATOR_UNIT instance);
     partial void UpdateTBL_T_PAIRING_OPERATOR_UNIT(TBL_T_PAIRING_OPERATOR_UNIT instance);
     partial void DeleteTBL_T_PAIRING_OPERATOR_UNIT(TBL_T_PAIRING_OPERATOR_UNIT instance);
@@ -72,6 +69,12 @@ namespace e_coal_api.Models
     partial void InsertTBL_T_TO_ROM(TBL_T_TO_ROM instance);
     partial void UpdateTBL_T_TO_ROM(TBL_T_TO_ROM instance);
     partial void DeleteTBL_T_TO_ROM(TBL_T_TO_ROM instance);
+    partial void InsertTBL_M_IMAGE(TBL_M_IMAGE instance);
+    partial void UpdateTBL_M_IMAGE(TBL_M_IMAGE instance);
+    partial void DeleteTBL_M_IMAGE(TBL_M_IMAGE instance);
+    partial void InsertTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
+    partial void UpdateTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
+    partial void DeleteTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
     #endregion
 		
 		public db_eCoalDataContext() : 
@@ -109,14 +112,6 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<TBL_M_PROFILE>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBL_M_PEKERJAAN> TBL_M_PEKERJAANs
-		{
-			get
-			{
-				return this.GetTable<TBL_M_PEKERJAAN>();
 			}
 		}
 		
@@ -232,6 +227,22 @@ namespace e_coal_api.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<TBL_M_IMAGE> TBL_M_IMAGEs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_IMAGE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_PEKERJAAN> TBL_M_PEKERJAANs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_PEKERJAAN>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getAlatByPekerjanSeam", IsComposable=true)]
 		public IQueryable<cufn_getAlatByPekerjanSeamResult> cufn_getAlatByPekerjanSeam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PEKERJAAN", DbType="Int")] System.Nullable<int> pEKERJAAN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SEAM", DbType="Int")] System.Nullable<int> sEAM)
 		{
@@ -319,92 +330,6 @@ namespace e_coal_api.Models
 					this._PROFILE = value;
 					this.SendPropertyChanged("PROFILE");
 					this.OnPROFILEChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_PEKERJAAN")]
-	public partial class TBL_M_PEKERJAAN : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _NAMA_PEKERJAAN;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnNAMA_PEKERJAANChanging(string value);
-    partial void OnNAMA_PEKERJAANChanged();
-    #endregion
-		
-		public TBL_M_PEKERJAAN()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEKERJAAN", DbType="VarChar(50)")]
-		public string NAMA_PEKERJAAN
-		{
-			get
-			{
-				return this._NAMA_PEKERJAAN;
-			}
-			set
-			{
-				if ((this._NAMA_PEKERJAAN != value))
-				{
-					this.OnNAMA_PEKERJAANChanging(value);
-					this.SendPropertyChanging();
-					this._NAMA_PEKERJAAN = value;
-					this.SendPropertyChanged("NAMA_PEKERJAAN");
-					this.OnNAMA_PEKERJAANChanged();
 				}
 			}
 		}
@@ -3225,6 +3150,298 @@ namespace e_coal_api.Models
 					this._INPUT_BY = value;
 					this.SendPropertyChanged("INPUT_BY");
 					this.OnINPUT_BYChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_IMAGE")]
+	public partial class TBL_M_IMAGE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _IMAGE_TITLE;
+		
+		private System.Data.Linq.Binary _IMAGE_BYTE;
+		
+		private string _IMAGE_PATH;
+		
+		private string _DISTRICT;
+		
+		private System.Nullable<System.DateTime> _UPLOAD_DATE;
+		
+		private string _UPLOAD_BY;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnIMAGE_TITLEChanging(string value);
+    partial void OnIMAGE_TITLEChanged();
+    partial void OnIMAGE_BYTEChanging(System.Data.Linq.Binary value);
+    partial void OnIMAGE_BYTEChanged();
+    partial void OnIMAGE_PATHChanging(string value);
+    partial void OnIMAGE_PATHChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    partial void OnUPLOAD_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnUPLOAD_DATEChanged();
+    partial void OnUPLOAD_BYChanging(string value);
+    partial void OnUPLOAD_BYChanged();
+    #endregion
+		
+		public TBL_M_IMAGE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_TITLE", DbType="NVarChar(50)")]
+		public string IMAGE_TITLE
+		{
+			get
+			{
+				return this._IMAGE_TITLE;
+			}
+			set
+			{
+				if ((this._IMAGE_TITLE != value))
+				{
+					this.OnIMAGE_TITLEChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_TITLE = value;
+					this.SendPropertyChanged("IMAGE_TITLE");
+					this.OnIMAGE_TITLEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_BYTE", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary IMAGE_BYTE
+		{
+			get
+			{
+				return this._IMAGE_BYTE;
+			}
+			set
+			{
+				if ((this._IMAGE_BYTE != value))
+				{
+					this.OnIMAGE_BYTEChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_BYTE = value;
+					this.SendPropertyChanged("IMAGE_BYTE");
+					this.OnIMAGE_BYTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_PATH", DbType="NVarChar(50)")]
+		public string IMAGE_PATH
+		{
+			get
+			{
+				return this._IMAGE_PATH;
+			}
+			set
+			{
+				if ((this._IMAGE_PATH != value))
+				{
+					this.OnIMAGE_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_PATH = value;
+					this.SendPropertyChanged("IMAGE_PATH");
+					this.OnIMAGE_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(5)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLOAD_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPLOAD_DATE
+		{
+			get
+			{
+				return this._UPLOAD_DATE;
+			}
+			set
+			{
+				if ((this._UPLOAD_DATE != value))
+				{
+					this.OnUPLOAD_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._UPLOAD_DATE = value;
+					this.SendPropertyChanged("UPLOAD_DATE");
+					this.OnUPLOAD_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLOAD_BY", DbType="VarChar(50)")]
+		public string UPLOAD_BY
+		{
+			get
+			{
+				return this._UPLOAD_BY;
+			}
+			set
+			{
+				if ((this._UPLOAD_BY != value))
+				{
+					this.OnUPLOAD_BYChanging(value);
+					this.SendPropertyChanging();
+					this._UPLOAD_BY = value;
+					this.SendPropertyChanged("UPLOAD_BY");
+					this.OnUPLOAD_BYChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_PEKERJAAN")]
+	public partial class TBL_M_PEKERJAAN : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _NAMA_PEKERJAAN;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnNAMA_PEKERJAANChanging(string value);
+    partial void OnNAMA_PEKERJAANChanged();
+    #endregion
+		
+		public TBL_M_PEKERJAAN()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEKERJAAN", DbType="VarChar(50)")]
+		public string NAMA_PEKERJAAN
+		{
+			get
+			{
+				return this._NAMA_PEKERJAAN;
+			}
+			set
+			{
+				if ((this._NAMA_PEKERJAAN != value))
+				{
+					this.OnNAMA_PEKERJAANChanging(value);
+					this.SendPropertyChanging();
+					this._NAMA_PEKERJAAN = value;
+					this.SendPropertyChanged("NAMA_PEKERJAAN");
+					this.OnNAMA_PEKERJAANChanged();
 				}
 			}
 		}

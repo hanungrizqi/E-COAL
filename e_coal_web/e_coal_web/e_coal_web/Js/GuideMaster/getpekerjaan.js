@@ -12,7 +12,8 @@ function create() {
 
     $.ajax({
         type: "POST",
-        url: 'https://localhost:44374/pekerjaan/Create',
+        //url: 'https://localhost:44374/pekerjaan/Create',
+        url: $("#hd_path").val() + '/pekerjaan/Create',
         data: JSON.stringify(obj),
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -29,7 +30,8 @@ function get() {
 
     $.ajax({
         type: "GET",
-        url: 'https://localhost:44374/pekerjaan/Get',
+        //url: 'https://localhost:44374/pekerjaan/Get',
+        url: $("#hd_path").val() + '/pekerjaan/Get',
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
@@ -54,7 +56,8 @@ function Delete(id) {
     if (ans) {
         $.ajax({
             type: "POST",
-            url: 'https://localhost:44374/pekerjaan/Delete?id=' + id,
+            //url: 'https://localhost:44374/pekerjaan/Delete?id=' + id,
+            url: $("#hd_path").val() + '/pekerjaan/Delete?id=' + id,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
@@ -78,7 +81,8 @@ function Update() {
         NAMA_PEKERJAAN: $("#nama_pekerjaan").val()
     };
     $.ajax({
-        url: 'https://localhost:44374/pekerjaan/Update',
+        //url: 'https://localhost:44374/pekerjaan/Update',
+        url: $("#hd_path").val() + '/pekerjaan/Update',
         data: JSON.stringify(empObj),
         type: "POST",
         contentType: "application/json;charset=utf-8",
@@ -98,7 +102,8 @@ function ValueUpdate() {
     var id = $("#id").val();
     $.ajax({
         type: "POST",
-        url: 'https://localhost:44374/pekerjaan/Value?id=' + id,
+        //url: 'https://localhost:44374/pekerjaan/Value?id=' + id,
+        url: $("#hd_path").val() + '/pekerjaan/Value?id=' + id,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
