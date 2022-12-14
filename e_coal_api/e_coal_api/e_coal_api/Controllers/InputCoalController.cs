@@ -47,7 +47,56 @@ namespace e_coal_api.Controllers
         #endregion
 
         #region To ROM
+        [HttpGet]
+        [Route("api/InputCoal/getListLocation")]
+        public IHttpActionResult getListLocation(string district)
+        {
+            try
+            {
+                ClsToRom clsToRom = new ClsToRom();
+                clsToRom.DISTRICT = district;
+                var data = clsToRom.c_getListLocation();
 
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpGet]
+        [Route("api/InputCoal/getListSeamInSitu")]
+        public IHttpActionResult getListSeamInSitu()
+        {
+            try
+            {
+                ClsInSitu clsInSitu = new ClsInSitu();
+                var data = clsInSitu.c_getListSeamInSitu();
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/InputCoal/submmitToRom")]
+        public IHttpActionResult submmitToRom(ClsToRom clsToRom)
+        {
+            try
+            {
+                clsToRom.c_submmitToRom();
+
+                return Ok(new { Status = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
         #endregion
-    }
+    }b 
 }

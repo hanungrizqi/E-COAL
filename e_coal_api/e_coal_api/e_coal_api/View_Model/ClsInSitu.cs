@@ -1,4 +1,5 @@
 ﻿using e_coal_api.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,8 +40,16 @@ namespace e_coal_api.View_Model
             tbl.TANGGAL = TANGGAL;
             tbl.INPUT_DATE = DateTime.Now;
             tbl.INPUT_BY = INPUT_BY;
+            tbl.FLAG = false;
             db.TBL_T_IN_SITUs.InsertOnSubmit(tbl);
             db.SubmitChanges();
         }
+
+        public IQueryable<TBL_T_IN_SITU> c_getListSeamInSitu()
+        {
+            var data = db.TBL_T_IN_SITUs.Where(a => a.FLAG == false).ToList().AsQueryable();
+            return data;
+        }
+        
     }
 }

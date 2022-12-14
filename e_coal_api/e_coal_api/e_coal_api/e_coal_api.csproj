@@ -199,6 +199,7 @@
     <Compile Include="View_Model\ClsSeam.cs" />
     <Compile Include="View_Model\ClsSettingUnit.cs" />
     <Compile Include="View_Model\ClsSubcont.cs" />
+    <Compile Include="View_Model\ClsToRom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

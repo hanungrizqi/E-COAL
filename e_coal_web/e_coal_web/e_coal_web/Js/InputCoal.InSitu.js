@@ -103,9 +103,9 @@ function submmit() {
         , COAL_CONDITION: $("#txt_kondisiCoal").val()
         , TOTAL_TONASE: $("#txt_totalTonase").val()
         , TANGGAL: $("#txt_tanggal").val()
-        , INPUT_BY:"test"
+        , INPUT_BY: $("#hd_userLogin").val()
     }
-    console.log(obj);
+    //console.log(obj);
     $.ajax({
         type: "POST", 
         dataType: "json",
@@ -116,6 +116,15 @@ function submmit() {
             if (result.Status == true) {
                 $("#id_inSitu").append(setId());
                 $("#vol_tonase").append($("#txt_totalTonase").val());
+
+                if ($("#txt_kondisiCoal").val() == "Normal") {
+                    $("#id_inSitu").css("color", "green");
+                    $("#vol_tonase").css("color", "green");
+                } else {
+                    $("#id_inSitu").css("color", "red");
+                    $("#vol_tonase").css("color", "red");
+                }
+
                 $("#notif_success").show();
             } else {
                 alert(result.Remark);
