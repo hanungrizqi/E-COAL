@@ -199,6 +199,7 @@
     <Compile Include="View_Model\ClsSeam.cs" />
     <Compile Include="View_Model\ClsSettingUnit.cs" />
     <Compile Include="View_Model\ClsSubcont.cs" />
+    <Compile Include="View_Model\ClsUploadImage.cs" />
     <Compile Include="View_Model\ClsToRom.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadImage\" />
     <Folder Include="Views\SettingUnit\" />
   </ItemGroup>
   <ItemGroup>

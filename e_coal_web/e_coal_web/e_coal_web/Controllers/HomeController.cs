@@ -1,6 +1,8 @@
-﻿using System;
+﻿using e_coal_web.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,18 +22,29 @@ namespace e_coal_web.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public JsonResult ImageUpload(ClsUploadImage clsUploadImage)
         {
-            ViewBag.Message = "Your application description page.";
+            Models.eCoalDataContext db = new eCoalDataContext();
+            int imgId = 0;
+            var file = clsUploadImage.ImageFile;
+            byte[] imagebyte = null;
+            if (file != null)
+            {
+                file.SaveAs(Server.MapPath("/UploadImage/" + file.FileName));
+                BinaryReader reader = new BinaryReader(file.InputStream);
+                imagebyte = reader.ReadBytes(file.ContentLength);
 
-            return View();
+                TBL_M_IMAGE img = new TBL_M_IMAGE();
+                img.IMAGE_TITLE = file.FileName;
+                img.IMAGE_BYTE = imagebyte;
+                img.IMAGE_PATH = "/UploadImage/" + file.FileName;
+                db.TBL_M_IMAGEs.InsertOnSubmit(img);
+                db.SubmitChanges();
+                imgId = img.ID;
+            }
+            return Json(file.FileName, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
