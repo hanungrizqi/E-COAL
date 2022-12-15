@@ -34,7 +34,6 @@ namespace e_coal_api.View_Model
         public void c_submmitToRom()
         {
             TBL_T_TO_ROM tbl = new TBL_T_TO_ROM();
-            tbl.ID_TO_ROM = ID_TO_ROM;
             tbl.LOCATION = LOCATION;
             tbl.JAM = JAM;
             tbl.ID_IN_SITU_SEAM = ID_IN_SITU_SEAM;

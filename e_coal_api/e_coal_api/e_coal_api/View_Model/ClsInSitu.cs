@@ -51,5 +51,10 @@ namespace e_coal_api.View_Model
             return data;
         }
         
+        public cufn_getAvaliableTonaseInSituResult c_getAvaliableTonaseInSitu()
+        {
+            var data = db.cufn_getAvaliableTonaseInSitu(ID_IN_SITU).FirstOrDefault();
+            return data;
+        }
     }
 }

@@ -28,7 +28,7 @@
                         <label class="form-label">Jam</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="datetime-local" class="form-control" id="txt_jam"/>
+                        <input type="datetime-local" class="form-control" id="txt_jam" />
                     </div>
                 </div>
                 <div class="row mb-4">
@@ -95,6 +95,27 @@
                         <input type="date" class="form-control" id="txt_tanggal" style="width:100%" />
                     </div>
                 </div>
+                <div id="forn_tonase" style="display:none">
+                    <table class="table table-borderless table-vcenter">
+                        <thead>
+                            <tr class="table-active">
+                                <td>Seam</td>
+                                <td>Total Tonase in SITU</td>
+                                <td>Total Tonase to ROM</td>
+                                <td>Avaliable Tonase in SITU</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-active">
+                                <td><label id="seam"></label></td>
+                                <td><label id="tonase_inSitu"></label></td>
+                                <td><label id="tonase_toRom"></label></td>
+                                <td><label id="avaliable_tonase"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
                 <div id="notif_success" style="display:none">
                     <table class="table table-borderless table-vcenter">
                         <tbody>
@@ -109,6 +130,9 @@
             </div>
         </div>
         <div class="block-content block-content-full block-content-sm bg-body-light text-end">
+            <button type="submit" class="btn btn-alt-info" onclick="Reset()">
+                <i class="fa fa-check opacity-50 me-1"></i> Reset
+            </button>
             <button type="submit" class="btn btn-alt-primary" onclick="submmit()">
                 <i class="fa fa-check opacity-50 me-1"></i> Submit
             </button>

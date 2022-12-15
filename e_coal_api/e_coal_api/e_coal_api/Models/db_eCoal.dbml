@@ -145,24 +145,6 @@
       <Column Name="FLAG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_T_TO_ROM" Member="TBL_T_TO_ROMs">
-    <Type Name="TBL_T_TO_ROM">
-      <Column Name="ID_TO_ROM" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="LOCATION" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="JAM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ID_IN_SITU_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="LOADER" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="NO_UNIT_DT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="BERAT_TARA_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="BERAT_BRUTO_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="TANGGAL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_M_IMAGE" Member="TBL_M_IMAGEs">
     <Type Name="TBL_M_IMAGE">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -186,6 +168,24 @@
       <Column Name="JAM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ID_IN_SITU_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="NO_UNIT_DT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BERAT_TARA_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BERAT_BRUTO_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_TO_ROM" Member="TBL_T_TO_ROMs">
+    <Type Name="TBL_T_TO_ROM">
+      <Column Name="ID_TO_ROM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="LOCATION" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JAM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_IN_SITU_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="LOADER" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="NO_UNIT_DT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="BERAT_TARA_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="BERAT_BRUTO_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
@@ -258,6 +258,15 @@
       <Column Name="TIME_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getAvaliableTonaseInSitu" Method="cufn_getAvaliableTonaseInSitu" IsComposable="true">
+    <Parameter Name="id" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="cufn_getAvaliableTonaseInSituResult">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TO_ROM_TONASE" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TONASE_TERSEDIA" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

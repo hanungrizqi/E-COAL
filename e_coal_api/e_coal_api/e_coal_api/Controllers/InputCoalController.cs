@@ -82,6 +82,24 @@ namespace e_coal_api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/InputCoal/getAvaliableTonaseInSitu")]
+        public IHttpActionResult getAvaliableTonaseInSitu(string id_inSitu)
+        {
+            try
+            {
+                ClsInSitu clsInSitu = new ClsInSitu();
+                clsInSitu.ID_IN_SITU = id_inSitu;
+                var data = clsInSitu.c_getAvaliableTonaseInSitu();
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
         [HttpPost]
         [Route("api/InputCoal/submmitToRom")]
         public IHttpActionResult submmitToRom(ClsToRom clsToRom)
