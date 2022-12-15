@@ -6,7 +6,7 @@
 
     $.ajax({
         type: "POST",
-        url: 'https://localhost:44374/profile/Create',
+        url: $("#hd_path").val() + '/profile/Create',
         data: JSON.stringify(obj),
         dataType: "json",
         contentType: "application/json; charset=utf-8",

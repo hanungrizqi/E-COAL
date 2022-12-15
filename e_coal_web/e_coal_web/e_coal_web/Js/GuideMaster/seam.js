@@ -6,7 +6,7 @@
 
     $.ajax({
         type: "POST",
-        url: 'https://localhost:44374/seam/Create',
+        url: $("#hd_path").val() + '/seam/Create',
         data: JSON.stringify(obj),
         dataType: "json",
         contentType: "application/json; charset=utf-8",

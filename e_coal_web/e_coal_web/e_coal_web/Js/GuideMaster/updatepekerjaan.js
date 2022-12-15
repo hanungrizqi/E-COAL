@@ -8,7 +8,7 @@ function Update() {
         NAMA_PEKERJAAN: $("#nama_pekerjaan").val()
     };
     $.ajax({
-        url: 'https://localhost:44374/pekerjaan/Update',
+        url: $("#hd_path").val() + '/pekerjaan/Update',
         data: JSON.stringify(empObj),
         type: "POST",
         contentType: "application/json;charset=utf-8",
@@ -28,7 +28,7 @@ function ValueUpdate() {
     var id = $("#id").val();
     $.ajax({
         type: "POST",
-        url: 'https://localhost:44374/pekerjaan/Value?id=' + id,
+        url: $("#hd_path").val() + '/pekerjaan/Value?id=' + id,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {

@@ -8,41 +8,100 @@
 <input type="hidden" id="hd_userLogin" value="@Session["Nrp"]" />
 <input type="hidden" id="hd_idProfile" value="@Session["IdProfile"]" />
 
-<!-- Fade In Modal -->
-<div class="block block-rounded">
-    <div class="block-header block-header-default">
-        <h3 class="block-title">CGV in ROM<small></small></h3>
-    </div>
-    <div class="block-content block-content-full">
-        <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
-    </div>
+<main id="main-container">
+    <div class="content">
+        <!-- Rounded Blocks -->
+        <h2 class="content-heading">Filter Tanggal</h2>
+        <div class="row">
 
-    @*Display Image*@
-    <div class="col-md-4" id="DisplayImage" style="display:none">
-        <img id="img_cgv" class=img-responsive thumbnail" width="200" height="200" />
-    </div>
-
-    @*<img src="~/Content/assets/media/photos/photo14.jpg" />*@
-    <!--<div class="col-md-4 animated fadeIn" id="DisplayImage">
-        <div class="options-container">-->
-    @*<img class="img-fluid options-item" src="assets/media/photos/photo1.jpg" alt="">*@
-    <!--<div class="options-overlay bg-black-75">
-        <div class="options-overlay-content">-->
-    @*<h3 class="h4 text-white mb-1">Image</h3>
-        <h4 class="h6 text-white-75 mb-3">E-Coal</h4>
-        <a class="btn btn-sm btn-alt-primary" href="javascript:void(0)">
-            <i class="fa fa-pencil-alt opacity-50 me-1"></i> Edit
-        </a>
-        <a class="btn btn-sm btn-alt-danger" href="javascript:void(0)">
-            <i class="fa fa-times opacity-50 me-1"></i> Delete
-        </a>*@
-    <!--</div>
+            <!--upload image-->
+            <div class="col-md-6">
+                <div class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">CGV in ROM</h3>
+                    </div>
+                    <div class="block-content">
+                        @*<div class="block-content">
+                        <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+                    </div>*@
+                        <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+                        @*Display Image*@
+                        <div class="col-md-4" id="DisplayImage">
+                            <img id="img_cgv" class="img-responsive thumbnail" width="200" height="200" />
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>-->
 
-</div>
-<!-- END Fade In Modal -->
+            <!--in situ-->
+            <div class="col-md-6">
+                <div class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">In SITU</h3>
+                    </div>
+                    <div class="block-content">
+                        <div id="grid"></div>
+                        @*<table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                        <thead>
+                            <tr>
+                                <th>In SITU | TON</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-semibold">Example</td>
+                            </tr>
+                        </tbody>
+                    </table>*@
+                    </div>
+                </div>
+            </div>
+
+            <!--anomali data-->
+            <div class="col-md-6">
+                <div class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Anomali Data</h3>
+                    </div>
+                    <div class="block-content">
+                        <p>Bordered block with header background..</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--in out rom-->
+            <div class="col-md-6">
+                <div class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">In Out ROM</h3>
+                    </div>
+                    <div class="block-content">
+                        <p>Bordered block with header background..</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- grafik -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Donut</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                            <i class="si si-refresh"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content block-content-full text-center">
+                    <!-- grafik Container -->
+                    <canvas id="js-chartjs-donut"></canvas>
+                </div>
+            </div>
+            <!-- END grafik -->
+        </div>
+        <!-- END Rounded Blocks -->
+    </div>
+</main>
+
 <!-- Fade In Modal -->
 <div class="modal fade" id="modal-fadein" tabindex="-1" role="dialog" aria-labelledby="modal-fadein" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -57,13 +116,10 @@
                     </div>
                 </div>
                 <div class="block-content fs-sm">
-
                     <div class="col-md-4">
                         <input type="file" id="SelectImage" /><br />
                         <a href="#" class="btn btn-sm btn-danger" onclick="UploadImage()">Upload</a>
                     </div>
-
-
                 </div>
                 <div class="block-content block-content-full block-content-sm text-end border-top">
                     <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
@@ -78,60 +134,4 @@
     </div>
 </div>
 <!-- END Fade In Modal -->
-@*<script src="~/Js/RequestCoal.Index.js"></script>*@
 <script src="~/Js/Home.Index.js"></script>
-
-<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>Upload
-</button>
-
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">-->
-<!-- Modal content-->
-<!--<div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Upload Image</h4>
-            </div>
-
-            <div class="modal-body">
-                <form method="post">
-                    <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label">Pekerjaan</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="nama_pekerjaan" id="nama_pekerjaan">
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary" onclick="create();">Submit</button>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>-->
-@*<script>
-        $(document).ready(function () {
-            test();
-        })
-
-        function test() {
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                contentType: "application/json",
-                url: $("#hd_path").val() + "api/Masters/getListProfile",
-                success: function (result) {
-                    if (result.Status == true) {
-                        console.log(result.Data);
-                    }
-                    else {
-                        alert(result.Remark);
-                    }
-                }
-            })
-        }
-    </script>*@

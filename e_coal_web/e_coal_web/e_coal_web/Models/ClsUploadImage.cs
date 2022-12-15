@@ -10,10 +10,11 @@ namespace e_coal_web.Models
         Models.eCoalDataContext db = new eCoalDataContext();
         public int ID { get; set; }
         public string IMAGE_TITLE { get; set; }
-        public byte[] IMAGE_BYTE { get; set; }
+        /*public byte[] IMAGE_BYTE { get; set; }*/
         public string IMAGE_PATH { get; set; }
         public DateTime UPLOAD_DATE { get; set; }
         public string UPLOAD_BY { get; set; }
+        public string DISTRICT { get; set; }
         public HttpPostedFileWrapper ImageFile { get; set; }
 
         /*public void submitImage()

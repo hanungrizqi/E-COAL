@@ -69,15 +69,15 @@ namespace e_coal_api.Models
     partial void InsertTBL_T_TO_ROM(TBL_T_TO_ROM instance);
     partial void UpdateTBL_T_TO_ROM(TBL_T_TO_ROM instance);
     partial void DeleteTBL_T_TO_ROM(TBL_T_TO_ROM instance);
-    partial void InsertTBL_M_IMAGE(TBL_M_IMAGE instance);
-    partial void UpdateTBL_M_IMAGE(TBL_M_IMAGE instance);
-    partial void DeleteTBL_M_IMAGE(TBL_M_IMAGE instance);
     partial void InsertTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
     partial void UpdateTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
     partial void DeleteTBL_M_PEKERJAAN(TBL_M_PEKERJAAN instance);
     partial void InsertTBL_T_OUT_ROM(TBL_T_OUT_ROM instance);
     partial void UpdateTBL_T_OUT_ROM(TBL_T_OUT_ROM instance);
     partial void DeleteTBL_T_OUT_ROM(TBL_T_OUT_ROM instance);
+    partial void InsertTBL_M_IMAGE(TBL_M_IMAGE instance);
+    partial void UpdateTBL_M_IMAGE(TBL_M_IMAGE instance);
+    partial void DeleteTBL_M_IMAGE(TBL_M_IMAGE instance);
     #endregion
 		
 		public db_eCoalDataContext() : 
@@ -230,14 +230,6 @@ namespace e_coal_api.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_M_IMAGE> TBL_M_IMAGEs
-		{
-			get
-			{
-				return this.GetTable<TBL_M_IMAGE>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TBL_M_PEKERJAAN> TBL_M_PEKERJAANs
 		{
 			get
@@ -251,6 +243,14 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<TBL_T_OUT_ROM>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_IMAGE> TBL_M_IMAGEs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_IMAGE>();
 			}
 		}
 		
@@ -277,6 +277,18 @@ namespace e_coal_api.Models
 		public IQueryable<cufn_getDetailOperatorResult> cufn_getDetailOperator([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id)
 		{
 			return this.CreateMethodCallQuery<cufn_getDetailOperatorResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getInSitu", IsComposable=true)]
+		public IQueryable<cufn_getInSituResult> cufn_getInSitu([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AWAL", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AWAL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AKHIR", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AKHIR)
+		{
+			return this.CreateMethodCallQuery<cufn_getInSituResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tANGGAL_AWAL, tANGGAL_AKHIR);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getInOutRom", IsComposable=true)]
+		public IQueryable<cufn_getInOutRomResult> cufn_getInOutRom([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AWAL", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AWAL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AKHIR", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AKHIR)
+		{
+			return this.CreateMethodCallQuery<cufn_getInOutRomResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tANGGAL_AWAL, tANGGAL_AKHIR);
 		}
 	}
 	
@@ -3186,212 +3198,6 @@ namespace e_coal_api.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_IMAGE")]
-	public partial class TBL_M_IMAGE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _IMAGE_TITLE;
-		
-		private System.Data.Linq.Binary _IMAGE_BYTE;
-		
-		private string _IMAGE_PATH;
-		
-		private string _DISTRICT;
-		
-		private System.Nullable<System.DateTime> _UPLOAD_DATE;
-		
-		private string _UPLOAD_BY;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnIMAGE_TITLEChanging(string value);
-    partial void OnIMAGE_TITLEChanged();
-    partial void OnIMAGE_BYTEChanging(System.Data.Linq.Binary value);
-    partial void OnIMAGE_BYTEChanged();
-    partial void OnIMAGE_PATHChanging(string value);
-    partial void OnIMAGE_PATHChanged();
-    partial void OnDISTRICTChanging(string value);
-    partial void OnDISTRICTChanged();
-    partial void OnUPLOAD_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnUPLOAD_DATEChanged();
-    partial void OnUPLOAD_BYChanging(string value);
-    partial void OnUPLOAD_BYChanged();
-    #endregion
-		
-		public TBL_M_IMAGE()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_TITLE", DbType="NVarChar(50)")]
-		public string IMAGE_TITLE
-		{
-			get
-			{
-				return this._IMAGE_TITLE;
-			}
-			set
-			{
-				if ((this._IMAGE_TITLE != value))
-				{
-					this.OnIMAGE_TITLEChanging(value);
-					this.SendPropertyChanging();
-					this._IMAGE_TITLE = value;
-					this.SendPropertyChanged("IMAGE_TITLE");
-					this.OnIMAGE_TITLEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_BYTE", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary IMAGE_BYTE
-		{
-			get
-			{
-				return this._IMAGE_BYTE;
-			}
-			set
-			{
-				if ((this._IMAGE_BYTE != value))
-				{
-					this.OnIMAGE_BYTEChanging(value);
-					this.SendPropertyChanging();
-					this._IMAGE_BYTE = value;
-					this.SendPropertyChanged("IMAGE_BYTE");
-					this.OnIMAGE_BYTEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_PATH", DbType="NVarChar(50)")]
-		public string IMAGE_PATH
-		{
-			get
-			{
-				return this._IMAGE_PATH;
-			}
-			set
-			{
-				if ((this._IMAGE_PATH != value))
-				{
-					this.OnIMAGE_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._IMAGE_PATH = value;
-					this.SendPropertyChanged("IMAGE_PATH");
-					this.OnIMAGE_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(5)")]
-		public string DISTRICT
-		{
-			get
-			{
-				return this._DISTRICT;
-			}
-			set
-			{
-				if ((this._DISTRICT != value))
-				{
-					this.OnDISTRICTChanging(value);
-					this.SendPropertyChanging();
-					this._DISTRICT = value;
-					this.SendPropertyChanged("DISTRICT");
-					this.OnDISTRICTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLOAD_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UPLOAD_DATE
-		{
-			get
-			{
-				return this._UPLOAD_DATE;
-			}
-			set
-			{
-				if ((this._UPLOAD_DATE != value))
-				{
-					this.OnUPLOAD_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._UPLOAD_DATE = value;
-					this.SendPropertyChanged("UPLOAD_DATE");
-					this.OnUPLOAD_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLOAD_BY", DbType="VarChar(50)")]
-		public string UPLOAD_BY
-		{
-			get
-			{
-				return this._UPLOAD_BY;
-			}
-			set
-			{
-				if ((this._UPLOAD_BY != value))
-				{
-					this.OnUPLOAD_BYChanging(value);
-					this.SendPropertyChanging();
-					this._UPLOAD_BY = value;
-					this.SendPropertyChanged("UPLOAD_BY");
-					this.OnUPLOAD_BYChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_PEKERJAAN")]
 	public partial class TBL_M_PEKERJAAN : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3755,6 +3561,188 @@ namespace e_coal_api.Models
 					this._INPUT_BY = value;
 					this.SendPropertyChanged("INPUT_BY");
 					this.OnINPUT_BYChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_IMAGE")]
+	public partial class TBL_M_IMAGE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _IMAGE_TITLE;
+		
+		private string _IMAGE_PATH;
+		
+		private string _DISTRICT;
+		
+		private System.Nullable<System.DateTime> _UPLOAD_DATE;
+		
+		private string _UPLOAD_BY;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnIMAGE_TITLEChanging(string value);
+    partial void OnIMAGE_TITLEChanged();
+    partial void OnIMAGE_PATHChanging(string value);
+    partial void OnIMAGE_PATHChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    partial void OnUPLOAD_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnUPLOAD_DATEChanged();
+    partial void OnUPLOAD_BYChanging(string value);
+    partial void OnUPLOAD_BYChanged();
+    #endregion
+		
+		public TBL_M_IMAGE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_TITLE", DbType="NVarChar(50)")]
+		public string IMAGE_TITLE
+		{
+			get
+			{
+				return this._IMAGE_TITLE;
+			}
+			set
+			{
+				if ((this._IMAGE_TITLE != value))
+				{
+					this.OnIMAGE_TITLEChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_TITLE = value;
+					this.SendPropertyChanged("IMAGE_TITLE");
+					this.OnIMAGE_TITLEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_PATH", DbType="NVarChar(50)")]
+		public string IMAGE_PATH
+		{
+			get
+			{
+				return this._IMAGE_PATH;
+			}
+			set
+			{
+				if ((this._IMAGE_PATH != value))
+				{
+					this.OnIMAGE_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_PATH = value;
+					this.SendPropertyChanged("IMAGE_PATH");
+					this.OnIMAGE_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(5)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLOAD_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPLOAD_DATE
+		{
+			get
+			{
+				return this._UPLOAD_DATE;
+			}
+			set
+			{
+				if ((this._UPLOAD_DATE != value))
+				{
+					this.OnUPLOAD_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._UPLOAD_DATE = value;
+					this.SendPropertyChanged("UPLOAD_DATE");
+					this.OnUPLOAD_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLOAD_BY", DbType="VarChar(50)")]
+		public string UPLOAD_BY
+		{
+			get
+			{
+				return this._UPLOAD_BY;
+			}
+			set
+			{
+				if ((this._UPLOAD_BY != value))
+				{
+					this.OnUPLOAD_BYChanging(value);
+					this.SendPropertyChanging();
+					this._UPLOAD_BY = value;
+					this.SendPropertyChanged("UPLOAD_BY");
+					this.OnUPLOAD_BYChanged();
 				}
 			}
 		}
@@ -4617,6 +4605,148 @@ namespace e_coal_api.Models
 				if ((this._STATUS != value))
 				{
 					this._STATUS = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getInSituResult
+	{
+		
+		private string _ID_IN_SITU;
+		
+		private System.Nullable<System.DateTime> _TANGGAL;
+		
+		private System.Nullable<decimal> _TOTAL_TONASE;
+		
+		private string _COAL_CONDITION;
+		
+		public cufn_getInSituResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_IN_SITU", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ID_IN_SITU
+		{
+			get
+			{
+				return this._ID_IN_SITU;
+			}
+			set
+			{
+				if ((this._ID_IN_SITU != value))
+				{
+					this._ID_IN_SITU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL", DbType="Date")]
+		public System.Nullable<System.DateTime> TANGGAL
+		{
+			get
+			{
+				return this._TANGGAL;
+			}
+			set
+			{
+				if ((this._TANGGAL != value))
+				{
+					this._TANGGAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_TONASE", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TOTAL_TONASE
+		{
+			get
+			{
+				return this._TOTAL_TONASE;
+			}
+			set
+			{
+				if ((this._TOTAL_TONASE != value))
+				{
+					this._TOTAL_TONASE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COAL_CONDITION", DbType="VarChar(50)")]
+		public string COAL_CONDITION
+		{
+			get
+			{
+				return this._COAL_CONDITION;
+			}
+			set
+			{
+				if ((this._COAL_CONDITION != value))
+				{
+					this._COAL_CONDITION = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getInOutRomResult
+	{
+		
+		private string _ID_IN_SITU_SEAM;
+		
+		private System.Nullable<System.DateTime> _TANGGAL;
+		
+		private System.Nullable<decimal> _TOTAL_TONASE;
+		
+		public cufn_getInOutRomResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_IN_SITU_SEAM", DbType="VarChar(50)")]
+		public string ID_IN_SITU_SEAM
+		{
+			get
+			{
+				return this._ID_IN_SITU_SEAM;
+			}
+			set
+			{
+				if ((this._ID_IN_SITU_SEAM != value))
+				{
+					this._ID_IN_SITU_SEAM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TANGGAL
+		{
+			get
+			{
+				return this._TANGGAL;
+			}
+			set
+			{
+				if ((this._TANGGAL != value))
+				{
+					this._TANGGAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_TONASE", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TOTAL_TONASE
+		{
+			get
+			{
+				return this._TOTAL_TONASE;
+			}
+			set
+			{
+				if ((this._TOTAL_TONASE != value))
+				{
+					this._TOTAL_TONASE = value;
 				}
 			}
 		}

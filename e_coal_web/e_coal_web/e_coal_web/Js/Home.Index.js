@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿var settingModel;
+
+$(document).ready(function () {
     setGambar();
 })
 
@@ -27,19 +29,73 @@ var UploadImage = function () {
     data.append("ImageFile", file[0]);
     $.ajax({
         type: "POST",
-        /*url: "api/Home/ImageUpload",*/
-        /*url: $("#hd_path").val() + "api/Home/ImageUpload",*/
         url: '/Home/ImageUpload',
         data: data,
         contentType: false,
         processData: false,
         success: function (imgID) {
             console.log(imgID);
-            //$("#DisplayImage").append('<img src="https://localhost:44397/UploadImage/' + imgID + '"class=img-responsive thumbnail"  width="200" height="200"/>');
             $("#DisplayImage").show();
             $("#img_cgv").attr("src", "/UploadImage/" + imgID);
 
         }
-
     })
 }
+
+
+$(document).ready(function () {
+    settingModel = kendo.observable({
+        /*tanggal_awal: "",
+        tanggal_akhir: "",*/
+
+        ds_grid_dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    type: "GET",
+                    contentType: "application/json",
+                    cache: false,
+                    url: $("#hd_path").val() + "api/Dashboard/getListInSitu",//?ID_PEKERJAAN=" + ID_PEKERJAAN,//$("#txt_pekerjaan").val(),
+                    /*data: {
+                        TANGGAL_AWAL: "",
+                        TANGGAL_AKHIR: ""
+                    }*/
+                },
+            },
+            schema: {
+                data: "Data",
+                total: "Total",
+                model: {
+                    fields: {
+                        ID_IN_SITU: { type: "string", editable: false, sortable: true },
+                        TANGGAL_AWAL: { type: "date", editable: false, sortable: true },
+                        TANGGAL_AKHIR: { type: "date", editable: false, sortable: true },
+                        TOTAL_TONASE: { type: "decimal", editable: false, sortable: true },
+                        COAL_CONDITION: { type: "string", editable: false, sortable: true }
+                    }
+                }
+            },
+            pageSize: 50,
+        })
+    })
+    kendo.bind($("#form_main"), settingModel);
+
+    /*var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById('txt_startJamKerja').value = now.toISOString().slice(0, 16);*/
+
+    $("#grid").kendoGrid({
+        dataSource: settingModel.ds_grid_dataSource,
+        resizable: "true",
+        editable: "inline",
+        scrollable: "true",
+        sortable: "true",
+        filterable: "true",
+        pageable: "true",
+        height: "500px",
+        columns: [
+            //{ title: 'Action', width: 50, template: $("#tmp_action").html() },
+            { field: 'ID_IN_SITU', title: 'In Situ', width: 100 },
+            { field: 'TOTAL_TONASE', title: 'Tonase', width: 50 },
+        ]
+    }).data("kendoGrid");
+})

@@ -2,11 +2,9 @@
 @{
     ViewBag.Title = "Update";
 }
+<input type="hidden" id="hd_path" value="@ViewBag.path" />
 
 <h2>Update</h2>
-
-<script src="~/Scripts/jquery-3.4.1.js"></script>
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <form method="post">
     <div class="row mb-3">
@@ -18,7 +16,7 @@
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Profile</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="profile" id="profile">
+            <input type="text" class="form-control" name="nama_profile" id="nama_profile">
         </div>
     </div>
 </form>
