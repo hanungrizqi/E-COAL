@@ -24,6 +24,7 @@ function submmit() {
     })
 }
 
+
 //var UploadImage = function () {
 //    var file = $("#SelectImage").get(0).files;
 //    var data = new FormData;

@@ -194,6 +194,7 @@
     <Compile Include="View_Model\ClsJabatan.cs" />
     <Compile Include="View_Model\ClsLogin.cs" />
     <Compile Include="View_Model\ClsOperatorSub.cs" />
+    <Compile Include="View_Model\ClsOutRom.cs" />
     <Compile Include="View_Model\ClsPekerjaan.cs" />
     <Compile Include="View_Model\ClsProfile.cs" />
     <Compile Include="View_Model\ClsRequestCoal.cs" />
