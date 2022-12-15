@@ -71,8 +71,8 @@ function submmit() {
                 $("#id_outRom").append($("#txt_seam").val());
                 $("#vol_tonase").append($("#txt_totalTonase").val());
                 $("#notif_success").show();
-                $("#id_outRom").css("color", "green");
-                $("#vol_tonase").css("color", "green");
+                $("#id_outRom").css("color", "red");
+                $("#vol_tonase").css("color", "red");
             } else {
                 alert(result.Error);
             }
