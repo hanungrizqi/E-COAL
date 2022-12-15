@@ -98,5 +98,23 @@ namespace e_coal_api.Controllers
             }
         }
         #endregion
+
+        #region Out ROM
+        [HttpPost]
+        [Route("api/InputCoal/submmitOutRom")]
+        public IHttpActionResult submmitOutRom(ClsOutRom clsOutRom)
+        {
+            try
+            {
+                clsOutRom.c_submmitOutRom();
+
+                return Ok(new { Status = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+        #endregion
     }
 }

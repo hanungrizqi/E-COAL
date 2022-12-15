@@ -4286,6 +4286,7 @@
     <Content Include="Js\GuideMaster\updateprofile.js" />
     <Content Include="Js\GuideMaster\updateseam.js" />
     <Content Include="Js\Home.Index.js" />
+    <Content Include="Js\InputCoal.OutRom.js" />
     <Content Include="Js\InputCoal.ToRom.js" />
     <Content Include="Js\Login.Index.js" />
     <Content Include="Js\OperatorSub.Index.js" />
