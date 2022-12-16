@@ -296,6 +296,18 @@ namespace e_coal_api.Models
 		{
 			return this.CreateMethodCallQuery<cufn_getAvaliableTonaseInRomResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getInSitu", IsComposable=true)]
+		public IQueryable<cufn_getInSituResult> cufn_getInSitu([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AWAL", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AWAL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AKHIR", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AKHIR)
+		{
+			return this.CreateMethodCallQuery<cufn_getInSituResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tANGGAL_AWAL, tANGGAL_AKHIR);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getInOutRom", IsComposable=true)]
+		public IQueryable<cufn_getInOutRomResult> cufn_getInOutRom([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AWAL", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AWAL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AKHIR", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AKHIR)
+		{
+			return this.CreateMethodCallQuery<cufn_getInOutRomResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tANGGAL_AWAL, tANGGAL_AKHIR);
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_PROFILE")]
@@ -4851,6 +4863,148 @@ namespace e_coal_api.Models
 				if ((this._AVALIABLE_TONASE_IN_ROM != value))
 				{
 					this._AVALIABLE_TONASE_IN_ROM = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getInSituResult
+	{
+		
+		private string _ID_IN_SITU;
+		
+		private System.Nullable<System.DateTime> _TANGGAL;
+		
+		private System.Nullable<decimal> _TOTAL_TONASE;
+		
+		private string _COAL_CONDITION;
+		
+		public cufn_getInSituResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_IN_SITU", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ID_IN_SITU
+		{
+			get
+			{
+				return this._ID_IN_SITU;
+			}
+			set
+			{
+				if ((this._ID_IN_SITU != value))
+				{
+					this._ID_IN_SITU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL", DbType="Date")]
+		public System.Nullable<System.DateTime> TANGGAL
+		{
+			get
+			{
+				return this._TANGGAL;
+			}
+			set
+			{
+				if ((this._TANGGAL != value))
+				{
+					this._TANGGAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_TONASE", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TOTAL_TONASE
+		{
+			get
+			{
+				return this._TOTAL_TONASE;
+			}
+			set
+			{
+				if ((this._TOTAL_TONASE != value))
+				{
+					this._TOTAL_TONASE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COAL_CONDITION", DbType="VarChar(50)")]
+		public string COAL_CONDITION
+		{
+			get
+			{
+				return this._COAL_CONDITION;
+			}
+			set
+			{
+				if ((this._COAL_CONDITION != value))
+				{
+					this._COAL_CONDITION = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getInOutRomResult
+	{
+		
+		private string _ID_IN_SITU_SEAM;
+		
+		private System.Nullable<System.DateTime> _TANGGAL;
+		
+		private System.Nullable<decimal> _TOTAL_TONASE;
+		
+		public cufn_getInOutRomResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_IN_SITU_SEAM", DbType="VarChar(50)")]
+		public string ID_IN_SITU_SEAM
+		{
+			get
+			{
+				return this._ID_IN_SITU_SEAM;
+			}
+			set
+			{
+				if ((this._ID_IN_SITU_SEAM != value))
+				{
+					this._ID_IN_SITU_SEAM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TANGGAL
+		{
+			get
+			{
+				return this._TANGGAL;
+			}
+			set
+			{
+				if ((this._TANGGAL != value))
+				{
+					this._TANGGAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_TONASE", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TOTAL_TONASE
+		{
+			get
+			{
+				return this._TOTAL_TONASE;
+			}
+			set
+			{
+				if ((this._TOTAL_TONASE != value))
+				{
+					this._TOTAL_TONASE = value;
 				}
 			}
 		}

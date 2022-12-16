@@ -284,4 +284,23 @@
       <Column Name="AVALIABLE_TONASE_IN_ROM" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.cufn_getInSitu" Method="cufn_getInSitu" IsComposable="true">
+    <Parameter Name="TANGGAL_AWAL" Parameter="tANGGAL_AWAL" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TANGGAL_AKHIR" Parameter="tANGGAL_AKHIR" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="cufn_getInSituResult">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getInOutRom" Method="cufn_getInOutRom" IsComposable="true">
+    <Parameter Name="TANGGAL_AWAL" Parameter="tANGGAL_AWAL" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TANGGAL_AKHIR" Parameter="tANGGAL_AKHIR" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="cufn_getInOutRomResult">
+      <Column Name="ID_IN_SITU_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
