@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     get();
-    ValueUpdate();
-    $('#example').DataTable();
+    //ValueUpdate();
+    //$('#example').DataTable();
 });
 
 function create() {

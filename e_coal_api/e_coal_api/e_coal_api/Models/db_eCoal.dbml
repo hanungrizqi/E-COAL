@@ -131,20 +131,6 @@
       <Column Name="CRETAE_BY" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_T_IN_SITU" Member="TBL_T_IN_SITUs">
-    <Type Name="TBL_T_IN_SITU">
-      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="GAR_ACTUAL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FLAG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_M_PEKERJAAN" Member="TBL_M_PEKERJAANs">
     <Type Name="TBL_M_PEKERJAAN">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -192,6 +178,21 @@
       <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
       <Column Name="UPLOAD_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPLOAD_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_IN_SITU" Member="TBL_T_IN_SITUs">
+    <Type Name="TBL_T_IN_SITU">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="GAR_ACTUAL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
@@ -284,16 +285,6 @@
       <Column Name="AVALIABLE_TONASE_IN_ROM" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.cufn_getInSitu" Method="cufn_getInSitu" IsComposable="true">
-    <Parameter Name="TANGGAL_AWAL" Parameter="tANGGAL_AWAL" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="TANGGAL_AKHIR" Parameter="tANGGAL_AKHIR" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="cufn_getInSituResult">
-      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.cufn_getInOutRom" Method="cufn_getInOutRom" IsComposable="true">
     <Parameter Name="TANGGAL_AWAL" Parameter="tANGGAL_AWAL" Type="System.DateTime" DbType="Date" />
     <Parameter Name="TANGGAL_AKHIR" Parameter="tANGGAL_AKHIR" Type="System.DateTime" DbType="Date" />
@@ -301,6 +292,35 @@
       <Column Name="ID_IN_SITU_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="TANGGAL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getDateInSitu" Method="cufn_getDateInSitu" IsComposable="true">
+    <ElementType Name="cufn_getDateInSituResult">
+      <Column Name="max_date" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="min_date" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getInSitu" Method="cufn_getInSitu" IsComposable="true">
+    <Parameter Name="TANGGAL_AWAL" Parameter="tANGGAL_AWAL" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TANGGAL_AKHIR" Parameter="tANGGAL_AKHIR" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="cufn_getInSituResult">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IN_SITU" Type="System.String" DbType="VarChar(71)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getAnomaliInSitu" Method="cufn_getAnomaliInSitu" IsComposable="true">
+    <Parameter Name="TANGGAL_AWAL" Parameter="tANGGAL_AWAL" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TANGGAL_AKHIR" Parameter="tANGGAL_AKHIR" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="cufn_getAnomaliInSituResult">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IN_SITU" Type="System.String" DbType="VarChar(71)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
