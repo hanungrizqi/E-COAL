@@ -12,7 +12,7 @@ function create() {
 
     $.ajax({
         type: "POST",
-        url: 'https://localhost:44374/seam/Create',
+        url: $("#hd_path").val() + '/seam/Create',
         data: JSON.stringify(obj),
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -29,7 +29,7 @@ function get() {
 
     $.ajax({
         type: "GET",
-        url: 'https://localhost:44374/seam/Get',
+        url: $("#hd_path").val() + '/seam/Get',
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
@@ -54,7 +54,7 @@ function Delete(id) {
     if (ans) {
         $.ajax({
             type: "POST",
-            url: 'https://localhost:44374/seam/Delete?id=' + id,
+            url: $("#hd_path").val() + '/seam/Delete?id=' + id,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
@@ -78,7 +78,7 @@ function Update() {
         NAMA_SEAM: $("#nama_seam").val()
     };
     $.ajax({
-        url: 'https://localhost:44374/seam/Update',
+        url: $("#hd_path").val() + '/seam/Update',
         data: JSON.stringify(empObj),
         type: "POST",
         contentType: "application/json;charset=utf-8",
@@ -98,7 +98,7 @@ function ValueUpdate() {
     var id = $("#id").val();
     $.ajax({
         type: "POST",
-        url: 'https://localhost:44374/seam/Value?id=' + id,
+        url: $("#hd_path").val() + '/seam/Value?id=' + id,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {

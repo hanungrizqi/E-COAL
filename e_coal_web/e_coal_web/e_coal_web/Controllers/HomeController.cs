@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static System.Net.WebRequestMethods;
 
 namespace e_coal_web.Controllers
 {
@@ -28,13 +29,13 @@ namespace e_coal_web.Controllers
             Models.eCoalDataContext db = new eCoalDataContext();
             int imgId = 0;
             var file = clsUploadImage.ImageFile;
-            byte[] imagebyte = null;
+            /*byte[] imagebyte = null;*/
             if (file != null)
             {
                 file.SaveAs(Server.MapPath("/UploadImage/" + file.FileName));
-                BinaryReader reader = new BinaryReader(file.InputStream);
-                imagebyte = reader.ReadBytes(file.ContentLength);
-
+                /*BinaryReader reader = new BinaryReader(file.InputStream);*/
+                /*imagebyte = reader.ReadBytes(file.ContentLength);
+*/
                 TBL_M_IMAGE img = new TBL_M_IMAGE();
                 img.IMAGE_TITLE = file.FileName;
                 //img.IMAGE_BYTE = imagebyte;
@@ -49,5 +50,13 @@ namespace e_coal_web.Controllers
             return Json(file.FileName, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public ActionResult DisplayImage(int imgid)
+        {
+            Models.eCoalDataContext db = new eCoalDataContext();
+            var img = db.TBL_M_IMAGEs.SingleOrDefault(x => x.ID == imgid);
+            /*return File("image/jpg");*/
+            return File(img.IMAGE_TITLE, "image/jpg");
+        }
     }
 }

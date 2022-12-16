@@ -6,14 +6,14 @@
 
     $.ajax({
         type: "POST",
-        url: 'https://localhost:44374/pekerjaan/Create',
+        url: $("#hd_path").val() + '/pekerjaan/Create',
         data: JSON.stringify(obj),
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             if (result == true) {
                 alert("You will now be redirected.");
-                window.location = "https://localhost:44397/Pekerjaan/Get";
+                window.location = "/Pekerjaan/Get";
             }
         },
         error: function (xhr) {

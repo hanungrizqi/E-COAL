@@ -1,4 +1,4 @@
-﻿using e_coal_api.Models;
+﻿/*using e_coal_api.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +10,14 @@ namespace e_coal_api.View_Model
     {
         db_eCoalDataContext db = new db_eCoalDataContext();
         public int ID { get; set; }
-        public string IMAGE_TITLE { get; set; }
-        public byte[] IMAGE_BYTE { get; set; }
+        public string IMAGE_TITLE { get; set; }*//*
+        public byte[] IMAGE_BYTE { get; set; }*//*
         public string IMAGE_PATH { get; set; }
         public DateTime UPLOAD_DATE { get; set; }
         public string UPLOAD_BY { get; set; }
         public HttpPostedFileWrapper ImageFile { get; set; }
 
-        /*public void submitImage()
+        *//*public void submitImage()
         {
             TBL_M_IMAGE tbl = new TBL_M_IMAGE();
             tbl.IMAGE_TITLE = IMAGE_TITLE;
@@ -31,6 +31,6 @@ namespace e_coal_api.View_Model
 
             db.TBL_M_IMAGEs.InsertOnSubmit(tbl);
             db.SubmitChanges();
-        }*/
+        }*//*
     }
-}
+}*/
