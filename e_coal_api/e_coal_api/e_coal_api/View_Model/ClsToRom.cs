@@ -31,6 +31,12 @@ namespace e_coal_api.View_Model
             return data;
         }
 
+        public IQueryable<cufn_getSeamInSituResult> c_getSeamInSitu()
+        {
+            var data = db.cufn_getSeamInSitu();
+            return data;
+        }
+
         public void c_submmitToRom()
         {
             TBL_T_TO_ROM tbl = new TBL_T_TO_ROM();

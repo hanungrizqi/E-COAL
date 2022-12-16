@@ -5,6 +5,8 @@ $(document).ready(function () {
         grade: "",
         total_tonase_seam: "",
     })
+
+    callSeam();
 })
 
 $("#txt_lokasi").kendoDropDownList({
@@ -31,33 +33,35 @@ $("#txt_lokasi").kendoDropDownList({
     }
 });
 
-$("#txt_seam").kendoDropDownList({
-    dataTextField: "ID_IN_SITU",
-    dataValueField: "ID_IN_SITU",
-    dataSource: {
-        type: "json",
-        transport: {
-            read: {
-                url: $("#hd_path").val() + "api/InputCoal/getListSeamInSitu",
-                contentType: "application/json",
-                type: "GET",
-                cache: false
+function callSeam() {
+    $("#txt_seam").kendoDropDownList({
+        dataTextField: "ID_IN_SITU",
+        dataValueField: "ID_IN_SITU",
+        dataSource: {
+            type: "json",
+            transport: {
+                read: {
+                    url: $("#hd_path").val() + "api/InputCoal/getListSeamInSitu",
+                    contentType: "application/json",
+                    type: "GET",
+                    cache: false
+                }
+            },
+            schema: {
+                data: "Data",
+                total: "Total"
             }
         },
-        schema: {
-            data: "Data",
-            total: "Total"
-        }
-    },
-    optionLabel: "Pilih",
-    select: function (e) {
-        var dataItem = this.dataItem(e.item.index());
-        $("#txt_grade").val("Grade " + dataItem.GRADE);
-        settingModel.set("grade", dataItem.GRADE);
+        optionLabel: "Pilih",
+        select: function (e) {
+            var dataItem = this.dataItem(e.item.index());
+            $("#txt_grade").val("Grade " + dataItem.GRADE);
+            settingModel.set("grade", dataItem.GRADE);
 
-        getAvaliableTonase(dataItem.ID_IN_SITU);
-    }
-});
+            getAvaliableTonase(dataItem.ID_IN_SITU);
+        }
+    });
+}
 
 function getAvaliableTonase(id_inSitu) {
     $.ajax({
@@ -140,6 +144,7 @@ function submmit() {
                             $("#notif_success").show();
                             $("#id_toRom").css("color", "green");
                             $("#vol_tonase").css("color", "green");
+                            callSeam();
                         } else {
                             alert(result.Error);
                         }
@@ -156,6 +161,7 @@ function Reset() {
     $("#txt_lokasi").val("");
     $("#txt_jam").val("");
     $("#txt_seam").val("");
+    $("#txt_grade").val("");
     $("#txt_loader").val("");
     $("#txt_noUnitDt").val("");
     $("#txt_beratTaraUnit").val("");
@@ -167,4 +173,14 @@ function Reset() {
 
     settingModel.set("grade", "");
     settingModel.set("total_tonase_seam", "");
+
+    $("#seam").empty();
+    $("#tonase_inSitu").empty();
+    $("#tonase_toRom").empty();
+    $("#avaliable_tonase").empty();
+    $("#forn_tonase").hide();
+
+    $("#id_outRom").empty;
+    $("#vol_tonase").empty;
+    $("#notif_success").hide();
 }

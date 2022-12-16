@@ -23,7 +23,18 @@ namespace e_coal_api.View_Model
         public string INPUT_DATE { get; set; }
         public string INPUT_BY { get; set; }
 
-        
+        public IQueryable<cufn_getAvaliableTonaseInRomResult> c_getSeamInRom()
+        {
+            var data = db.cufn_getAvaliableTonaseInRom();
+            return data;
+        }
+
+        public cufn_getAvaliableTonaseInRomResult c_getAvaliableTonaseInRom()
+        {
+            var data = db.cufn_getAvaliableTonaseInRom().Where(a => a.ID_IN_SITU_SEAM == ID_IN_SITU_SEAM).FirstOrDefault();
+            return data;
+        }
+
         public void c_submmitOutRom()
         {
             TBL_T_OUT_ROM tbl = new TBL_T_OUT_ROM();

@@ -71,8 +71,8 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                ClsInSitu clsInSitu = new ClsInSitu();
-                var data = clsInSitu.c_getListSeamInSitu();
+                ClsToRom clsToRom = new ClsToRom();
+                var data = clsToRom.c_getSeamInSitu();
 
                 return Ok(new { Status = true, Data = data });
             }
@@ -127,6 +127,41 @@ namespace e_coal_api.Controllers
                 clsOutRom.c_submmitOutRom();
 
                 return Ok(new { Status = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpGet]
+        [Route("api/InputCoal/getListSeamInRom")]
+        public IHttpActionResult getListSeamInRom()
+        {
+            try
+            {
+                ClsOutRom clsOutRom = new ClsOutRom();
+                var data = clsOutRom.c_getSeamInRom();
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpGet]
+        [Route("api/InputCoal/getAvaliableTonaseInRom")]
+        public IHttpActionResult getAvaliableTonaseInRom(string id_inSitu)
+        {
+            try
+            {
+                ClsOutRom clsOutRom = new ClsOutRom();
+                clsOutRom.ID_IN_SITU_SEAM = id_inSitu;
+                var data = clsOutRom.c_getAvaliableTonaseInRom();
+
+                return Ok(new { Status = true, Data = data });
             }
             catch (Exception e)
             {

@@ -91,8 +91,6 @@ namespace e_coal_web.Models
 		
 		private string _IMAGE_TITLE;
 		
-		private System.Data.Linq.Binary _IMAGE_BYTE;
-		
 		private string _IMAGE_PATH;
 		
 		private string _DISTRICT;
@@ -109,8 +107,6 @@ namespace e_coal_web.Models
     partial void OnIDChanged();
     partial void OnIMAGE_TITLEChanging(string value);
     partial void OnIMAGE_TITLEChanged();
-    partial void OnIMAGE_BYTEChanging(System.Data.Linq.Binary value);
-    partial void OnIMAGE_BYTEChanged();
     partial void OnIMAGE_PATHChanging(string value);
     partial void OnIMAGE_PATHChanged();
     partial void OnDISTRICTChanging(string value);
@@ -162,26 +158,6 @@ namespace e_coal_web.Models
 					this._IMAGE_TITLE = value;
 					this.SendPropertyChanged("IMAGE_TITLE");
 					this.OnIMAGE_TITLEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_BYTE", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary IMAGE_BYTE
-		{
-			get
-			{
-				return this._IMAGE_BYTE;
-			}
-			set
-			{
-				if ((this._IMAGE_BYTE != value))
-				{
-					this.OnIMAGE_BYTEChanging(value);
-					this.SendPropertyChanging();
-					this._IMAGE_BYTE = value;
-					this.SendPropertyChanged("IMAGE_BYTE");
-					this.OnIMAGE_BYTEChanged();
 				}
 			}
 		}

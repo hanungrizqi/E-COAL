@@ -2,10 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="eCoal">
   <DataContextMoniker Name="/eCoalDataContext" />
   <nestedChildShapes>
-    <classShape Id="87ee5074-e176-4472-8ba4-4e0bc40a038a" absoluteBounds="0.625, 0.5, 2, 2.1554996744791666">
+    <classShape Id="b1eada3c-b3f6-48e8-bee3-0de6cd70a5ca" absoluteBounds="0.5, 0.5, 2, 1.9631982421875">
       <DataClassMoniker Name="/eCoalDataContext/TBL_M_IMAGE" />
       <nestedChildShapes>
-        <elementListCompartment Id="a917c0be-7bff-47e9-a5c1-09422a106340" absoluteBounds="0.64000000000000012, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8c121c5a-38c2-47ef-b7f8-f0836686a53a" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
