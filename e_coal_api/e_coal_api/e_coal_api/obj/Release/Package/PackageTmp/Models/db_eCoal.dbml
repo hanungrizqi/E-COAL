@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_ENG_ECOAL_MASS_KPT" Class="db_eCoalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=kphosq101\shpol;Initial Catalog=DB_ENG_ECOAL_MASS_KPT;User ID=sqlservices" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_ENG_ECOAL_MASS_KPTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBL_M_PROFILE" Member="TBL_M_PROFILEs">
+    <Type Name="TBL_M_PROFILE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PROFILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_PAIRING_OPERATOR_UNIT" Member="TBL_T_PAIRING_OPERATOR_UNITs">
+    <Type Name="TBL_T_PAIRING_OPERATOR_UNIT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OPERATOR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ID_EQUIPMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VOLUME" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="START_WORK_HOUR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TIME_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TIME_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_APPRAISAL" Member="TBL_T_APPRAISALs">
+    <Type Name="TBL_T_APPRAISAL">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PAIRING_OU_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OPERATOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SAFETY" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="KOMUNIKASI" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="METODE_KERJA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_GRADE" Member="TBL_M_GRADEs">
+    <Type Name="TBL_M_GRADE">
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GAR_MIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GAR_MAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_SEAM" Member="TBL_M_SEAMs">
+    <Type Name="TBL_M_SEAM">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NAMA_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INITIAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_REQUEST_COAL" Member="TBL_T_REQUEST_COALs">
+    <Type Name="TBL_T_REQUEST_COAL">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MOMCOST" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VOLUMECOAL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGETGCV" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DEADLINE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_OPERATOR_EX" Member="TBL_M_OPERATOR_EXes">
+    <Type Name="TBL_M_OPERATOR_EX">
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TGL_MASUK" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_JABATAN" Member="TBL_M_JABATANs">
+    <Type Name="TBL_M_JABATAN">
+      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JABATAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_SUBCONT" Member="TBL_M_SUBCONTs">
+    <Type Name="TBL_M_SUBCONT">
+      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SUBCONT_NAME" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRETATE_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_DEPT" Member="VW_DEPTs">
+    <Type Name="VW_DEPT">
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_LOCATION" Member="TBL_M_LOCATIONs">
+    <Type Name="TBL_M_LOCATION">
+      <Column Name="ID_LOC" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LOCATION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_USER" Member="TBL_M_USERs">
+    <Type Name="TBL_M_USER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_PROFILE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRETAE_BY" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_USER_PROFILE" Member="VW_USER_PROFILEs">
+    <Type Name="VW_USER_PROFILE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ID_PROFILE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PROFILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POSITION_ID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POS_TITLE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRETAE_BY" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_PEKERJAAN" Member="TBL_M_PEKERJAANs">
+    <Type Name="TBL_M_PEKERJAAN">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_OUT_ROM" Member="TBL_T_OUT_ROMs">
+    <Type Name="TBL_T_OUT_ROM">
+      <Column Name="ID_OUT_ROM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JAM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_IN_SITU_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="NO_UNIT_DT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BERAT_TARA_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BERAT_BRUTO_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_TO_ROM" Member="TBL_T_TO_ROMs">
+    <Type Name="TBL_T_TO_ROM">
+      <Column Name="ID_TO_ROM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="LOCATION" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JAM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_IN_SITU_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="LOADER" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NO_UNIT_DT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BERAT_TARA_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BERAT_BRUTO_UNIT_KG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_IMAGE" Member="TBL_M_IMAGEs">
+    <Type Name="TBL_M_IMAGE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IMAGE_TITLE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IMAGE_PATH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="UPLOAD_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPLOAD_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_IN_SITU" Member="TBL_T_IN_SITUs">
+    <Type Name="TBL_T_IN_SITU">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="GAR_ACTUAL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
+    <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SEAM" Parameter="sEAM" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cufn_getAlatByPekerjanSeamResult">
+      <Column Name="ID_MAPPING" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAMA_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_ALAT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAMA_ALAT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PROTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getListOperatorByRating" Method="cufn_getListOperatorByRating" IsComposable="true">
+    <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cufn_getListOperatorByRatingResult">
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JABATAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AVG_AP" Type="System.Decimal" DbType="Decimal(38,6) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS_AVALIABLE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cusp_getListPenilaian" Method="cusp_getListPenilaian">
+    <ElementType Name="cusp_getListPenilaianResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OPERATOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ID_EQUIPMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VOLUME" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="START_WORK_HOUR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TIME_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getDetailOperator" Method="cufn_getDetailOperator" IsComposable="true">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cufn_getDetailOperatorResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OPERATOR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ID_EQUIPMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAMA_PEKERJAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAMA_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VOLUME" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="START_WORK_HOUR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TIME_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getAvaliableTonaseInSitu" Method="cufn_getAvaliableTonaseInSitu" IsComposable="true">
+    <Parameter Name="id" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="cufn_getAvaliableTonaseInSituResult">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TO_ROM_TONASE" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TONASE_TERSEDIA" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getSeamInSitu" Method="cufn_getSeamInSitu" IsComposable="true">
+    <ElementType Name="cufn_getSeamInSituResult">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="AVALIABLE_TONASE" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getAvaliableTonaseInRom" Method="cufn_getAvaliableTonaseInRom" IsComposable="true">
+    <ElementType Name="cufn_getAvaliableTonaseInRomResult">
+      <Column Name="ID_IN_SITU_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE_IN_ROM" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE_OUT_ROM" Type="System.Decimal" DbType="Decimal(38,2) NOT NULL" CanBeNull="false" />
+      <Column Name="AVALIABLE_TONASE_IN_ROM" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getInOutRom" Method="cufn_getInOutRom" IsComposable="true">
+    <Parameter Name="TANGGAL_AWAL" Parameter="tANGGAL_AWAL" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TANGGAL_AKHIR" Parameter="tANGGAL_AKHIR" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="cufn_getInOutRomResult">
+      <Column Name="ID_IN_SITU_SEAM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getDateInSitu" Method="cufn_getDateInSitu" IsComposable="true">
+    <ElementType Name="cufn_getDateInSituResult">
+      <Column Name="max_date" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="min_date" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getInSitu" Method="cufn_getInSitu" IsComposable="true">
+    <Parameter Name="TANGGAL_AWAL" Parameter="tANGGAL_AWAL" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TANGGAL_AKHIR" Parameter="tANGGAL_AKHIR" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="cufn_getInSituResult">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IN_SITU" Type="System.String" DbType="VarChar(71)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getAnomaliInSitu" Method="cufn_getAnomaliInSitu" IsComposable="true">
+    <Parameter Name="TANGGAL_AWAL" Parameter="tANGGAL_AWAL" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TANGGAL_AKHIR" Parameter="tANGGAL_AKHIR" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="cufn_getAnomaliInSituResult">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IN_SITU" Type="System.String" DbType="VarChar(71)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

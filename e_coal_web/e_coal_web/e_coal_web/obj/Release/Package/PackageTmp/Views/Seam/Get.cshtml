@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Get";
+    @*Layout = "~/Views/Shared/_Layout.cshtml";*@
+}
+<input type="hidden" id="hd_path" value="@ViewBag.path" />
+<div class="container">
+    <h2>Seam</h2>
+
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Seam")'">Create</button>
+    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>Create
+        </button>*@
+
+    @* Modal Create *@
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create Seam</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">Seam</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="nama_seam" id="nama_seam">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="create();">Submit</button>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <table id="example" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Seam</th>
+            </tr>
+        </thead>
+        <tbody id="getBody">
+            <tr>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="~/Js/GuideMaster/getseam.js"></script>

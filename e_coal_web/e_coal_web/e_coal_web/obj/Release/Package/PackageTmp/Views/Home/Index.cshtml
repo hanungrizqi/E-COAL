@@ -1,0 +1,188 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<input type="hidden" id="hd_path" value="@ViewBag.path"/>*@
+<input type="hidden" id="hd_path" value="@ViewBag.path" />
+<input type="hidden" id="hd_district" value="@Session["District"]" />
+<input type="hidden" id="hd_userLogin" value="@Session["Nrp"]" />
+<input type="hidden" id="hd_idProfile" value="@Session["IdProfile"]" />
+
+<main id="main-container">
+    <div class="content">
+        <!-- Rounded Blocks -->
+        <h2 class="content-heading">Filter Tanggal</h2>
+        <div class="row">
+            <!-- fillter -->
+            <div class="col-md-12">
+                <div class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Fillter Tanggal</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="form-label">Tanggal Awal</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="date" class="form-control" id="txt_tanggalAwal" style="width:100%" />
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Tanggal Akhir</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="date" class="form-control" id="txt_tanggalAkhir" style="width:100%" />
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="block-content block-content-full block-content-sm bg-body-light text-end">
+                        <button type="submit" class="btn btn-alt-primary" onclick="fillter()" >
+                            <i class="fa fa-check opacity-50 me-1"></i> Fillter
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--upload image-->
+            <div class="col-md-6">
+                <div class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">CGV in ROM</h3>
+                    </div>
+                    <div class="block-content">
+                        @*<div class="block-content">
+                        <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+                    </div>*@
+                        <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+                        @*Display Image*@
+                        <div class="col-md-4" id="DisplayImage">
+                            <img id="img_cgv" class="img-responsive thumbnail" width="200" height="200" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--in out rom-->
+            <div class="col-md-6">
+                <div class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">In Out ROM</h3>
+                    </div>
+                    <div class="block-content">
+                        <p>Bordered block with header background..</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--anomali data-->
+            <div class="col-md-6">
+                <div class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Anomali Data</h3>
+                    </div>
+                    <div class="block-content">
+                        <div id="gridAnomaliInSitu"></div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+            <!--in situ-->
+            <div class="col-md-6">
+                <div class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">In SITU (GCV | Ton)</h3>
+                    </div>
+                    <div class="block-content">
+                        <div id="gridInSitu"></div>
+                        <br />
+                        @*<table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                        <thead>
+                            <tr>
+                                <th>In SITU | TON</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-semibold">Example</td>
+                            </tr>
+                        </tbody>
+                    </table>*@
+                    </div>
+                </div>
+            </div>
+
+            <!-- grafik -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Donut</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                            <i class="si si-refresh"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content block-content-full text-center">
+                    <!-- grafik Container -->
+                    <canvas id="js-chartjs-donut"></canvas>
+                </div>
+            </div>
+            <!-- END grafik -->
+        </div>
+        <!-- END Rounded Blocks -->
+    </div>
+</main>
+
+<!-- Fade In Modal -->
+<div class="modal fade" id="modal-fadein" tabindex="-1" role="dialog" aria-labelledby="modal-fadein" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Modals Upload Image</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <div class="col-md-4">
+                        <input type="file" id="SelectImage" /><br />
+                        <a href="#" class="btn btn-sm btn-danger" onclick="UploadImage()">Upload</a>
+                    </div>
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-alt-primary" data-bs-dismiss="modal" >
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Fade In Modal -->
+
+<script type="text/x-kendo-tmpl" id="tmp_inSitu">
+    #if(COAL_CONDITION == "Normal"){#
+        <center><b style="color:green">#=IN_SITU#</b></center>
+    #} else{#
+        <center><b style="color:red">#=IN_SITU#</b></center>
+    #}#
+</script>
+
+<script type="text/x-kendo-tmpl" id="tmp_AnomaliInSitu">
+    <center><b style="color:red">#=IN_SITU#</b></center>
+</script>
+
+<script type="text/x-kendo-tmpl" id="tmp_AnomaliAction">
+    <button type="button" class="btn btn-alt-success" onclick="anomaliApprove('#=ID_IN_SITU#')"><i class="fa fa-circle-check"></i></button>
+    <button type="button" class="btn btn-alt-danger" onclick="anomaliReject('#=ID_IN_SITU#')"><i class="fa fa-circle-xmark"></i></button>
+</script>
+
+<script src="~/Js/Home.Index.js"></script>

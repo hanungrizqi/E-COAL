@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_ENG_ECOAL_MASS_KPT" Class="eCoalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=kphosq101\shpol;Initial Catalog=DB_ENG_ECOAL_MASS_KPT;Persist Security Info=True;User ID=sqlservices" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_ENG_ECOAL_MASS_KPTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBL_M_IMAGE" Member="TBL_M_IMAGEs">
+    <Type Name="TBL_M_IMAGE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IMAGE_TITLE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IMAGE_PATH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="UPLOAD_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPLOAD_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.cusp_getMenuProfile" Method="cusp_getMenuProfile">
+    <Parameter Name="PID" Parameter="pID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="cusp_getMenuProfileResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_MENU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MENU_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MENU_PATH" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MENU_ICON" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ID_PROFILE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PROFILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="C" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="R" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="U" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="D" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Add Operator Subcont";
+}
+
+<input type="hidden" id="hd_path" value="@ViewBag.path" />
+
+<div id="form_main">
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Add Operator Subcont</h3>
+            @*<div class="block-options">
+                    <button type="button" class="btn-block-option">
+                        <i class="si si-settings"></i>
+                    </button>
+                </div>*@
+        </div>
+        <div class="block-content">
+            <div class="row justify-content-center py-sm-3 py-md-5">
+
+                @*List Subcont*@
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Subcont</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="k-dropdown" id="txt_subcont" style="width:100%" />
+                    </div>
+                </div>
+
+                @*NRP*@
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">NRP</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txt_nrp" />
+                    </div>
+                </div>
+
+                @*Nama*@
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Nama</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txt_nama" />
+                    </div>
+                </div>
+
+                @*List Jabatan*@
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Jabatan</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="k-dropdown" id="txt_jabatan" style="width:100%" />
+                    </div>
+                </div>
+
+                @*List Department*@
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Department</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="k-dropdown" id="txt_department" style="width:100%" />
+                    </div>
+                </div>
+
+                @*District*@
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">District</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txt_district" />
+                    </div>
+                </div>
+
+                @*Tgl Masuk*@
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Tanggal Masuk</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control" id="txt_tglmasuk" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="block-content block-content-full">
+                @*<table class="table table-bordered table-striped table-vcenter js-dataTable-responsive" id="tbl_opt"></table>*@
+                <div id="grid"></div>
+            </div>
+        </div>
+        <div class="block-content block-content-full block-content-sm bg-body-light text-end">
+            <button type="reset" class="btn btn-alt-secondary">
+                <i class="fa fa-sync-alt opacity-50 me-1"></i> Reset
+            </button>
+            <button type="submit" class="btn btn-alt-primary" onclick="submmit()">
+                <i class="fa fa-check opacity-50 me-1"></i> Submit Operator
+            </button>
+        </div>
+    </div>
+</div>
+
+@*<script type="text/x-kendo-tmpl" id="tmp_check">
+    <center><input type="checkbox" id="#=EMPLOYEE_ID#_CHECK" name="PILIH_OP"></center>
+</script>*@
+
+<script src="~/Js/OperatorSub.Index.js"></script>

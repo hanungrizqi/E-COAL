@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+}
+<input type="hidden" id="hd_path" value="@ViewBag.path" />
+
+<h2>Update</h2>
+
+<form method="post">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">id</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="id" id="id" value="@Session["updateid"].ToString()" readonly="readonly">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Profile</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="nama_profile" id="nama_profile">
+        </div>
+    </div>
+</form>
+<button type="button" class="btn btn-primary" onclick="Update();">Edit</button>
+<button class="btn btn-danger" data-toggle="modal" onclick="location.href='@Url.Action("Get", "Profile")'">Back</button>
+@*<script src="~/Scripts/updatebiodata.js"></script>*@
+<script src="~/Js/GuideMaster/getprofile.js"></script>
