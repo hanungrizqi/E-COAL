@@ -120,5 +120,40 @@ namespace e_coal_api.Controllers
             }
         }
         #endregion
+
+        #region requestcoal
+        [HttpGet]
+        [Route("api/Dashboard/getRequestCoalApproval")]
+        public IHttpActionResult getRequestCoalApproval()
+        {
+            try
+            {
+                ClsDashboard clsDashboard = new ClsDashboard();
+                var data = clsDashboard.getRequestCoalApproval();
+
+                return Ok(new { Status = true, Data = data, Total = data.Count() });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Dashboard/approveRequestCoal")]
+        public IHttpActionResult approveRequestCoal(ClsDashboard clsDashboard)
+        {
+            try
+            {
+                clsDashboard.c_approveRequestCoal();
+
+                return Ok(new { Status = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+        #endregion
     }
 }

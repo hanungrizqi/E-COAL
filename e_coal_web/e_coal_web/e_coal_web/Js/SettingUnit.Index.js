@@ -61,7 +61,8 @@ $(document).ready(function () {
             { field: 'NRP', title: 'NRP', width: 80 },
             { field: 'NAMA', title: 'Name', width: 100 },
             { field: 'NAMA_PEKERJAAN', title: 'Pekerjaan', width: 100 },
-            { field: 'AVG_AP', title: 'Nilai', width: 50 },
+            /*{ field: 'AVG_AP', title: 'Nilai', format: '{0:0.00}', width: 50 },*/
+            { field: 'AVG_AP', title: 'Nilai', template: "#:(Math.round(parseFloat(AVG_AP) * 100) / 100).toFixed(2)#", width: 50 },
             { title: 'Pilih', template: $('#tmp_check').html(), width: 30 },
         ]
     }).data("kendoGrid");

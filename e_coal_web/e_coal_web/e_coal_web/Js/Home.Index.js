@@ -58,6 +58,37 @@ $(document).ready(function () {
                 }
             },
             pageSize: 50,
+        }),
+
+        ds_gridRequestCoalApproval: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    type: "GET",
+                    contentType: "application/json",
+                    cache: false,
+                    url: $("#hd_path").val() + "api/Dashboard/getRequestCoalApproval",//?ID_PEKERJAAN=" + ID_PEKERJAAN,//$("#txt_pekerjaan").val(),
+                    /*data: {
+                        TANGGAL_AWAL: "",
+                        TANGGAL_AKHIR: ""
+                    }*/
+                },
+            },
+            schema: {
+                data: "Data",
+                total: "Total",
+                model: {
+                    fields: {
+                        ID: { type: "int", editable: false, sortable: true },
+                        MOMCOST: { type: "string", editable: false, sortable: true },
+                        VOLUMECOAL: { type: "decimal", editable: false, sortable: true },
+                        TARGETGCV: { type: "decimal", editable: false, sortable: true },
+                        DEADLINE: { type: "date", editable: false, sortable: true },
+                        STATUS: { type: "int", editable: false, sortable: true },
+                        REQUEST_COAL: { type: "string", editable: false, sortable: true }
+                    }
+                }
+            },
+            pageSize: 50,
         })
     })
 
@@ -88,6 +119,25 @@ $(document).ready(function () {
         columns: [            
             { title: 'In SITU (GCV | Ton)', template: $('#tmp_AnomaliInSitu').html(), width: 100 },
             { title: 'Action', width: 50, template: $("#tmp_AnomaliAction").html() },
+        ]
+    }).data("kendoGrid");
+
+    $("#gridRequestCoalApproval").kendoGrid({
+        dataSource: settingModel.ds_gridRequestCoalApproval,
+        resizable: "true",
+        editable: "inline",
+        scrollable: "true",
+        sortable: "true",
+        filterable: "true",
+        pageable: "true",
+        height: "400px",
+        columns: [
+            /*{ title: 'Request Coal List', template: $('#tmp_RequestCoalApproval').html(), width: 100 },*/
+            { field: 'MOMCOST', title: 'Mom Cost', width: 50 },
+            { field: 'VOLUMECOAL', title: 'Volume Coal', width: 50 },
+            { field: 'TARGETGCV', title: 'Target GCV', width: 50 },
+            { field: 'DEADLINE', title: 'Deadline', width: 50 },
+            { title: 'Action', width: 50, template: $("#tmp_RequestCoalAction").html() },
         ]
     }).data("kendoGrid");
 
@@ -169,6 +219,11 @@ function fillter() {
     settingModel.ds_gridAnomaliInSitu.transport.options.read.data.TANGGAL_AKHIR = $("#txt_tanggalAkhir").val();
     settingModel.ds_gridAnomaliInSitu.read();
 
+/*    settingModel.ds_gridRequestCoalApproval.transport.options.read.data.TANGGAL_AWAL = $("#txt_tanggalAwal").val();
+    settingModel.ds_gridRequestCoalApproval.transport.options.read.data.TANGGAL_AKHIR = $("#txt_tanggalAkhir").val();
+    settingModel.ds_gridRequestCoalApproval.read();*/
+    
+
 }
 
 function anomaliApprove(inSitu) {
@@ -206,6 +261,27 @@ function anomaliReject(inSitu) {
         success: function (result) {
             if (result.Status == true) {
                 fillter();
+            } else {
+                alert(result.Error);
+            }
+        }
+    })
+}
+
+function requestApprove(requestCoal) {
+    var obj = {
+        ID_REQUESTCOAL: requestCoal
+    }
+    console.log(obj)
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        url: $("#hd_path").val() + "api/Dashboard/approveRequestCoal",
+        data: JSON.stringify(obj),
+        success: function (result) {
+            if (result.Status == true) {
+                settingModel.ds_gridRequestCoalApproval.read();
             } else {
                 alert(result.Error);
             }

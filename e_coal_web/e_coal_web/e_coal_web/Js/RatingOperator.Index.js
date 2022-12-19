@@ -130,6 +130,7 @@ function NilaiOperator() {
         , SAFETY: $("#txt_safety").val()
         , KOMUNIKASI: $("#txt_komunikasi").val()
         , METODE_KERJA: $("#txt_metodeKerja").val()
+        , VOLUME: $("#txt_volume").val()
     }
     console.log(obj);
     $.ajax({

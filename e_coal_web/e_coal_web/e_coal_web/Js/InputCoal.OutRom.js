@@ -88,7 +88,7 @@ function submmit() {
                             $("#notif_success").show();
                             $("#id_outRom").css("color", "red");
                             $("#vol_tonase").css("color", "red");
-
+                            $("#txt_noUnitDt").val("");
                             callSeam();
                         } else {
                             alert(result.Error);

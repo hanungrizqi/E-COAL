@@ -144,6 +144,7 @@ function submmit() {
                             $("#notif_success").show();
                             $("#id_toRom").css("color", "green");
                             $("#vol_tonase").css("color", "green");
+                            $("#txt_noUnitDt").val("");
                             callSeam();
                         } else {
                             alert(result.Error);

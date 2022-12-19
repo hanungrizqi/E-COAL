@@ -36,18 +36,12 @@ namespace e_coal_api.Models
     partial void InsertTBL_T_PAIRING_OPERATOR_UNIT(TBL_T_PAIRING_OPERATOR_UNIT instance);
     partial void UpdateTBL_T_PAIRING_OPERATOR_UNIT(TBL_T_PAIRING_OPERATOR_UNIT instance);
     partial void DeleteTBL_T_PAIRING_OPERATOR_UNIT(TBL_T_PAIRING_OPERATOR_UNIT instance);
-    partial void InsertTBL_T_APPRAISAL(TBL_T_APPRAISAL instance);
-    partial void UpdateTBL_T_APPRAISAL(TBL_T_APPRAISAL instance);
-    partial void DeleteTBL_T_APPRAISAL(TBL_T_APPRAISAL instance);
     partial void InsertTBL_M_GRADE(TBL_M_GRADE instance);
     partial void UpdateTBL_M_GRADE(TBL_M_GRADE instance);
     partial void DeleteTBL_M_GRADE(TBL_M_GRADE instance);
     partial void InsertTBL_M_SEAM(TBL_M_SEAM instance);
     partial void UpdateTBL_M_SEAM(TBL_M_SEAM instance);
     partial void DeleteTBL_M_SEAM(TBL_M_SEAM instance);
-    partial void InsertTBL_T_REQUEST_COAL(TBL_T_REQUEST_COAL instance);
-    partial void UpdateTBL_T_REQUEST_COAL(TBL_T_REQUEST_COAL instance);
-    partial void DeleteTBL_T_REQUEST_COAL(TBL_T_REQUEST_COAL instance);
     partial void InsertTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
     partial void UpdateTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
     partial void DeleteTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
@@ -69,15 +63,21 @@ namespace e_coal_api.Models
     partial void InsertTBL_T_OUT_ROM(TBL_T_OUT_ROM instance);
     partial void UpdateTBL_T_OUT_ROM(TBL_T_OUT_ROM instance);
     partial void DeleteTBL_T_OUT_ROM(TBL_T_OUT_ROM instance);
-    partial void InsertTBL_T_TO_ROM(TBL_T_TO_ROM instance);
-    partial void UpdateTBL_T_TO_ROM(TBL_T_TO_ROM instance);
-    partial void DeleteTBL_T_TO_ROM(TBL_T_TO_ROM instance);
     partial void InsertTBL_M_IMAGE(TBL_M_IMAGE instance);
     partial void UpdateTBL_M_IMAGE(TBL_M_IMAGE instance);
     partial void DeleteTBL_M_IMAGE(TBL_M_IMAGE instance);
     partial void InsertTBL_T_IN_SITU(TBL_T_IN_SITU instance);
     partial void UpdateTBL_T_IN_SITU(TBL_T_IN_SITU instance);
     partial void DeleteTBL_T_IN_SITU(TBL_T_IN_SITU instance);
+    partial void InsertTBL_T_APPRAISAL(TBL_T_APPRAISAL instance);
+    partial void UpdateTBL_T_APPRAISAL(TBL_T_APPRAISAL instance);
+    partial void DeleteTBL_T_APPRAISAL(TBL_T_APPRAISAL instance);
+    partial void InsertTBL_T_REQUEST_COAL(TBL_T_REQUEST_COAL instance);
+    partial void UpdateTBL_T_REQUEST_COAL(TBL_T_REQUEST_COAL instance);
+    partial void DeleteTBL_T_REQUEST_COAL(TBL_T_REQUEST_COAL instance);
+    partial void InsertTBL_T_IN_ROM(TBL_T_IN_ROM instance);
+    partial void UpdateTBL_T_IN_ROM(TBL_T_IN_ROM instance);
+    partial void DeleteTBL_T_IN_ROM(TBL_T_IN_ROM instance);
     #endregion
 		
 		public db_eCoalDataContext() : 
@@ -126,14 +126,6 @@ namespace e_coal_api.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_T_APPRAISAL> TBL_T_APPRAISALs
-		{
-			get
-			{
-				return this.GetTable<TBL_T_APPRAISAL>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TBL_M_GRADE> TBL_M_GRADEs
 		{
 			get
@@ -147,14 +139,6 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<TBL_M_SEAM>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBL_T_REQUEST_COAL> TBL_T_REQUEST_COALs
-		{
-			get
-			{
-				return this.GetTable<TBL_T_REQUEST_COAL>();
 			}
 		}
 		
@@ -230,14 +214,6 @@ namespace e_coal_api.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_T_TO_ROM> TBL_T_TO_ROMs
-		{
-			get
-			{
-				return this.GetTable<TBL_T_TO_ROM>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TBL_M_IMAGE> TBL_M_IMAGEs
 		{
 			get
@@ -251,6 +227,30 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<TBL_T_IN_SITU>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_T_APPRAISAL> TBL_T_APPRAISALs
+		{
+			get
+			{
+				return this.GetTable<TBL_T_APPRAISAL>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_T_REQUEST_COAL> TBL_T_REQUEST_COALs
+		{
+			get
+			{
+				return this.GetTable<TBL_T_REQUEST_COAL>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_T_IN_ROM> TBL_T_IN_ROMs
+		{
+			get
+			{
+				return this.GetTable<TBL_T_IN_ROM>();
 			}
 		}
 		
@@ -319,6 +319,12 @@ namespace e_coal_api.Models
 		public IQueryable<cufn_getAnomaliInSituResult> cufn_getAnomaliInSitu([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AWAL", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AWAL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TANGGAL_AKHIR", DbType="Date")] System.Nullable<System.DateTime> tANGGAL_AKHIR)
 		{
 			return this.CreateMethodCallQuery<cufn_getAnomaliInSituResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tANGGAL_AWAL, tANGGAL_AKHIR);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getRequestCoalApproval", IsComposable=true)]
+		public IQueryable<cufn_getRequestCoalApprovalResult> cufn_getRequestCoalApproval()
+		{
+			return this.CreateMethodCallQuery<cufn_getRequestCoalApprovalResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
 	}
 	
@@ -806,188 +812,6 @@ namespace e_coal_api.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_APPRAISAL")]
-	public partial class TBL_T_APPRAISAL : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private System.Nullable<int> _PAIRING_OU_ID;
-		
-		private string _OPERATOR;
-		
-		private System.Nullable<decimal> _SAFETY;
-		
-		private System.Nullable<decimal> _KOMUNIKASI;
-		
-		private System.Nullable<decimal> _METODE_KERJA;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnPAIRING_OU_IDChanging(System.Nullable<int> value);
-    partial void OnPAIRING_OU_IDChanged();
-    partial void OnOPERATORChanging(string value);
-    partial void OnOPERATORChanged();
-    partial void OnSAFETYChanging(System.Nullable<decimal> value);
-    partial void OnSAFETYChanged();
-    partial void OnKOMUNIKASIChanging(System.Nullable<decimal> value);
-    partial void OnKOMUNIKASIChanged();
-    partial void OnMETODE_KERJAChanging(System.Nullable<decimal> value);
-    partial void OnMETODE_KERJAChanged();
-    #endregion
-		
-		public TBL_T_APPRAISAL()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAIRING_OU_ID", DbType="Int")]
-		public System.Nullable<int> PAIRING_OU_ID
-		{
-			get
-			{
-				return this._PAIRING_OU_ID;
-			}
-			set
-			{
-				if ((this._PAIRING_OU_ID != value))
-				{
-					this.OnPAIRING_OU_IDChanging(value);
-					this.SendPropertyChanging();
-					this._PAIRING_OU_ID = value;
-					this.SendPropertyChanged("PAIRING_OU_ID");
-					this.OnPAIRING_OU_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPERATOR", DbType="VarChar(50)")]
-		public string OPERATOR
-		{
-			get
-			{
-				return this._OPERATOR;
-			}
-			set
-			{
-				if ((this._OPERATOR != value))
-				{
-					this.OnOPERATORChanging(value);
-					this.SendPropertyChanging();
-					this._OPERATOR = value;
-					this.SendPropertyChanged("OPERATOR");
-					this.OnOPERATORChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SAFETY", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> SAFETY
-		{
-			get
-			{
-				return this._SAFETY;
-			}
-			set
-			{
-				if ((this._SAFETY != value))
-				{
-					this.OnSAFETYChanging(value);
-					this.SendPropertyChanging();
-					this._SAFETY = value;
-					this.SendPropertyChanged("SAFETY");
-					this.OnSAFETYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KOMUNIKASI", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> KOMUNIKASI
-		{
-			get
-			{
-				return this._KOMUNIKASI;
-			}
-			set
-			{
-				if ((this._KOMUNIKASI != value))
-				{
-					this.OnKOMUNIKASIChanging(value);
-					this.SendPropertyChanging();
-					this._KOMUNIKASI = value;
-					this.SendPropertyChanged("KOMUNIKASI");
-					this.OnKOMUNIKASIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_METODE_KERJA", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> METODE_KERJA
-		{
-			get
-			{
-				return this._METODE_KERJA;
-			}
-			set
-			{
-				if ((this._METODE_KERJA != value))
-				{
-					this.OnMETODE_KERJAChanging(value);
-					this.SendPropertyChanging();
-					this._METODE_KERJA = value;
-					this.SendPropertyChanged("METODE_KERJA");
-					this.OnMETODE_KERJAChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_GRADE")]
 	public partial class TBL_M_GRADE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1207,260 +1031,6 @@ namespace e_coal_api.Models
 					this._INITIAL = value;
 					this.SendPropertyChanged("INITIAL");
 					this.OnINITIALChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_REQUEST_COAL")]
-	public partial class TBL_T_REQUEST_COAL : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _MOMCOST;
-		
-		private System.Nullable<decimal> _VOLUMECOAL;
-		
-		private System.Nullable<decimal> _TARGETGCV;
-		
-		private System.Nullable<System.DateTime> _DEADLINE;
-		
-		private string _INPUT_DATE;
-		
-		private string _INPUT_BY;
-		
-		private string _DISTRICT;
-		
-		private System.Nullable<int> _FLAG;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnMOMCOSTChanging(string value);
-    partial void OnMOMCOSTChanged();
-    partial void OnVOLUMECOALChanging(System.Nullable<decimal> value);
-    partial void OnVOLUMECOALChanged();
-    partial void OnTARGETGCVChanging(System.Nullable<decimal> value);
-    partial void OnTARGETGCVChanged();
-    partial void OnDEADLINEChanging(System.Nullable<System.DateTime> value);
-    partial void OnDEADLINEChanged();
-    partial void OnINPUT_DATEChanging(string value);
-    partial void OnINPUT_DATEChanged();
-    partial void OnINPUT_BYChanging(string value);
-    partial void OnINPUT_BYChanged();
-    partial void OnDISTRICTChanging(string value);
-    partial void OnDISTRICTChanged();
-    partial void OnFLAGChanging(System.Nullable<int> value);
-    partial void OnFLAGChanged();
-    #endregion
-		
-		public TBL_T_REQUEST_COAL()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOMCOST", DbType="VarChar(50)")]
-		public string MOMCOST
-		{
-			get
-			{
-				return this._MOMCOST;
-			}
-			set
-			{
-				if ((this._MOMCOST != value))
-				{
-					this.OnMOMCOSTChanging(value);
-					this.SendPropertyChanging();
-					this._MOMCOST = value;
-					this.SendPropertyChanged("MOMCOST");
-					this.OnMOMCOSTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLUMECOAL", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> VOLUMECOAL
-		{
-			get
-			{
-				return this._VOLUMECOAL;
-			}
-			set
-			{
-				if ((this._VOLUMECOAL != value))
-				{
-					this.OnVOLUMECOALChanging(value);
-					this.SendPropertyChanging();
-					this._VOLUMECOAL = value;
-					this.SendPropertyChanged("VOLUMECOAL");
-					this.OnVOLUMECOALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TARGETGCV", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> TARGETGCV
-		{
-			get
-			{
-				return this._TARGETGCV;
-			}
-			set
-			{
-				if ((this._TARGETGCV != value))
-				{
-					this.OnTARGETGCVChanging(value);
-					this.SendPropertyChanging();
-					this._TARGETGCV = value;
-					this.SendPropertyChanged("TARGETGCV");
-					this.OnTARGETGCVChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEADLINE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DEADLINE
-		{
-			get
-			{
-				return this._DEADLINE;
-			}
-			set
-			{
-				if ((this._DEADLINE != value))
-				{
-					this.OnDEADLINEChanging(value);
-					this.SendPropertyChanging();
-					this._DEADLINE = value;
-					this.SendPropertyChanged("DEADLINE");
-					this.OnDEADLINEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_DATE", DbType="VarChar(50)")]
-		public string INPUT_DATE
-		{
-			get
-			{
-				return this._INPUT_DATE;
-			}
-			set
-			{
-				if ((this._INPUT_DATE != value))
-				{
-					this.OnINPUT_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._INPUT_DATE = value;
-					this.SendPropertyChanged("INPUT_DATE");
-					this.OnINPUT_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_BY", DbType="VarChar(50)")]
-		public string INPUT_BY
-		{
-			get
-			{
-				return this._INPUT_BY;
-			}
-			set
-			{
-				if ((this._INPUT_BY != value))
-				{
-					this.OnINPUT_BYChanging(value);
-					this.SendPropertyChanging();
-					this._INPUT_BY = value;
-					this.SendPropertyChanged("INPUT_BY");
-					this.OnINPUT_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(50)")]
-		public string DISTRICT
-		{
-			get
-			{
-				return this._DISTRICT;
-			}
-			set
-			{
-				if ((this._DISTRICT != value))
-				{
-					this.OnDISTRICTChanging(value);
-					this.SendPropertyChanging();
-					this._DISTRICT = value;
-					this.SendPropertyChanged("DISTRICT");
-					this.OnDISTRICTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FLAG", DbType="Int")]
-		public System.Nullable<int> FLAG
-		{
-			get
-			{
-				return this._FLAG;
-			}
-			set
-			{
-				if ((this._FLAG != value))
-				{
-					this.OnFLAGChanging(value);
-					this.SendPropertyChanging();
-					this._FLAG = value;
-					this.SendPropertyChanged("FLAG");
-					this.OnFLAGChanged();
 				}
 			}
 		}
@@ -2964,380 +2534,6 @@ namespace e_coal_api.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_TO_ROM")]
-	public partial class TBL_T_TO_ROM : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_TO_ROM;
-		
-		private string _DISTRICT;
-		
-		private string _LOCATION;
-		
-		private System.Nullable<System.DateTime> _JAM;
-		
-		private string _ID_IN_SITU_SEAM;
-		
-		private string _GRADE;
-		
-		private System.Nullable<decimal> _LOADER;
-		
-		private string _NO_UNIT_DT;
-		
-		private System.Nullable<decimal> _BERAT_TARA_UNIT_KG;
-		
-		private System.Nullable<decimal> _BERAT_BRUTO_UNIT_KG;
-		
-		private System.Nullable<decimal> _TOTAL_TONASE;
-		
-		private System.Nullable<System.DateTime> _TANGGAL;
-		
-		private System.Nullable<System.DateTime> _INPUT_DATE;
-		
-		private string _INPUT_BY;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_TO_ROMChanging(int value);
-    partial void OnID_TO_ROMChanged();
-    partial void OnDISTRICTChanging(string value);
-    partial void OnDISTRICTChanged();
-    partial void OnLOCATIONChanging(string value);
-    partial void OnLOCATIONChanged();
-    partial void OnJAMChanging(System.Nullable<System.DateTime> value);
-    partial void OnJAMChanged();
-    partial void OnID_IN_SITU_SEAMChanging(string value);
-    partial void OnID_IN_SITU_SEAMChanged();
-    partial void OnGRADEChanging(string value);
-    partial void OnGRADEChanged();
-    partial void OnLOADERChanging(System.Nullable<decimal> value);
-    partial void OnLOADERChanged();
-    partial void OnNO_UNIT_DTChanging(string value);
-    partial void OnNO_UNIT_DTChanged();
-    partial void OnBERAT_TARA_UNIT_KGChanging(System.Nullable<decimal> value);
-    partial void OnBERAT_TARA_UNIT_KGChanged();
-    partial void OnBERAT_BRUTO_UNIT_KGChanging(System.Nullable<decimal> value);
-    partial void OnBERAT_BRUTO_UNIT_KGChanged();
-    partial void OnTOTAL_TONASEChanging(System.Nullable<decimal> value);
-    partial void OnTOTAL_TONASEChanged();
-    partial void OnTANGGALChanging(System.Nullable<System.DateTime> value);
-    partial void OnTANGGALChanged();
-    partial void OnINPUT_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnINPUT_DATEChanged();
-    partial void OnINPUT_BYChanging(string value);
-    partial void OnINPUT_BYChanged();
-    #endregion
-		
-		public TBL_T_TO_ROM()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TO_ROM", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_TO_ROM
-		{
-			get
-			{
-				return this._ID_TO_ROM;
-			}
-			set
-			{
-				if ((this._ID_TO_ROM != value))
-				{
-					this.OnID_TO_ROMChanging(value);
-					this.SendPropertyChanging();
-					this._ID_TO_ROM = value;
-					this.SendPropertyChanged("ID_TO_ROM");
-					this.OnID_TO_ROMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(5)")]
-		public string DISTRICT
-		{
-			get
-			{
-				return this._DISTRICT;
-			}
-			set
-			{
-				if ((this._DISTRICT != value))
-				{
-					this.OnDISTRICTChanging(value);
-					this.SendPropertyChanging();
-					this._DISTRICT = value;
-					this.SendPropertyChanged("DISTRICT");
-					this.OnDISTRICTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOCATION", DbType="VarChar(20)")]
-		public string LOCATION
-		{
-			get
-			{
-				return this._LOCATION;
-			}
-			set
-			{
-				if ((this._LOCATION != value))
-				{
-					this.OnLOCATIONChanging(value);
-					this.SendPropertyChanging();
-					this._LOCATION = value;
-					this.SendPropertyChanged("LOCATION");
-					this.OnLOCATIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JAM", DbType="DateTime")]
-		public System.Nullable<System.DateTime> JAM
-		{
-			get
-			{
-				return this._JAM;
-			}
-			set
-			{
-				if ((this._JAM != value))
-				{
-					this.OnJAMChanging(value);
-					this.SendPropertyChanging();
-					this._JAM = value;
-					this.SendPropertyChanged("JAM");
-					this.OnJAMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_IN_SITU_SEAM", DbType="VarChar(50)")]
-		public string ID_IN_SITU_SEAM
-		{
-			get
-			{
-				return this._ID_IN_SITU_SEAM;
-			}
-			set
-			{
-				if ((this._ID_IN_SITU_SEAM != value))
-				{
-					this.OnID_IN_SITU_SEAMChanging(value);
-					this.SendPropertyChanging();
-					this._ID_IN_SITU_SEAM = value;
-					this.SendPropertyChanged("ID_IN_SITU_SEAM");
-					this.OnID_IN_SITU_SEAMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRADE", DbType="VarChar(5)")]
-		public string GRADE
-		{
-			get
-			{
-				return this._GRADE;
-			}
-			set
-			{
-				if ((this._GRADE != value))
-				{
-					this.OnGRADEChanging(value);
-					this.SendPropertyChanging();
-					this._GRADE = value;
-					this.SendPropertyChanged("GRADE");
-					this.OnGRADEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOADER", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> LOADER
-		{
-			get
-			{
-				return this._LOADER;
-			}
-			set
-			{
-				if ((this._LOADER != value))
-				{
-					this.OnLOADERChanging(value);
-					this.SendPropertyChanging();
-					this._LOADER = value;
-					this.SendPropertyChanged("LOADER");
-					this.OnLOADERChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_UNIT_DT", DbType="VarChar(50)")]
-		public string NO_UNIT_DT
-		{
-			get
-			{
-				return this._NO_UNIT_DT;
-			}
-			set
-			{
-				if ((this._NO_UNIT_DT != value))
-				{
-					this.OnNO_UNIT_DTChanging(value);
-					this.SendPropertyChanging();
-					this._NO_UNIT_DT = value;
-					this.SendPropertyChanged("NO_UNIT_DT");
-					this.OnNO_UNIT_DTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BERAT_TARA_UNIT_KG", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> BERAT_TARA_UNIT_KG
-		{
-			get
-			{
-				return this._BERAT_TARA_UNIT_KG;
-			}
-			set
-			{
-				if ((this._BERAT_TARA_UNIT_KG != value))
-				{
-					this.OnBERAT_TARA_UNIT_KGChanging(value);
-					this.SendPropertyChanging();
-					this._BERAT_TARA_UNIT_KG = value;
-					this.SendPropertyChanged("BERAT_TARA_UNIT_KG");
-					this.OnBERAT_TARA_UNIT_KGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BERAT_BRUTO_UNIT_KG", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> BERAT_BRUTO_UNIT_KG
-		{
-			get
-			{
-				return this._BERAT_BRUTO_UNIT_KG;
-			}
-			set
-			{
-				if ((this._BERAT_BRUTO_UNIT_KG != value))
-				{
-					this.OnBERAT_BRUTO_UNIT_KGChanging(value);
-					this.SendPropertyChanging();
-					this._BERAT_BRUTO_UNIT_KG = value;
-					this.SendPropertyChanged("BERAT_BRUTO_UNIT_KG");
-					this.OnBERAT_BRUTO_UNIT_KGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_TONASE", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> TOTAL_TONASE
-		{
-			get
-			{
-				return this._TOTAL_TONASE;
-			}
-			set
-			{
-				if ((this._TOTAL_TONASE != value))
-				{
-					this.OnTOTAL_TONASEChanging(value);
-					this.SendPropertyChanging();
-					this._TOTAL_TONASE = value;
-					this.SendPropertyChanged("TOTAL_TONASE");
-					this.OnTOTAL_TONASEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TANGGAL
-		{
-			get
-			{
-				return this._TANGGAL;
-			}
-			set
-			{
-				if ((this._TANGGAL != value))
-				{
-					this.OnTANGGALChanging(value);
-					this.SendPropertyChanging();
-					this._TANGGAL = value;
-					this.SendPropertyChanged("TANGGAL");
-					this.OnTANGGALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> INPUT_DATE
-		{
-			get
-			{
-				return this._INPUT_DATE;
-			}
-			set
-			{
-				if ((this._INPUT_DATE != value))
-				{
-					this.OnINPUT_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._INPUT_DATE = value;
-					this.SendPropertyChanged("INPUT_DATE");
-					this.OnINPUT_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_BY", DbType="VarChar(50)")]
-		public string INPUT_BY
-		{
-			get
-			{
-				return this._INPUT_BY;
-			}
-			set
-			{
-				if ((this._INPUT_BY != value))
-				{
-					this.OnINPUT_BYChanging(value);
-					this.SendPropertyChanging();
-					this._INPUT_BY = value;
-					this.SendPropertyChanged("INPUT_BY");
-					this.OnINPUT_BYChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_IMAGE")]
 	public partial class TBL_M_IMAGE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3797,6 +2993,840 @@ namespace e_coal_api.Models
 					this._STATUS = value;
 					this.SendPropertyChanged("STATUS");
 					this.OnSTATUSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_APPRAISAL")]
+	public partial class TBL_T_APPRAISAL : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _PAIRING_OU_ID;
+		
+		private string _OPERATOR;
+		
+		private System.Nullable<decimal> _SAFETY;
+		
+		private System.Nullable<decimal> _KOMUNIKASI;
+		
+		private System.Nullable<decimal> _METODE_KERJA;
+		
+		private System.Nullable<int> _VOLUME;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnPAIRING_OU_IDChanging(System.Nullable<int> value);
+    partial void OnPAIRING_OU_IDChanged();
+    partial void OnOPERATORChanging(string value);
+    partial void OnOPERATORChanged();
+    partial void OnSAFETYChanging(System.Nullable<decimal> value);
+    partial void OnSAFETYChanged();
+    partial void OnKOMUNIKASIChanging(System.Nullable<decimal> value);
+    partial void OnKOMUNIKASIChanged();
+    partial void OnMETODE_KERJAChanging(System.Nullable<decimal> value);
+    partial void OnMETODE_KERJAChanged();
+    partial void OnVOLUMEChanging(System.Nullable<int> value);
+    partial void OnVOLUMEChanged();
+    #endregion
+		
+		public TBL_T_APPRAISAL()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAIRING_OU_ID", DbType="Int")]
+		public System.Nullable<int> PAIRING_OU_ID
+		{
+			get
+			{
+				return this._PAIRING_OU_ID;
+			}
+			set
+			{
+				if ((this._PAIRING_OU_ID != value))
+				{
+					this.OnPAIRING_OU_IDChanging(value);
+					this.SendPropertyChanging();
+					this._PAIRING_OU_ID = value;
+					this.SendPropertyChanged("PAIRING_OU_ID");
+					this.OnPAIRING_OU_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPERATOR", DbType="VarChar(50)")]
+		public string OPERATOR
+		{
+			get
+			{
+				return this._OPERATOR;
+			}
+			set
+			{
+				if ((this._OPERATOR != value))
+				{
+					this.OnOPERATORChanging(value);
+					this.SendPropertyChanging();
+					this._OPERATOR = value;
+					this.SendPropertyChanged("OPERATOR");
+					this.OnOPERATORChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SAFETY", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> SAFETY
+		{
+			get
+			{
+				return this._SAFETY;
+			}
+			set
+			{
+				if ((this._SAFETY != value))
+				{
+					this.OnSAFETYChanging(value);
+					this.SendPropertyChanging();
+					this._SAFETY = value;
+					this.SendPropertyChanged("SAFETY");
+					this.OnSAFETYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KOMUNIKASI", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> KOMUNIKASI
+		{
+			get
+			{
+				return this._KOMUNIKASI;
+			}
+			set
+			{
+				if ((this._KOMUNIKASI != value))
+				{
+					this.OnKOMUNIKASIChanging(value);
+					this.SendPropertyChanging();
+					this._KOMUNIKASI = value;
+					this.SendPropertyChanged("KOMUNIKASI");
+					this.OnKOMUNIKASIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_METODE_KERJA", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> METODE_KERJA
+		{
+			get
+			{
+				return this._METODE_KERJA;
+			}
+			set
+			{
+				if ((this._METODE_KERJA != value))
+				{
+					this.OnMETODE_KERJAChanging(value);
+					this.SendPropertyChanging();
+					this._METODE_KERJA = value;
+					this.SendPropertyChanged("METODE_KERJA");
+					this.OnMETODE_KERJAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLUME", DbType="Int")]
+		public System.Nullable<int> VOLUME
+		{
+			get
+			{
+				return this._VOLUME;
+			}
+			set
+			{
+				if ((this._VOLUME != value))
+				{
+					this.OnVOLUMEChanging(value);
+					this.SendPropertyChanging();
+					this._VOLUME = value;
+					this.SendPropertyChanged("VOLUME");
+					this.OnVOLUMEChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_REQUEST_COAL")]
+	public partial class TBL_T_REQUEST_COAL : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _MOMCOST;
+		
+		private System.Nullable<decimal> _VOLUMECOAL;
+		
+		private System.Nullable<decimal> _TARGETGCV;
+		
+		private System.Nullable<System.DateTime> _DEADLINE;
+		
+		private System.Nullable<System.DateTime> _INPUT_DATE;
+		
+		private string _INPUT_BY;
+		
+		private System.Nullable<int> _FLAG;
+		
+		private System.Nullable<int> _STATUS;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnMOMCOSTChanging(string value);
+    partial void OnMOMCOSTChanged();
+    partial void OnVOLUMECOALChanging(System.Nullable<decimal> value);
+    partial void OnVOLUMECOALChanged();
+    partial void OnTARGETGCVChanging(System.Nullable<decimal> value);
+    partial void OnTARGETGCVChanged();
+    partial void OnDEADLINEChanging(System.Nullable<System.DateTime> value);
+    partial void OnDEADLINEChanged();
+    partial void OnINPUT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnINPUT_DATEChanged();
+    partial void OnINPUT_BYChanging(string value);
+    partial void OnINPUT_BYChanged();
+    partial void OnFLAGChanging(System.Nullable<int> value);
+    partial void OnFLAGChanged();
+    partial void OnSTATUSChanging(System.Nullable<int> value);
+    partial void OnSTATUSChanged();
+    #endregion
+		
+		public TBL_T_REQUEST_COAL()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOMCOST", DbType="VarChar(50)")]
+		public string MOMCOST
+		{
+			get
+			{
+				return this._MOMCOST;
+			}
+			set
+			{
+				if ((this._MOMCOST != value))
+				{
+					this.OnMOMCOSTChanging(value);
+					this.SendPropertyChanging();
+					this._MOMCOST = value;
+					this.SendPropertyChanged("MOMCOST");
+					this.OnMOMCOSTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLUMECOAL", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> VOLUMECOAL
+		{
+			get
+			{
+				return this._VOLUMECOAL;
+			}
+			set
+			{
+				if ((this._VOLUMECOAL != value))
+				{
+					this.OnVOLUMECOALChanging(value);
+					this.SendPropertyChanging();
+					this._VOLUMECOAL = value;
+					this.SendPropertyChanged("VOLUMECOAL");
+					this.OnVOLUMECOALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TARGETGCV", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TARGETGCV
+		{
+			get
+			{
+				return this._TARGETGCV;
+			}
+			set
+			{
+				if ((this._TARGETGCV != value))
+				{
+					this.OnTARGETGCVChanging(value);
+					this.SendPropertyChanging();
+					this._TARGETGCV = value;
+					this.SendPropertyChanged("TARGETGCV");
+					this.OnTARGETGCVChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEADLINE", DbType="Date")]
+		public System.Nullable<System.DateTime> DEADLINE
+		{
+			get
+			{
+				return this._DEADLINE;
+			}
+			set
+			{
+				if ((this._DEADLINE != value))
+				{
+					this.OnDEADLINEChanging(value);
+					this.SendPropertyChanging();
+					this._DEADLINE = value;
+					this.SendPropertyChanged("DEADLINE");
+					this.OnDEADLINEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> INPUT_DATE
+		{
+			get
+			{
+				return this._INPUT_DATE;
+			}
+			set
+			{
+				if ((this._INPUT_DATE != value))
+				{
+					this.OnINPUT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._INPUT_DATE = value;
+					this.SendPropertyChanged("INPUT_DATE");
+					this.OnINPUT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_BY", DbType="VarChar(50)")]
+		public string INPUT_BY
+		{
+			get
+			{
+				return this._INPUT_BY;
+			}
+			set
+			{
+				if ((this._INPUT_BY != value))
+				{
+					this.OnINPUT_BYChanging(value);
+					this.SendPropertyChanging();
+					this._INPUT_BY = value;
+					this.SendPropertyChanged("INPUT_BY");
+					this.OnINPUT_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FLAG", DbType="Int")]
+		public System.Nullable<int> FLAG
+		{
+			get
+			{
+				return this._FLAG;
+			}
+			set
+			{
+				if ((this._FLAG != value))
+				{
+					this.OnFLAGChanging(value);
+					this.SendPropertyChanging();
+					this._FLAG = value;
+					this.SendPropertyChanged("FLAG");
+					this.OnFLAGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="Int")]
+		public System.Nullable<int> STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this.OnSTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS = value;
+					this.SendPropertyChanged("STATUS");
+					this.OnSTATUSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_IN_ROM")]
+	public partial class TBL_T_IN_ROM : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_TO_ROM;
+		
+		private string _DISTRICT;
+		
+		private string _LOCATION;
+		
+		private System.Nullable<System.DateTime> _JAM;
+		
+		private string _ID_IN_SITU_SEAM;
+		
+		private string _GRADE;
+		
+		private System.Nullable<decimal> _LOADER;
+		
+		private string _NO_UNIT_DT;
+		
+		private System.Nullable<decimal> _BERAT_TARA_UNIT_KG;
+		
+		private System.Nullable<decimal> _BERAT_BRUTO_UNIT_KG;
+		
+		private System.Nullable<decimal> _TOTAL_TONASE;
+		
+		private System.Nullable<System.DateTime> _TANGGAL;
+		
+		private System.Nullable<System.DateTime> _INPUT_DATE;
+		
+		private string _INPUT_BY;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_TO_ROMChanging(int value);
+    partial void OnID_TO_ROMChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    partial void OnLOCATIONChanging(string value);
+    partial void OnLOCATIONChanged();
+    partial void OnJAMChanging(System.Nullable<System.DateTime> value);
+    partial void OnJAMChanged();
+    partial void OnID_IN_SITU_SEAMChanging(string value);
+    partial void OnID_IN_SITU_SEAMChanged();
+    partial void OnGRADEChanging(string value);
+    partial void OnGRADEChanged();
+    partial void OnLOADERChanging(System.Nullable<decimal> value);
+    partial void OnLOADERChanged();
+    partial void OnNO_UNIT_DTChanging(string value);
+    partial void OnNO_UNIT_DTChanged();
+    partial void OnBERAT_TARA_UNIT_KGChanging(System.Nullable<decimal> value);
+    partial void OnBERAT_TARA_UNIT_KGChanged();
+    partial void OnBERAT_BRUTO_UNIT_KGChanging(System.Nullable<decimal> value);
+    partial void OnBERAT_BRUTO_UNIT_KGChanged();
+    partial void OnTOTAL_TONASEChanging(System.Nullable<decimal> value);
+    partial void OnTOTAL_TONASEChanged();
+    partial void OnTANGGALChanging(System.Nullable<System.DateTime> value);
+    partial void OnTANGGALChanged();
+    partial void OnINPUT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnINPUT_DATEChanged();
+    partial void OnINPUT_BYChanging(string value);
+    partial void OnINPUT_BYChanged();
+    #endregion
+		
+		public TBL_T_IN_ROM()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TO_ROM", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_TO_ROM
+		{
+			get
+			{
+				return this._ID_TO_ROM;
+			}
+			set
+			{
+				if ((this._ID_TO_ROM != value))
+				{
+					this.OnID_TO_ROMChanging(value);
+					this.SendPropertyChanging();
+					this._ID_TO_ROM = value;
+					this.SendPropertyChanged("ID_TO_ROM");
+					this.OnID_TO_ROMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(5)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOCATION", DbType="VarChar(20)")]
+		public string LOCATION
+		{
+			get
+			{
+				return this._LOCATION;
+			}
+			set
+			{
+				if ((this._LOCATION != value))
+				{
+					this.OnLOCATIONChanging(value);
+					this.SendPropertyChanging();
+					this._LOCATION = value;
+					this.SendPropertyChanged("LOCATION");
+					this.OnLOCATIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JAM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> JAM
+		{
+			get
+			{
+				return this._JAM;
+			}
+			set
+			{
+				if ((this._JAM != value))
+				{
+					this.OnJAMChanging(value);
+					this.SendPropertyChanging();
+					this._JAM = value;
+					this.SendPropertyChanged("JAM");
+					this.OnJAMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_IN_SITU_SEAM", DbType="VarChar(50)")]
+		public string ID_IN_SITU_SEAM
+		{
+			get
+			{
+				return this._ID_IN_SITU_SEAM;
+			}
+			set
+			{
+				if ((this._ID_IN_SITU_SEAM != value))
+				{
+					this.OnID_IN_SITU_SEAMChanging(value);
+					this.SendPropertyChanging();
+					this._ID_IN_SITU_SEAM = value;
+					this.SendPropertyChanged("ID_IN_SITU_SEAM");
+					this.OnID_IN_SITU_SEAMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRADE", DbType="VarChar(5)")]
+		public string GRADE
+		{
+			get
+			{
+				return this._GRADE;
+			}
+			set
+			{
+				if ((this._GRADE != value))
+				{
+					this.OnGRADEChanging(value);
+					this.SendPropertyChanging();
+					this._GRADE = value;
+					this.SendPropertyChanged("GRADE");
+					this.OnGRADEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOADER", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> LOADER
+		{
+			get
+			{
+				return this._LOADER;
+			}
+			set
+			{
+				if ((this._LOADER != value))
+				{
+					this.OnLOADERChanging(value);
+					this.SendPropertyChanging();
+					this._LOADER = value;
+					this.SendPropertyChanged("LOADER");
+					this.OnLOADERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NO_UNIT_DT", DbType="VarChar(50)")]
+		public string NO_UNIT_DT
+		{
+			get
+			{
+				return this._NO_UNIT_DT;
+			}
+			set
+			{
+				if ((this._NO_UNIT_DT != value))
+				{
+					this.OnNO_UNIT_DTChanging(value);
+					this.SendPropertyChanging();
+					this._NO_UNIT_DT = value;
+					this.SendPropertyChanged("NO_UNIT_DT");
+					this.OnNO_UNIT_DTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BERAT_TARA_UNIT_KG", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> BERAT_TARA_UNIT_KG
+		{
+			get
+			{
+				return this._BERAT_TARA_UNIT_KG;
+			}
+			set
+			{
+				if ((this._BERAT_TARA_UNIT_KG != value))
+				{
+					this.OnBERAT_TARA_UNIT_KGChanging(value);
+					this.SendPropertyChanging();
+					this._BERAT_TARA_UNIT_KG = value;
+					this.SendPropertyChanged("BERAT_TARA_UNIT_KG");
+					this.OnBERAT_TARA_UNIT_KGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BERAT_BRUTO_UNIT_KG", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> BERAT_BRUTO_UNIT_KG
+		{
+			get
+			{
+				return this._BERAT_BRUTO_UNIT_KG;
+			}
+			set
+			{
+				if ((this._BERAT_BRUTO_UNIT_KG != value))
+				{
+					this.OnBERAT_BRUTO_UNIT_KGChanging(value);
+					this.SendPropertyChanging();
+					this._BERAT_BRUTO_UNIT_KG = value;
+					this.SendPropertyChanged("BERAT_BRUTO_UNIT_KG");
+					this.OnBERAT_BRUTO_UNIT_KGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_TONASE", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TOTAL_TONASE
+		{
+			get
+			{
+				return this._TOTAL_TONASE;
+			}
+			set
+			{
+				if ((this._TOTAL_TONASE != value))
+				{
+					this.OnTOTAL_TONASEChanging(value);
+					this.SendPropertyChanging();
+					this._TOTAL_TONASE = value;
+					this.SendPropertyChanged("TOTAL_TONASE");
+					this.OnTOTAL_TONASEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TANGGAL
+		{
+			get
+			{
+				return this._TANGGAL;
+			}
+			set
+			{
+				if ((this._TANGGAL != value))
+				{
+					this.OnTANGGALChanging(value);
+					this.SendPropertyChanging();
+					this._TANGGAL = value;
+					this.SendPropertyChanged("TANGGAL");
+					this.OnTANGGALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> INPUT_DATE
+		{
+			get
+			{
+				return this._INPUT_DATE;
+			}
+			set
+			{
+				if ((this._INPUT_DATE != value))
+				{
+					this.OnINPUT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._INPUT_DATE = value;
+					this.SendPropertyChanged("INPUT_DATE");
+					this.OnINPUT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_BY", DbType="VarChar(50)")]
+		public string INPUT_BY
+		{
+			get
+			{
+				return this._INPUT_BY;
+			}
+			set
+			{
+				if ((this._INPUT_BY != value))
+				{
+					this.OnINPUT_BYChanging(value);
+					this.SendPropertyChanging();
+					this._INPUT_BY = value;
+					this.SendPropertyChanged("INPUT_BY");
+					this.OnINPUT_BYChanged();
 				}
 			}
 		}
@@ -5219,6 +5249,122 @@ namespace e_coal_api.Models
 				if ((this._IN_SITU != value))
 				{
 					this._IN_SITU = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getRequestCoalApprovalResult
+	{
+		
+		private int _ID;
+		
+		private string _MOMCOST;
+		
+		private System.Nullable<decimal> _VOLUMECOAL;
+		
+		private System.Nullable<decimal> _TARGETGCV;
+		
+		private System.Nullable<System.DateTime> _DEADLINE;
+		
+		private System.Nullable<int> _REQUEST_COAL;
+		
+		public cufn_getRequestCoalApprovalResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOMCOST", DbType="VarChar(50)")]
+		public string MOMCOST
+		{
+			get
+			{
+				return this._MOMCOST;
+			}
+			set
+			{
+				if ((this._MOMCOST != value))
+				{
+					this._MOMCOST = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLUMECOAL", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> VOLUMECOAL
+		{
+			get
+			{
+				return this._VOLUMECOAL;
+			}
+			set
+			{
+				if ((this._VOLUMECOAL != value))
+				{
+					this._VOLUMECOAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TARGETGCV", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TARGETGCV
+		{
+			get
+			{
+				return this._TARGETGCV;
+			}
+			set
+			{
+				if ((this._TARGETGCV != value))
+				{
+					this._TARGETGCV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEADLINE", DbType="Date")]
+		public System.Nullable<System.DateTime> DEADLINE
+		{
+			get
+			{
+				return this._DEADLINE;
+			}
+			set
+			{
+				if ((this._DEADLINE != value))
+				{
+					this._DEADLINE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REQUEST_COAL", DbType="Int")]
+		public System.Nullable<int> REQUEST_COAL
+		{
+			get
+			{
+				return this._REQUEST_COAL;
+			}
+			set
+			{
+				if ((this._REQUEST_COAL != value))
+				{
+					this._REQUEST_COAL = value;
 				}
 			}
 		}
