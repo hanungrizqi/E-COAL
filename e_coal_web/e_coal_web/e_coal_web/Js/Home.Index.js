@@ -390,7 +390,6 @@ function setChart() {
     //    }
     //})
 }
-}
 
 function requestApprove(requestCoal) {
     var obj = {
