@@ -53,9 +53,9 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                ClsToRom clsToRom = new ClsToRom();
-                clsToRom.DISTRICT = district;
-                var data = clsToRom.c_getListLocation();
+                ClsInRom clsInRom = new ClsInRom();
+                clsInRom.DISTRICT = district;
+                var data = clsInRom.c_getListLocation();
 
                 return Ok(new { Status = true, Data = data });
             }
@@ -71,8 +71,8 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                ClsToRom clsToRom = new ClsToRom();
-                var data = clsToRom.c_getSeamInSitu();
+                ClsInRom clsInRom = new ClsInRom();
+                var data = clsInRom.c_getSeamInSitu();
 
                 return Ok(new { Status = true, Data = data });
             }
@@ -102,11 +102,11 @@ namespace e_coal_api.Controllers
 
         [HttpPost]
         [Route("api/InputCoal/submmitToRom")]
-        public IHttpActionResult submmitToRom(ClsToRom clsToRom)
+        public IHttpActionResult submmitToRom(ClsInRom clsInRom)
         {
             try
             {
-                clsToRom.c_submmitToRom();
+                clsInRom.c_submmitToRom();
 
                 return Ok(new { Status = true });
             }

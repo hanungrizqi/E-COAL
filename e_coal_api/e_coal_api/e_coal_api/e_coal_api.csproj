@@ -205,7 +205,7 @@
     <Compile Include="View_Model\ClsSettingUnit.cs" />
     <Compile Include="View_Model\ClsSubcont.cs" />
     <Compile Include="View_Model\ClsUploadImage.cs" />
-    <Compile Include="View_Model\ClsToRom.cs" />
+    <Compile Include="View_Model\ClsInRom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

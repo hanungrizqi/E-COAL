@@ -102,6 +102,8 @@ namespace e_coal_api.Controllers
         #endregion
 
         #region getinoutrom
+        [HttpGet]
+        [Route("api/Dashboard/getListInOutRom")]
         public IHttpActionResult getListInOutRom(DateTime TANGGAL_AWAL, DateTime TANGGAL_AKHIR)
         {
             try
@@ -109,10 +111,29 @@ namespace e_coal_api.Controllers
                 ClsDashboard clsDashboard = new ClsDashboard();
                 clsDashboard.TANGGAL_AWAL = TANGGAL_AWAL;
                 clsDashboard.TANGGAL_AKHIR = TANGGAL_AKHIR;
-                var data = clsDashboard.getListInSitu();
+                var data = clsDashboard.c_getListInOutRom();
+
+                return Ok(new { Status = true, Data = data, Total = data.Count() });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+        #endregion
+
+        #region getinoutrom
+        [HttpGet]
+        [Route("api/Dashboard/getCGVInROM")]
+        public IHttpActionResult getCGVInROM(string district)
+        {
+            try
+            {
+                ClsDashboard clsDashboard = new ClsDashboard();
+                clsDashboard.DISTRICT = district;
+                var data = clsDashboard.c_getCGVInROM();
 
                 return Ok(new { Status = true, Data = data });
-                /*return Ok(new { Data = data });*/
             }
             catch (Exception e)
             {

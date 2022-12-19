@@ -53,17 +53,15 @@ function submmit() {
     var get = settingModel.get();
     var obj = {
         ID_OUT_ROM: $("#txt_seam").val(),
-        /*LOCATION: $("#txt_lokasi").val(),*/
         ID_IN_SITU_SEAM: $("#txt_seam").val(),
         JAM: $("#txt_jam").val(),
         GRADE: get.grade,
-        /*LOADER: $("#txt_loader").val(),*/
         NO_UNIT_DT: $("#txt_noUnitDt").val(),
         BERAT_TARA_UNIT_KG: $("#txt_beratTaraUnit").val(),
         BERAT_BRUTO_UNIT_KG: $("#txt_beratBrutoUnit").val(),
         TOTAL_TONASE: $("#txt_totalTonase").val(),
         TANGGAL: $("#txt_tanggal").val(),
-        /*DISTRICT: $("#hd_district").val(),*/
+        DISTRICT: $("#hd_district").val(),
         INPUT_BY: $("#hd_userLogin").val()
     }
 
@@ -83,11 +81,16 @@ function submmit() {
                     data: JSON.stringify(obj),
                     success: function (result) {
                         if (result.Status == true) {
+                            $("#id_outRom").empty();
+                            $("#vol_tonase").empty();
+
                             $("#id_outRom").append($("#txt_seam").val());
                             $("#vol_tonase").append($("#txt_totalTonase").val());
-                            $("#notif_success").show();
+                            
                             $("#id_outRom").css("color", "red");
                             $("#vol_tonase").css("color", "red");
+
+                            $("#notif_success").show();
 
                             callSeam();
                         } else {

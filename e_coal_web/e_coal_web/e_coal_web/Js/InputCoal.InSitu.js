@@ -114,6 +114,9 @@ function submmit() {
         data: JSON.stringify(obj),
         success: function (result) {
             if (result.Status == true) {
+                $("#id_inSitu").empty();
+                $("#vol_tonase").empty();
+
                 $("#id_inSitu").append(setId());
                 $("#vol_tonase").append($("#txt_totalTonase").val());
 

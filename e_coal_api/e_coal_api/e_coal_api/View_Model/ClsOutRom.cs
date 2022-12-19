@@ -11,6 +11,7 @@ namespace e_coal_api.View_Model
         db_eCoalDataContext db = new db_eCoalDataContext();
 
         public int ID_OUT_ROM { get; set; }
+        public string DISTRICT { get; set; }
         public DateTime JAM { get; set; }
         public string ID_IN_SITU_SEAM { get; set; }
         public string GRADE { get; set; }
@@ -48,7 +49,7 @@ namespace e_coal_api.View_Model
             tbl.BERAT_BRUTO_UNIT_KG = BERAT_BRUTO_UNIT_KG;
             tbl.TOTAL_TONASE = TOTAL_TONASE;
             tbl.TANGGAL = TANGGAL;
-            /*tbl.DISTRICT = DISTRICT;*/
+            tbl.DISTRICT = DISTRICT;
             tbl.INPUT_DATE = DateTime.Now;
             tbl.INPUT_BY = INPUT_BY;
 

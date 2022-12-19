@@ -6,7 +6,7 @@ using System.Web;
 
 namespace e_coal_api.View_Model
 {
-    public class ClsToRom
+    public class ClsInRom
     {
         db_eCoalDataContext db = new db_eCoalDataContext();
 
@@ -39,7 +39,7 @@ namespace e_coal_api.View_Model
 
         public void c_submmitToRom()
         {
-            TBL_T_TO_ROM tbl = new TBL_T_TO_ROM();
+            TBL_T_IN_ROM tbl = new TBL_T_IN_ROM();
             tbl.LOCATION = LOCATION;
             tbl.JAM = JAM;
             tbl.ID_IN_SITU_SEAM = ID_IN_SITU_SEAM;
@@ -54,7 +54,7 @@ namespace e_coal_api.View_Model
             tbl.INPUT_DATE = DateTime.Now;
             tbl.INPUT_BY = INPUT_BY;
 
-            db.TBL_T_TO_ROMs.InsertOnSubmit(tbl);
+            db.TBL_T_IN_ROMs.InsertOnSubmit(tbl);
             db.SubmitChanges();
         }
     }

@@ -139,6 +139,8 @@ function submmit() {
                     data: JSON.stringify(obj),
                     success: function (result) {
                         if (result.Status == true) {
+                            $("#id_toRom").empty();
+                            $("#vol_tonase").empty();
                             $("#id_toRom").append($("#txt_seam").val());
                             $("#vol_tonase").append($("#txt_totalTonase").val());
                             $("#notif_success").show();

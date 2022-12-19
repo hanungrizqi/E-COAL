@@ -58,6 +58,35 @@ $(document).ready(function () {
                 }
             },
             pageSize: 50,
+        }),
+
+        ds_gridInOutRom: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    type: "GET",
+                    contentType: "application/json",
+                    cache: false,
+                    url: $("#hd_path").val() + "api/Dashboard/getListInOutRom",//?ID_PEKERJAAN=" + ID_PEKERJAAN,//$("#txt_pekerjaan").val(),
+                    data: {
+                        TANGGAL_AWAL: "",
+                        TANGGAL_AKHIR: ""
+                    }
+                },
+            },
+            schema: {
+                data: "Data",
+                total: "Total",
+                model: {
+                    fields: {
+                        ID_IN_SITU_SEAM: { type: "string", editable: false, sortable: true },
+                        IN_SITU_ROM: { type: "string", editable: false, sortable: true },
+                        TANGGAL: { type: "string", editable: false, sortable: true },
+                        TOTAL_TONASE: { type: "string", editable: false, sortable: true },
+                        ROM: { type: "string", editable: false, sortable: true }
+                    }
+                }
+            },
+            pageSize: 50,
         })
     })
 
@@ -86,13 +115,30 @@ $(document).ready(function () {
         pageable: "true",
         height: "400px",
         columns: [            
-            { title: 'In SITU (GCV | Ton)', template: $('#tmp_AnomaliInSitu').html(), width: 100 },
+            { title: 'Anomali Data', template: $('#tmp_AnomaliInSitu').html(), width: 100 },
             { title: 'Action', width: 50, template: $("#tmp_AnomaliAction").html() },
         ]
     }).data("kendoGrid");
 
+    $("#gridInOutRom").kendoGrid({
+        dataSource: settingModel.ds_gridInOutRom,
+        resizable: "true",
+        editable: "inline",
+        scrollable: "true",
+        sortable: "true",
+        filterable: "true",
+        pageable: "true",
+        height: "400px",
+        columns: [
+            { title: 'In Out ROM (GCV | Ton)', template: $('#tmp_InOutRom').html(), width: 100 }
+        ]
+    }).data("kendoGrid");
+
     setGambar();
+    getCGV();
     setDateNow();
+    //setChart();
+
 })
 
 function setGambar() {
@@ -169,6 +215,10 @@ function fillter() {
     settingModel.ds_gridAnomaliInSitu.transport.options.read.data.TANGGAL_AKHIR = $("#txt_tanggalAkhir").val();
     settingModel.ds_gridAnomaliInSitu.read();
 
+    settingModel.ds_gridInOutRom.transport.options.read.data.TANGGAL_AWAL = $("#txt_tanggalAwal").val();
+    settingModel.ds_gridInOutRom.transport.options.read.data.TANGGAL_AKHIR = $("#txt_tanggalAkhir").val();
+    settingModel.ds_gridInOutRom.read();
+
 }
 
 function anomaliApprove(inSitu) {
@@ -211,4 +261,82 @@ function anomaliReject(inSitu) {
             }
         }
     })
+}
+
+function getCGV() {
+    var district = $("#hd_district").val();
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        contentType: "application/json",
+        url: $("#hd_path").val() + "api/Dashboard/getCGVInROM?district=" + district,
+        //data: JSON.stringify(obj),
+        success: function (result) {
+            if (result.Status == true) {
+                var data = result.Data;
+                $("#tonase").append(data.TOTAL_TONASE_ALL);
+                $("#grade_a").append(data.TOTAL_TONASE_A);
+                $("#grade_b").append(data.TOTAL_TONASE_B);
+                $("#grade_c").append(data.TOTAL_TONASE_C);
+
+                $("#total_tonase").append(data.TOTAL_TONASE_ALL);
+            } else {
+                alert(result.Error);
+            }
+        }
+    })
+}
+
+function setChart() {
+    Codebase.onLoad(
+        class {
+            static initChartsChartJS() {
+                (Chart.defaults.color = "#818d96"),
+                    (Chart.defaults.scale.grid.color = "rgba(0,0,0,.04)"),
+                    (Chart.defaults.scale.grid.zeroLineColor = "rgba(0,0,0,.1)"),
+                    (Chart.defaults.scale.beginAtZero = !0),
+                    (Chart.defaults.elements.line.borderWidth = 2),
+                    (Chart.defaults.elements.point.radius = 5),
+                    (Chart.defaults.elements.point.hoverRadius = 7),
+                    (Chart.defaults.plugins.tooltip.radius = 3),
+                    (Chart.defaults.plugins.legend.labels.boxWidth = 12);
+                let 
+                    l,
+                    h = document.getElementById("gradeInRom"),                    
+                    g = {
+                        labels: ["Earnings", "Sales", "Tickets"],
+                        datasets: [
+                            { data: [50, 25, 25], backgroundColor: ["rgba(101, 163, 13, 1)", "rgba(217, 119, 6, 1)", "rgba(220, 38, 38, 1)"], hoverBackgroundColor: ["rgba(101, 163, 13, .5)", "rgba(217, 119, 6, .5)", "rgba(220, 38, 38, .5)"] },
+                        ],
+                    };
+                    null !== h && (l = new Chart(h, { type: "doughnut", data: g }));
+            }
+            static initRandomEasyPieChart() {
+                document.querySelectorAll(".js-pie-randomize").forEach((a) => {
+                    a.addEventListener("click", (t) => {
+                        a.closest(".block")
+                            .querySelectorAll(".pie-chart")
+                            .forEach((a) => {
+                                jQuery(a)
+                                    .data("easyPieChart")
+                                    .update(Math.floor(100 * Math.random() + 1));
+                            });
+                    });
+                });
+            }
+            static init() {
+                this.initRandomEasyPieChart(), this.initChartsChartJS();
+            }
+        }.init()
+    );
+    //var chart = document.getElementById("gradeInRom");
+    //new Chart(chart, {
+    //    type: "doughnut",
+    //    data: {
+    //        labels: ["Grade A", "Grade B", "Grade C"],
+    //        datasets: [
+    //            { data: [50, 25, 25], backgroundColor: ["rgba(101, 163, 13, 1)", "rgba(217, 119, 6, 1)", "rgba(220, 38, 38, 1)"], hoverBackgroundColor: ["rgba(101, 163, 13, .5)", "rgba(217, 119, 6, .5)", "rgba(220, 38, 38, .5)"] },
+    //        ],
+    //    }
+    //})
 }

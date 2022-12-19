@@ -8,6 +8,11 @@
 <input type="hidden" id="hd_userLogin" value="@Session["Nrp"]" />
 <input type="hidden" id="hd_idProfile" value="@Session["IdProfile"]" />
 
+<style>
+    .img_center{
+        text-align:center;
+    }
+</style>
 <main id="main-container">
     <div class="content">
         <!-- Rounded Blocks -->
@@ -52,13 +57,32 @@
                     </div>
                     <div class="block-content">
                         @*<div class="block-content">
-                        <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
-                    </div>*@
+            <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+        </div>*@
                         <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
                         @*Display Image*@
-                        <div class="col-md-4" id="DisplayImage">
-                            <img id="img_cgv" class="img-responsive thumbnail" width="200" height="200" />
+                        <div class="img_center" id="DisplayImage">
+                            <img id="img_cgv" class="img-responsive thumbnail" width="320" height="320" />
                         </div>
+                        <div class="row">
+                            <div class="col-md-3" style="text-align:center">
+                                <lable id="tonase"></lable><br />
+                                <lable style="color:red"><b>Tonase</b></lable>
+                            </div>
+                            <div class="col-md-3" style="text-align:center">
+                                <lable id="grade_a"></lable><br />
+                                <lable style="color:blue"><b>Grade A</b></lable>
+                            </div>
+                            <div class="col-md-3" style="text-align:center">
+                                <lable id="grade_b"></lable><br />
+                                <lable style="color:green"><b>Grade B</b></lable>
+                            </div>
+                            <div class="col-md-3" style="text-align:center">
+                                <lable id="grade_c"></lable><br />
+                                <lable style="color:yellow"><b>Grade C</b></lable>
+                            </div>
+                        </div>
+                        <br />
                     </div>
                 </div>
             </div>
@@ -70,7 +94,8 @@
                         <h3 class="block-title">In Out ROM</h3>
                     </div>
                     <div class="block-content">
-                        <p>Bordered block with header background..</p>
+                        <div id="gridInOutRom"></div>
+                        <br />
                     </div>
                 </div>
             </div>
@@ -115,23 +140,53 @@
             </div>
 
             <!-- grafik -->
-            <div class="block block-rounded">
-                <div class="block-header block-header-default">
-                    <h3 class="block-title">Donut</h3>
-                    <div class="block-options">
-                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-                            <i class="si si-refresh"></i>
-                        </button>
+            <div class="col-md-12">
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Donut</h3>
                     </div>
-                </div>
-                <div class="block-content block-content-full text-center">
-                    <!-- grafik Container -->
-                    <canvas id="js-chartjs-donut"></canvas>
+                    <div class="block-content">
+                        <div class="col-md-6">
+                            @*<div class="row">*@
+                                <div class="col-6 col-xl-12">
+                                    <div class="block block-rounded block-link-shadow text-end" style="background-color: #D0D3D4 ">
+                                        <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
+                                            <div class="d-none d-sm-block">
+                                                <i class="fa fa-barcode fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fs-3 fw-normal" id="sumproductGar"></div>
+                                                <div class="fs-xs fw-normal text-uppercase">Total Sumproduct GAR</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-xl-12">
+                                    <div class="block block-rounded block-link-shadow text-end" style="background-color: #D0D3D4 ">
+                                        <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
+                                            <div class="d-none d-sm-block">
+                                                <i class="fa fa-suitcase fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fs-3 fw-normal" id="total_tonase"></div>
+                                                <div class="fs-xs fw-normal text-uppercase">Total Tonase in ROM</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @*</div>*@
+                        </div>
+                        <div class="col-md-6">
+                            @*<canvas id="gradeInRom"></canvas>*@
+                        </div>
+                        <br />
+                    </div>
                 </div>
             </div>
             <!-- END grafik -->
         </div>
         <!-- END Rounded Blocks -->
+        
     </div>
 </main>
 
@@ -183,6 +238,14 @@
 <script type="text/x-kendo-tmpl" id="tmp_AnomaliAction">
     <button type="button" class="btn btn-alt-success" onclick="anomaliApprove('#=ID_IN_SITU#')"><i class="fa fa-circle-check"></i></button>
     <button type="button" class="btn btn-alt-danger" onclick="anomaliReject('#=ID_IN_SITU#')"><i class="fa fa-circle-xmark"></i></button>
+</script>
+
+<script type="text/x-kendo-tmpl" id="tmp_InOutRom">
+    #if(ROM == "in"){#
+        <center><b style="color:green">#=IN_SITU_ROM#</b></center>
+    #} else{#
+        <center><b style="color:red">#=IN_SITU_ROM#</b></center>
+    #}#
 </script>
 
 <script src="~/Js/Home.Index.js"></script>

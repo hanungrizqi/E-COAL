@@ -14,6 +14,7 @@ namespace e_coal_api.View_Model
         public DateTime TANGGAL_AWAL { get; set; }
         public DateTime TANGGAL_AKHIR { get; set; }
         public string IN_SITU { get; set; }
+        public string DISTRICT { get; set; }
 
         public cufn_getDateInSituResult c_getDate()
         {
@@ -35,10 +36,10 @@ namespace e_coal_api.View_Model
 
         public void c_approveAnomali()
         {
-            var upt = db.TBL_T_IN_SITUs.Where(a => a.ID_IN_SITU == IN_SITU).FirstOrDefault();
-            upt.STATUS = 1;
-
-            db.SubmitChanges();
+            db.cusp_updateAnomaliData(IN_SITU);
+            //var upt = db.TBL_T_IN_SITUs.Where(a => a.ID_IN_SITU == IN_SITU).FirstOrDefault();
+            //upt.STATUS = 1;
+            //db.SubmitChanges();
         }
 
         public void c_rejectAnomali()
@@ -49,10 +50,21 @@ namespace e_coal_api.View_Model
             db.SubmitChanges();
         }
         #endregion
-        public IQueryable<cufn_getInOutRomResult> getListInOutRom()
+
+        #region in out rom
+        public IQueryable<cufn_getInOutRomResult> c_getListInOutRom()
         {
             var data = db.cufn_getInOutRom(TANGGAL_AWAL, TANGGAL_AKHIR).OrderByDescending(a => a.TANGGAL);
             return data;
         }
+        #endregion
+
+        #region CGV in ROM
+        public cufn_getCGVInROMResult c_getCGVInROM()
+        {
+            var data = db.cufn_getCGVInROM(DISTRICT).FirstOrDefault();
+            return data;
+        }
+        #endregion
     }
 }
