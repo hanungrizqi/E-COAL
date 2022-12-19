@@ -92,6 +92,7 @@ function submmit() {
 
                             $("#notif_success").show();
 
+                            $("#txt_noUnitDt").val("");
                             callSeam();
                         } else {
                             alert(result.Error);

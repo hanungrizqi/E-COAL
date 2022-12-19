@@ -15,6 +15,7 @@ namespace e_coal_api.View_Model
         public int SAFETY { get; set; }
         public int KOMUNIKASI { get; set; }
         public int METODE_KERJA { get; set; }
+        public int VOLUME { get; set; }
 
         public IQueryable<cusp_getListPenilaianResult> getListPenilaian()
         {
@@ -36,6 +37,7 @@ namespace e_coal_api.View_Model
             tbl.SAFETY = SAFETY;
             tbl.KOMUNIKASI = KOMUNIKASI;
             tbl.METODE_KERJA = METODE_KERJA;
+            tbl.VOLUME = VOLUME;
 
             db.TBL_T_APPRAISALs.InsertOnSubmit(tbl);
             db.SubmitChanges();

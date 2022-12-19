@@ -48,19 +48,6 @@ namespace e_coal_api.View_Model
             tbl.INPUT_BY = INPUT_BY;
             /*tbl.STATUS = STATUS;*/
 
-            /*tbl.OPERATOR = OPERATOR;
-            tbl.ID_EQUIPMENT = ID_EQUIPMENT;
-            tbl.EQUIPMENT = EQUIPMENT;
-            tbl.ID_PEKERJAAN = ID_PEKERJAAN;
-            tbl.ID_SEAM = ID_SEAM;
-            tbl.VOLUME = VOLUME;
-            tbl.TIME_H = TIME_H;
-            tbl.TIME_M = TIME_M;
-            tbl.GRADE = GRADE;
-            tbl.INPUT_DATE = DateTime.Now;
-            tbl.INPUT_BY = "test";
-            tbl.STATUS = 1;*/
-
             db.TBL_M_OPERATOR_EXes.InsertOnSubmit(tbl);
             db.SubmitChanges();
         }

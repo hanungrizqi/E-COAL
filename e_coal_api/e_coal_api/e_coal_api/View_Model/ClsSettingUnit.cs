@@ -25,7 +25,7 @@ namespace e_coal_api.View_Model
         public string INPUT_BY { get; set; }
         public int STATUS { get; set; }
 
-        public IQueryable<cufn_getListOperatorByRatingResult> getListOperatorByReting()
+        public IQueryable<cufn_getListOperatorByRatingResult> getListOperatorByRating()
         {
             var data = db.cufn_getListOperatorByRating(ID_PEKERJAAN).OrderByDescending(a => a.AVG_AP);
             return data;

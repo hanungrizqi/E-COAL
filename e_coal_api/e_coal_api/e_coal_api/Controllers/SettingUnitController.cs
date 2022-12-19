@@ -18,7 +18,7 @@ namespace e_coal_api.Controllers
             {
                 ClsSettingUnit clsSettingUnit = new ClsSettingUnit();
                 clsSettingUnit.ID_PEKERJAAN = ID_PEKERJAAN;
-                var data = clsSettingUnit.getListOperatorByReting();
+                var data = clsSettingUnit.getListOperatorByRating();
 
                 return Ok(new { Status = true, Data = data, Total = data.Count() });
             }

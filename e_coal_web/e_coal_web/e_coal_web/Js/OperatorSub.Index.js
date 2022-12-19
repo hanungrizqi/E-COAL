@@ -27,10 +27,10 @@ $(document).ready(function () {
                         NAMA: { type: "string", editable: false, sortable: true },
                         SUBCONT_CODE: { type: "string", editable: false, sortable: true },
                         ID_JABATAN: { type: "int", editable: false, sortable: true },
-                        /*JABATAN: { type: "string", editable: false, sortable: true },*/
                         DEPT_CODE: { type: "string", editable: false, sortable: true },
                         DISTRICT: { type: "string", editable: false, sortable: true },
                         TGL_MASUK: { type: "DateTime", editable: false, sortable: true },
+                        /*columns.Bound(date => date.TGL_MASUK).Title("Tanggal Masuk").Format("{0:MM dd, yyyy}");*/
                         INPUT_DATE: { type: "DateTime", editable: false, sortable: true },
                         INPUT_BY: { type: "string", editable: false, sortable: true },
                         STATUS: { type: "int", editable: false, sortable: true }
@@ -43,9 +43,6 @@ $(document).ready(function () {
     })
     kendo.bind($("#form_main"), settingModel);
 
-    /*var now = new Date();
-    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-    document.getElementById('txt_startJamKerja').value = now.toISOString().slice(0, 16);*/
 
     $("#grid").kendoGrid({
         dataSource: settingModel.ds_grid_dataSource,
@@ -57,13 +54,12 @@ $(document).ready(function () {
         pageable: "true",
         height: "500px",
         columns: [
-            //{ title: 'Action', width: 50, template: $("#tmp_action").html() },
             { field: 'NRP', title: 'NRP', width: 30 },
             { field: 'NAMA', title: 'Name', width: 70 },
             { field: 'SUBCONT_CODE', title: 'Subcont', width: 50 },
             { field: 'DISTRICT', title: 'District', width: 50 },
-            { field: 'TGL_MASUK', title: 'Tanggal Masuk', width: 50 },
-            /*{ title: 'Pilih', template: $('#tmp_check').html(), width: 30 },*/
+            { field: 'TGL_MASUK', title: 'Tanggal Masuk', format: "{0:dd/MM/yyyy}", width: 50 },
+            /*{ field: 'TGL_MASUK', title: 'Tanggal Masuk', template: "#= kendo.parseDate(TGL_MASUK, dd/MM/yyyy) #", width: 50 },*/
         ]
     }).data("kendoGrid");
 
@@ -155,7 +151,7 @@ function submmit() {
         ID_JABATAN: $("#txt_jabatan").val(),
         DEPT_CODE: $("#txt_department").val(),
         DISTRICT: $("#txt_district").val(),
-        TGL_MASUK: $("#txt_tglmasuk").val(),
+        TGL_MASUK: $("#txt_tglmasuk").val()
 
     }
     console.log(obj);
@@ -167,10 +163,31 @@ function submmit() {
         data: JSON.stringify(obj),
         success: function (result) {
             if (result.Status == true) {
-                alert("Success");
+                alert("Operator Berhasil ditambahkan");
+                $("#txt_nrp").val("");
+                $("#txt_nama").val("");
+                $("#txt_subcont").val("");
+                $("#txt_jabatan").val("");
+                $("#txt_department").val("");
+                $("#txt_district").val("");
+                $("#txt_tglmasuk").val("");
             } else {
                 alert(result.Error);
             }
         }
     })
+}
+
+function Reset() {
+    $("#txt_nrp").val("");
+    $("#txt_nama").val("");
+    $("#txt_subcont").val("");
+    $("#txt_jabatan").val("");
+    $("#txt_department").val("");
+    $("#txt_district").val("");
+    $("#txt_tglmasuk").val("");
+    $("#txt_subcont").data("kendoDropDownList").value(-1);
+    $("#txt_jabatan").data("kendoDropDownList").value(-1);
+    $("#txt_department").data("kendoDropDownList").value(-1);
+
 }

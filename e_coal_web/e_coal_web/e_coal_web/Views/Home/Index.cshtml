@@ -16,7 +16,7 @@
 <main id="main-container">
     <div class="content">
         <!-- Rounded Blocks -->
-        <h2 class="content-heading">Filter Tanggal</h2>
+        @*<h2 class="content-heading">Filter Tanggal</h2>*@
         <div class="row">
             <!-- fillter -->
             <div class="col-md-12">
@@ -42,13 +42,12 @@
                         <br />
                     </div>
                     <div class="block-content block-content-full block-content-sm bg-body-light text-end">
-                        <button type="submit" class="btn btn-alt-primary" onclick="fillter()" >
+                        <button type="submit" class="btn btn-alt-primary" onclick="fillter()">
                             <i class="fa fa-check opacity-50 me-1"></i> Fillter
                         </button>
                     </div>
                 </div>
             </div>
-
             <!--upload image-->
             <div class="col-md-6">
                 <div class="block block-rounded block-bordered">
@@ -99,8 +98,6 @@
                     </div>
                 </div>
             </div>
-
-
             <!--anomali data-->
             <div class="col-md-6">
                 <div class="block block-rounded block-bordered">
@@ -113,7 +110,6 @@
                     </div>
                 </div>
             </div>
-
             <!--in situ-->
             <div class="col-md-6">
                 <div class="block block-rounded block-bordered">
@@ -123,22 +119,9 @@
                     <div class="block-content">
                         <div id="gridInSitu"></div>
                         <br />
-                        @*<table class="table table-bordered table-striped table-vcenter js-dataTable-full">
-                        <thead>
-                            <tr>
-                                <th>In SITU | TON</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="fw-semibold">Example</td>
-                            </tr>
-                        </tbody>
-                    </table>*@
                     </div>
                 </div>
             </div>
-
             <!-- grafik -->
             <div class="col-md-12">
                 <div class="block block-rounded">
@@ -184,6 +167,17 @@
                 </div>
             </div>
             <!-- END grafik -->
+            <!-- Request Coal -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Request Table</h3>
+                </div>
+                <div class="block-content">
+                    <div id="gridRequestCoalApproval"></div>
+                    <br />
+                </div>
+            </div>
+            <!-- END Request Coal -->
         </div>
         <!-- END Rounded Blocks -->
         
@@ -234,7 +228,6 @@
 <script type="text/x-kendo-tmpl" id="tmp_AnomaliInSitu">
     <center><b style="color:red">#=IN_SITU#</b></center>
 </script>
-
 <script type="text/x-kendo-tmpl" id="tmp_AnomaliAction">
     <button type="button" class="btn btn-alt-success" onclick="anomaliApprove('#=ID_IN_SITU#')"><i class="fa fa-circle-check"></i></button>
     <button type="button" class="btn btn-alt-danger" onclick="anomaliReject('#=ID_IN_SITU#')"><i class="fa fa-circle-xmark"></i></button>
@@ -246,6 +239,14 @@
     #} else{#
         <center><b style="color:red">#=IN_SITU_ROM#</b></center>
     #}#
+</script>
+
+@*<script type="text/x-kendo-tmpl" id="tmp_RequestCoalApproval">
+    <center><b style="color:green">#=REQUEST_COAL#</b></center>
+</script>*@
+<script type="text/x-kendo-tmpl" id="tmp_RequestCoalAction">
+    <button type="button" class="btn btn-alt-success" onclick="requestApprove('#=ID#')"><i class="fa fa-circle-check"></i></button>
+    @*<button type="button" class="btn btn-alt-danger" onclick="anomaliReject('#=ID_IN_SITU#')"><i class="fa fa-circle-xmark"></i></button>*@
 </script>
 
 <script src="~/Js/Home.Index.js"></script>

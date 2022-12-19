@@ -14,6 +14,8 @@ namespace e_coal_api.View_Model
         public decimal VOLUMECOAL { get; set; }
         public decimal TARGETGCV { get; set; }
         public DateTime DEADLINE { get; set; }
+        public int STATUS { get; set; }
+        /*public DateTime INPUT_DATE { get; set; }*/
         /*public DateTime UPLOAD_DATE { get; set; }
         public string UPLOAD_BY { get; set; }
         public int FLAG { get; set; }
@@ -26,6 +28,8 @@ namespace e_coal_api.View_Model
             tbl.VOLUMECOAL = VOLUMECOAL;
             tbl.TARGETGCV = TARGETGCV;
             tbl.DEADLINE = DEADLINE;
+            tbl.STATUS = STATUS;
+            /*tbl.INPUT_DATE = DateTime.Now;*/
             /*tbl.UPLOAD_DATE = UPLOAD_DATE;
             tbl.UPLOAD_BY = UPLOAD_BY;
             tbl.FLAG = FLAG;

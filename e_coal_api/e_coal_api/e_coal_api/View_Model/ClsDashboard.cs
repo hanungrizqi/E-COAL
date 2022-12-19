@@ -15,6 +15,7 @@ namespace e_coal_api.View_Model
         public DateTime TANGGAL_AKHIR { get; set; }
         public string IN_SITU { get; set; }
         public string DISTRICT { get; set; }
+        public int ID_REQUESTCOAL { get; set; }
 
         public cufn_getDateInSituResult c_getDate()
         {
@@ -66,5 +67,19 @@ namespace e_coal_api.View_Model
             return data;
         }
         #endregion
+
+        public IQueryable<cufn_getRequestCoalApprovalResult> getRequestCoalApproval()
+        {
+            var data = db.cufn_getRequestCoalApproval().OrderByDescending(a => a.DEADLINE);
+            return data;
+        }
+
+        public void c_approveRequestCoal()
+        {
+            var upt = db.TBL_T_REQUEST_COALs.Where(a => a.ID == ID_REQUESTCOAL).FirstOrDefault();
+            upt.STATUS = 1;
+
+            db.SubmitChanges();
+        }
     }
 }
