@@ -28,6 +28,24 @@ namespace e_coal_api.Controllers
             }
         }
 
+        //[HttpGet]
+        //[Route("api/Dashboard/getSumProduct")]
+        //public IHttpActionResult getSumProduct(string district)
+        //{
+        //    try
+        //    {
+        //        ClsDashboard clsDashboard = new ClsDashboard();
+        //        clsDashboard.DISTRICT = district;
+        //        var data = clsDashboard.c_getSumProduct();
+
+        //        return Ok(new { Status = true, Data = data });
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return Ok(new { Status = false, Error = e.ToString() });
+        //    }
+        //}
+
         #region getinsitu
         [HttpGet]
         [Route("api/Dashboard/getListInSitu")]

@@ -195,6 +195,8 @@ function submmit() {
             STAR_WORK_HOUR: $("#txt_startJamKerja").val(), 
             TIME_H: $("#txt_estimasi_h").val(),
             TIME_M: $("#txt_estimasi_m").val(),
+            INPUT_BY: $("#hd_userLogin").val(),
+            DISTRICT: $("#hd_district").val()
             //GRADE: "A",
         }
         //console.log(obj);

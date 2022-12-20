@@ -6,25 +6,6 @@
       <Column Name="PROFILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_T_PAIRING_OPERATOR_UNIT" Member="TBL_T_PAIRING_OPERATOR_UNITs">
-    <Type Name="TBL_T_PAIRING_OPERATOR_UNIT">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="OPERATOR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="ID_EQUIPMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQUIPMENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="VOLUME" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="START_WORK_HOUR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TIME_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TIME_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_M_GRADE" Member="TBL_M_GRADEs">
     <Type Name="TBL_M_GRADE">
       <Column Name="GRADE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -186,6 +167,26 @@
       <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_T_PAIRING_OPERATOR_UNIT" Member="TBL_T_PAIRING_OPERATOR_UNITs">
+    <Type Name="TBL_T_PAIRING_OPERATOR_UNIT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="OPERATOR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ID_EQUIPMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_PEKERJAAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VOLUME" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="START_WORK_HOUR" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TIME_H" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TIME_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TIME_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBL_T_APPRAISAL" Member="TBL_T_APPRAISALs">
     <Type Name="TBL_T_APPRAISAL">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -195,6 +196,8 @@
       <Column Name="KOMUNIKASI" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="METODE_KERJA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="VOLUME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
@@ -331,16 +334,6 @@
     <Parameter Name="in_situ" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.cufn_getCGVInROM" Method="cufn_getCGVInROM" IsComposable="true">
-    <Parameter Name="district" Type="System.String" DbType="VarChar(5)" />
-    <ElementType Name="cufn_getCGVInROMResult">
-      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="TOTAL_TONASE_A" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-      <Column Name="TOTAL_TONASE_B" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-      <Column Name="TOTAL_TONASE_C" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-      <Column Name="TOTAL_TONASE_ALL" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.cufn_getRequestCoalApproval" Method="cufn_getRequestCoalApproval" IsComposable="true">
     <ElementType Name="cufn_getRequestCoalApprovalResult">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -349,6 +342,24 @@
       <Column Name="TARGETGCV" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="DEADLINE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="REQUEST_COAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getSumProduct" Method="cufn_getSumProduct" IsComposable="true">
+    <Parameter Name="district" Type="System.String" DbType="VarChar(5)" />
+    <ElementType Name="cufn_getSumProductResult">
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="SUM_P" Type="System.Decimal" DbType="Decimal(38,4)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getCGVInROM" Method="cufn_getCGVInROM" IsComposable="true">
+    <Parameter Name="district" Type="System.String" DbType="VarChar(5)" />
+    <ElementType Name="cufn_getCGVInROMResult">
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE_A" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE_B" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE_C" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE_ALL" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="SUM_P" Type="System.Decimal" DbType="Decimal(38,4)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

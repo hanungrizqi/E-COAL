@@ -4,6 +4,9 @@
 }
 
 <input type="hidden" id="hd_path" value="@ViewBag.path" />
+<input type="hidden" id="hd_district" value="@Session["District"]" />
+<input type="hidden" id="hd_userLogin" value="@Session["Nrp"]" />
+<input type="hidden" id="hd_idProfile" value="@Session["IdProfile"]" />
 
 <div id="form_main">
     <div class="block block-rounded">
@@ -12,6 +15,7 @@
         </div>
         <div class="block-content">
             <div id="grid"></div>
+            <br />
         </div>
     </div>
 
@@ -81,7 +85,7 @@
                         <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
                             Close
                         </button>
-                        <button type="button" class="btn btn-alt-primary" data-bs-dismiss="modal" onclick="NilaiOperator()">
+                        <button type="button" class="btn btn-alt-primary" data-bs-dismiss="modal" onclick="NilaiOperator()" >
                             Nilai
                         </button>
                     </div>
@@ -92,7 +96,12 @@
 </div>
 
 <script type="text/x-kendo-tmpl" id="tmp_open">
-    <button type="submit" class="btn btn-alt-primary" onclick="OpenModal(#=ID#)">Nilai</button>
+    #if(NILAI != null){#
+        <button type="submit" class="btn btn-alt-primary" onclick="OpenModal(#=ID#)" disabled>Nilai</button>
+    #} else{#
+        <button type="submit" class="btn btn-alt-primary" onclick="OpenModal(#=ID#)" >Nilai</button>
+    #}#
+
 </script>
 
 <script src="~/Js/RatingOperator.Index.js"></script>

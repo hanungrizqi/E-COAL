@@ -81,5 +81,11 @@ namespace e_coal_api.View_Model
 
             db.SubmitChanges();
         }
+
+        //public cufn_getSumProductResult c_getSumProduct()
+        //{
+        //    var data = db.cufn_getSumProduct(DISTRICT).FirstOrDefault();
+        //    return data;
+        //}
     }
 }

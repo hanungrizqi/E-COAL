@@ -16,6 +16,7 @@ namespace e_coal_api.View_Model
         public int KOMUNIKASI { get; set; }
         public int METODE_KERJA { get; set; }
         public int VOLUME { get; set; }
+        public string INPUT_BY { get; set; }
 
         public IQueryable<cusp_getListPenilaianResult> getListPenilaian()
         {
@@ -37,9 +38,14 @@ namespace e_coal_api.View_Model
             tbl.SAFETY = SAFETY;
             tbl.KOMUNIKASI = KOMUNIKASI;
             tbl.METODE_KERJA = METODE_KERJA;
-            tbl.VOLUME = VOLUME;
-
+            tbl.INPUT_BY = INPUT_BY;
+            tbl.INPUT_DATE = DateTime.Now;
+            //tbl.VOLUME = VOLUME;
             db.TBL_T_APPRAISALs.InsertOnSubmit(tbl);
+
+            var upt = db.TBL_T_PAIRING_OPERATOR_UNITs.Where(a => a.ID == ID_PAIRING).FirstOrDefault();
+            upt.VOLUME = VOLUME;
+
             db.SubmitChanges();
         }
     }

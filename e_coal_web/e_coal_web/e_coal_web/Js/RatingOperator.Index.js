@@ -131,6 +131,8 @@ function NilaiOperator() {
         , KOMUNIKASI: $("#txt_komunikasi").val()
         , METODE_KERJA: $("#txt_metodeKerja").val()
         , VOLUME: $("#txt_volume").val()
+        , INPUT_BY: $("#hd_userLogin").val()
+        //, DISTRICT: $("#hd_district").val()
     }
     console.log(obj);
     $.ajax({

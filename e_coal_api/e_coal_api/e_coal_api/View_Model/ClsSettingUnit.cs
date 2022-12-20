@@ -24,6 +24,7 @@ namespace e_coal_api.View_Model
         public DateTime INPUT_DATE { get; set; }
         public string INPUT_BY { get; set; }
         public int STATUS { get; set; }
+        public string DISTRICT { get; set; }
 
         public IQueryable<cufn_getListOperatorByRatingResult> getListOperatorByRating()
         {
@@ -51,8 +52,9 @@ namespace e_coal_api.View_Model
             tbl.TIME_M = TIME_M;
             //tbl.GRADE = GRADE;
             tbl.INPUT_DATE = DateTime.Now;
-            tbl.INPUT_BY = "test";
+            tbl.INPUT_BY = INPUT_BY;
             tbl.STATUS = 1;
+            tbl.DISTRICT = DISTRICT;
 
             db.TBL_T_PAIRING_OPERATOR_UNITs.InsertOnSubmit(tbl);
             db.SubmitChanges();

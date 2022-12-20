@@ -130,7 +130,7 @@ function submmit() {
 
                 $("#notif_success").show();
             } else {
-                alert(result.Remark);
+                alert(result.Error);
             }
         }
     })    

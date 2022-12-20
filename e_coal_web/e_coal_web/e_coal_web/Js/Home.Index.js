@@ -179,7 +179,7 @@ $(document).ready(function () {
             { field: 'MOMCOST', title: 'Mom Cost', width: 50 },
             { field: 'VOLUMECOAL', title: 'Volume Coal', width: 50 },
             { field: 'TARGETGCV', title: 'Target GCV', width: 50 },
-            { field: 'DEADLINE', title: 'Deadline', width: 50 },
+            { field: 'DEADLINE', title: 'Deadline', width: 50, format: "{0: dd MMM yyyy}" },
             { title: 'Action', width: 50, template: $("#tmp_RequestCoalAction").html() },
         ]
     }).data("kendoGrid");
@@ -330,6 +330,7 @@ function getCGV() {
                 $("#grade_c").append(data.TOTAL_TONASE_C);
 
                 $("#total_tonase").append(data.TOTAL_TONASE_ALL);
+                $("#sumproductGar").append(data.SUM_P);
             } else {
                 alert(result.Error);
             }
