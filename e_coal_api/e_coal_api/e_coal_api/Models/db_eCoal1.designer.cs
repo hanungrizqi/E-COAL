@@ -345,6 +345,12 @@ namespace e_coal_api.Models
 		{
 			return this.CreateMethodCallQuery<cufn_getCGVInROMResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), district);
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getListDoneRequest", IsComposable=true)]
+		public IQueryable<cufn_getListDoneRequestResult> cufn_getListDoneRequest()
+		{
+			return this.CreateMethodCallQuery<cufn_getListDoneRequestResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_PROFILE")]
@@ -5676,6 +5682,122 @@ namespace e_coal_api.Models
 				if ((this._SUM_P != value))
 				{
 					this._SUM_P = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getListDoneRequestResult
+	{
+		
+		private int _ID;
+		
+		private string _MOMCOST;
+		
+		private System.Nullable<decimal> _VOLUMECOAL;
+		
+		private System.Nullable<decimal> _TARGETGCV;
+		
+		private System.Nullable<System.DateTime> _DEADLINE;
+		
+		private System.Nullable<int> _REQUEST_COAL;
+		
+		public cufn_getListDoneRequestResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOMCOST", DbType="VarChar(50)")]
+		public string MOMCOST
+		{
+			get
+			{
+				return this._MOMCOST;
+			}
+			set
+			{
+				if ((this._MOMCOST != value))
+				{
+					this._MOMCOST = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VOLUMECOAL", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> VOLUMECOAL
+		{
+			get
+			{
+				return this._VOLUMECOAL;
+			}
+			set
+			{
+				if ((this._VOLUMECOAL != value))
+				{
+					this._VOLUMECOAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TARGETGCV", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TARGETGCV
+		{
+			get
+			{
+				return this._TARGETGCV;
+			}
+			set
+			{
+				if ((this._TARGETGCV != value))
+				{
+					this._TARGETGCV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEADLINE", DbType="Date")]
+		public System.Nullable<System.DateTime> DEADLINE
+		{
+			get
+			{
+				return this._DEADLINE;
+			}
+			set
+			{
+				if ((this._DEADLINE != value))
+				{
+					this._DEADLINE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REQUEST_COAL", DbType="Int")]
+		public System.Nullable<int> REQUEST_COAL
+		{
+			get
+			{
+				return this._REQUEST_COAL;
+			}
+			set
+			{
+				if ((this._REQUEST_COAL != value))
+				{
+					this._REQUEST_COAL = value;
 				}
 			}
 		}
