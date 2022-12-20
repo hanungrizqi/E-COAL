@@ -4079,6 +4079,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chart.js\Chart.bundle.js" />
+    <Content Include="Content\chart.js\Chart.bundle.min.js" />
+    <Content Include="Content\chart.js\Chart.js" />
+    <Content Include="Content\chart.js\Chart.min.js" />
     <Content Include="Content\googleFonts.css" />
     <Content Include="Content\kendo\Black\editor.png" />
     <Content Include="Content\kendo\Black\imagebrowser.png" />

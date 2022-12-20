@@ -56,7 +56,33 @@ $(document).ready(function () {
         ]
     }).data("kendoGrid");
     setGambar();
+    getCGV();
 })
+
+function getCGV() {
+    var district = $("#hd_district").val();
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        contentType: "application/json",
+        url: $("#hd_path").val() + "api/Dashboard/getCGVInROM?district=" + district,
+        //data: JSON.stringify(obj),
+        success: function (result) {
+            if (result.Status == true) {
+                var data = result.Data;
+                $("#tonase").append(data.TOTAL_TONASE_ALL);
+                $("#grade_a").append(data.TOTAL_TONASE_A);
+                $("#grade_b").append(data.TOTAL_TONASE_B);
+                $("#grade_c").append(data.TOTAL_TONASE_C);
+
+                $("#total_tonase").append(data.TOTAL_TONASE_ALL);
+                $("#sumproductGar").append(data.SUM_P);
+            } else {
+                alert(result.Error);
+            }
+        }
+    })
+}
 
 function setGambar() {
     $.ajax({

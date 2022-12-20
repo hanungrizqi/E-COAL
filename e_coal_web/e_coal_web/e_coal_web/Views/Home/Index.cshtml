@@ -9,8 +9,8 @@
 <input type="hidden" id="hd_idProfile" value="@Session["IdProfile"]" />
 
 <style>
-    .img_center{
-        text-align:center;
+    .img_center {
+        text-align: center;
     }
 </style>
 <main id="main-container">
@@ -56,8 +56,8 @@
                     </div>
                     <div class="block-content">
                         @*<div class="block-content">
-                        <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
-                    </div>*@
+                                <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+                            </div>*@
                         <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
                         @*Display Image*@
                         <div class="img_center" id="DisplayImage">
@@ -78,7 +78,7 @@
                             </div>
                             <div class="col-md-3" style="text-align:center">
                                 <lable id="grade_c"></lable><br />
-                                <lable style="color:yellow"><b>Grade C</b></lable>
+                                <lable style="color:chocolate"><b>Grade C</b></lable>
                             </div>
                         </div>
                         <br />
@@ -128,7 +128,7 @@
                     <div class="block-header block-header-default">
                         <h3 class="block-title">Donut</h3>
                     </div>
-                    <div class="block-content">
+                    <div class="block-content row">
                         <div class="col-md-6">
                             @*<div class="row">*@
                             <div class="col-6 col-xl-12">
@@ -160,7 +160,7 @@
                             @*</div>*@
                         </div>
                         <div class="col-md-6">
-                            @*<canvas id="gradeInRom"></canvas>*@
+                            <canvas id="gradeInRom"></canvas>
                         </div>
                         <br />
                     </div>
@@ -209,7 +209,7 @@
                     <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
                         Close
                     </button>
-                    <button type="button" class="btn btn-alt-primary" data-bs-dismiss="modal" >
+                    <button type="button" class="btn btn-alt-primary" data-bs-dismiss="modal">
                         Done
                     </button>
                 </div>
@@ -244,11 +244,13 @@
 </script>
 
 @*<script type="text/x-kendo-tmpl" id="tmp_RequestCoalApproval">
-    <center><b style="color:green">#=REQUEST_COAL#</b></center>
-</script>*@
+        <center><b style="color:green">#=REQUEST_COAL#</b></center>
+    </script>*@
 <script type="text/x-kendo-tmpl" id="tmp_RequestCoalAction">
     <button type="button" class="btn btn-alt-primary" onclick="requestApprove('#=ID#')">Close</button>
     @*<button type="button" class="btn btn-alt-danger" onclick="anomaliReject('#=ID_IN_SITU#')"><i class="fa fa-circle-xmark"></i></button>*@
 </script>
 
+<script src="~/Content/chart.js/Chart.bundle.js"></script>
+<script src="~/Content/chart.js/Chart.js"></script>
 <script src="~/Js/Home.Index.js"></script>

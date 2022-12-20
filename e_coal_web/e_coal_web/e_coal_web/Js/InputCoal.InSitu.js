@@ -106,32 +106,58 @@ function submmit() {
         , INPUT_BY: $("#hd_userLogin").val()
     }
     //console.log(obj);
-    $.ajax({
-        type: "POST", 
-        dataType: "json",
-        contentType: "application/json",
-        url: $("#hd_path").val() + "api/InputCoal/submmitInSitu",
-        data: JSON.stringify(obj),
-        success: function (result) {
-            if (result.Status == true) {
-                $("#id_inSitu").empty();
-                $("#vol_tonase").empty();
+    if (obj.ID_SEAM == "Pilih" || obj.GRADE == "" || obj.GAR_ACTUAL == "" || obj.COAL_CONDITION == "" || obj.TOTAL_TONASE == "" || obj.TANGGAL == "") {
+        alert("Lengkapi Data!!");
+    }
+    else {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            url: $("#hd_path").val() + "api/InputCoal/submmitInSitu",
+            data: JSON.stringify(obj),
+            success: function (result) {
+                if (result.Status == true) {
+                    $("#id_inSitu").empty();
+                    $("#vol_tonase").empty();
 
-                $("#id_inSitu").append(setId());
-                $("#vol_tonase").append($("#txt_totalTonase").val());
+                    $("#id_inSitu").append(setId());
+                    $("#vol_tonase").append($("#txt_totalTonase").val());
 
-                if ($("#txt_kondisiCoal").val() == "Normal") {
-                    $("#id_inSitu").css("color", "green");
-                    $("#vol_tonase").css("color", "green");
+                    if ($("#txt_kondisiCoal").val() == "Normal") {
+                        $("#id_inSitu").css("color", "green");
+                        $("#vol_tonase").css("color", "green");
+                    } else {
+                        $("#id_inSitu").css("color", "red");
+                        $("#vol_tonase").css("color", "red");
+                    }
+
+                    $("#notif_success").show();
+                    Reset();
                 } else {
-                    $("#id_inSitu").css("color", "red");
-                    $("#vol_tonase").css("color", "red");
+                    alert(result.Error);
                 }
-
-                $("#notif_success").show();
-            } else {
-                alert(result.Error);
             }
-        }
-    })    
+        })    
+    }
+}
+
+function Reset() {
+    $("#txt_estimasiGar").val("");
+    $("#txt_garActual").val("");
+    $("#txt_kondisiCoal").val("");
+    $("#txt_totalTonase").val("");
+    $("#txt_tanggal").val("");
+    $("#txt_seam").data("kendoDropDownList").value(-1);
+
+    settingModel.set("grade", "");
+    settingModel.set("total_tonase_seam", "");
+
+    $("#id_inSitu").empty();
+    $("#vol_tonase").empty();
+
+    settingModel.set("GRADE", "");
+    settingModel.set("GAR_MIN", "");
+    settingModel.set("GAR_MAX", "");
+    settingModel.set("INITIAL_SEAM", "");
 }

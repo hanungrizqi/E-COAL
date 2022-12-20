@@ -87,5 +87,11 @@ namespace e_coal_api.View_Model
         //    var data = db.cufn_getSumProduct(DISTRICT).FirstOrDefault();
         //    return data;
         //}
+
+        //public List<cufn_getChartResult> c_getChart()
+        //{
+        //    var data = db.cufn_getChart(DISTRICT).Select(a => a.GRADE).ToList();
+        //    return data;
+        //}
     }
 }

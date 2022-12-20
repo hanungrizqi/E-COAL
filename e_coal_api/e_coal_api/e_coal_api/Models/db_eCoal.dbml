@@ -362,4 +362,15 @@
       <Column Name="SUM_P" Type="System.Decimal" DbType="Decimal(38,4)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.cufn_getChart" Method="cufn_getChart" IsComposable="true">
+    <Parameter Name="district" Type="System.String" DbType="VarChar(5)" />
+    <ElementType Name="cufn_getChartResult">
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="GRADE_DESC" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE_ALL" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="P" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

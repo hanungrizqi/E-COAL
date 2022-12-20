@@ -11,6 +11,8 @@ namespace e_coal_api.Controllers
 {
     public class DashboardController : ApiController
     {
+        db_eCoalDataContext db = new db_eCoalDataContext();
+
         [HttpGet]
         [Route("api/Dashboard/getDate")]
         public IHttpActionResult getDate()
@@ -45,6 +47,23 @@ namespace e_coal_api.Controllers
         //        return Ok(new { Status = false, Error = e.ToString() });
         //    }
         //}
+
+        [HttpGet]
+        [Route("api/Dashboard/getChart")]
+        public IHttpActionResult getChart(string district)
+        {
+            try
+            {
+                var header = db.cufn_getChart(district).OrderBy(a => a.GRADE).Select(a => a.GRADE_DESC).ToList();
+                var data =db.cufn_getChart(district).OrderBy(a => a.GRADE).Select(a => a.P).ToList();
+
+                return Ok(new { Status = true, Header = header, Data = data});
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
 
         #region getinsitu
         [HttpGet]

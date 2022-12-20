@@ -34,11 +34,17 @@ namespace e_coal_web
                      "~/Scripts/kendo/jszip.min.js"));
 
             //kendo css
+            //bundles.Add(new StyleBundle("~/Content/kendo/css").Include(
+            //         "~/Content/kendo/kendo.common.css",
+            //         "~/Content/kendo/kendo.common.min.css",
+            //         "~/Content/kendo/kendo.blueopal.css",
+            //         "~/Content/kendo/kendo.blueopal.min.css"));
+
             bundles.Add(new StyleBundle("~/Content/kendo/css").Include(
-                     "~/Content/kendo/kendo.common.css",
-                     "~/Content/kendo/kendo.common.min.css",
-                     "~/Content/kendo/kendo.blueopal.css",
-                     "~/Content/kendo/kendo.blueopal.min.css"));
+                    "~/Content/kendo/kendo.common.css",
+                    "~/Content/kendo/kendo.common.min.css",
+                    "~/Content/kendo/kendo.bootstrap.css",
+                    "~/Content/kendo/kendo.bootstrap.min.css"));
         }
     }
 }

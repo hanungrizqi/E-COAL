@@ -345,6 +345,12 @@ namespace e_coal_api.Models
 		{
 			return this.CreateMethodCallQuery<cufn_getCGVInROMResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), district);
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getChart", IsComposable=true)]
+		public IQueryable<cufn_getChartResult> cufn_getChart([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(5)")] string district)
+		{
+			return this.CreateMethodCallQuery<cufn_getChartResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), district);
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_PROFILE")]
@@ -5676,6 +5682,122 @@ namespace e_coal_api.Models
 				if ((this._SUM_P != value))
 				{
 					this._SUM_P = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getChartResult
+	{
+		
+		private string _DISTRICT;
+		
+		private string _GRADE;
+		
+		private string _GRADE_DESC;
+		
+		private System.Nullable<decimal> _TOTAL_TONASE;
+		
+		private System.Nullable<decimal> _TOTAL_TONASE_ALL;
+		
+		private System.Nullable<decimal> _P;
+		
+		public cufn_getChartResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(5)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this._DISTRICT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRADE", DbType="VarChar(5)")]
+		public string GRADE
+		{
+			get
+			{
+				return this._GRADE;
+			}
+			set
+			{
+				if ((this._GRADE != value))
+				{
+					this._GRADE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRADE_DESC", DbType="VarChar(11)")]
+		public string GRADE_DESC
+		{
+			get
+			{
+				return this._GRADE_DESC;
+			}
+			set
+			{
+				if ((this._GRADE_DESC != value))
+				{
+					this._GRADE_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_TONASE", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> TOTAL_TONASE
+		{
+			get
+			{
+				return this._TOTAL_TONASE;
+			}
+			set
+			{
+				if ((this._TOTAL_TONASE != value))
+				{
+					this._TOTAL_TONASE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_TONASE_ALL", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> TOTAL_TONASE_ALL
+		{
+			get
+			{
+				return this._TOTAL_TONASE_ALL;
+			}
+			set
+			{
+				if ((this._TOTAL_TONASE_ALL != value))
+				{
+					this._TOTAL_TONASE_ALL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> P
+		{
+			get
+			{
+				return this._P;
+			}
+			set
+			{
+				if ((this._P != value))
+				{
+					this._P = value;
 				}
 			}
 		}

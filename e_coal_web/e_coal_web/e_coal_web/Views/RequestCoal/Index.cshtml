@@ -4,6 +4,16 @@
 }
 
 <input type="hidden" id="hd_path" value="@ViewBag.path" />
+<input type="hidden" id="hd_path" value="@ViewBag.path" />
+<input type="hidden" id="hd_district" value="@Session["District"]" />
+<input type="hidden" id="hd_userLogin" value="@Session["Nrp"]" />
+<input type="hidden" id="hd_idProfile" value="@Session["IdProfile"]" />
+
+<style>
+    .img_center {
+        text-align: center;
+    }
+</style>
 
 <div id="form_main">
     <div class="block block-rounded">
@@ -59,15 +69,17 @@
                         <label class="form-label">Status (0)</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="number"--> @*value=0*@ <!--class="form-control" id="txt_status"--> @*readonly="readonly"*@<!--/>
+                        <input type="number"-->
+                @*value=0*@ <!--class="form-control" id="txt_status"--> @*readonly="readonly"*@
+                <!--/>
                     </div>
                 </div>-->
 
 
             </div>
             <!--<div class="block-content block-content-full">-->
-                @*<table class="table table-bordered table-striped table-vcenter js-dataTable-responsive" id="tbl_opt"></table>*@
-                <!--<div id="grid"></div>
+            @*<table class="table table-bordered table-striped table-vcenter js-dataTable-responsive" id="tbl_opt"></table>*@
+            <!--<div id="grid"></div>
             </div>-->
         </div>
         <div class="block-content block-content-full block-content-sm bg-body-light text-end">
@@ -82,13 +94,48 @@
 
     <div class="block block-rounded">
         <div class="block-header block-header-default">
-            <h3 class="block-title">CGV in SITU<small></small></h3>
+            <h3 class="block-title">CGV in ROM</h3>
         </div>
-
-        <div class="col-md-4" id="DisplayImage">
-            <img id="img_cgv" class="img-responsive thumbnail" width="200" height="200" />
+        <div class="block-content">
+            @*<div class="block-content">
+                    <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+                </div>*@
+            <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+            @*Display Image*@
+            <div class="img_center" id="DisplayImage">
+                <img id="img_cgv" class="img-responsive thumbnail" width="320" height="320" />
+            </div>
+            <div class="row">
+                <div class="col-md-3" style="text-align:center">
+                    <lable id="tonase"></lable><br />
+                    <lable style="color:red"><b>Tonase</b></lable>
+                </div>
+                <div class="col-md-3" style="text-align:center">
+                    <lable id="grade_a"></lable><br />
+                    <lable style="color:blue"><b>Grade A</b></lable>
+                </div>
+                <div class="col-md-3" style="text-align:center">
+                    <lable id="grade_b"></lable><br />
+                    <lable style="color:green"><b>Grade B</b></lable>
+                </div>
+                <div class="col-md-3" style="text-align:center">
+                    <lable id="grade_c"></lable><br />
+                    <lable style="color:chocolate"><b>Grade C</b></lable>
+                </div>
+            </div>
+            <br />
         </div>
     </div>
+
+    @*<div class="block block-rounded">
+            <div class="block-header block-header-default">
+                <h3 class="block-title">CGV in SITU<small></small></h3>
+            </div>
+
+            <div class="col-md-4" id="DisplayImage">
+                <img id="img_cgv" class="img-responsive thumbnail" width="200" height="200" />
+            </div>
+        </div>*@
 
     <div class="block block-rounded">
         <div class="block-header block-header-default">
@@ -102,7 +149,7 @@
 </div>
 
 @*<script type="text/x-kendo-tmpl" id="tmp_check">
-    <center><input type="checkbox" id="#=EMPLOYEE_ID#_CHECK" name="PILIH_OP"></center>
-</script>*@
+        <center><input type="checkbox" id="#=EMPLOYEE_ID#_CHECK" name="PILIH_OP"></center>
+    </script>*@
 
 <script src="~/Js/RequestCoal.Index.js"></script>
