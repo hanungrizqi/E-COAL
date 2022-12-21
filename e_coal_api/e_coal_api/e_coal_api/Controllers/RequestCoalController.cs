@@ -35,5 +35,22 @@ namespace e_coal_api.Controllers
             var data = db.TBL_T_REQUEST_COALs.ToList();
             return Ok(new { Data = data });
         }
+
+        [HttpGet]
+        [Route("api/RequestCoal/getListDoneRequest")]
+        public IHttpActionResult getListDoneRequest()
+        {
+            try
+            {
+                ClsRequestCoal clsRequestCoal = new ClsRequestCoal();
+                var data = clsRequestCoal.getListDoneRequest();
+
+                return Ok(new { Status = true, Data = data, Total = data.Count() });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
     }
 }

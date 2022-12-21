@@ -17,9 +17,9 @@
     <div class="content">
         <!-- Rounded Blocks -->
         @*<h2 class="content-heading">Filter Tanggal</h2>*@
-        <div class="row">
+        <!--<div class="row">
             <!-- fillter -->
-            <div class="col-md-12">
+            <!--<div class="col-md-12">
                 <div class="block block-rounded block-bordered">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">Fillter Tanggal</h3>
@@ -30,13 +30,13 @@
                                 <label class="form-label">Tanggal Awal</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="date" class="form-control" id="txt_tanggalAwal" style="width:100%" />
+                                <input type="date" class="form-control" id="txt_tanggalAwal" style="width:40%" />
                             </div>
                             <div class="col-md-2">
                                 <label class="form-label">Tanggal Akhir</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="date" class="form-control" id="txt_tanggalAkhir" style="width:100%" />
+                                <input type="date" class="form-control" id="txt_tanggalAkhir" style="width:40%" />
                             </div>
                         </div>
                         <br />
@@ -47,19 +47,15 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!--upload image-->
-            <div class="col-md-6">
+            <!--<div class="col-md-6">
                 <div class="block block-rounded block-bordered">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">CGV in ROM</h3>
                     </div>
                     <div class="block-content">
-                        @*<div class="block-content">
-                                <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
-                            </div>*@
                         <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
-                        @*Display Image*@
                         <div class="img_center" id="DisplayImage">
                             <img id="img_cgv" class="img-responsive thumbnail" width="320" height="320" />
                         </div>
@@ -84,10 +80,10 @@
                         <br />
                     </div>
                 </div>
-            </div>
+            </div>-->
 
             <!--in out rom-->
-            <div class="col-md-6">
+            <!--<div class="col-md-6">
                 <div class="block block-rounded block-bordered">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">In Out ROM</h3>
@@ -97,9 +93,9 @@
                         <br />
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!--anomali data-->
-            <div class="col-md-6">
+            <!--<div class="col-md-6">
                 <div class="block block-rounded block-bordered">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">Anomali Data</h3>
@@ -109,9 +105,9 @@
                         <br />
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!--in situ-->
-            <div class="col-md-6">
+            <!--<div class="col-md-6">
                 <div class="block block-rounded block-bordered">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">In SITU (GCV | Ton)</h3>
@@ -121,17 +117,17 @@
                         <br />
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- grafik -->
-            <div class="col-md-12">
+            <!--<div class="col-md-12">
                 <div class="block block-rounded">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">Donut</h3>
                     </div>
-                    <div class="block-content row">
-                        <div class="col-md-6">
+                    <div class="block-content">
+                        <div class="col-md-6">-->
                             @*<div class="row">*@
-                            <div class="col-6 col-xl-12">
+                            <!--<div class="col-6 col-xl-12">
                                 <div class="block block-rounded block-link-shadow text-end" style="background-color: #D0D3D4 ">
                                     <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
                                         <div class="d-none d-sm-block">
@@ -156,9 +152,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             @*</div>*@
-                        </div>
+                        <!--</div>
                         <div class="col-md-6">
                             <canvas id="gradeInRom"></canvas>
                         </div>
@@ -168,6 +164,162 @@
             </div>
             <!-- END grafik -->
             <!-- Request Coal -->
+            <!--<div class="col-md-12">
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Request Table</h3>
+                    </div>
+                    <div class="block-content">
+                        <div id="gridRequestCoalApproval"></div>
+                        <br />
+                    </div>
+                </div>-->
+                <!-- END Request Coal -->
+            <!--</div>
+        </div>-->
+        <!-- END Rounded Blocks -->
+
+        <!-- COPY DARI SINI -->
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Instructor -->
+                <a class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default border-bottom">
+                        <h3 class="block-title">Grade dan Tonase In ROM</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="col-6 col-xl-12">
+                            <div class="block block-rounded block-link-shadow text-end" style="background-color: #D0D3D4 ">
+                                <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
+                                    <div class="d-none d-sm-block">
+                                        <i class="fa fa-barcode fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fs-3 fw-normal" id="sumproductGar"></div>
+                                        <div class="fs-xs fw-normal text-uppercase">Total Sumproduct GAR</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-12">
+                            <div class="block block-rounded block-link-shadow text-end" style="background-color: #D0D3D4 ">
+                                <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
+                                    <div class="d-none d-sm-block">
+                                        <i class="fa fa-suitcase fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fs-3 fw-normal" id="total_tonase"></div>
+                                        <div class="fs-xs fw-normal text-uppercase">Total Tonase in ROM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-header block-header-default border-bottom">
+                        <h3 class="block-title">Persentase Grade In ROM</h3>
+                    </div>
+                    <div class="block-content">
+                        <p>CHART</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xl-4">
+                <!-- Instructor -->
+                <a class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">CGV In ROM</h3>
+                    </div>
+                    <div class="block-content">
+                        <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+                        <div class="img_center" id="DisplayImage">
+                            <img id="img_cgv" class="img-responsive thumbnail" width="320" height="320" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3" style="text-align:center">
+                                <lable id="tonase"></lable><br />
+                                <lable style="color:red"><b>Tonase</b></lable>
+                            </div>
+                            <div class="col-md-3" style="text-align:center">
+                                <lable id="grade_a"></lable><br />
+                                <lable style="color:blue"><b>Grade A</b></lable>
+                            </div>
+                            <div class="col-md-3" style="text-align:center">
+                                <lable id="grade_b"></lable><br />
+                                <lable style="color:green"><b>Grade B</b></lable>
+                            </div>
+                            <div class="col-md-3" style="text-align:center">
+                                <lable id="grade_c"></lable><br />
+                                <lable style="color:yellow"><b>Grade C</b></lable>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </a>
+                <!-- END Instructor -->
+                <!-- Instructor -->
+                <a class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default border-bottom">
+                        <h3 class="block-title">Anomali Data</h3>
+                    </div>
+                    <div class="block-content">
+                        <div id="gridAnomaliInSitu"></div>
+                        <br />
+                    </div>
+                </a>
+                <!-- END Instructor -->
+            </div>
+
+            <div class="col-xl-4">
+                <!-- Subscribe -->
+                <div class="mb-4">
+                    <div class="input-daterange input-group" data-date-format="mm/dd/yyyy" data-week-start="1" data-autoclose="true" data-today-highlight="true">
+                        @*<input type="text" class="form-control" id="example-daterange1" name="example-daterange1" placeholder="From" data-week-start="1" data-autoclose="true" data-today-highlight="true">*@
+                        <input type="date" class="form-control" id="txt_tanggalAwal" name="example-daterange1" placeholder="From" data-week-start="1" data-autoclose="true" data-today-highlight="true" />
+
+                        @*<input type="text" class="form-control" id="example-daterange2" name="example-daterange2" placeholder="To" data-week-start="1" data-autoclose="true" data-today-highlight="true">*@
+                        <input type="date" class="form-control" id="txt_tanggalAkhir" name="example-daterange2" placeholder="To" data-week-start="1" data-autoclose="true" data-today-highlight="true" />
+
+                        <span class="input-group-text fw-semibold" typeof="submit" onclick="fillter()">
+                            <i class="fa fa-fw fa-arrow-down"></i>
+                        </span>
+                        @*<div class="block-content block-content-full block-content-sm bg-body-light text-end">
+                            <button type="submit" class="btn btn-alt-primary" onclick="fillter()">
+                                <i class="fa fa-check opacity-50 me-1"></i> Fillter
+                            </button>
+                        </div>*@
+                    </div>
+                </div>
+                <!-- END Subscribe -->
+                <!-- Instructor -->
+                <a class="block block-rounded block-bordered">
+                    <div class="block-header block-header-default border-bottom">
+                        <h3 class="block-title">In Out ROM (GCV | Ton)</h3>
+                    </div>
+                    <div class="block-content">
+                        <div id="gridInOutRom"></div>
+                        <br />
+                    </div>
+
+                    <div class="block-header block-header-default border-bottom">
+                        <h3 class="block-title">In Situ (GCV | Ton)</h3>
+                    </div>
+                    <div class="block-content">
+                        <div id="gridInSitu"></div>
+                        <br />
+                        @*<table class="table table-bordered table-striped table-vcenter js-dataTable-simple">
+                            
+                            <tbody>
+                                <tr>
+                                    <td class="fw-semibold">Justin Hunt</td>
+                                    <td class="d-none d-sm-table-cell">customer1@example.com</td>
+                                </tr>
+                            </tbody>
+                        </table>*@
+                    </div>
+                </a>
+            </div>
             <div class="col-md-12">
                 <div class="block block-rounded">
                     <div class="block-header block-header-default">
@@ -181,8 +333,7 @@
                 <!-- END Request Coal -->
             </div>
         </div>
-        <!-- END Rounded Blocks -->
-
+        <!-- SAMPE SINI -->
     </div>
 </main>
 

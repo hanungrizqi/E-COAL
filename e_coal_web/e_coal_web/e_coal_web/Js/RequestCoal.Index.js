@@ -2,8 +2,6 @@
 
 $(document).ready(function () {
     settingModel = kendo.observable({
-        /*id_pekerjaan: "",
-        id_seam: "",*/
 
         ds_grid_dataSource: new kendo.data.DataSource({
             transport: {
@@ -11,7 +9,7 @@ $(document).ready(function () {
                     type: "GET",
                     contentType: "application/json",
                     cache: false,
-                    url: $("#hd_path").val() + "api/RequestCoal/getListRequestCoal",//?ID_PEKERJAAN=" + ID_PEKERJAAN,//$("#txt_pekerjaan").val(),
+                    url: $("#hd_path").val() + "api/RequestCoal/getListDoneRequest",//?ID_PEKERJAAN=" + ID_PEKERJAAN,//$("#txt_pekerjaan").val(),
 
                 },
             },
@@ -24,7 +22,7 @@ $(document).ready(function () {
                         MOMCOST: { type: "string", editable: false, sortable: true },
                         VOLUMECOAL: { type: "decimal", editable: false, sortable: true },
                         TARGETGCV: { type: "decimal", editable: false, sortable: true },
-                        DEADLINE: { type: "DateTime", editable: false, sortable: true },
+                        DEADLINE: { type: "date", editable: false, sortable: true },
                         INPUT_DATE: { type: "DateTime", editable: false, sortable: true },
                         INPUT_BY: { type: "string", editable: false, sortable: true },
                         FLAG: { type: "int", editable: false, sortable: true },
@@ -51,7 +49,8 @@ $(document).ready(function () {
             { field: 'MOMCOST', title: 'MOM Cust', width: 70 },
             { field: 'VOLUMECOAL', title: 'Volume Coal', width: 30 },
             { field: 'TARGETGCV', title: 'Target GCV', width: 30 },
-            { field: 'DEADLINE', title: 'Deadline', type: 'DateTime', format: '{0:dd/MM/yyyy}', width: 40 },
+            { field: 'DEADLINE', title: 'Deadline', width: 40, format: "{0: dd MMM yyyy}" },
+            /*{ field: 'DEADLINE', title: 'Deadline', template: '#= kendo.toString(DEADLINE, "dd/MM/yyyy") #', width: 50 },*/
             /*{ title: 'Pilih', template: $('#tmp_check').html(), width: 30 },*/
         ]
     }).data("kendoGrid");

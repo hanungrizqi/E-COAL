@@ -21,6 +21,11 @@ namespace e_coal_api.View_Model
         public int FLAG { get; set; }
         public string IMAGE_PATH { get; set; }*/
 
+        public IQueryable<cufn_getListDoneRequestResult> getListDoneRequest()
+        {
+            var data = db.cufn_getListDoneRequest().OrderBy(a => a.DEADLINE);
+            return data;
+        }
         public void submitOperator()
         {
             TBL_T_REQUEST_COAL tbl = new TBL_T_REQUEST_COAL();
