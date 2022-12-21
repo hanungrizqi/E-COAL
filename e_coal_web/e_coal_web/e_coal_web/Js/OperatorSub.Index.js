@@ -29,7 +29,7 @@ $(document).ready(function () {
                         ID_JABATAN: { type: "int", editable: false, sortable: true },
                         DEPT_CODE: { type: "string", editable: false, sortable: true },
                         DISTRICT: { type: "string", editable: false, sortable: true },
-                        TGL_MASUK: { type: "DateTime", editable: false, sortable: true },
+                        TGL_MASUK: { type: "date", editable: false, sortable: true },
                         /*columns.Bound(date => date.TGL_MASUK).Title("Tanggal Masuk").Format("{0:MM dd, yyyy}");*/
                         INPUT_DATE: { type: "DateTime", editable: false, sortable: true },
                         INPUT_BY: { type: "string", editable: false, sortable: true },
@@ -58,7 +58,7 @@ $(document).ready(function () {
             { field: 'NAMA', title: 'Name', width: 70 },
             { field: 'SUBCONT_CODE', title: 'Subcont', width: 50 },
             { field: 'DISTRICT', title: 'District', width: 50 },
-            { field: 'TGL_MASUK', title: 'Tanggal Masuk', format: "{0:dd/MM/yyyy}", width: 50 },
+            { field: 'TGL_MASUK', title: 'Tanggal Masuk', format: "{0: dd MMM yyyy}", width: 50 },
             /*{ field: 'TGL_MASUK', title: 'Tanggal Masuk', template: "#= kendo.parseDate(TGL_MASUK, dd/MM/yyyy) #", width: 50 },*/
         ]
     }).data("kendoGrid");

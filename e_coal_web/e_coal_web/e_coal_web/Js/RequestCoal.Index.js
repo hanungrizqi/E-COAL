@@ -49,8 +49,8 @@ $(document).ready(function () {
             { field: 'MOMCOST', title: 'MOM Cust', width: 70 },
             { field: 'VOLUMECOAL', title: 'Volume Coal', width: 30 },
             { field: 'TARGETGCV', title: 'Target GCV', width: 30 },
-            /*{ field: 'DEADLINE', title: 'Deadline', width: 40, format: "{0: dd MMM yyyy}" },*/
-            { field: 'DEADLINE', title: 'Deadline', template: '#= kendo.toString(DEADLINE, "dd/MM/yyyy") #', width: 50 },
+            { field: 'DEADLINE', title: 'Deadline', width: 40, format: "{0: dd MMM yyyy}" },
+            /*{ field: 'DEADLINE', title: 'Deadline', template: '#= kendo.toString(DEADLINE, "dd/MM/yyyy") #', width: 50 },*/
             /*{ title: 'Pilih', template: $('#tmp_check').html(), width: 30 },*/
         ]
     }).data("kendoGrid");

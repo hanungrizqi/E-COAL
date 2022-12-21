@@ -68,9 +68,10 @@ namespace e_coal_api.View_Model
         }
         #endregion
 
+        #region request coal
         public IQueryable<cufn_getRequestCoalApprovalResult> getRequestCoalApproval()
         {
-            var data = db.cufn_getRequestCoalApproval().OrderByDescending(a => a.DEADLINE);
+            var data = db.cufn_getRequestCoalApproval().OrderBy(a => a.DEADLINE);
             return data;
         }
 
@@ -81,6 +82,7 @@ namespace e_coal_api.View_Model
 
             db.SubmitChanges();
         }
+        #endregion
 
         //public cufn_getSumProductResult c_getSumProduct()
         //{

@@ -23,7 +23,7 @@ namespace e_coal_api.View_Model
 
         public IQueryable<cufn_getListDoneRequestResult> getListDoneRequest()
         {
-            var data = db.cufn_getListDoneRequest().OrderByDescending(a => a.DEADLINE);
+            var data = db.cufn_getListDoneRequest().OrderBy(a => a.DEADLINE);
             return data;
         }
         public void submitOperator()

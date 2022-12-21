@@ -20,6 +20,7 @@ $(document).ready(function () {
                 total: "Total",
                 model: {
                     fields: {
+                        ID_IN_SITU: { type: "string", editable: false, sortable: true },
                         IN_SITU: { type: "string", editable: false, sortable: true },
                         TANGGAL: { type: "date", editable: false, sortable: true },
                         TOTAL_TONASE: { type: "decimal", editable: false, sortable: true },
@@ -132,7 +133,9 @@ $(document).ready(function () {
         height: "400px",
         columns: [
             //{ title: 'Action', width: 50, template: $("#tmp_action").html() },
-            { title: 'In SITU (GCV | Ton)', template: $('#tmp_inSitu').html(), width: 100 }
+            { title: 'In SITU (GCV | Ton)', template: $('#tmp_inSitu').html(), width: 100 },
+            /*{ title: 'In Situ (CGV | Ton)', field: 'ID_IN_SITU', width: 100 },
+            { field: 'TOTAL_TONASE', width: 100 },*/
         ]
     }).data("kendoGrid");
 
@@ -144,7 +147,7 @@ $(document).ready(function () {
         sortable: "true",
         filterable: "true",
         pageable: "true",
-        height: "400px",
+        height: "300px",
         columns: [            
             { title: 'Anomali Data', template: $('#tmp_AnomaliInSitu').html(), width: 100 },
             { title: 'Action', width: 50, template: $("#tmp_AnomaliAction").html() },
@@ -159,7 +162,7 @@ $(document).ready(function () {
         sortable: "true",
         filterable: "true",
         pageable: "true",
-        height: "400px",
+        height: "300px",
         columns: [
             { title: 'In Out ROM (GCV | Ton)', template: $('#tmp_InOutRom').html(), width: 100 }
         ]
@@ -173,7 +176,7 @@ $(document).ready(function () {
         sortable: "true",
         filterable: "true",
         pageable: "true",
-        height: "400px",
+        height: "300px",
         columns: [
             /*{ title: 'Request Coal List', template: $('#tmp_RequestCoalApproval').html(), width: 100 },*/
             { field: 'MOMCOST', title: 'Mom Cost', width: 50 },
