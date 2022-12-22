@@ -398,6 +398,11 @@ function setChart() {
                         plugins: {
                             datalabels: {
                                 display: true,
+                                color: 'white',
+                                font: {
+                                    weight: 'bold'
+                                },
+                                padding: 5,
                                 formatter: function (value, context) {
                                     return context.chart.data.labels[context.dataIndex];
                                 }
