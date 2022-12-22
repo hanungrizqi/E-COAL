@@ -19,166 +19,164 @@
         @*<h2 class="content-heading">Filter Tanggal</h2>*@
         <!--<div class="row">
             <!-- fillter -->
-            <!--<div class="col-md-12">
-                <div class="block block-rounded block-bordered">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Fillter Tanggal</h3>
-                    </div>
-                    <div class="block-content">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label class="form-label">Tanggal Awal</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="date" class="form-control" id="txt_tanggalAwal" style="width:40%" />
-                            </div>
-                            <div class="col-md-2">
-                                <label class="form-label">Tanggal Akhir</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="date" class="form-control" id="txt_tanggalAkhir" style="width:40%" />
-                            </div>
+        <!--<div class="col-md-12">
+            <div class="block block-rounded block-bordered">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Fillter Tanggal</h3>
+                </div>
+                <div class="block-content">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="form-label">Tanggal Awal</label>
                         </div>
-                        <br />
-                    </div>
-                    <div class="block-content block-content-full block-content-sm bg-body-light text-end">
-                        <button type="submit" class="btn btn-alt-primary" onclick="fillter()">
-                            <i class="fa fa-check opacity-50 me-1"></i> Fillter
-                        </button>
-                    </div>
-                </div>
-            </div>-->
-            <!--upload image-->
-            <!--<div class="col-md-6">
-                <div class="block block-rounded block-bordered">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">CGV in ROM</h3>
-                    </div>
-                    <div class="block-content">
-                        <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
-                        <div class="img_center" id="DisplayImage">
-                            <img id="img_cgv" class="img-responsive thumbnail" width="320" height="320" />
+                        <div class="col-md-4">
+                            <input type="date" class="form-control" id="txt_tanggalAwal" style="width:40%" />
                         </div>
-                        <div class="row">
-                            <div class="col-md-3" style="text-align:center">
-                                <lable id="tonase"></lable><br />
-                                <lable style="color:red"><b>Tonase</b></lable>
-                            </div>
-                            <div class="col-md-3" style="text-align:center">
-                                <lable id="grade_a"></lable><br />
-                                <lable style="color:blue"><b>Grade A</b></lable>
-                            </div>
-                            <div class="col-md-3" style="text-align:center">
-                                <lable id="grade_b"></lable><br />
-                                <lable style="color:green"><b>Grade B</b></lable>
-                            </div>
-                            <div class="col-md-3" style="text-align:center">
-                                <lable id="grade_c"></lable><br />
-                                <lable style="color:chocolate"><b>Grade C</b></lable>
-                            </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Tanggal Akhir</label>
                         </div>
-                        <br />
-                    </div>
-                </div>
-            </div>-->
-
-            <!--in out rom-->
-            <!--<div class="col-md-6">
-                <div class="block block-rounded block-bordered">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">In Out ROM</h3>
-                    </div>
-                    <div class="block-content">
-                        <div id="gridInOutRom"></div>
-                        <br />
-                    </div>
-                </div>
-            </div>-->
-            <!--anomali data-->
-            <!--<div class="col-md-6">
-                <div class="block block-rounded block-bordered">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Anomali Data</h3>
-                    </div>
-                    <div class="block-content">
-                        <div id="gridAnomaliInSitu"></div>
-                        <br />
-                    </div>
-                </div>
-            </div>-->
-            <!--in situ-->
-            <!--<div class="col-md-6">
-                <div class="block block-rounded block-bordered">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">In SITU (GCV | Ton)</h3>
-                    </div>
-                    <div class="block-content">
-                        <div id="gridInSitu"></div>
-                        <br />
-                    </div>
-                </div>
-            </div>-->
-            <!-- grafik -->
-            <!--<div class="col-md-12">
-                <div class="block block-rounded">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Donut</h3>
-                    </div>
-                    <div class="block-content">
-                        <div class="col-md-6">-->
-                            @*<div class="row">*@
-                            <!--<div class="col-6 col-xl-12">
-                                <div class="block block-rounded block-link-shadow text-end" style="background-color: #D0D3D4 ">
-                                    <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
-                                        <div class="d-none d-sm-block">
-                                            <i class="fa fa-barcode fa-2x"></i>
-                                        </div>
-                                        <div>
-                                            <div class="fs-3 fw-normal" id="sumproductGar"></div>
-                                            <div class="fs-xs fw-normal text-uppercase">Total Sumproduct GAR</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-xl-12">
-                                <div class="block block-rounded block-link-shadow text-end" style="background-color: #D0D3D4 ">
-                                    <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
-                                        <div class="d-none d-sm-block">
-                                            <i class="fa fa-suitcase fa-2x"></i>
-                                        </div>
-                                        <div>
-                                            <div class="fs-3 fw-normal" id="total_tonase"></div>
-                                            <div class="fs-xs fw-normal text-uppercase">Total Tonase in ROM</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>-->
-                            @*</div>*@
-                        <!--</div>
-                        <div class="col-md-6">
-                            <canvas id="gradeInRom"></canvas>
+                        <div class="col-md-4">
+                            <input type="date" class="form-control" id="txt_tanggalAkhir" style="width:40%" />
                         </div>
-                        <br />
+                    </div>
+                    <br />
+                </div>
+                <div class="block-content block-content-full block-content-sm bg-body-light text-end">
+                    <button type="submit" class="btn btn-alt-primary" onclick="fillter()">
+                        <i class="fa fa-check opacity-50 me-1"></i> Fillter
+                    </button>
+                </div>
+            </div>
+        </div>-->
+        <!--upload image-->
+        <!--<div class="col-md-6">
+            <div class="block block-rounded block-bordered">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">CGV in ROM</h3>
+                </div>
+                <div class="block-content">
+                    <button type="button" class="btn btn-alt-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein">Update Image</button>
+                    <div class="img_center" id="DisplayImage">
+                        <img id="img_cgv" class="img-responsive thumbnail" width="320" height="320" />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3" style="text-align:center">
+                            <lable id="tonase"></lable><br />
+                            <lable style="color:red"><b>Tonase</b></lable>
+                        </div>
+                        <div class="col-md-3" style="text-align:center">
+                            <lable id="grade_a"></lable><br />
+                            <lable style="color:blue"><b>Grade A</b></lable>
+                        </div>
+                        <div class="col-md-3" style="text-align:center">
+                            <lable id="grade_b"></lable><br />
+                            <lable style="color:green"><b>Grade B</b></lable>
+                        </div>
+                        <div class="col-md-3" style="text-align:center">
+                            <lable id="grade_c"></lable><br />
+                            <lable style="color:chocolate"><b>Grade C</b></lable>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>-->
+        <!--in out rom-->
+        <!--<div class="col-md-6">
+            <div class="block block-rounded block-bordered">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">In Out ROM</h3>
+                </div>
+                <div class="block-content">
+                    <div id="gridInOutRom"></div>
+                    <br />
+                </div>
+            </div>
+        </div>-->
+        <!--anomali data-->
+        <!--<div class="col-md-6">
+            <div class="block block-rounded block-bordered">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Anomali Data</h3>
+                </div>
+                <div class="block-content">
+                    <div id="gridAnomaliInSitu"></div>
+                    <br />
+                </div>
+            </div>
+        </div>-->
+        <!--in situ-->
+        <!--<div class="col-md-6">
+            <div class="block block-rounded block-bordered">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">In SITU (GCV | Ton)</h3>
+                </div>
+                <div class="block-content">
+                    <div id="gridInSitu"></div>
+                    <br />
+                </div>
+            </div>
+        </div>-->
+        <!-- grafik -->
+        <!--<div class="col-md-12">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Donut</h3>
+                </div>
+                <div class="block-content">
+                    <div class="col-md-6">-->
+        @*<div class="row">*@
+        <!--<div class="col-6 col-xl-12">
+            <div class="block block-rounded block-link-shadow text-end" style="background-color: #D0D3D4 ">
+                <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
+                    <div class="d-none d-sm-block">
+                        <i class="fa fa-barcode fa-2x"></i>
+                    </div>
+                    <div>
+                        <div class="fs-3 fw-normal" id="sumproductGar"></div>
+                        <div class="fs-xs fw-normal text-uppercase">Total Sumproduct GAR</div>
                     </div>
                 </div>
             </div>
-            <!-- END grafik -->
-            <!-- Request Coal -->
-            <!--<div class="col-md-12">
-                <div class="block block-rounded">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Request Table</h3>
+        </div>
+        <div class="col-6 col-xl-12">
+            <div class="block block-rounded block-link-shadow text-end" style="background-color: #D0D3D4 ">
+                <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
+                    <div class="d-none d-sm-block">
+                        <i class="fa fa-suitcase fa-2x"></i>
                     </div>
-                    <div class="block-content">
-                        <div id="gridRequestCoalApproval"></div>
-                        <br />
+                    <div>
+                        <div class="fs-3 fw-normal" id="total_tonase"></div>
+                        <div class="fs-xs fw-normal text-uppercase">Total Tonase in ROM</div>
                     </div>
-                </div>-->
-                <!-- END Request Coal -->
-            <!--</div>
+                </div>
+            </div>
+        </div>-->
+        @*</div>*@
+        <!--</div>
+                    <div class="col-md-6">
+                        <canvas id="gradeInRom"></canvas>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <!-- END grafik -->
+        <!-- Request Coal -->
+        <!--<div class="col-md-12">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Request Table</h3>
+                </div>
+                <div class="block-content">
+                    <div id="gridRequestCoalApproval"></div>
+                    <br />
+                </div>
+            </div>-->
+        <!-- END Request Coal -->
+        <!--</div>
         </div>-->
         <!-- END Rounded Blocks -->
-
         <!-- COPY DARI SINI -->
         <div class="row">
             <div class="col-xl-4">
@@ -220,8 +218,8 @@
                         <h3 class="block-title">Persentase Grade In ROM</h3>
                     </div>
                     <div class="block-content">
-                        @*<p>CHART</p>*@
-                        <canvas id="gradeInRom"></canvas>
+                        @*<script src="https://www.npmjs.com/package/chartjs-plugin-datalabels"></script>*@
+                        <canvas id="gradeInRom" width="500" height="500"></canvas>
                     </div>
                 </a>
             </div>
@@ -240,19 +238,19 @@
                         <div class="row">
                             <div class="col-md-3" style="text-align:center">
                                 <lable id="tonase"></lable><br />
-                                <lable style="color:red"><b>Tonase</b></lable>
+                                <lable style="color:blue"><b>Tonase</b></lable>
                             </div>
                             <div class="col-md-3" style="text-align:center">
                                 <lable id="grade_a"></lable><br />
-                                <lable style="color:blue"><b>Grade A</b></lable>
+                                <lable style="color:darkgreen"><b>Grade A</b></lable>
                             </div>
                             <div class="col-md-3" style="text-align:center">
                                 <lable id="grade_b"></lable><br />
-                                <lable style="color:green"><b>Grade B</b></lable>
+                                <lable style="color:darkorange"><b>Grade B</b></lable>
                             </div>
                             <div class="col-md-3" style="text-align:center">
                                 <lable id="grade_c"></lable><br />
-                                <lable style="color:yellow"><b>Grade C</b></lable>
+                                <lable style="color:red"><b>Grade C</b></lable>
                             </div>
                         </div>
                         <br />
@@ -286,10 +284,10 @@
                             <i class="fa fa-fw fa-arrow-down"></i>
                         </span>
                         @*<div class="block-content block-content-full block-content-sm bg-body-light text-end">
-                            <button type="submit" class="btn btn-alt-primary" onclick="fillter()">
-                                <i class="fa fa-check opacity-50 me-1"></i> Fillter
-                            </button>
-                        </div>*@
+                                <button type="submit" class="btn btn-alt-primary" onclick="fillter()">
+                                    <i class="fa fa-check opacity-50 me-1"></i> Fillter
+                                </button>
+                            </div>*@
                     </div>
                 </div>
                 <!-- END Subscribe -->
@@ -310,14 +308,14 @@
                         <div id="gridInSitu"></div>
                         <br />
                         @*<table class="table table-bordered table-striped table-vcenter js-dataTable-simple">
-                            
-                            <tbody>
-                                <tr>
-                                    <td class="fw-semibold">Justin Hunt</td>
-                                    <td class="d-none d-sm-table-cell">customer1@example.com</td>
-                                </tr>
-                            </tbody>
-                        </table>*@
+
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-semibold">Justin Hunt</td>
+                                        <td class="d-none d-sm-table-cell">customer1@example.com</td>
+                                    </tr>
+                                </tbody>
+                            </table>*@
                     </div>
                 </a>
             </div>
@@ -373,14 +371,14 @@
 
 <script type="text/x-kendo-tmpl" id="tmp_inSitu">
     #if(COAL_CONDITION == "Normal"){#
-        <center><b style="color:green">#=IN_SITU#</b></center>
+        <left><b style="color:green">#=IN_SITU#</b></left>
     #} else{#
-        <center><b style="color:red">#=IN_SITU#</b></center>
+        <left><b style="color:red">#=IN_SITU#</b></left>
     #}#
 </script>
 
 <script type="text/x-kendo-tmpl" id="tmp_AnomaliInSitu">
-    <center><b style="color:red">#=IN_SITU#</b></center>
+    <left><b style="color:red">#=IN_SITU#</b></left>
 </script>
 <script type="text/x-kendo-tmpl" id="tmp_AnomaliAction">
     <button type="button" class="btn btn-alt-success" onclick="anomaliApprove('#=ID_IN_SITU#')"><i class="fa fa-circle-check"></i></button>
@@ -389,9 +387,9 @@
 
 <script type="text/x-kendo-tmpl" id="tmp_InOutRom">
     #if(ROM == "in"){#
-        <center><b style="color:green">#=IN_SITU_ROM#</b></center>
+        <left><b style="color:green">#=IN_SITU_ROM#</b></left>
     #} else{#
-        <center><b style="color:red">#=IN_SITU_ROM#</b></center>
+        <left><b style="color:red">#=IN_SITU_ROM#</b></left>
     #}#
 </script>
 
@@ -405,4 +403,8 @@
 
 <script src="~/Content/chart.js/Chart.bundle.js"></script>
 <script src="~/Content/chart.js/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+
 <script src="~/Js/Home.Index.js"></script>
+

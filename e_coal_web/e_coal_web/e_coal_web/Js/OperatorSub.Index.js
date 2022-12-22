@@ -143,6 +143,32 @@ $("#txt_department").kendoDropDownList({
     }
 });
 
+$("#txt_district").kendoDropDownList({
+    dataTextField: "DSTRCT_CODE",
+    dataValueField: "DEPT_CODE",
+    dataSource: {
+        type: "json",
+        transport: {
+            read: {
+                url: $("#hd_path").val() + "api/Masters/getListDepartment",
+                contentType: "application/json",
+                type: "GET",
+                cache: false
+            }
+        },
+        schema: {
+            data: "Data",
+            total: "Total"
+        }
+    },
+    optionLabel: "Pilih",
+    select: function (e) {
+        var dataItem = this.dataItem(e.item.index());
+        /*settingModel.set("id_department", dataItem.id);*/
+        /*getListDepartment();*/
+    }
+});
+
 function submmit() {
     var obj = {
         NRP: $("#txt_nrp").val(),
