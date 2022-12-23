@@ -124,7 +124,7 @@ $("#txt_department").kendoDropDownList({
         type: "json",
         transport: {
             read: {
-                url: $("#hd_path").val() + "api/Masters/getListDepartment",
+                url: $("#hd_path").val() + "api/Masters/getListDepartment?DISTRICT=" + $("#hd_district").val(),
                 contentType: "application/json",
                 type: "GET",
                 cache: false
@@ -145,12 +145,12 @@ $("#txt_department").kendoDropDownList({
 
 $("#txt_district").kendoDropDownList({
     dataTextField: "DSTRCT_CODE",
-    dataValueField: "DEPT_CODE",
+    dataValueField: "DSTRCT_NAME",
     dataSource: {
         type: "json",
         transport: {
             read: {
-                url: $("#hd_path").val() + "api/Masters/getListDepartment",
+                url: $("#hd_path").val() + "api/Masters/getListDistrict",
                 contentType: "application/json",
                 type: "GET",
                 cache: false

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.5, 10.25" name="db_eCoal">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.5, 10.375" name="db_eCoal">
   <DataContextMoniker Name="/db_eCoalDataContext" />
   <nestedChildShapes>
     <classShape Id="607df45e-e762-4858-af3d-1194fa5053dc" absoluteBounds="0.5, 0.5, 2, 1.1939925130208333">
@@ -108,6 +108,12 @@
       <DataClassMoniker Name="/db_eCoalDataContext/TBL_T_APPRAISAL" />
       <nestedChildShapes>
         <elementListCompartment Id="35985aea-2cc5-46b7-ac84-952590949403" absoluteBounds="2.64, 4.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d7e283c6-54c9-4066-b479-b2a928a3863c" absoluteBounds="0.5, 8.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/db_eCoalDataContext/VW_DISTRICT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a06ad606-5143-4d3b-b4fa-0731d7654b79" absoluteBounds="0.51499999999999968, 9.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

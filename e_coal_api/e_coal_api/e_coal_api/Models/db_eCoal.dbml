@@ -200,6 +200,12 @@
       <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.VW_DISTRICT" Member="VW_DISTRICTs">
+    <Type Name="VW_DISTRICT">
+      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
     <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
     <Parameter Name="SEAM" Parameter="sEAM" Type="System.Int32" DbType="Int" />

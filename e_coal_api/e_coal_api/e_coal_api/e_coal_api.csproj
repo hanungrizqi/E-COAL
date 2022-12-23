@@ -191,6 +191,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View_Model\ClsCgv.cs" />
     <Compile Include="View_Model\ClsDashboard.cs" />
+    <Compile Include="View_Model\ClsDistrict.cs" />
     <Compile Include="View_Model\ClsInSitu.cs" />
     <Compile Include="View_Model\ClsDepartment.cs" />
     <Compile Include="View_Model\ClsJabatan.cs" />

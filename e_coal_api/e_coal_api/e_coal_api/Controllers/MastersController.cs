@@ -98,12 +98,29 @@ namespace e_coal_api.Controllers
 
         [HttpGet]
         [Route("api/Masters/getListDepartment")]
-        public IHttpActionResult getListDepartment()
+        public IHttpActionResult getListDepartment(string DISTRICT)
         {
             try
             {
                 ClsDepartment clsDepartment = new ClsDepartment();
-                var data = clsDepartment.getListDepartment();
+                var data = clsDepartment.getListDepartment().Where(a => a.DSTRCT_CODE == DISTRICT);
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpGet]
+        [Route("api/Masters/getListDistrict")]
+        public IHttpActionResult getListDistrict()
+        {
+            try
+            {
+                ClsDistrict clsDistrict = new ClsDistrict();
+                var data = clsDistrict.getListDistrict();
 
                 return Ok(new { Status = true, Data = data });
             }

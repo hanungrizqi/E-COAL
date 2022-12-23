@@ -254,6 +254,14 @@ namespace e_coal_api.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<VW_DISTRICT> VW_DISTRICTs
+		{
+			get
+			{
+				return this.GetTable<VW_DISTRICT>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getAlatByPekerjanSeam", IsComposable=true)]
 		public IQueryable<cufn_getAlatByPekerjanSeamResult> cufn_getAlatByPekerjanSeam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PEKERJAAN", DbType="Int")] System.Nullable<int> pEKERJAAN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SEAM", DbType="Int")] System.Nullable<int> sEAM)
 		{
@@ -3975,6 +3983,51 @@ namespace e_coal_api.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_DISTRICT")]
+	public partial class VW_DISTRICT
+	{
+		
+		private string _DSTRCT_CODE;
+		
+		private string _DSTRCT_NAME;
+		
+		public VW_DISTRICT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSTRCT_CODE", DbType="VarChar(100)")]
+		public string DSTRCT_CODE
+		{
+			get
+			{
+				return this._DSTRCT_CODE;
+			}
+			set
+			{
+				if ((this._DSTRCT_CODE != value))
+				{
+					this._DSTRCT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSTRCT_NAME", DbType="VarChar(100)")]
+		public string DSTRCT_NAME
+		{
+			get
+			{
+				return this._DSTRCT_NAME;
+			}
+			set
+			{
+				if ((this._DSTRCT_NAME != value))
+				{
+					this._DSTRCT_NAME = value;
+				}
 			}
 		}
 	}

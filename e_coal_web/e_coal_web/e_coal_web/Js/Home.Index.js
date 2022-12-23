@@ -374,7 +374,9 @@ function setChart() {
                         legend: {
                             //display: true,
                             position: "right",
+                            /*fontcolor: #ffffff,*/
                             /*align: "end",*/
+                            /*color : #ffffff,*/
                             display: true,
                             //labels: {
                             //    fontSize: 10,
@@ -397,7 +399,8 @@ function setChart() {
                         },
                         plugins: {
                             datalabels: {
-                                display: true,
+                                /*display: true,*/
+                                fontsize: 18,
                                 color: 'white',
                                 font: {
                                     weight: 'bold'
