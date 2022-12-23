@@ -147,7 +147,7 @@ function NilaiOperator() {
                 $('#modalUpdate').modal('hide');
                 settingModel.ds_grid_dataSource.read();
             } else {
-                alert(result.Remark);
+                alert(result.Error);
             }
         }
     })

@@ -7,6 +7,8 @@
 <input type="hidden" id="hd_district" value="@Session["District"]" />
 <input type="hidden" id="hd_userLogin" value="@Session["Nrp"]" />
 <input type="hidden" id="hd_idProfile" value="@Session["IdProfile"]" />
+<input type="hidden" id="hd_interval" value="@ViewBag.interval" />
+
 
 <style>
     .img_center {
@@ -181,16 +183,16 @@
         <div class="row">
             <div class="col-xl-4">
                 <!-- Instructor -->
-                <a class="block">
-                    <div class="block-header block-header-default border-bottom" style="background-color: #1A2CC1">
+                <div class="block">
+                    <div class="block-header block-header-default" style="background-color: #16507e">
                         <h3 class="block-title" style="color:white">Grade dan Tonase In ROM</h3>
                     </div>
-                    <div class="block-content" style="background-color: #1A2CC1">
+                    <div class="block-content" style="background-color: #16507e">
                         <div class="col-6 col-xl-12">
-                            <div class="block block-rounded block-link-shadow text-end" style="background-color: midnightblue ">
+                            <div class="block block-rounded block-link-shadow text-end" style="background-color: #113b6d ">
                                 <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
                                     <div class="d-none d-sm-block" style="color:white">
-                                        <i class="fa fa-barcode fa-2x" style="color:white"></i>
+                                        <i class="fa fa-barcode fa-2x"></i>
                                     </div>
                                     <div>
                                         <div class="fs-3 fw-normal" id="sumproductGar" style="color:white"></div>
@@ -200,10 +202,10 @@
                             </div>
                         </div>
                         <div class="col-6 col-xl-12">
-                            <div class="block block-rounded block-link-shadow text-end" style="background-color: midnightblue ">
+                            <div class="block block-rounded block-link-shadow text-end" style="background-color: #113b6d ">
                                 <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
                                     <div class="d-none d-sm-block" style="color:white">
-                                        <i class="fa fa-suitcase fa-2x" style="color:white"></i>
+                                        <i class="fa fa-suitcase fa-2x"></i>
                                     </div>
                                     <div>
                                         <div class="fs-3 fw-normal" id="total_tonase" style="color:white"></div>
@@ -213,20 +215,20 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="block-header block-header-default border-bottom" style="background-color: #1A2CC1">
+
+                    <div class="block-header block-header-default" style="background-color: #16507e">
                         <h3 class="block-title" style="color:white">Persentase Grade In ROM</h3>
                     </div>
-                    <div class="block-content" style="background-color: #1A2CC1">
+                    <div class="block-content" style="background-color: #16507e">
                         @*<script src="https://www.npmjs.com/package/chartjs-plugin-datalabels"></script>*@
                         <canvas id="gradeInRom" width="500" height="500"></canvas>
                     </div>
-                </a>
+                </div>
             </div>
 
             <div class="col-xl-4">
                 <!-- Instructor -->
-                <a class="block block-rounded block-bordered">
+                <div class="block">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">CGV In ROM</h3>
                     </div>
@@ -255,18 +257,18 @@
                         </div>
                         <br />
                     </div>
-                </a>
+                </div>
                 <!-- END Instructor -->
                 <!-- Instructor -->
-                <a class="block block-rounded block-bordered">
-                    <div class="block-header block-header-default border-bottom">
+                <div class="block">
+                    <div class="block-header block-header-default">
                         <h3 class="block-title">Anomali Data</h3>
                     </div>
                     <div class="block-content">
                         <div id="gridAnomaliInSitu"></div>
                         <br />
                     </div>
-                </a>
+                </div>
                 <!-- END Instructor -->
             </div>
 
@@ -292,8 +294,8 @@
                 </div>
                 <!-- END Subscribe -->
                 <!-- Instructor -->
-                <a class="block block-rounded block-bordered">
-                    <div class="block-header block-header-default border-bottom">
+                <div class="block">
+                    <div class="block-header block-header-default">
                         <h3 class="block-title">In Out ROM (GCV | Ton)</h3>
                     </div>
                     <div class="block-content">
@@ -301,7 +303,7 @@
                         <br />
                     </div>
 
-                    <div class="block-header block-header-default border-bottom">
+                    <div class="block-header block-header-default">
                         <h3 class="block-title">In Situ (GCV | Ton)</h3>
                     </div>
                     <div class="block-content">
@@ -317,10 +319,10 @@
                                 </tbody>
                             </table>*@
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-md-12">
-                <div class="block block-rounded">
+                <div class="block">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">Request Table</h3>
                     </div>

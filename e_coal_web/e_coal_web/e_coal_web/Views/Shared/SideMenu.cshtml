@@ -26,17 +26,19 @@
                 @if (item.MENU_PATH == "#")
                 {
                     @:<ul class="nav-main-submenu">
-                    }
+                }
+
                 @SubMenu(Menu, item)
+                
                 @if (item.MENU_PATH == "#")
                 {
-                @:</ul>
+                    @:</ul>
                 }
             </li>
         }
 
         @helper SubMenu(List<cusp_getMenuProfileResult> SubMenu, cusp_getMenuProfileResult item) { 
-            foreach(var sub in SubMenu.Where(a => a.PARENT_ID == item.ID))
+            foreach(var sub in SubMenu.Where(a => a.PARENT_ID == item.ID_MENU))
             {
                 <li class="nav-main-item">
                     <a class="nav-main-link active" href="@sub.MENU_PATH">

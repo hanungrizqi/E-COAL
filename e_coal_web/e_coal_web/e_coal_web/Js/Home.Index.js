@@ -191,8 +191,22 @@ $(document).ready(function () {
     getCGV();
     setDateNow();
     setChart();
-
+    var idleinterval = setInterval(timeincrement, $("#hd_interval").val());
 })
+
+function timeincrement() {
+    //(jk idle = 8) / 4 menit / ideltime (8) * sessiontimeout (30) = 240 detik
+    console.log('masuk timer');
+    updateData();
+}
+
+function updateData() {
+    setGambar();
+    getCGV();
+    setDateNow();
+    setChart();
+    fillter();
+}
 
 function setGambar() {
     $.ajax({
@@ -247,8 +261,8 @@ function setDateNow() {
         success: function (result) {
             if (result.Status == true) {
                 var data = result.Data;
-                console.log(today);
-                console.log(data.max_date);
+                //console.log(today);
+                console.log(data.min_date);
                 $("#txt_tanggalAwal").val(data.min_date);
                 $("#txt_tanggalAkhir").val(today);
                 fillter();
@@ -272,6 +286,7 @@ function fillter() {
     settingModel.ds_gridInOutRom.transport.options.read.data.TANGGAL_AKHIR = $("#txt_tanggalAkhir").val();
     settingModel.ds_gridInOutRom.read();
 
+    settingModel.ds_gridRequestCoalApproval.read();
 }
 
 function anomaliApprove(inSitu) {
@@ -327,6 +342,15 @@ function getCGV() {
         success: function (result) {
             if (result.Status == true) {
                 var data = result.Data;
+
+                $("#tonase").empty();
+                $("#grade_a").empty();
+                $("#grade_b").empty();
+                $("#grade_c").empty();
+
+                $("#total_tonase").empty();
+                $("#sumproductGar").empty();
+
                 $("#tonase").append(data.TOTAL_TONASE_ALL);
                 $("#grade_a").append(data.TOTAL_TONASE_A);
                 $("#grade_b").append(data.TOTAL_TONASE_B);
@@ -351,8 +375,8 @@ function setChart() {
         //data: JSON.stringify(obj),
         success: function (result) {
             if (result.Status == true) {
-                console.log(result.Header);
-                console.log(result.Data);
+                //console.log(result.Header);
+                //console.log(result.Data);
                 var chart = document.getElementById("gradeInRom");
                 var mayChart = new Chart(chart, {
                     type: "doughnut",
@@ -401,7 +425,7 @@ function setChart() {
                             datalabels: {
                                 /*display: true,*/
                                 fontsize: 18,
-                                color: 'white',
+                                //color: 'white',
                                 font: {
                                     weight: 'bold'
                                 },

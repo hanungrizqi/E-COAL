@@ -20,6 +20,7 @@ $(document).ready(function () {
                 total: "Total",
                 model: {
                     fields: {
+                        ID_IN_SITU: { type: "string", editable: false, sortable: true },
                         IN_SITU: { type: "string", editable: false, sortable: true },
                         TANGGAL: { type: "date", editable: false, sortable: true },
                         TOTAL_TONASE: { type: "decimal", editable: false, sortable: true },
@@ -132,7 +133,9 @@ $(document).ready(function () {
         height: "400px",
         columns: [
             //{ title: 'Action', width: 50, template: $("#tmp_action").html() },
-            { title: 'In SITU (GCV | Ton)', template: $('#tmp_inSitu').html(), width: 100 }
+            { title: 'In SITU (GCV | Ton)', template: $('#tmp_inSitu').html(), width: 100 },
+            /*{ title: 'In Situ (CGV | Ton)', field: 'ID_IN_SITU', width: 100 },
+            { field: 'TOTAL_TONASE', width: 100 },*/
         ]
     }).data("kendoGrid");
 
@@ -144,7 +147,7 @@ $(document).ready(function () {
         sortable: "true",
         filterable: "true",
         pageable: "true",
-        height: "400px",
+        height: "300px",
         columns: [            
             { title: 'Anomali Data', template: $('#tmp_AnomaliInSitu').html(), width: 100 },
             { title: 'Action', width: 50, template: $("#tmp_AnomaliAction").html() },
@@ -159,7 +162,7 @@ $(document).ready(function () {
         sortable: "true",
         filterable: "true",
         pageable: "true",
-        height: "400px",
+        height: "300px",
         columns: [
             { title: 'In Out ROM (GCV | Ton)', template: $('#tmp_InOutRom').html(), width: 100 }
         ]
@@ -173,7 +176,7 @@ $(document).ready(function () {
         sortable: "true",
         filterable: "true",
         pageable: "true",
-        height: "400px",
+        height: "300px",
         columns: [
             /*{ title: 'Request Coal List', template: $('#tmp_RequestCoalApproval').html(), width: 100 },*/
             { field: 'MOMCOST', title: 'Mom Cost', width: 50 },
@@ -187,9 +190,23 @@ $(document).ready(function () {
     setGambar();
     getCGV();
     setDateNow();
-    //setChart();
-
+    setChart();
+    var idleinterval = setInterval(timeincrement, $("#hd_interval").val());
 })
+
+function timeincrement() {
+    //(jk idle = 8) / 4 menit / ideltime (8) * sessiontimeout (30) = 240 detik
+    console.log('masuk timer');
+    updateData();
+}
+
+function updateData() {
+    setGambar();
+    getCGV();
+    setDateNow();
+    setChart();
+    fillter();
+}
 
 function setGambar() {
     $.ajax({
@@ -244,8 +261,8 @@ function setDateNow() {
         success: function (result) {
             if (result.Status == true) {
                 var data = result.Data;
-                console.log(today);
-                console.log(data.max_date);
+                //console.log(today);
+                console.log(data.min_date);
                 $("#txt_tanggalAwal").val(data.min_date);
                 $("#txt_tanggalAkhir").val(today);
                 fillter();
@@ -269,6 +286,7 @@ function fillter() {
     settingModel.ds_gridInOutRom.transport.options.read.data.TANGGAL_AKHIR = $("#txt_tanggalAkhir").val();
     settingModel.ds_gridInOutRom.read();
 
+    settingModel.ds_gridRequestCoalApproval.read();
 }
 
 function anomaliApprove(inSitu) {
@@ -324,6 +342,15 @@ function getCGV() {
         success: function (result) {
             if (result.Status == true) {
                 var data = result.Data;
+
+                $("#tonase").empty();
+                $("#grade_a").empty();
+                $("#grade_b").empty();
+                $("#grade_c").empty();
+
+                $("#total_tonase").empty();
+                $("#sumproductGar").empty();
+
                 $("#tonase").append(data.TOTAL_TONASE_ALL);
                 $("#grade_a").append(data.TOTAL_TONASE_A);
                 $("#grade_b").append(data.TOTAL_TONASE_B);
@@ -339,57 +366,185 @@ function getCGV() {
 }
 
 function setChart() {
-    Codebase.onLoad(
-        class {
-            static initChartsChartJS() {
-                (Chart.defaults.color = "#818d96"),
-                    (Chart.defaults.scale.grid.color = "rgba(0,0,0,.04)"),
-                    (Chart.defaults.scale.grid.zeroLineColor = "rgba(0,0,0,.1)"),
-                    (Chart.defaults.scale.beginAtZero = !0),
-                    (Chart.defaults.elements.line.borderWidth = 2),
-                    (Chart.defaults.elements.point.radius = 5),
-                    (Chart.defaults.elements.point.hoverRadius = 7),
-                    (Chart.defaults.plugins.tooltip.radius = 3),
-                    (Chart.defaults.plugins.legend.labels.boxWidth = 12);
-                let 
-                    l,
-                    h = document.getElementById("gradeInRom"),                    
-                    g = {
-                        labels: ["Earnings", "Sales", "Tickets"],
+    var district = $("#hd_district").val();
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        contentType: "application/json",
+        url: $("#hd_path").val() + "api/Dashboard/getChart?district=" + district,
+        //data: JSON.stringify(obj),
+        success: function (result) {
+            if (result.Status == true) {
+                //console.log(result.Header);
+                //console.log(result.Data);
+                var chart = document.getElementById("gradeInRom");
+                var mayChart = new Chart(chart, {
+                    type: "doughnut",
+                    data: {
+                        labels: result.Header,
                         datasets: [
-                            { data: [50, 25, 25], backgroundColor: ["rgba(101, 163, 13, 1)", "rgba(217, 119, 6, 1)", "rgba(220, 38, 38, 1)"], hoverBackgroundColor: ["rgba(101, 163, 13, .5)", "rgba(217, 119, 6, .5)", "rgba(220, 38, 38, .5)"] },
+                            {
+                                data: result.Data,
+                                backgroundColor: ["rgba(101, 163, 13, 1)", "rgba(217, 119, 6, 1)", "rgba(220, 38, 38, 1)"],
+                                hoverBackgroundColor: ["rgba(101, 163, 13, .5)", "rgba(217, 119, 6, .5)", "rgba(220, 38, 38, .5)"],
+                                display: true,
+                            },
                         ],
-                    };
-                    null !== h && (l = new Chart(h, { type: "doughnut", data: g }));
-            }
-            static initRandomEasyPieChart() {
-                document.querySelectorAll(".js-pie-randomize").forEach((a) => {
-                    a.addEventListener("click", (t) => {
-                        a.closest(".block")
-                            .querySelectorAll(".pie-chart")
-                            .forEach((a) => {
-                                jQuery(a)
-                                    .data("easyPieChart")
-                                    .update(Math.floor(100 * Math.random() + 1));
-                            });
-                    });
+                    },
+                    options: {
+                        tooltips: {
+                            enabled: true
+                        },
+                        legend: {
+                            //display: true,
+                            position: "right",
+                            /*fontcolor: #ffffff,*/
+                            /*align: "end",*/
+                            /*color : #ffffff,*/
+                            display: true,
+                            //labels: {
+                            //    fontSize: 10,
+                            //    usePointStyle: true,
+                            //    padding: 0
+                            //}
+                        },
+                        /*plugins: {
+                            datalabels: {
+                                color: '#ffffff',
+                                formatter: (value) => {
+                                    return value + '%'
+                                }
+                            }
+                        },*/
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            datalabels: {
+                                /*display: true,*/
+                                fontsize: 18,
+                                //color: 'white',
+                                font: {
+                                    weight: 'bold'
+                                },
+                                padding: 5,
+                                formatter: function (value, context) {
+                                    return context.chart.data.labels[context.dataIndex];
+                                }
+                            }
+                        },
+                        /*plugins: {
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'top',
+                                // and if you need to format how the value is displayed...
+                                formatter: function (value, context) {
+                                    var hiddens = context.chart._hiddenIndices;
+                                    var total = 0;
+                                    var datapoints = context.dataset.data;
+                                    datapoints.forEach((val, i) => {
+                                        if (hiddens[i] != undefined) {
+                                            if (!hiddens[i]) {
+                                                total += val;
+                                            }
+                                        } else {
+                                            total += val;
+                                        }
+                                    });
+                                    var percentage = (value / total * 100).toFixed(2) + '%';
+                                    var out = context.chart.data.labels[context.dataIndex] + '\n' + percentage;
+                                    return out;
+                                }
+                            }
+                        },*/
+                        /*plugins: {
+                            datalabels: {
+                                formatter: (value, chart) => {
+                                    let sum = 0;
+                                    let dataArr = chart.chart.data.datasets[0].data;
+                                    dataArr.map(data => {
+                                        sum += data;
+                                    });
+                                    *//*let percentage = (value * 100 / sum).toFixed(2) + "%";*//*
+                                    let percentage = value + '%';
+                                    return percentage;
+                                },
+                                color: '#fff',
+                            }
+                        }*/
+                    },
                 });
+                Chart.pluginService.register({
+                    beforeDraw: function (chart) {
+                        var width = 200,
+                            height = 310,
+                            ctx = chart.chart.ctx;
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(2);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+                        var text = "Grade",
+                            textX = Math.round((width - ctx.measureText(text).width) / 2),
+                            textY = height / 2;
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                });
+                /*var data = [{
+                    data: result.Data,
+                    labels: result.Header,
+                    backgroundColor: ["rgba(101, 163, 13, 1)", "rgba(217, 119, 6, 1)", "rgba(220, 38, 38, 1)"],
+                    hoverBackgroundColor: ["rgba(101, 163, 13, .5)", "rgba(217, 119, 6, .5)", "rgba(220, 38, 38, .5)"],
+                    display: true,
+                }];
+
+                var options = {
+                    tooltips: {
+                        enabled: true
+                    },
+                    legend: {
+                        position: "right",
+                        display: true,
+                    },
+                    plugins: {
+                        datalabels: {
+                            formatter: (value, ctx) => {
+
+                                let sum = 0;
+                                let dataArr = ctx.chart.data.datasets[0].data;
+                                dataArr.map(data => {
+                                    sum += data;
+                                });
+                                let percentage = (value * 100 / sum).toFixed(2) + "%";
+                                return percentage;
+
+
+                            },
+                            color: '#fff',
+                        }
+                    },
+
+                };
+
+
+                var ctx = document.getElementById("gradeInRom").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        datasets: data
+                    },
+                    options: options
+                })*/
+                
+            } else {
+                alert(result.Error);
             }
-            static init() {
-                this.initRandomEasyPieChart(), this.initChartsChartJS();
-            }
-        }.init()
-    );
-    //var chart = document.getElementById("gradeInRom");
-    //new Chart(chart, {
-    //    type: "doughnut",
-    //    data: {
-    //        labels: ["Grade A", "Grade B", "Grade C"],
-    //        datasets: [
-    //            { data: [50, 25, 25], backgroundColor: ["rgba(101, 163, 13, 1)", "rgba(217, 119, 6, 1)", "rgba(220, 38, 38, 1)"], hoverBackgroundColor: ["rgba(101, 163, 13, .5)", "rgba(217, 119, 6, .5)", "rgba(220, 38, 38, .5)"] },
-    //        ],
-    //    }
-    //})
+        }
+    })
+
+
 }
 
 function requestApprove(requestCoal) {

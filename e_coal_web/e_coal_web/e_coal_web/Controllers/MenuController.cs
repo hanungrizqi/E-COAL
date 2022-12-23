@@ -13,7 +13,7 @@ namespace e_coal_web.Controllers
         // GET: Menu
         public ActionResult Menu()
         {
-            string profile = "1";
+            string profile = Session["IdProfile"].ToString();
             var menu = db.cusp_getMenuProfile(profile).ToList();
             ViewBag.Menu = menu;
 

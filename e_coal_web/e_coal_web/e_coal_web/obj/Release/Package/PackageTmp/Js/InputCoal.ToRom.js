@@ -104,6 +104,10 @@ function getTotalTonase() {
     $("#txt_totalTonase").val(tonase);
 }
 
+var now = new Date();
+now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+document.getElementById('txt_jam').value = now.toISOString().slice(0, 16);
+
 function submmit() {
     var get = settingModel.get();
     var obj = {
@@ -117,7 +121,7 @@ function submmit() {
         BERAT_TARA_UNIT_KG: $("#txt_beratTaraUnit").val(),
         BERAT_BRUTO_UNIT_KG: $("#txt_beratBrutoUnit").val(),
         TOTAL_TONASE: $("#txt_totalTonase").val(),
-        TANGGAL: $("#txt_tanggal").val(),
+        /*TANGGAL: $("#txt_tanggal").val(),*/
         DISTRICT: $("#hd_district").val(),
         INPUT_BY: $("#hd_userLogin").val()
     }
@@ -170,7 +174,7 @@ function Reset() {
     $("#txt_beratTaraUnit").val("");
     $("#txt_beratBrutoUnit").val("");
     $("#txt_totalTonase").val("");
-    $("#txt_tanggal").val("");
+    /*$("#txt_tanggal").val("");*/
     $("#txt_lokasi").data("kendoDropDownList").value(-1);
     $("#txt_seam").data("kendoDropDownList").value(-1);
 

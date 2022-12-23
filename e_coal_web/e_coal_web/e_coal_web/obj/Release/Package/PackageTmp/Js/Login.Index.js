@@ -37,7 +37,7 @@ function login() {
                     alert("username/password salah!!");
                 }
             } else {
-                alert(result.Remark);
+                alert(result.Error);
             }
         }
     })
@@ -59,7 +59,7 @@ function getSession() {
             if (result.Status == true) {
                 setSession(result.Data);
             } else {
-                alert(result.Remark);
+                alert(result.Error);
             }
         }
     })

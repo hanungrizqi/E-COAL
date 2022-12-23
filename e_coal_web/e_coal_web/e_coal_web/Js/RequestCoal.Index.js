@@ -127,7 +127,7 @@ function submmit() {
                 $("#txt_deadline").val("");
                 $("#txt_status").val("");
             } else {
-                alert(result.Remark);
+                alert(result.Error);
             }
         }
     })

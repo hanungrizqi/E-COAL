@@ -51,7 +51,7 @@ function getGarFromGrade(grade) {
                 settingModel.set("GAR_MIN", data.GAR_MIN);
                 settingModel.set("GAR_MAX", data.GAR_MAX);
             } else {
-                alert(result.Remark);
+                alert(result.Error);
             }
         }
     })

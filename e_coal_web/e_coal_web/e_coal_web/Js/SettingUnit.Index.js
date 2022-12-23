@@ -142,7 +142,7 @@ function getAlat() {
                 $("#hd_rekomendasiAlat").val(obj.ID_ALAT)
                 protyAlat = obj.PROTY;
             } else {
-                alert(result.Remark);
+                alert(result.Error);
             }
         }
     })
@@ -211,7 +211,7 @@ function submmit() {
                     alert("Success");
                     getListOperator();
                 } else {
-                    alert(result.Remark);
+                    alert(result.Error);
                 }
             }
         })

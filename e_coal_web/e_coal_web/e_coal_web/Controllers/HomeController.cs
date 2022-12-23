@@ -20,6 +20,7 @@ namespace e_coal_web.Controllers
             }
 
             ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
+            ViewBag.interval = ConfigurationManager.AppSettings["interval"].ToString();
             return View();
         }
 

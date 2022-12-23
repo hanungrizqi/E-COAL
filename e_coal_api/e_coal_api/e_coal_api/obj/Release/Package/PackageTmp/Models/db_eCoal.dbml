@@ -200,6 +200,12 @@
       <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.VW_DISTRICT" Member="VW_DISTRICTs">
+    <Type Name="VW_DISTRICT">
+      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
     <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
     <Parameter Name="SEAM" Parameter="sEAM" Type="System.Int32" DbType="Int" />
@@ -360,6 +366,27 @@
       <Column Name="TOTAL_TONASE_C" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
       <Column Name="TOTAL_TONASE_ALL" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
       <Column Name="SUM_P" Type="System.Decimal" DbType="Decimal(38,4)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getChart" Method="cufn_getChart" IsComposable="true">
+    <Parameter Name="district" Type="System.String" DbType="VarChar(5)" />
+    <ElementType Name="cufn_getChartResult">
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="GRADE_DESC" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE_ALL" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="P" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getListDoneRequest" Method="cufn_getListDoneRequest" IsComposable="true">
+    <ElementType Name="cufn_getListDoneRequestResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MOMCOST" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VOLUMECOAL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGETGCV" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DEADLINE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="REQUEST_COAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
