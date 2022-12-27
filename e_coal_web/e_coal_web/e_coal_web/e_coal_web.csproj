@@ -122,8 +122,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InputCoalController.cs" />
+    <Compile Include="Controllers\JabatanController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\OperatorSubController.cs" />
@@ -133,6 +136,7 @@
     <Compile Include="Controllers\SeamController.cs" />
     <Compile Include="Controllers\RatingOperatorController.cs" />
     <Compile Include="Controllers\SettingUnitController.cs" />
+    <Compile Include="Controllers\SubcontController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4281,18 +4285,17 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Js\GuideMaster\getpekerjaan.js" />
-    <Content Include="Js\GuideMaster\getprofile.js" />
-    <Content Include="Js\GuideMaster\getseam.js" />
-    <Content Include="Js\GuideMaster\pekerjaan.js" />
-    <Content Include="Js\GuideMaster\profile.js" />
-    <Content Include="Js\GuideMaster\seam.js" />
-    <Content Include="Js\GuideMaster\updatepekerjaan.js" />
-    <Content Include="Js\GuideMaster\updateprofile.js" />
-    <Content Include="Js\GuideMaster\updateseam.js" />
     <Content Include="Js\Home.Index.js" />
     <Content Include="Js\InputCoal.OutRom.js" />
     <Content Include="Js\InputCoal.ToRom.js" />
     <Content Include="Js\Login.Index.js" />
+    <Content Include="Js\MasterGrade.js" />
+    <Content Include="Js\MasterJabatan.js" />
+    <Content Include="Js\MasterLocation.js" />
+    <Content Include="Js\MasterPekerjaan.js" />
+    <Content Include="Js\MasterProfile.js" />
+    <Content Include="Js\MasterSeam.js" />
+    <Content Include="Js\MasterSubcont.js" />
     <Content Include="Js\OperatorSub.Index.js" />
     <Content Include="Js\RequestCoal.Index.js" />
     <Content Include="Js\InputCoal.InSitu.js" />
@@ -5463,15 +5466,6 @@
     <Content Include="Scripts\kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\kendo\kendo.all.min.js.old" />
     <Content Include="Views\Shared\SideMenu.cshtml" />
-    <Content Include="Views\Profile\Create.cshtml" />
-    <Content Include="Views\Profile\Get.cshtml" />
-    <Content Include="Views\Profile\Update.cshtml" />
-    <Content Include="Views\Pekerjaan\Create.cshtml" />
-    <Content Include="Views\Pekerjaan\Get.cshtml" />
-    <Content Include="Views\Pekerjaan\Update.cshtml" />
-    <Content Include="Views\Seam\Create.cshtml" />
-    <Content Include="Views\Seam\Get.cshtml" />
-    <Content Include="Views\Seam\Update.cshtml" />
     <Content Include="Views\RequestCoal\Index.cshtml" />
     <Content Include="Views\OperatorSub\Index.cshtml" />
     <Content Include="Views\RatingOperator\Index.cshtml" />
@@ -5479,6 +5473,13 @@
     <Content Include="Views\InputCoal\InRom.cshtml" />
     <Content Include="Views\InputCoal\OutRom.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Pekerjaan\Index.cshtml" />
+    <Content Include="Views\Seam\Index.cshtml" />
+    <Content Include="Views\Subcont\Index.cshtml" />
+    <Content Include="Views\Jabatan\Index.cshtml" />
+    <Content Include="Views\Location\Index.cshtml" />
+    <Content Include="Views\Grade\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

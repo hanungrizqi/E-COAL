@@ -19,7 +19,7 @@ namespace e_coal_web.Controllers
             return View();
         }
 
-        public ActionResult Create()
+        /*public ActionResult Create()
         {
             if (Session["Nrp"] == null)
             {
@@ -48,6 +48,6 @@ namespace e_coal_web.Controllers
 
             Session["updateid"] = id.ToString();
             return View();
-        }
+        }*/
     }
 }

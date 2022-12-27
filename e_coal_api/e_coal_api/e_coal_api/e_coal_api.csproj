@@ -192,9 +192,11 @@
     <Compile Include="View_Model\ClsCgv.cs" />
     <Compile Include="View_Model\ClsDashboard.cs" />
     <Compile Include="View_Model\ClsDistrict.cs" />
+    <Compile Include="View_Model\ClsGrade.cs" />
     <Compile Include="View_Model\ClsInSitu.cs" />
     <Compile Include="View_Model\ClsDepartment.cs" />
     <Compile Include="View_Model\ClsJabatan.cs" />
+    <Compile Include="View_Model\ClsLocation.cs" />
     <Compile Include="View_Model\ClsLogin.cs" />
     <Compile Include="View_Model\ClsOperatorSub.cs" />
     <Compile Include="View_Model\ClsOutRom.cs" />

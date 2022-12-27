@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Seam";
+}
+
+<input type="hidden" id="hd_path" value="@System.Configuration.ConfigurationManager.AppSettings["path"].ToString()" />
+<input type="hidden" id="hd_district" value="@Session["District"]" />
+<input type="hidden" id="hd_userLogin" value="@Session["Nrp"]" />
+<input type="hidden" id="hd_idProfile" value="@Session["IdProfile"]" />
+
+@*<style>
+        .k-list {
+            white-space: nowrap;
+        }
+
+        .k-grid {
+            font-size: 10px;
+        }
+
+            .k-grid td {
+                line-height: 2em;
+            }
+    </style>*@
+
+<div class="block block-rounded">
+    <div class="block-header block-header-default">
+        <h3 class="block-title">Master Seam</h3>
+    </div>
+    <div class="block-content block-content-full">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-fadein" onclick="AddNew();"><i class="fa fa-plus"></i> Add New</button>
+        <hr>
+        <div id="grid"></div>
+    </div>
+</div>
+
+<!-- Fade In Modal -->
+<div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h5 class="modal-title" id="exaModalLabemplel"><label id="lblTitle"></label></h5>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtProfile" class="col-form-label">Seam</label>
+                            <input type="text" class="form-control" id="txtSeam" style="width:440px;" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="block-content fs-sm">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtProfile" class="col-form-label">Grade</label>
+                            <input type="text" class="form-control" id="txtGrade" style="width:440px;" placeholder="A/B/C" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="block-content fs-sm">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtProfile" class="col-form-label">Initial</label>
+                            <input type="text" class="form-control" id="txtInitial" style="width:440px;" placeholder="Example : S.R.1" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-alt-primary" onclick="Save();">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Fade In Modal -->
+
+<script src="~/js/MasterSeam.js"></script>

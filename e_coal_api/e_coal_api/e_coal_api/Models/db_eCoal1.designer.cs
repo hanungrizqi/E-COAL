@@ -33,21 +33,12 @@ namespace e_coal_api.Models
     partial void InsertTBL_M_PROFILE(TBL_M_PROFILE instance);
     partial void UpdateTBL_M_PROFILE(TBL_M_PROFILE instance);
     partial void DeleteTBL_M_PROFILE(TBL_M_PROFILE instance);
-    partial void InsertTBL_M_GRADE(TBL_M_GRADE instance);
-    partial void UpdateTBL_M_GRADE(TBL_M_GRADE instance);
-    partial void DeleteTBL_M_GRADE(TBL_M_GRADE instance);
     partial void InsertTBL_M_SEAM(TBL_M_SEAM instance);
     partial void UpdateTBL_M_SEAM(TBL_M_SEAM instance);
     partial void DeleteTBL_M_SEAM(TBL_M_SEAM instance);
     partial void InsertTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
     partial void UpdateTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
     partial void DeleteTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
-    partial void InsertTBL_M_JABATAN(TBL_M_JABATAN instance);
-    partial void UpdateTBL_M_JABATAN(TBL_M_JABATAN instance);
-    partial void DeleteTBL_M_JABATAN(TBL_M_JABATAN instance);
-    partial void InsertTBL_M_SUBCONT(TBL_M_SUBCONT instance);
-    partial void UpdateTBL_M_SUBCONT(TBL_M_SUBCONT instance);
-    partial void DeleteTBL_M_SUBCONT(TBL_M_SUBCONT instance);
     partial void InsertTBL_M_LOCATION(TBL_M_LOCATION instance);
     partial void UpdateTBL_M_LOCATION(TBL_M_LOCATION instance);
     partial void DeleteTBL_M_LOCATION(TBL_M_LOCATION instance);
@@ -78,6 +69,15 @@ namespace e_coal_api.Models
     partial void InsertTBL_T_APPRAISAL(TBL_T_APPRAISAL instance);
     partial void UpdateTBL_T_APPRAISAL(TBL_T_APPRAISAL instance);
     partial void DeleteTBL_T_APPRAISAL(TBL_T_APPRAISAL instance);
+    partial void InsertTBL_M_SUBCONT(TBL_M_SUBCONT instance);
+    partial void UpdateTBL_M_SUBCONT(TBL_M_SUBCONT instance);
+    partial void DeleteTBL_M_SUBCONT(TBL_M_SUBCONT instance);
+    partial void InsertTBL_M_JABATAN(TBL_M_JABATAN instance);
+    partial void UpdateTBL_M_JABATAN(TBL_M_JABATAN instance);
+    partial void DeleteTBL_M_JABATAN(TBL_M_JABATAN instance);
+    partial void InsertTBL_M_GRADE(TBL_M_GRADE instance);
+    partial void UpdateTBL_M_GRADE(TBL_M_GRADE instance);
+    partial void DeleteTBL_M_GRADE(TBL_M_GRADE instance);
     #endregion
 		
 		public db_eCoalDataContext() : 
@@ -118,14 +118,6 @@ namespace e_coal_api.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_M_GRADE> TBL_M_GRADEs
-		{
-			get
-			{
-				return this.GetTable<TBL_M_GRADE>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TBL_M_SEAM> TBL_M_SEAMs
 		{
 			get
@@ -139,22 +131,6 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<TBL_M_OPERATOR_EX>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBL_M_JABATAN> TBL_M_JABATANs
-		{
-			get
-			{
-				return this.GetTable<TBL_M_JABATAN>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBL_M_SUBCONT> TBL_M_SUBCONTs
-		{
-			get
-			{
-				return this.GetTable<TBL_M_SUBCONT>();
 			}
 		}
 		
@@ -259,6 +235,30 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<VW_DISTRICT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_SUBCONT> TBL_M_SUBCONTs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_SUBCONT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_JABATAN> TBL_M_JABATANs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_JABATAN>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_GRADE> TBL_M_GRADEs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_GRADE>();
 			}
 		}
 		
@@ -428,116 +428,6 @@ namespace e_coal_api.Models
 					this._PROFILE = value;
 					this.SendPropertyChanged("PROFILE");
 					this.OnPROFILEChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_GRADE")]
-	public partial class TBL_M_GRADE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _GRADE;
-		
-		private System.Nullable<int> _GAR_MIN;
-		
-		private System.Nullable<int> _GAR_MAX;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnGRADEChanging(string value);
-    partial void OnGRADEChanged();
-    partial void OnGAR_MINChanging(System.Nullable<int> value);
-    partial void OnGAR_MINChanged();
-    partial void OnGAR_MAXChanging(System.Nullable<int> value);
-    partial void OnGAR_MAXChanged();
-    #endregion
-		
-		public TBL_M_GRADE()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRADE", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string GRADE
-		{
-			get
-			{
-				return this._GRADE;
-			}
-			set
-			{
-				if ((this._GRADE != value))
-				{
-					this.OnGRADEChanging(value);
-					this.SendPropertyChanging();
-					this._GRADE = value;
-					this.SendPropertyChanged("GRADE");
-					this.OnGRADEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GAR_MIN", DbType="Int")]
-		public System.Nullable<int> GAR_MIN
-		{
-			get
-			{
-				return this._GAR_MIN;
-			}
-			set
-			{
-				if ((this._GAR_MIN != value))
-				{
-					this.OnGAR_MINChanging(value);
-					this.SendPropertyChanging();
-					this._GAR_MIN = value;
-					this.SendPropertyChanged("GAR_MIN");
-					this.OnGAR_MINChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GAR_MAX", DbType="Int")]
-		public System.Nullable<int> GAR_MAX
-		{
-			get
-			{
-				return this._GAR_MAX;
-			}
-			set
-			{
-				if ((this._GAR_MAX != value))
-				{
-					this.OnGAR_MAXChanging(value);
-					this.SendPropertyChanging();
-					this._GAR_MAX = value;
-					this.SendPropertyChanged("GAR_MAX");
-					this.OnGAR_MAXChanged();
 				}
 			}
 		}
@@ -950,274 +840,6 @@ namespace e_coal_api.Models
 					this._STATUS = value;
 					this.SendPropertyChanged("STATUS");
 					this.OnSTATUSChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_JABATAN")]
-	public partial class TBL_M_JABATAN : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_JABATAN;
-		
-		private string _JABATAN;
-		
-		private System.Nullable<System.DateTime> _CREATE_DATE;
-		
-		private string _CREATE_BY;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_JABATANChanging(int value);
-    partial void OnID_JABATANChanged();
-    partial void OnJABATANChanging(string value);
-    partial void OnJABATANChanged();
-    partial void OnCREATE_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCREATE_DATEChanged();
-    partial void OnCREATE_BYChanging(string value);
-    partial void OnCREATE_BYChanged();
-    #endregion
-		
-		public TBL_M_JABATAN()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_JABATAN", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_JABATAN
-		{
-			get
-			{
-				return this._ID_JABATAN;
-			}
-			set
-			{
-				if ((this._ID_JABATAN != value))
-				{
-					this.OnID_JABATANChanging(value);
-					this.SendPropertyChanging();
-					this._ID_JABATAN = value;
-					this.SendPropertyChanged("ID_JABATAN");
-					this.OnID_JABATANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JABATAN", DbType="VarChar(100)")]
-		public string JABATAN
-		{
-			get
-			{
-				return this._JABATAN;
-			}
-			set
-			{
-				if ((this._JABATAN != value))
-				{
-					this.OnJABATANChanging(value);
-					this.SendPropertyChanging();
-					this._JABATAN = value;
-					this.SendPropertyChanged("JABATAN");
-					this.OnJABATANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATE_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATE_DATE
-		{
-			get
-			{
-				return this._CREATE_DATE;
-			}
-			set
-			{
-				if ((this._CREATE_DATE != value))
-				{
-					this.OnCREATE_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CREATE_DATE = value;
-					this.SendPropertyChanged("CREATE_DATE");
-					this.OnCREATE_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATE_BY", DbType="VarChar(50)")]
-		public string CREATE_BY
-		{
-			get
-			{
-				return this._CREATE_BY;
-			}
-			set
-			{
-				if ((this._CREATE_BY != value))
-				{
-					this.OnCREATE_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CREATE_BY = value;
-					this.SendPropertyChanged("CREATE_BY");
-					this.OnCREATE_BYChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_SUBCONT")]
-	public partial class TBL_M_SUBCONT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _SUBCONT_CODE;
-		
-		private string _SUBCONT_NAME;
-		
-		private System.Nullable<System.DateTime> _CREATE_DATE;
-		
-		private string _CRETATE_BY;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSUBCONT_CODEChanging(string value);
-    partial void OnSUBCONT_CODEChanged();
-    partial void OnSUBCONT_NAMEChanging(string value);
-    partial void OnSUBCONT_NAMEChanged();
-    partial void OnCREATE_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCREATE_DATEChanged();
-    partial void OnCRETATE_BYChanging(string value);
-    partial void OnCRETATE_BYChanged();
-    #endregion
-		
-		public TBL_M_SUBCONT()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBCONT_CODE", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string SUBCONT_CODE
-		{
-			get
-			{
-				return this._SUBCONT_CODE;
-			}
-			set
-			{
-				if ((this._SUBCONT_CODE != value))
-				{
-					this.OnSUBCONT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SUBCONT_CODE = value;
-					this.SendPropertyChanged("SUBCONT_CODE");
-					this.OnSUBCONT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBCONT_NAME", DbType="VarChar(150)")]
-		public string SUBCONT_NAME
-		{
-			get
-			{
-				return this._SUBCONT_NAME;
-			}
-			set
-			{
-				if ((this._SUBCONT_NAME != value))
-				{
-					this.OnSUBCONT_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._SUBCONT_NAME = value;
-					this.SendPropertyChanged("SUBCONT_NAME");
-					this.OnSUBCONT_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATE_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATE_DATE
-		{
-			get
-			{
-				return this._CREATE_DATE;
-			}
-			set
-			{
-				if ((this._CREATE_DATE != value))
-				{
-					this.OnCREATE_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CREATE_DATE = value;
-					this.SendPropertyChanged("CREATE_DATE");
-					this.OnCREATE_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRETATE_BY", DbType="VarChar(50)")]
-		public string CRETATE_BY
-		{
-			get
-			{
-				return this._CRETATE_BY;
-			}
-			set
-			{
-				if ((this._CRETATE_BY != value))
-				{
-					this.OnCRETATE_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRETATE_BY = value;
-					this.SendPropertyChanged("CRETATE_BY");
-					this.OnCRETATE_BYChanged();
 				}
 			}
 		}
@@ -4028,6 +3650,480 @@ namespace e_coal_api.Models
 				{
 					this._DSTRCT_NAME = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_SUBCONT")]
+	public partial class TBL_M_SUBCONT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _SUBCONT_CODE;
+		
+		private string _SUBCONT_NAME;
+		
+		private System.Nullable<System.DateTime> _CREATE_DATE;
+		
+		private string _CRETATE_BY;
+		
+		private string _DISTRICT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnSUBCONT_CODEChanging(string value);
+    partial void OnSUBCONT_CODEChanged();
+    partial void OnSUBCONT_NAMEChanging(string value);
+    partial void OnSUBCONT_NAMEChanged();
+    partial void OnCREATE_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCREATE_DATEChanged();
+    partial void OnCRETATE_BYChanging(string value);
+    partial void OnCRETATE_BYChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    #endregion
+		
+		public TBL_M_SUBCONT()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBCONT_CODE", DbType="VarChar(5)")]
+		public string SUBCONT_CODE
+		{
+			get
+			{
+				return this._SUBCONT_CODE;
+			}
+			set
+			{
+				if ((this._SUBCONT_CODE != value))
+				{
+					this.OnSUBCONT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SUBCONT_CODE = value;
+					this.SendPropertyChanged("SUBCONT_CODE");
+					this.OnSUBCONT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBCONT_NAME", DbType="VarChar(150)")]
+		public string SUBCONT_NAME
+		{
+			get
+			{
+				return this._SUBCONT_NAME;
+			}
+			set
+			{
+				if ((this._SUBCONT_NAME != value))
+				{
+					this.OnSUBCONT_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._SUBCONT_NAME = value;
+					this.SendPropertyChanged("SUBCONT_NAME");
+					this.OnSUBCONT_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATE_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATE_DATE
+		{
+			get
+			{
+				return this._CREATE_DATE;
+			}
+			set
+			{
+				if ((this._CREATE_DATE != value))
+				{
+					this.OnCREATE_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CREATE_DATE = value;
+					this.SendPropertyChanged("CREATE_DATE");
+					this.OnCREATE_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRETATE_BY", DbType="VarChar(50)")]
+		public string CRETATE_BY
+		{
+			get
+			{
+				return this._CRETATE_BY;
+			}
+			set
+			{
+				if ((this._CRETATE_BY != value))
+				{
+					this.OnCRETATE_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRETATE_BY = value;
+					this.SendPropertyChanged("CRETATE_BY");
+					this.OnCRETATE_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(50)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_JABATAN")]
+	public partial class TBL_M_JABATAN : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_JABATAN;
+		
+		private string _JABATAN;
+		
+		private System.Nullable<System.DateTime> _CREATE_DATE;
+		
+		private string _CREATE_BY;
+		
+		private string _DISTRICT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_JABATANChanging(int value);
+    partial void OnID_JABATANChanged();
+    partial void OnJABATANChanging(string value);
+    partial void OnJABATANChanged();
+    partial void OnCREATE_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCREATE_DATEChanged();
+    partial void OnCREATE_BYChanging(string value);
+    partial void OnCREATE_BYChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    #endregion
+		
+		public TBL_M_JABATAN()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_JABATAN", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_JABATAN
+		{
+			get
+			{
+				return this._ID_JABATAN;
+			}
+			set
+			{
+				if ((this._ID_JABATAN != value))
+				{
+					this.OnID_JABATANChanging(value);
+					this.SendPropertyChanging();
+					this._ID_JABATAN = value;
+					this.SendPropertyChanged("ID_JABATAN");
+					this.OnID_JABATANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JABATAN", DbType="VarChar(100)")]
+		public string JABATAN
+		{
+			get
+			{
+				return this._JABATAN;
+			}
+			set
+			{
+				if ((this._JABATAN != value))
+				{
+					this.OnJABATANChanging(value);
+					this.SendPropertyChanging();
+					this._JABATAN = value;
+					this.SendPropertyChanged("JABATAN");
+					this.OnJABATANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATE_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATE_DATE
+		{
+			get
+			{
+				return this._CREATE_DATE;
+			}
+			set
+			{
+				if ((this._CREATE_DATE != value))
+				{
+					this.OnCREATE_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CREATE_DATE = value;
+					this.SendPropertyChanged("CREATE_DATE");
+					this.OnCREATE_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATE_BY", DbType="VarChar(50)")]
+		public string CREATE_BY
+		{
+			get
+			{
+				return this._CREATE_BY;
+			}
+			set
+			{
+				if ((this._CREATE_BY != value))
+				{
+					this.OnCREATE_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CREATE_BY = value;
+					this.SendPropertyChanged("CREATE_BY");
+					this.OnCREATE_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(50)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_GRADE")]
+	public partial class TBL_M_GRADE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _GRADE;
+		
+		private System.Nullable<int> _GAR_MIN;
+		
+		private System.Nullable<int> _GAR_MAX;
+		
+		private string _DISTRICT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGRADEChanging(string value);
+    partial void OnGRADEChanged();
+    partial void OnGAR_MINChanging(System.Nullable<int> value);
+    partial void OnGAR_MINChanged();
+    partial void OnGAR_MAXChanging(System.Nullable<int> value);
+    partial void OnGAR_MAXChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    #endregion
+		
+		public TBL_M_GRADE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRADE", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string GRADE
+		{
+			get
+			{
+				return this._GRADE;
+			}
+			set
+			{
+				if ((this._GRADE != value))
+				{
+					this.OnGRADEChanging(value);
+					this.SendPropertyChanging();
+					this._GRADE = value;
+					this.SendPropertyChanged("GRADE");
+					this.OnGRADEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GAR_MIN", DbType="Int")]
+		public System.Nullable<int> GAR_MIN
+		{
+			get
+			{
+				return this._GAR_MIN;
+			}
+			set
+			{
+				if ((this._GAR_MIN != value))
+				{
+					this.OnGAR_MINChanging(value);
+					this.SendPropertyChanging();
+					this._GAR_MIN = value;
+					this.SendPropertyChanged("GAR_MIN");
+					this.OnGAR_MINChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GAR_MAX", DbType="Int")]
+		public System.Nullable<int> GAR_MAX
+		{
+			get
+			{
+				return this._GAR_MAX;
+			}
+			set
+			{
+				if ((this._GAR_MAX != value))
+				{
+					this.OnGAR_MAXChanging(value);
+					this.SendPropertyChanging();
+					this._GAR_MAX = value;
+					this.SendPropertyChanged("GAR_MAX");
+					this.OnGAR_MAXChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(50)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

@@ -21,38 +21,5 @@ namespace e_coal_web.Controllers
             return View();
         }
 
-        public ActionResult Create()
-        {
-            if (Session["Nrp"] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
-
-            ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
-            return View();
-        }
-
-        public ActionResult Get()
-        {
-            if (Session["Nrp"] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
-
-            ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
-            return View();
-        }
-
-        public ActionResult Update(int? id)
-        {
-            if (Session["Nrp"] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
-
-            ViewBag.path = ConfigurationManager.AppSettings["path"].ToString();
-            Session["updateid"] = id.ToString();
-            return View();
-        }
     }
 }
