@@ -31,6 +31,14 @@ namespace e_coal_api.View_Model
             db.SubmitChanges();
         }
 
+        public void updateLocation()
+        {
+            var Query = db.TBL_M_LOCATIONs.Where(x => x.ID_LOC == ID_LOC).FirstOrDefault();
+            Query.LOCATION = LOCATION;
+            Query.DISTRICT = DISTRICT;
+            db.SubmitChanges();
+        }
+
         public void deleteLocation()
         {
             var query = db.TBL_M_LOCATIONs.Where(t => t.ID_LOC == ID_LOC).FirstOrDefault();

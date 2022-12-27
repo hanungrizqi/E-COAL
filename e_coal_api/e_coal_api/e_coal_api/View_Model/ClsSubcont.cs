@@ -38,6 +38,15 @@ namespace e_coal_api.View_Model
             db.SubmitChanges();
         }
 
+        public void updateSubcont()
+        {
+            var Query = db.TBL_M_SUBCONTs.Where(x => x.ID == ID).FirstOrDefault();
+            Query.SUBCONT_CODE = SUBCONT_CODE;
+            Query.SUBCONT_NAME = SUBCONT_NAME;
+            Query.CREATE_DATE = DateTime.Now;
+            Query.DISTRICT = DISTRICT;
+            db.SubmitChanges();
+        }
         public void deleteSubcont()
         {
             var query = db.TBL_M_SUBCONTs.Where(t => t.ID == ID).FirstOrDefault();

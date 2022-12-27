@@ -35,6 +35,14 @@ namespace e_coal_api.View_Model
             db.SubmitChanges();
         }
 
+        public void updateJabatan()
+        {
+            var Query = db.TBL_M_JABATANs.Where(x => x.ID_JABATAN == ID_JABATAN).FirstOrDefault();
+            Query.JABATAN = JABATAN;
+            Query.CREATE_DATE = DateTime.Now;
+            Query.DISTRICT = DISTRICT;
+            db.SubmitChanges();
+        }
         public void deleteJabatan()
         {
             var query = db.TBL_M_JABATANs.Where(t => t.ID_JABATAN == ID_JABATAN).FirstOrDefault();

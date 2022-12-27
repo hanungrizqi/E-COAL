@@ -35,6 +35,14 @@ namespace e_coal_api.View_Model
             db.SubmitChanges();
         }
 
+        public void updateSeam()
+        {
+            var Query = db.TBL_M_SEAMs.Where(x => x.id == id).FirstOrDefault();
+            Query.NAMA_SEAM = NAMA_SEAM;
+            Query.GRADE = GRADE;
+            Query.INITIAL = INITIAL;
+            db.SubmitChanges();
+        }
         public void deleteSeam()
         {
             var query = db.TBL_M_SEAMs.Where(t => t.id == id).FirstOrDefault();

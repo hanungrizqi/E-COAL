@@ -52,6 +52,7 @@ $(document).ready(function () {
 
 function Save() {
     var obj = {
+        ID: $("#txtIDSubcont").val(),
         SUBCONT_CODE: $("#txtSubcontCode").val(),
         SUBCONT_NAME: $("#txtSubcontName").val(),
         DISTRICT: $("#txtDistrict").val(),
@@ -127,54 +128,39 @@ function AddNew() {
     $("#modalForm").modal("show");
 }
 
-/*function Edit(id) {
-    $('#lblTitle').text("Edit Profile");
-
+function Edit(ID) {
+    $('#lblTitle').text("Edit Subcont");
+    /*var empObj = {
+        id: id
+        *//*PROFILE: $("#txtProfile").val()*//*
+};*/
+    /*console.log(empObj);*/
     //field2nya nanti taruh disini
     $.ajax({
         type: "POST",
-        url: $("#hd_path").val() + "api/Masters/getProfileByID?id=" + id,
-        //data: JSON.stringify(obj),
+        url: $("#hd_path").val() + "api/Masters/getSubcontByID?ID=" + ID,
+        /*data: JSON.stringify(empObj),*/
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
+            console.log(result.Data[0].SUBCONT_NAME);
             //console.log(result.Data[0].customer_id);
             if (result.Remarks == true) {
-                *//*var isActive = 0;
-if (result.Data[0].STATUS == true) {
-isActive = 1
-}*//*
-$("#txtProfile").val(result.Data.PROFILE);
-*//*$("#hd_id").val(id1);
-//$("#txtWarehouse").data("kendoComboBox").value(result.Data[0].WAREHOUSE);
-$("#txtSNcode").val(result.Data[0].SN_CODE);
-$("#txtFungsi").data("kendoDropDownList").value(result.Data[0].FUNGSI);
-$("#txtMnemonic").val(result.Data[0].MNEMONIC);
-$("#txtMeterFakor").val(result.Data[0].METER_FAKOR);
-//$("#txtKapMaks").val(result.Data[0].KAP_MAKS);
-$("#txtKalibrationDate").val(result.Data[0].KALIBARTION_DATE);
-$("#txtKalibrationExp").val(result.Data[0].KALIBRATION_EXPIRED);
-$("#txtWHLocation").val(result.Data[0].WHOUSE_LOCATION);
-$("#txtFlowMeterNo").val(result.Data[0].FLOW_METER_NO);
-$("#txtFlowMeterLocation").val(result.Data[0].FLOW_METER_LOCATION);
-$("#txtRemark").val(result.Data[0].REMARK);
-$("#txtStatus").data("kendoDropDownList").value(isActive);
-
-var wh = $("#txtWarehouse").data("kendoComboBox");
-wh.value(result.Data[0].WAREHOUSE);
-wh.readonly();*//*
+                /*$("#hd_id").val(id);*/
+                //settingModel.ds_grid_dataSource.read();
+                $("#txtIDSubcont").val(ID);
+                $("#txtSubcontCode").val(result.Data[0].SUBCONT_CODE);
+                $("#txtSubcontName").val(result.Data[0].SUBCONT_NAME);
+                $("#txtDistrict").val(result.Data[0].DISTRICT);
+            }
+            else {
+                alert(result.Message);
+                console.log(data.Message);
+            }
+        },
+        error: function (xhr) {
+            alert("Error...");
+        }
+    });
+    $("#modalForm").modal("show");
 }
-else {
-alert(result.Message);
-//console.log(data.Message);
-}
-
-},
-error: function (xhr) {
-alert("Error...");
-}
-});
-
-
-$("#modalForm").modal("show");
-}*/

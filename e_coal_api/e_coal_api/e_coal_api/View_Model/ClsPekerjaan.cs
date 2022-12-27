@@ -29,6 +29,13 @@ namespace e_coal_api.View_Model
             db.SubmitChanges();
         }
 
+        public void updatePekerjaan()
+        {
+            var Query = db.TBL_M_PEKERJAANs.Where(x => x.id == id).FirstOrDefault();
+            Query.NAMA_PEKERJAAN = NAMA_PEKERJAAN;
+            db.SubmitChanges();
+        }
+
         public void deletePekerjaan()
         {
             var query = db.TBL_M_PEKERJAANs.Where(t => t.id == id).FirstOrDefault();

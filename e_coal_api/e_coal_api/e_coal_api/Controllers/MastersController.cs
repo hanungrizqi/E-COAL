@@ -40,9 +40,20 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                clsProfile.saveProfile();
+                var message = "";
+                var check = db.TBL_M_PROFILEs.Where(x => x.id == clsProfile.id).FirstOrDefault();
+                if (check != null)
+                {
+                    clsProfile.updateProfile();
+                    message = "Data berhasil diubah";
+                }
+                else {
 
-                return Ok(new { Message = "Data berhasil di masukan", Status = true });
+                    clsProfile.saveProfile();
+                    message = "data Berhasil disimpan";
+                }
+
+                return Ok(new { Message = message, Status = true });
             }
             catch (Exception e)
             {
@@ -73,13 +84,32 @@ namespace e_coal_api.Controllers
             {
                 var data = db.TBL_M_PROFILEs.Where(x => x.id == id);
 
-                return Ok(new { Remarks = true, Data = data });
+                return Ok(new { Remarks = true, Data = data, Message = "Berhasil Edit Data" });
             }
             catch (Exception e)
             {
                 return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
             }
         }
+
+        /*[HttpPost]
+        [Route("api/Masters/Update")]
+        public IHttpActionResult Update(TBL_M_PROFILE profile)
+        {
+            var data = db.TBL_M_PROFILEs.Where(x => x.id == profile.id).FirstOrDefault();
+            data.PROFILE = profile.PROFILE;
+
+            db.SubmitChanges();
+            return Ok("Data berhasil di update");
+        }
+
+        [HttpPost]
+        [Route("api/Masters/getValueProfile")]
+        public IHttpActionResult GetValueProfile(int? id)
+        {
+            var data = db.TBL_M_PROFILEs.Where(x => x.id == id).FirstOrDefault();
+            return Ok(data);
+        }*/
         #endregion
 
         #region Master Pekerjaan
@@ -106,9 +136,21 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                clsPekerjaan.savePekerjaan();
+                var message = "";
+                var check = db.TBL_M_PEKERJAANs.Where(x => x.id == clsPekerjaan.id).FirstOrDefault();
+                if (check != null)
+                {
+                    clsPekerjaan.updatePekerjaan();
+                    message = "Data berhasil diubah";
+                }
+                else
+                {
 
-                return Ok(new { Message = "Data berhasil di masukan", Status = true });
+                    clsPekerjaan.savePekerjaan();
+                    message = "data Berhasil disimpan";
+                }
+
+                return Ok(new { Message = message, Status = true });
             }
             catch (Exception e)
             {
@@ -128,6 +170,22 @@ namespace e_coal_api.Controllers
             catch (Exception e)
             {
                 return Ok(new { Remarks = false, Message = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Masters/getPekerjaanByID")]
+        public IHttpActionResult getPekerjaanByID(int id)
+        {
+            try
+            {
+                var data = db.TBL_M_PEKERJAANs.Where(x => x.id == id);
+
+                return Ok(new { Remarks = true, Data = data, Message = "Berhasil Edit Data" });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
             }
         }
         #endregion
@@ -156,9 +214,21 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                clsSeam.saveSeam();
+                var message = "";
+                var check = db.TBL_M_SEAMs.Where(x => x.id == clsSeam.id).FirstOrDefault();
+                if (check != null)
+                {
+                    clsSeam.updateSeam();
+                    message = "Data berhasil diubah";
+                }
+                else
+                {
 
-                return Ok(new { Message = "Data berhasil di masukan", Status = true });
+                    clsSeam.saveSeam();
+                    message = "data Berhasil disimpan";
+                }
+
+                return Ok(new { Message = message, Status = true });
             }
             catch (Exception e)
             {
@@ -178,6 +248,22 @@ namespace e_coal_api.Controllers
             catch (Exception e)
             {
                 return Ok(new { Remarks = false, Message = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Masters/getSeamByID")]
+        public IHttpActionResult getSeamByID(int id)
+        {
+            try
+            {
+                var data = db.TBL_M_SEAMs.Where(x => x.id == id);
+
+                return Ok(new { Remarks = true, Data = data, Message = "Berhasil Edit Data" });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
             }
         }
         #endregion
@@ -206,9 +292,21 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                clsSubcont.saveSubcont();
+                var message = "";
+                var check = db.TBL_M_SUBCONTs.Where(x => x.ID == clsSubcont.ID).FirstOrDefault();
+                if (check != null)
+                {
+                    clsSubcont.updateSubcont();
+                    message = "Data berhasil diubah";
+                }
+                else
+                {
 
-                return Ok(new { Message = "Data berhasil di masukan", Status = true });
+                    clsSubcont.saveSubcont();
+                    message = "data Berhasil disimpan";
+                }
+
+                return Ok(new { Message = message, Status = true });
             }
             catch (Exception e)
             {
@@ -228,6 +326,22 @@ namespace e_coal_api.Controllers
             catch (Exception e)
             {
                 return Ok(new { Remarks = false, Message = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Masters/getSubcontByID")]
+        public IHttpActionResult getSubcontByID(int id)
+        {
+            try
+            {
+                var data = db.TBL_M_SUBCONTs.Where(x => x.ID == id);
+
+                return Ok(new { Remarks = true, Data = data, Message = "Berhasil Edit Data" });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
             }
         }
         #endregion
@@ -256,9 +370,21 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                clsJabatan.saveJabatan();
+                var message = "";
+                var check = db.TBL_M_JABATANs.Where(x => x.ID_JABATAN == clsJabatan.ID_JABATAN).FirstOrDefault();
+                if (check != null)
+                {
+                    clsJabatan.updateJabatan();
+                    message = "Data berhasil diubah";
+                }
+                else
+                {
 
-                return Ok(new { Message = "Data berhasil di masukan", Status = true });
+                    clsJabatan.saveJabatan();
+                    message = "data Berhasil disimpan";
+                }
+
+                return Ok(new { Message = message, Status = true });
             }
             catch (Exception e)
             {
@@ -278,6 +404,22 @@ namespace e_coal_api.Controllers
             catch (Exception e)
             {
                 return Ok(new { Remarks = false, Message = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Masters/getJabatanByID")]
+        public IHttpActionResult getJabatanByID(int ID_JABATAN)
+        {
+            try
+            {
+                var data = db.TBL_M_JABATANs.Where(x => x.ID_JABATAN == ID_JABATAN);
+
+                return Ok(new { Remarks = true, Data = data, Message = "Berhasil Edit Data" });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
             }
         }
         #endregion
@@ -306,9 +448,21 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                clsLocation.saveLocation();
+                var message = "";
+                var check = db.TBL_M_LOCATIONs.Where(x => x.ID_LOC == clsLocation.ID_LOC).FirstOrDefault();
+                if (check != null)
+                {
+                    clsLocation.updateLocation();
+                    message = "Data berhasil diubah";
+                }
+                else
+                {
 
-                return Ok(new { Message = "Data berhasil di masukan", Status = true });
+                    clsLocation.saveLocation();
+                    message = "data Berhasil disimpan";
+                }
+
+                return Ok(new { Message = message, Status = true });
             }
             catch (Exception e)
             {
@@ -328,6 +482,22 @@ namespace e_coal_api.Controllers
             catch (Exception e)
             {
                 return Ok(new { Remarks = false, Message = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Masters/getLocationByID")]
+        public IHttpActionResult getLocationByID(int ID_LOC)
+        {
+            try
+            {
+                var data = db.TBL_M_LOCATIONs.Where(x => x.ID_LOC == ID_LOC);
+
+                return Ok(new { Remarks = true, Data = data, Message = "Berhasil Edit Data" });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
             }
         }
         #endregion
@@ -356,9 +526,21 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                clsGrade.saveGrade();
+                var message = "";
+                var check = db.TBL_M_GRADEs.Where(x => x.GRADE == clsGrade.GRADE).FirstOrDefault();
+                if (check != null)
+                {
+                    clsGrade.updateGrade();
+                    message = "Data berhasil diubah";
+                }
+                else
+                {
 
-                return Ok(new { Message = "Data berhasil di masukan", Status = true });
+                    clsGrade.saveGrade();
+                    message = "data Berhasil disimpan";
+                }
+
+                return Ok(new { Message = message, Status = true });
             }
             catch (Exception e)
             {
@@ -378,6 +560,22 @@ namespace e_coal_api.Controllers
             catch (Exception e)
             {
                 return Ok(new { Remarks = false, Message = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Masters/getGradeByID")]
+        public IHttpActionResult getGradeByID(string GRADE)
+        {
+            try
+            {
+                var data = db.TBL_M_GRADEs.Where(x => x.GRADE == GRADE);
+
+                return Ok(new { Remarks = true, Data = data, Message = "Berhasil Edit Data" });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
             }
         }
         #endregion

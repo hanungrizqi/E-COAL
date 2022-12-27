@@ -34,6 +34,15 @@ namespace e_coal_api.View_Model
             db.SubmitChanges();
         }
 
+        public void updateGrade()
+        {
+            var Query = db.TBL_M_GRADEs.Where(x => x.GRADE == GRADE).FirstOrDefault();
+            Query.GRADE = GRADE;
+            Query.GAR_MIN = GAR_MIN;
+            Query.GAR_MAX = GAR_MAX;
+            Query.DISTRICT = DISTRICT;
+            db.SubmitChanges();
+        }
         public void deleteGrade()
         {
             var query = db.TBL_M_GRADEs.Where(t => t.GRADE == GRADE).FirstOrDefault();

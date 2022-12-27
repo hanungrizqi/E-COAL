@@ -30,6 +30,13 @@ namespace e_coal_api.View_Model
             db.SubmitChanges();
         }
 
+        public void updateProfile()
+        {
+            var Query = db.TBL_M_PROFILEs.Where(x => x.id == id).FirstOrDefault();
+            Query.PROFILE = PROFILE;
+            db.SubmitChanges();
+        }
+
         public void deleteProfile()
         {
             var query = db.TBL_M_PROFILEs.Where(t => t.id == id).FirstOrDefault();
