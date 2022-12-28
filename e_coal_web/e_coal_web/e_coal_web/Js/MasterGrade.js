@@ -53,7 +53,7 @@ $(document).ready(function () {
 
 $("#txtDistrict").kendoDropDownList({
     dataTextField: "DSTRCT_CODE",
-    dataValueField: "DSTRCT_NAME",
+    dataValueField: "DSTRCT_CODE",
     dataSource: {
         type: "json",
         transport: {
