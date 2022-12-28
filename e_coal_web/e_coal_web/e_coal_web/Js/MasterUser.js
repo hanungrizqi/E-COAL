@@ -19,8 +19,12 @@ $(document).ready(function () {
                     fields: {
                         ID: { type: "int", editable: false, sortable: true },
                         NRP: { type: "string", editable: false, sortable: true },
+                        NAME: { type: "string", editable: false, sortable: true },
                         ID_PROFILE: { type: "int", editable: false, sortable: true },
+                        PROFILE: { type: "string", editable: false, sortable: true },
                         DISTRICT: { type: "string", editable: false, sortable: true },
+                        POSITION_ID: { type: "string", editable: false, sortable: true },
+                        POST_TITLE: { type: "string", editable: false, sortable: true },
                     }
                 }
             },
@@ -41,6 +45,8 @@ $(document).ready(function () {
         columns: [
             { field: 'NRP', title: 'NRP', width: 70 },
             /*{ field: 'ID_PROFILE', title: 'ID Profile', width: 70 },*/
+            { field: 'NAME', title: 'Nama', width: 70 },
+            { field: 'PROFILE', title: 'Profile', width: 70 },
             { field: 'DISTRICT', title: 'District', width: 70 },
             {
                 title: 'Action', width: 80,
@@ -121,6 +127,12 @@ function Save() {
             if (data.Status == true) {
                 settingModel.ds_grid_dataSource.read();
                 alert(data.Message);
+                $("#txtIDUser").val("");
+                $("#txtNRP").val("");
+                $("#txtIDProfile").val("");
+                $("#txtDistrict").val("");
+                AddNew();
+
                 $('#modalForm').modal('hide');
             }
             else {
@@ -171,14 +183,7 @@ function Delete(ID) {
     /*$('#grid').data('kendoGrid').refresh();*/
 }
 
-function AddNew() {
-    $("#lblTitle").text("Add New User Master");
 
-    $("#txtNRP").val("");
-    $("#txtIDProfile").val("");
-    $("#txtDistrict").val("");
-    $("#modalForm").modal("show");
-}
 
 function Edit(ID) {
     $('#lblTitle').text("Edit User");
@@ -195,7 +200,7 @@ function Edit(ID) {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
-            console.log(result.Data[0].LOCATION);
+            console.log(result.Data[0].ID_PROFILE);
             //console.log(result.Data[0].customer_id);
             if (result.Remarks == true) {
                 /*$("#hd_id").val(id);*/
@@ -204,6 +209,7 @@ function Edit(ID) {
                 $("#txtNRP").val(result.Data[0].NRP);
                 $("#txtIDProfile").val(result.Data[0].ID_PROFILE);
                 $("#txtDistrict").val(result.Data[0].DISTRICT);
+                
             }
             else {
                 alert(result.Message);
@@ -214,5 +220,17 @@ function Edit(ID) {
             alert("Error...");
         }
     });
+    $("#modalForm").modal("show");
+}
+
+function AddNew() {
+    $("#lblTitle").text("Add New User Master");
+
+    $("#txtIDUser").val("");
+    $("#txtNRP").val("");
+    $("#txtIDProfile").data("kendoDropDownList").value(-1);
+    $("#txtDistrict").data("kendoDropDownList").value(-1);
+    /*$("#txt_seam").data("kendoDropDownList").value(-1);*/
+
     $("#modalForm").modal("show");
 }

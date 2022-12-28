@@ -92,6 +92,10 @@ function Save() {
             if (data.Status == true) {
                 settingModel.ds_grid_dataSource.read();
                 alert(data.Message);
+                $("#txtIDLocation").val("");
+                $("#txtLocation").val("");
+                $("#txtDistrict").val("");
+                AddNew();
                 $('#modalForm').modal('hide');
             }
             else {
@@ -143,9 +147,9 @@ function Delete(ID_LOC) {
 
 function AddNew() {
     $("#lblTitle").text("Add New Location Master");
-
+    $("#txtIDLocation").val("");
     $("#txtLocation").val("");
-    $("#txtDistrict").val("");
+    $("#txtDistrict").data("kendoDropDownList").value(-1);
     $("#modalForm").modal("show");
 }
 

@@ -63,6 +63,8 @@ function Save() {
             if (data.Status == true) {
                 settingModel.ds_grid_dataSource.read();
                 alert(data.Message);
+                $("#txtIDProfile").val("");
+                $("#txtProfile").val("");
                 $('#modalForm').modal('hide');
             }
             else {
@@ -150,6 +152,7 @@ function Edit(id) {
 function AddNew() {
     $("#lblTitle").text("Add New Profile Master");
 
+    $("#txtIDProfile").val("");
     $("#txtProfile").val("");
     $("#modalForm").modal("show");
 }

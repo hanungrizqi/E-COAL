@@ -17,9 +17,9 @@ namespace e_coal_api.View_Model
         public DateTime CREATE_DATE { get; set; }
         public string CREATE_BY { get; set; }
 
-        public IQueryable<TBL_M_USER> getListUser()
+        public IQueryable<VW_USER_PROFILE> getListUser()
         {
-            var data = db.TBL_M_USERs.ToList().AsQueryable();
+            var data = db.VW_USER_PROFILEs.ToList().AsQueryable();
             return data;
         }
 

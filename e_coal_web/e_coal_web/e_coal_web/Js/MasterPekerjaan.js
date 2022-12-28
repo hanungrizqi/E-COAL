@@ -63,6 +63,8 @@ function Save() {
             if (data.Status == true) {
                 settingModel.ds_grid_dataSource.read();
                 alert(data.Message);
+                $("#txtIDPekerjaan").val("");
+                $("#txtPekerjaan").val("");
                 $('#modalForm').modal('hide');
             }
             else {
@@ -113,7 +115,7 @@ function Delete(id) {
 
 function AddNew() {
     $("#lblTitle").text("Add New Pekerjaan Master");
-
+    $("#txtIDPekerjaan").val("");
     $("#txtPekerjaan").val("");
     $("#modalForm").modal("show");
 }

@@ -69,6 +69,10 @@ function Save() {
             if (data.Status == true) {
                 settingModel.ds_grid_dataSource.read();
                 alert(data.Message);
+                $("#txtIDSeam").val("");
+                $("#txtSeam").val("");
+                $("#txtGrade").val("");
+                $("#txtInitial").val("");
                 $('#modalForm').modal('hide');
             }
             else {
@@ -122,9 +126,11 @@ function Delete(id) {
 function AddNew() {
     $("#lblTitle").text("Add New Seam Master");
 
+    $("#txtIDSeam").val("");
     $("#txtSeam").val("");
     $("#txtGrade").val("");
     $("#txtInitial").val("");
+
     $("#modalForm").modal("show");
 }
 

@@ -82,7 +82,7 @@ function Save() {
         GRADE: $("#txtGrade").val(),
         GAR_MIN: $("#txtGarMin").val(),
         GAR_MAX: $("#txtGarMax").val(),
-        DISTRICT: $("#txtDistrict").val(),
+        /*DISTRICT: $("#txtDistrict").val(),*/
     }
 
     $.ajax({
@@ -96,6 +96,10 @@ function Save() {
             if (data.Status == true) {
                 settingModel.ds_grid_dataSource.read();
                 alert(data.Message);
+                $("#txtGrade").val("");
+                $("#txtGarMin").val("");
+                $("#txtGarMax").val("");
+                AddNew();
                 $('#modalForm').modal('hide');
             }
             else {
@@ -149,10 +153,12 @@ function Delete(GRADE) {
 function AddNew() {
     $("#lblTitle").text("Add New Grade Master");
 
+    $("#txtGrade").attr('readonly', false);
     $("#txtGrade").val("");
     $("#txtGarMin").val("");
     $("#txtGarMax").val("");
-    $("#txtDistrict").val("");
+    $("#txtDistrict").data("kendoDropDownList").value(-1);
+
     $("#modalForm").modal("show");
 }
 
@@ -177,6 +183,7 @@ function Edit(GRADE) {
                 /*$("#hd_id").val(id);*/
                 //settingModel.ds_grid_dataSource.read();
                 $("#txtGrade").val(GRADE);
+                $("#txtGrade").attr('readonly', true);
                 $("#txtGarMin").val(result.Data[0].GAR_MIN);
                 $("#txtGarMax").val(result.Data[0].GAR_MAX);
                 $("#txtDistrict").val(result.Data[0].DISTRICT);

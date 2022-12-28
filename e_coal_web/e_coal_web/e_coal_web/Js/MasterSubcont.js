@@ -95,6 +95,11 @@ function Save() {
             if (data.Status == true) {
                 settingModel.ds_grid_dataSource.read();
                 alert(data.Message);
+                $("#txtIDSubcont").val("");
+                $("#txtSubcontCode").val("");
+                $("#txtSubcontName").val("");
+                $("#txtDistrict").val("");
+                AddNew();
                 $('#modalForm').modal('hide');
             }
             else {
@@ -148,9 +153,11 @@ function Delete(ID) {
 function AddNew() {
     $("#lblTitle").text("Add New Subcont Master");
 
+    $("#txtIDSubcont").val("");
     $("#txtSubcontCode").val("");
     $("#txtSubcontName").val("");
-    $("#txtDistrict").val("");
+    $("#txtDistrict").data("kendoDropDownList").value(-1);
+
     $("#modalForm").modal("show");
 }
 
