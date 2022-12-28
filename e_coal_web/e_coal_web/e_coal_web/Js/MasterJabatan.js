@@ -48,6 +48,32 @@ $(document).ready(function () {
     }).data("kendoGrid");
 })
 
+$("#txtDistrict").kendoDropDownList({
+    dataTextField: "DSTRCT_CODE",
+    dataValueField: "DSTRCT_NAME",
+    dataSource: {
+        type: "json",
+        transport: {
+            read: {
+                url: $("#hd_path").val() + "api/Masters/getListDistrict",
+                contentType: "application/json",
+                type: "GET",
+                cache: false
+            }
+        },
+        schema: {
+            data: "Data",
+            total: "Total"
+        }
+    },
+    optionLabel: "Pilih",
+    select: function (e) {
+        var dataItem = this.dataItem(e.item.index());
+        /*settingModel.set("id_department", dataItem.id);*/
+        /*getListDepartment();*/
+    }
+});
+
 function Save() {
     var obj = {
         ID_JABATAN: $("#txtIDJabatan").val(),
