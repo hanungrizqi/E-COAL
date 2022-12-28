@@ -209,6 +209,7 @@
     <Compile Include="View_Model\ClsSubcont.cs" />
     <Compile Include="View_Model\ClsUploadImage.cs" />
     <Compile Include="View_Model\ClsInRom.cs" />
+    <Compile Include="View_Model\ClsUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

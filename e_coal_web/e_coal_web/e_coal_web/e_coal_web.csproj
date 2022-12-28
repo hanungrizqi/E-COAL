@@ -137,6 +137,7 @@
     <Compile Include="Controllers\RatingOperatorController.cs" />
     <Compile Include="Controllers\SettingUnitController.cs" />
     <Compile Include="Controllers\SubcontController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4296,6 +4297,7 @@
     <Content Include="Js\MasterProfile.js" />
     <Content Include="Js\MasterSeam.js" />
     <Content Include="Js\MasterSubcont.js" />
+    <Content Include="Js\MasterUser.js" />
     <Content Include="Js\OperatorSub.Index.js" />
     <Content Include="Js\RequestCoal.Index.js" />
     <Content Include="Js\InputCoal.InSitu.js" />
@@ -5480,6 +5482,7 @@
     <Content Include="Views\Jabatan\Index.cshtml" />
     <Content Include="Views\Location\Index.cshtml" />
     <Content Include="Views\Grade\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

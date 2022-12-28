@@ -580,6 +580,84 @@ namespace e_coal_api.Controllers
         }
         #endregion
 
+        #region Master User
+        [HttpGet]
+        [Route("api/Masters/getListUser")]
+        public IHttpActionResult getListUser()
+        {
+            try
+            {
+                ClsUser clsUser = new ClsUser();
+                var data = clsUser.getListUser();
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Masters/saveUser")]
+        public IHttpActionResult saveUser(ClsUser clsUser)
+        {
+            try
+            {
+                var message = "";
+                var check = db.TBL_M_USERs.Where(x => x.ID == clsUser.ID).FirstOrDefault();
+                if (check != null)
+                {
+                    clsUser.updateUser();
+                    message = "Data berhasil diubah";
+                }
+                else
+                {
+
+                    clsUser.saveUser();
+                    message = "data Berhasil disimpan";
+                }
+
+                return Ok(new { Message = message, Status = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Masters/deleteUser")]
+        public IHttpActionResult deleteUser(ClsUser clsUser)
+        {
+            try
+            {
+                clsUser.deleteUser();
+                return Ok(new { Remarks = true, Message = "Berhasil Hapus Data" });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = e.ToString() });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Masters/getUserByID")]
+        public IHttpActionResult getUserByID(int ID)
+        {
+            try
+            {
+                var data = db.TBL_M_USERs.Where(x => x.ID == ID);
+
+                return Ok(new { Remarks = true, Data = data, Message = "Berhasil Edit Data" });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
+            }
+        }
+        #endregion
+
         #region Departmen
         [HttpGet]
         [Route("api/Masters/getListDepartment")]

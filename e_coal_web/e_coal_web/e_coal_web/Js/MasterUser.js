@@ -9,7 +9,7 @@ $(document).ready(function () {
                     type: "GET",
                     contentType: "application/json",
                     cache: false,
-                    url: $("#hd_path").val() + "api/Masters/getListGrade",
+                    url: $("#hd_path").val() + "api/Masters/getListUser",
                 },
             },
             schema: {
@@ -17,9 +17,9 @@ $(document).ready(function () {
                 total: "Total",
                 model: {
                     fields: {
-                        GRADE: { type: "string", editable: false, sortable: true },
-                        GAR_MIN: { type: "int", editable: false, sortable: true },
-                        GAR_MAX: { type: "int", editable: false, sortable: true },
+                        ID: { type: "int", editable: false, sortable: true },
+                        NRP: { type: "string", editable: false, sortable: true },
+                        ID_PROFILE: { type: "int", editable: false, sortable: true },
                         DISTRICT: { type: "string", editable: false, sortable: true },
                     }
                 }
@@ -39,19 +39,44 @@ $(document).ready(function () {
         pageable: "true",
         height: "500px",
         columns: [
-            { field: 'GRADE', title: 'Grade', width: 70 },
-            { field: 'GAR_MIN', title: 'Gar Min', width: 70 },
-            { field: 'GAR_MAX', title: 'Gar Max', width: 70 },
-            /*{ field: 'DISTRICT', title: 'District', width: 70 },*/
+            { field: 'NRP', title: 'NRP', width: 70 },
+            /*{ field: 'ID_PROFILE', title: 'ID Profile', width: 70 },*/
+            { field: 'DISTRICT', title: 'District', width: 70 },
             {
                 title: 'Action', width: 80,
-                template: '<button class="btn btn-success btn-sm" onclick="Edit(\'#=GRADE#\');"><i class="fa fa-edit" aria-hidden="true"></i> </button> <button class="btn btn-danger btn-sm" onclick="Delete(\'#=GRADE#\');"><i class="fa fa-trash" aria-hidden="true"></i> </button>'
+                template: '<button class="btn btn-success btn-sm" onclick="Edit(\'#=ID#\');"><i class="fa fa-edit" aria-hidden="true"></i> </button> <button class="btn btn-danger btn-sm" onclick="Delete(\'#=ID#\');"><i class="fa fa-trash" aria-hidden="true"></i> </button>'
             },
         ]
     }).data("kendoGrid");
 })
 
-/*$("#txtDistrict").kendoDropDownList({
+$("#txtIDProfile").kendoDropDownList({
+    dataTextField: "PROFILE",
+    dataValueField: "id",
+    dataSource: {
+        type: "json",
+        transport: {
+            read: {
+                url: $("#hd_path").val() + "api/Masters/getListProfile",
+                contentType: "application/json",
+                type: "GET",
+                cache: false
+            }
+        },
+        schema: {
+            data: "Data",
+            total: "Total"
+        }
+    },
+    optionLabel: "Pilih",
+    select: function (e) {
+        var dataItem = this.dataItem(e.item.index());
+        /*settingModel.set("id_department", dataItem.id);*/
+        /*getListDepartment();*/
+    }
+});
+
+$("#txtDistrict").kendoDropDownList({
     dataTextField: "DSTRCT_CODE",
     dataValueField: "DSTRCT_CODE",
     dataSource: {
@@ -72,22 +97,22 @@ $(document).ready(function () {
     optionLabel: "Pilih",
     select: function (e) {
         var dataItem = this.dataItem(e.item.index());
-        *//*settingModel.set("id_department", dataItem.id);*//*
-        *//*getListDepartment();*//*
+        /*settingModel.set("id_department", dataItem.id);*/
+        /*getListDepartment();*/
     }
-});*/
+});
 
 function Save() {
     var obj = {
-        GRADE: $("#txtGrade").val(),
-        GAR_MIN: $("#txtGarMin").val(),
-        GAR_MAX: $("#txtGarMax").val(),
+        ID: $("#txtIDUser").val(),
+        NRP: $("#txtNRP").val(),
+        ID_PROFILE: $("#txtIDProfile").val(),
         DISTRICT: $("#txtDistrict").val(),
     }
 
     $.ajax({
         type: "POST",
-        url: $("#hd_path").val() + "api/Masters/saveGrade",
+        url: $("#hd_path").val() + "api/Masters/saveUser",
         data: JSON.stringify(obj),
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -109,20 +134,20 @@ function Save() {
     });
 }
 
-function Delete(GRADE) {
+function Delete(ID) {
     var ans = confirm("Are you sure to want delete this data?");
 
     var obj = {
-        GRADE: GRADE,
-        GAR_MIN: $("#txtGarMin").val(),
-        GAR_MAX: $("#txtGarMax").val(),
+        ID: ID,
+        NRP: $("#txtNRP").val(),
+        ID_PROFILE: $("#txtIDProfile").val(),
         DISTRICT: $("#txtDistrict").val()
     }
     console.log(obj);
     if (ans) {
         $.ajax({
             type: "POST",
-            url: $("#hd_path").val() + "api/Masters/deleteGrade",
+            url: $("#hd_path").val() + "api/Masters/deleteUser",
             data: JSON.stringify(obj),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -147,17 +172,16 @@ function Delete(GRADE) {
 }
 
 function AddNew() {
-    $("#lblTitle").text("Add New Grade Master");
+    $("#lblTitle").text("Add New User Master");
 
-    $("#txtGrade").val("");
-    $("#txtGarMin").val("");
-    $("#txtGarMax").val("");
+    $("#txtNRP").val("");
+    $("#txtIDProfile").val("");
     $("#txtDistrict").val("");
     $("#modalForm").modal("show");
 }
 
-function Edit(GRADE) {
-    $('#lblTitle').text("Edit Grade");
+function Edit(ID) {
+    $('#lblTitle').text("Edit User");
     /*var empObj = {
         id: id
         *//*PROFILE: $("#txtProfile").val()*//*
@@ -166,19 +190,19 @@ function Edit(GRADE) {
     //field2nya nanti taruh disini
     $.ajax({
         type: "POST",
-        url: $("#hd_path").val() + "api/Masters/getGradeByID?GRADE=" + GRADE,
+        url: $("#hd_path").val() + "api/Masters/getUserByID?ID=" + ID,
         /*data: JSON.stringify(empObj),*/
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
-            console.log(result.Data[0].GRADE);
+            console.log(result.Data[0].LOCATION);
             //console.log(result.Data[0].customer_id);
             if (result.Remarks == true) {
                 /*$("#hd_id").val(id);*/
                 //settingModel.ds_grid_dataSource.read();
-                $("#txtGrade").val(GRADE);
-                $("#txtGarMin").val(result.Data[0].GAR_MIN);
-                $("#txtGarMax").val(result.Data[0].GAR_MAX);
+                $("#txtIDUser").val(ID);
+                $("#txtNRP").val(result.Data[0].NRP);
+                $("#txtIDProfile").val(result.Data[0].ID_PROFILE);
                 $("#txtDistrict").val(result.Data[0].DISTRICT);
             }
             else {

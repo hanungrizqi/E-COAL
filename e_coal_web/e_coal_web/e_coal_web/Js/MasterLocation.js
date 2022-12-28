@@ -38,7 +38,7 @@ $(document).ready(function () {
         pageable: "true",
         height: "500px",
         columns: [
-            { field: 'LOCATION', title: 'Jabatan', width: 70 },
+            { field: 'LOCATION', title: 'Location', width: 70 },
             { field: 'DISTRICT', title: 'District', width: 70 },
             {
                 title: 'Action', width: 80,
