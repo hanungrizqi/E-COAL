@@ -16,10 +16,10 @@
 //);
 
 function login() {
-    console.log('masuk');
+    console.log('masuk login');
     var obj = {
-        username: $("#login_username").val()
-        , password: $("#login_password").val()
+        username: $("#login-username").val()
+        , password: $("#login-password").val()
     }
 
     $.ajax({
@@ -44,9 +44,10 @@ function login() {
 }
 
 function getSession() {
+    console.log('masuk get sesion');
     var obj = {
-        username: $("#login_username").val()
-        , password: $("#login_password").val()
+        username: $("#login-username").val()
+        , password: $("#login-password").val()
     }
 
     $.ajax({
@@ -66,12 +67,24 @@ function getSession() {
 }
 
 function setSession(data) {
+    console.log('masuk set sesion');
+    console.log(data);
+    var obj = {
+        NRP: data.NRP
+        , NAME: data.NAME
+        , ID_PROFILE: data.ID_PROFILE
+        , PROFILE: data.PROFILE
+        , DISTRICT: data.DISTRICT
+        , POSITION_ID: data.POSITION_ID
+        , POS_TITLE: data.POS_TITLE
+    }
+    console.log(obj);
     $.ajax({
         type: "POST",
         dataType: "json",
         contentType: "application/json",
         url: "Login/setSession",
-        data: JSON.stringify(data),
+        data: JSON.stringify(obj),
         success: function (result) {
             window.location.href = "/Home/Index";
         }

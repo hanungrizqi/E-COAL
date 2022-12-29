@@ -99,7 +99,16 @@ namespace e_coal_api.View_Model
 
         public VW_USER_PROFILE getSession()
         {
-            var data = db.VW_USER_PROFILEs.Where(a => a.NRP == username).FirstOrDefault();
+            string nrp = "";
+            if (username.Count() > 7)
+            {
+                nrp = username.Substring(username.Length - 7);
+            }
+            else
+            {
+                nrp = username;
+            }
+            var data = db.VW_USER_PROFILEs.Where(a => a.NRP == nrp).FirstOrDefault();
             return data;
         }
     }
