@@ -241,6 +241,7 @@ var UploadImage = function () {
             console.log(imgID);
             $("#DisplayImage").show();
             $("#img_cgv").attr("src", "/UploadImage/" + imgID);
+            updateData();
             setGambar();
         }
     })
