@@ -241,7 +241,7 @@ var UploadImage = function () {
             console.log(imgID);
             $("#DisplayImage").show();
             $("#img_cgv").attr("src", "/UploadImage/" + imgID);
-
+            setGambar();
         }
     })
 }
@@ -408,14 +408,6 @@ function setChart() {
                             //    padding: 0
                             //}
                         },
-                        /*plugins: {
-                            datalabels: {
-                                color: '#ffffff',
-                                formatter: (value) => {
-                                    return value + '%'
-                                }
-                            }
-                        },*/
                         scales: {
                             y: {
                                 beginAtZero: true
@@ -435,45 +427,6 @@ function setChart() {
                                 }
                             }
                         },
-                        /*plugins: {
-                            datalabels: {
-                                anchor: 'end',
-                                align: 'top',
-                                // and if you need to format how the value is displayed...
-                                formatter: function (value, context) {
-                                    var hiddens = context.chart._hiddenIndices;
-                                    var total = 0;
-                                    var datapoints = context.dataset.data;
-                                    datapoints.forEach((val, i) => {
-                                        if (hiddens[i] != undefined) {
-                                            if (!hiddens[i]) {
-                                                total += val;
-                                            }
-                                        } else {
-                                            total += val;
-                                        }
-                                    });
-                                    var percentage = (value / total * 100).toFixed(2) + '%';
-                                    var out = context.chart.data.labels[context.dataIndex] + '\n' + percentage;
-                                    return out;
-                                }
-                            }
-                        },*/
-                        /*plugins: {
-                            datalabels: {
-                                formatter: (value, chart) => {
-                                    let sum = 0;
-                                    let dataArr = chart.chart.data.datasets[0].data;
-                                    dataArr.map(data => {
-                                        sum += data;
-                                    });
-                                    *//*let percentage = (value * 100 / sum).toFixed(2) + "%";*//*
-                                    let percentage = value + '%';
-                                    return percentage;
-                                },
-                                color: '#fff',
-                            }
-                        }*/
                     },
                 });
                 Chart.pluginService.register({
@@ -492,52 +445,6 @@ function setChart() {
                         ctx.save();
                     }
                 });
-                /*var data = [{
-                    data: result.Data,
-                    labels: result.Header,
-                    backgroundColor: ["rgba(101, 163, 13, 1)", "rgba(217, 119, 6, 1)", "rgba(220, 38, 38, 1)"],
-                    hoverBackgroundColor: ["rgba(101, 163, 13, .5)", "rgba(217, 119, 6, .5)", "rgba(220, 38, 38, .5)"],
-                    display: true,
-                }];
-
-                var options = {
-                    tooltips: {
-                        enabled: true
-                    },
-                    legend: {
-                        position: "right",
-                        display: true,
-                    },
-                    plugins: {
-                        datalabels: {
-                            formatter: (value, ctx) => {
-
-                                let sum = 0;
-                                let dataArr = ctx.chart.data.datasets[0].data;
-                                dataArr.map(data => {
-                                    sum += data;
-                                });
-                                let percentage = (value * 100 / sum).toFixed(2) + "%";
-                                return percentage;
-
-
-                            },
-                            color: '#fff',
-                        }
-                    },
-
-                };
-
-
-                var ctx = document.getElementById("gradeInRom").getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        datasets: data
-                    },
-                    options: options
-                })*/
-                
             } else {
                 alert(result.Error);
             }

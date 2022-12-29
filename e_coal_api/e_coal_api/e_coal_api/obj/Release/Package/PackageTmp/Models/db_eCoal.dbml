@@ -6,13 +6,6 @@
       <Column Name="PROFILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_M_GRADE" Member="TBL_M_GRADEs">
-    <Type Name="TBL_M_GRADE">
-      <Column Name="GRADE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="GAR_MIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GAR_MAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_M_SEAM" Member="TBL_M_SEAMs">
     <Type Name="TBL_M_SEAM">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -33,22 +26,6 @@
       <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_M_JABATAN" Member="TBL_M_JABATANs">
-    <Type Name="TBL_M_JABATAN">
-      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="JABATAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CREATE_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_M_SUBCONT" Member="TBL_M_SUBCONTs">
-    <Type Name="TBL_M_SUBCONT">
-      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SUBCONT_NAME" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CRETATE_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.VW_DEPT" Member="VW_DEPTs">
@@ -204,6 +181,33 @@
     <Type Name="VW_DISTRICT">
       <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="DSTRCT_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_SUBCONT" Member="TBL_M_SUBCONTs">
+    <Type Name="TBL_M_SUBCONT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="SUBCONT_NAME" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRETATE_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_JABATAN" Member="TBL_M_JABATANs">
+    <Type Name="TBL_M_JABATAN">
+      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JABATAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_GRADE" Member="TBL_M_GRADEs">
+    <Type Name="TBL_M_GRADE">
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GAR_MIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GAR_MAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
