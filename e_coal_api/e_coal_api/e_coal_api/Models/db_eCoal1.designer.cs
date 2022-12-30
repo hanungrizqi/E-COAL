@@ -36,9 +36,6 @@ namespace e_coal_api.Models
     partial void InsertTBL_M_SEAM(TBL_M_SEAM instance);
     partial void UpdateTBL_M_SEAM(TBL_M_SEAM instance);
     partial void DeleteTBL_M_SEAM(TBL_M_SEAM instance);
-    partial void InsertTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
-    partial void UpdateTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
-    partial void DeleteTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
     partial void InsertTBL_M_LOCATION(TBL_M_LOCATION instance);
     partial void UpdateTBL_M_LOCATION(TBL_M_LOCATION instance);
     partial void DeleteTBL_M_LOCATION(TBL_M_LOCATION instance);
@@ -78,6 +75,9 @@ namespace e_coal_api.Models
     partial void InsertTBL_M_GRADE(TBL_M_GRADE instance);
     partial void UpdateTBL_M_GRADE(TBL_M_GRADE instance);
     partial void DeleteTBL_M_GRADE(TBL_M_GRADE instance);
+    partial void InsertTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
+    partial void UpdateTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
+    partial void DeleteTBL_M_OPERATOR_EX(TBL_M_OPERATOR_EX instance);
     #endregion
 		
 		public db_eCoalDataContext() : 
@@ -123,14 +123,6 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<TBL_M_SEAM>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBL_M_OPERATOR_EX> TBL_M_OPERATOR_EXes
-		{
-			get
-			{
-				return this.GetTable<TBL_M_OPERATOR_EX>();
 			}
 		}
 		
@@ -259,6 +251,14 @@ namespace e_coal_api.Models
 			get
 			{
 				return this.GetTable<TBL_M_GRADE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_OPERATOR_EX> TBL_M_OPERATOR_EXes
+		{
+			get
+			{
+				return this.GetTable<TBL_M_OPERATOR_EX>();
 			}
 		}
 		
@@ -562,284 +562,6 @@ namespace e_coal_api.Models
 					this._INITIAL = value;
 					this.SendPropertyChanged("INITIAL");
 					this.OnINITIALChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_OPERATOR_EX")]
-	public partial class TBL_M_OPERATOR_EX : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _NRP;
-		
-		private string _NAMA;
-		
-		private string _SUBCONT_CODE;
-		
-		private System.Nullable<int> _ID_JABATAN;
-		
-		private string _DEPT_CODE;
-		
-		private string _DISTRICT;
-		
-		private System.Nullable<System.DateTime> _TGL_MASUK;
-		
-		private System.Nullable<System.DateTime> _INPUT_DATE;
-		
-		private string _INPUT_BY;
-		
-		private System.Nullable<int> _STATUS;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNRPChanging(string value);
-    partial void OnNRPChanged();
-    partial void OnNAMAChanging(string value);
-    partial void OnNAMAChanged();
-    partial void OnSUBCONT_CODEChanging(string value);
-    partial void OnSUBCONT_CODEChanged();
-    partial void OnID_JABATANChanging(System.Nullable<int> value);
-    partial void OnID_JABATANChanged();
-    partial void OnDEPT_CODEChanging(string value);
-    partial void OnDEPT_CODEChanged();
-    partial void OnDISTRICTChanging(string value);
-    partial void OnDISTRICTChanged();
-    partial void OnTGL_MASUKChanging(System.Nullable<System.DateTime> value);
-    partial void OnTGL_MASUKChanged();
-    partial void OnINPUT_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnINPUT_DATEChanged();
-    partial void OnINPUT_BYChanging(string value);
-    partial void OnINPUT_BYChanged();
-    partial void OnSTATUSChanging(System.Nullable<int> value);
-    partial void OnSTATUSChanged();
-    #endregion
-		
-		public TBL_M_OPERATOR_EX()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string NRP
-		{
-			get
-			{
-				return this._NRP;
-			}
-			set
-			{
-				if ((this._NRP != value))
-				{
-					this.OnNRPChanging(value);
-					this.SendPropertyChanging();
-					this._NRP = value;
-					this.SendPropertyChanged("NRP");
-					this.OnNRPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA", DbType="VarChar(150)")]
-		public string NAMA
-		{
-			get
-			{
-				return this._NAMA;
-			}
-			set
-			{
-				if ((this._NAMA != value))
-				{
-					this.OnNAMAChanging(value);
-					this.SendPropertyChanging();
-					this._NAMA = value;
-					this.SendPropertyChanged("NAMA");
-					this.OnNAMAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBCONT_CODE", DbType="VarChar(5)")]
-		public string SUBCONT_CODE
-		{
-			get
-			{
-				return this._SUBCONT_CODE;
-			}
-			set
-			{
-				if ((this._SUBCONT_CODE != value))
-				{
-					this.OnSUBCONT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SUBCONT_CODE = value;
-					this.SendPropertyChanged("SUBCONT_CODE");
-					this.OnSUBCONT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_JABATAN", DbType="Int")]
-		public System.Nullable<int> ID_JABATAN
-		{
-			get
-			{
-				return this._ID_JABATAN;
-			}
-			set
-			{
-				if ((this._ID_JABATAN != value))
-				{
-					this.OnID_JABATANChanging(value);
-					this.SendPropertyChanging();
-					this._ID_JABATAN = value;
-					this.SendPropertyChanged("ID_JABATAN");
-					this.OnID_JABATANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_CODE", DbType="VarChar(50)")]
-		public string DEPT_CODE
-		{
-			get
-			{
-				return this._DEPT_CODE;
-			}
-			set
-			{
-				if ((this._DEPT_CODE != value))
-				{
-					this.OnDEPT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._DEPT_CODE = value;
-					this.SendPropertyChanged("DEPT_CODE");
-					this.OnDEPT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(5)")]
-		public string DISTRICT
-		{
-			get
-			{
-				return this._DISTRICT;
-			}
-			set
-			{
-				if ((this._DISTRICT != value))
-				{
-					this.OnDISTRICTChanging(value);
-					this.SendPropertyChanging();
-					this._DISTRICT = value;
-					this.SendPropertyChanged("DISTRICT");
-					this.OnDISTRICTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGL_MASUK", DbType="Date")]
-		public System.Nullable<System.DateTime> TGL_MASUK
-		{
-			get
-			{
-				return this._TGL_MASUK;
-			}
-			set
-			{
-				if ((this._TGL_MASUK != value))
-				{
-					this.OnTGL_MASUKChanging(value);
-					this.SendPropertyChanging();
-					this._TGL_MASUK = value;
-					this.SendPropertyChanged("TGL_MASUK");
-					this.OnTGL_MASUKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> INPUT_DATE
-		{
-			get
-			{
-				return this._INPUT_DATE;
-			}
-			set
-			{
-				if ((this._INPUT_DATE != value))
-				{
-					this.OnINPUT_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._INPUT_DATE = value;
-					this.SendPropertyChanged("INPUT_DATE");
-					this.OnINPUT_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_BY", DbType="VarChar(50)")]
-		public string INPUT_BY
-		{
-			get
-			{
-				return this._INPUT_BY;
-			}
-			set
-			{
-				if ((this._INPUT_BY != value))
-				{
-					this.OnINPUT_BYChanging(value);
-					this.SendPropertyChanging();
-					this._INPUT_BY = value;
-					this.SendPropertyChanged("INPUT_BY");
-					this.OnINPUT_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="Int")]
-		public System.Nullable<int> STATUS
-		{
-			get
-			{
-				return this._STATUS;
-			}
-			set
-			{
-				if ((this._STATUS != value))
-				{
-					this.OnSTATUSChanging(value);
-					this.SendPropertyChanging();
-					this._STATUS = value;
-					this.SendPropertyChanged("STATUS");
-					this.OnSTATUSChanged();
 				}
 			}
 		}
@@ -4103,6 +3825,284 @@ namespace e_coal_api.Models
 					this._DISTRICT = value;
 					this.SendPropertyChanged("DISTRICT");
 					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_OPERATOR_EX")]
+	public partial class TBL_M_OPERATOR_EX : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _NRP;
+		
+		private string _NAMA;
+		
+		private string _SUBCONT_CODE;
+		
+		private System.Nullable<int> _ID_JABATAN;
+		
+		private string _DEPT_CODE;
+		
+		private string _DISTRICT;
+		
+		private System.Nullable<System.DateTime> _TGL_MASUK;
+		
+		private System.Nullable<System.DateTime> _INPUT_DATE;
+		
+		private string _INPUT_BY;
+		
+		private System.Nullable<int> _STATUS;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNRPChanging(string value);
+    partial void OnNRPChanged();
+    partial void OnNAMAChanging(string value);
+    partial void OnNAMAChanged();
+    partial void OnSUBCONT_CODEChanging(string value);
+    partial void OnSUBCONT_CODEChanged();
+    partial void OnID_JABATANChanging(System.Nullable<int> value);
+    partial void OnID_JABATANChanged();
+    partial void OnDEPT_CODEChanging(string value);
+    partial void OnDEPT_CODEChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    partial void OnTGL_MASUKChanging(System.Nullable<System.DateTime> value);
+    partial void OnTGL_MASUKChanged();
+    partial void OnINPUT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnINPUT_DATEChanged();
+    partial void OnINPUT_BYChanging(string value);
+    partial void OnINPUT_BYChanged();
+    partial void OnSTATUSChanging(System.Nullable<int> value);
+    partial void OnSTATUSChanged();
+    #endregion
+		
+		public TBL_M_OPERATOR_EX()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this.OnNRPChanging(value);
+					this.SendPropertyChanging();
+					this._NRP = value;
+					this.SendPropertyChanged("NRP");
+					this.OnNRPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA", DbType="VarChar(150)")]
+		public string NAMA
+		{
+			get
+			{
+				return this._NAMA;
+			}
+			set
+			{
+				if ((this._NAMA != value))
+				{
+					this.OnNAMAChanging(value);
+					this.SendPropertyChanging();
+					this._NAMA = value;
+					this.SendPropertyChanged("NAMA");
+					this.OnNAMAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBCONT_CODE", DbType="VarChar(50)")]
+		public string SUBCONT_CODE
+		{
+			get
+			{
+				return this._SUBCONT_CODE;
+			}
+			set
+			{
+				if ((this._SUBCONT_CODE != value))
+				{
+					this.OnSUBCONT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SUBCONT_CODE = value;
+					this.SendPropertyChanged("SUBCONT_CODE");
+					this.OnSUBCONT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_JABATAN", DbType="Int")]
+		public System.Nullable<int> ID_JABATAN
+		{
+			get
+			{
+				return this._ID_JABATAN;
+			}
+			set
+			{
+				if ((this._ID_JABATAN != value))
+				{
+					this.OnID_JABATANChanging(value);
+					this.SendPropertyChanging();
+					this._ID_JABATAN = value;
+					this.SendPropertyChanged("ID_JABATAN");
+					this.OnID_JABATANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_CODE", DbType="VarChar(50)")]
+		public string DEPT_CODE
+		{
+			get
+			{
+				return this._DEPT_CODE;
+			}
+			set
+			{
+				if ((this._DEPT_CODE != value))
+				{
+					this.OnDEPT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._DEPT_CODE = value;
+					this.SendPropertyChanged("DEPT_CODE");
+					this.OnDEPT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(50)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGL_MASUK", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TGL_MASUK
+		{
+			get
+			{
+				return this._TGL_MASUK;
+			}
+			set
+			{
+				if ((this._TGL_MASUK != value))
+				{
+					this.OnTGL_MASUKChanging(value);
+					this.SendPropertyChanging();
+					this._TGL_MASUK = value;
+					this.SendPropertyChanged("TGL_MASUK");
+					this.OnTGL_MASUKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> INPUT_DATE
+		{
+			get
+			{
+				return this._INPUT_DATE;
+			}
+			set
+			{
+				if ((this._INPUT_DATE != value))
+				{
+					this.OnINPUT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._INPUT_DATE = value;
+					this.SendPropertyChanged("INPUT_DATE");
+					this.OnINPUT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPUT_BY", DbType="VarChar(50)")]
+		public string INPUT_BY
+		{
+			get
+			{
+				return this._INPUT_BY;
+			}
+			set
+			{
+				if ((this._INPUT_BY != value))
+				{
+					this.OnINPUT_BYChanging(value);
+					this.SendPropertyChanging();
+					this._INPUT_BY = value;
+					this.SendPropertyChanged("INPUT_BY");
+					this.OnINPUT_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="Int")]
+		public System.Nullable<int> STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this.OnSTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS = value;
+					this.SendPropertyChanged("STATUS");
+					this.OnSTATUSChanged();
 				}
 			}
 		}

@@ -250,6 +250,8 @@ var UploadImage = function () {
             $("#img_cgv").attr("src", "/UploadImage/" + imgID);
             updateData();
             setGambar();
+            alert("Berhasil upload gambar");
+            $('#modal-fadein').modal('hide');
         }
     })
 }
@@ -404,17 +406,13 @@ function setChart() {
                             enabled: true
                         },
                         legend: {
-                            //display: true,
-                            position: "right",
-                            /*fontcolor: #ffffff,*/
+                            labels: {
+                                fontStyle: 'bold',
+                                fontColor: '#FFF'
+                            },
                             /*align: "end",*/
-                            /*color : #ffffff,*/
+                            position: "right",
                             display: true,
-                            //labels: {
-                            //    fontSize: 10,
-                            //    usePointStyle: true,
-                            //    padding: 0
-                            //}
                         },
                         scales: {
                             y: {
@@ -422,37 +420,21 @@ function setChart() {
                             }
                         },
                         plugins: {
-                            datalabels: {
-                                /*display: true,*/
-                                fontsize: 18,
-                                //color: 'white',
-                                font: {
-                                    weight: 'bold'
-                                },
-                                padding: 5,
-                                formatter: function (value, context) {
-                                    return context.chart.data.labels[context.dataIndex];
-                                }
+                            labels: {
+                                fontStyle: 'bold',
+                                fontSize: 20,
+                                fontColor:'#FFF'
                             }
                         },
+                        elements: {
+                            center: {
+                                text: 'Grade',
+                                color: '#FFF', // Default is #000000
+                                fontStyle: 'Arial', // Default is Arial
+                            }
+                        }
                     },
                 });
-                //Chart.pluginService.register({
-                //    beforeDraw: function (chart) {
-                //        var width = 200,
-                //            height = 310,
-                //            ctx = chart.chart.ctx;
-                //        ctx.restore();
-                //        var fontSize = (height / 200).toFixed(2);
-                //        ctx.font = fontSize + "em sans-serif";
-                //        ctx.textBaseline = "middle";
-                //        var text = "Grade",
-                //            textX = Math.round((width - ctx.measureText(text).width) / 2),
-                //            textY = height / 2;
-                //        ctx.fillText(text, textX, textY);
-                //        ctx.save();
-                //    }
-                //});
             } else {
                 alert(result.Error);
             }

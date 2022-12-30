@@ -17,8 +17,19 @@ namespace e_coal_api.Controllers
         [Route("api/OperatorSub/getListOperatorSub")]
         public IHttpActionResult GetListOperatorSub()
         {
-            var data = db.TBL_M_OPERATOR_EXes.ToList();
-            return Ok(new { Data = data });
+            /*var data = db.TBL_M_OPERATOR_EXes.ToList();
+            return Ok(new { Data = data });*/
+            try
+            {
+                ClsOperatorSub clsOperatorSub = new ClsOperatorSub();
+                var data = clsOperatorSub.getListOperatorSub();
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
         }
 
         [HttpPost]

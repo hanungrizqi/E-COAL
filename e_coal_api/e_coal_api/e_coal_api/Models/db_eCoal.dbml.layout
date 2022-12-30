@@ -14,12 +14,6 @@
         <elementListCompartment Id="b52a907a-679c-4a49-85f2-3f2910f0678d" absoluteBounds="4.765, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7683f4c7-e760-48ce-8888-4bb91d852e77" absoluteBounds="9, 0.5, 2, 2.7324039713541666">
-      <DataClassMoniker Name="/db_eCoalDataContext/TBL_M_OPERATOR_EX" />
-      <nestedChildShapes>
-        <elementListCompartment Id="bd1c5c63-5bb6-428c-86e7-1e0371dab008" absoluteBounds="9.015, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="fb91f188-85ba-4256-959d-7e338b7046ea" absoluteBounds="0.5, 7.375, 2, 1.3862939453125">
       <DataClassMoniker Name="/db_eCoalDataContext/VW_DEPT" />
       <nestedChildShapes>
@@ -114,6 +108,12 @@
       <DataClassMoniker Name="/db_eCoalDataContext/TBL_M_GRADE" />
       <nestedChildShapes>
         <elementListCompartment Id="278e5d13-5d1c-4253-b60a-ca0e9cccc06b" absoluteBounds="6.89, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c2bfb551-076e-4c38-933c-191afa5f01cd" absoluteBounds="9, 0.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/db_eCoalDataContext/TBL_M_OPERATOR_EX" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc301987-4b4e-4cdd-9114-0c8119bc2646" absoluteBounds="9.015, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

@@ -12,6 +12,7 @@ $(document).ready(function () {
                     contentType: "application/json",
                     cache: false,
                     url: $("#hd_path").val() + "api/OperatorSub/getListOperatorSub",//?ID_PEKERJAAN=" + ID_PEKERJAAN,//$("#txt_pekerjaan").val(),
+                    
                     /*data: {
                         ID_PEKERJAAN: "",
                     }*/
@@ -145,7 +146,7 @@ $("#txt_department").kendoDropDownList({
 
 $("#txt_district").kendoDropDownList({
     dataTextField: "DSTRCT_CODE",
-    dataValueField: "DSTRCT_NAME",
+    dataValueField: "DSTRCT_CODE",
     dataSource: {
         type: "json",
         transport: {
@@ -190,12 +191,13 @@ function submmit() {
         success: function (result) {
             if (result.Status == true) {
                 alert("Operator Berhasil ditambahkan");
+                settingModel.ds_grid_dataSource.read();
                 $("#txt_nrp").val("");
                 $("#txt_nama").val("");
-                $("#txt_subcont").val("");
-                $("#txt_jabatan").val("");
-                $("#txt_department").val("");
-                $("#txt_district").val("");
+                $("#txt_subcont").data("kendoDropDownList").value(-1);
+                $("#txt_jabatan").data("kendoDropDownList").value(-1);
+                $("#txt_department").data("kendoDropDownList").value(-1);
+                $("#txt_district").data("kendoDropDownList").value(-1);
                 $("#txt_tglmasuk").val("");
             } else {
                 alert(result.Error);
@@ -207,11 +209,8 @@ function submmit() {
 function Reset() {
     $("#txt_nrp").val("");
     $("#txt_nama").val("");
-    $("#txt_subcont").val("");
-    $("#txt_jabatan").val("");
-    $("#txt_department").val("");
-    $("#txt_district").val("");
     $("#txt_tglmasuk").val("");
+    $("#txt_district").data("kendoDropDownList").value(-1);
     $("#txt_subcont").data("kendoDropDownList").value(-1);
     $("#txt_jabatan").data("kendoDropDownList").value(-1);
     $("#txt_department").data("kendoDropDownList").value(-1);
