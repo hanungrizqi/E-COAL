@@ -41,7 +41,7 @@ namespace e_coal_api.View_Model
         {
             TBL_T_IN_ROM tbl = new TBL_T_IN_ROM();
             tbl.LOCATION = LOCATION;
-            tbl.JAM = JAM;
+            tbl.JAM = DateTime.Now;
             tbl.ID_IN_SITU_SEAM = ID_IN_SITU_SEAM;
             tbl.GRADE = GRADE;
             tbl.LOADER = LOADER;

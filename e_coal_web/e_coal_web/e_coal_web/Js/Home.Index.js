@@ -130,7 +130,7 @@ $(document).ready(function () {
         sortable: "true",
         filterable: "true",
         pageable: "true",
-        height: "400px",
+        height: "370px",
         columns: [
             //{ title: 'Action', width: 50, template: $("#tmp_action").html() },
             { title: 'In SITU (GCV | Ton)', template: $('#tmp_inSitu').html(), width: 100 },
@@ -147,7 +147,7 @@ $(document).ready(function () {
         sortable: "true",
         filterable: "true",
         pageable: "true",
-        height: "300px",
+        height: "400px",
         columns: [            
             { title: 'Anomali Data', template: $('#tmp_AnomaliInSitu').html(), width: 100 },
             { title: 'Action', width: 50, template: $("#tmp_AnomaliAction").html() },
@@ -162,7 +162,7 @@ $(document).ready(function () {
         sortable: "true",
         filterable: "true",
         pageable: "true",
-        height: "300px",
+        height: "370px",
         columns: [
             { title: 'In Out ROM (GCV | Ton)', template: $('#tmp_InOutRom').html(), width: 100 }
         ]
@@ -186,6 +186,13 @@ $(document).ready(function () {
             { title: 'Action', width: 50, template: $("#tmp_RequestCoalAction").html() },
         ]
     }).data("kendoGrid");
+
+    var idProfile = $("#hd_idProfile").val();
+    if (idProfile == 1) {
+        $("#UploadButton").show();
+    } else {
+        $("#UploadButton").hide();
+    }
 
     setGambar();
     getCGV();
@@ -264,7 +271,7 @@ function setDateNow() {
                 var data = result.Data;
                 //console.log(today);
                 console.log(data.min_date);
-                $("#txt_tanggalAwal").val(data.min_date);
+                $("#txt_tanggalAwal").val("2020-01-01");
                 $("#txt_tanggalAkhir").val(today);
                 fillter();
             } else {
@@ -430,22 +437,22 @@ function setChart() {
                         },
                     },
                 });
-                Chart.pluginService.register({
-                    beforeDraw: function (chart) {
-                        var width = 200,
-                            height = 310,
-                            ctx = chart.chart.ctx;
-                        ctx.restore();
-                        var fontSize = (height / 200).toFixed(2);
-                        ctx.font = fontSize + "em sans-serif";
-                        ctx.textBaseline = "middle";
-                        var text = "Grade",
-                            textX = Math.round((width - ctx.measureText(text).width) / 2),
-                            textY = height / 2;
-                        ctx.fillText(text, textX, textY);
-                        ctx.save();
-                    }
-                });
+                //Chart.pluginService.register({
+                //    beforeDraw: function (chart) {
+                //        var width = 200,
+                //            height = 310,
+                //            ctx = chart.chart.ctx;
+                //        ctx.restore();
+                //        var fontSize = (height / 200).toFixed(2);
+                //        ctx.font = fontSize + "em sans-serif";
+                //        ctx.textBaseline = "middle";
+                //        var text = "Grade",
+                //            textX = Math.round((width - ctx.measureText(text).width) / 2),
+                //            textY = height / 2;
+                //        ctx.fillText(text, textX, textY);
+                //        ctx.save();
+                //    }
+                //});
             } else {
                 alert(result.Error);
             }

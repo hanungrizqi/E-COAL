@@ -266,6 +266,23 @@ namespace e_coal_api.Controllers
                 return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
             }
         }
+
+        [HttpGet]
+        [Route("api/Masters/getListGradeForSeam")]
+        public IHttpActionResult getListGradeForSeam()
+        {
+            try
+            {
+                ClsGrade clsGrade = new ClsGrade();
+                var data = clsGrade.getListGrade().Where(a => a.GRADE != "Reject");
+
+                return Ok(new { Status = true, Data = data });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Status = false, Error = e.ToString() });
+            }
+        }
         #endregion
 
         #region Master Subcont

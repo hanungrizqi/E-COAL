@@ -50,7 +50,7 @@
                     <form>
                         <div class="form-group">
                             <label for="txtProfile" class="col-form-label">Grade</label>
-                            <input type="text" class="form-control" id="txtGrade" style="width:440px;" required>
+                            <input type="text" onkeypress="return /[a-z]/i.test(event.key)" class="form-control" id="txtGrade" style="width:440px;" required>
                         </div>
                     </form>
                 </div>
