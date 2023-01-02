@@ -55,7 +55,7 @@ $(document).ready(function () {
         ]
     }).data("kendoGrid");
 
-    $("#txtDistrict").val($("#hd_district").val());
+    /*$("#txtDistrict").val($("#hd_district").val());*/
 })
 
 $("#txtIDProfile").kendoDropDownList({
@@ -227,17 +227,17 @@ function Edit(ID) {
         /*data: JSON.stringify(empObj),*/
         dataType: "json",
         contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            console.log(result.Data[0].ID_PROFILE);
+        success: function (result) {            
             //console.log(result.Data[0].customer_id);
             if (result.Remarks == true) {
-                /*$("#hd_id").val(id);*/
-                //settingModel.ds_grid_dataSource.read();
+                console.log(result.Data);
                 $("#txtIDUser").val(ID);
-                $("#txtNRP").val(result.Data[0].NRP);
-                $("#txtIDProfile").val(result.Data[0].ID_PROFILE);
-                $("#txtDistrict").val(result.Data[0].DISTRICT);
-                
+                $("#txtNRP").data("kendoComboBox").value(result.Data.NRP);
+                $("#txtIDProfile").data("kendoDropDownList").value(result.Data.ID_PROFILE);
+                $("#txtDistrict").val(result.Data.DISTRICT);
+
+                console.log($("#txtNRP").val());
+                console.log($("#txtIDProfile").val());
             }
             else {
                 alert(result.Message);
@@ -255,10 +255,14 @@ function AddNew() {
     $("#lblTitle").text("Add New User Master");
 
     $("#txtIDUser").val("");
-    $("#txtNRP").val("");
+    $("#txtNRP").data("kendoComboBox").value("");
     $("#txtIDProfile").data("kendoDropDownList").value(-1);
-    //$("#txtDistrict").data("kendoDropDownList").value(-1);
-    /*$("#txt_seam").data("kendoDropDownList").value(-1);*/
+    $("#txtDistrict").val($("#hd_district").val());
+
+    //console.log($("#txtIDUser").val());
+    //console.log($("#txtNRP").val());
+    //console.log($("#txtIDProfile").val());
+    //console.log($("#txtDistrict").val());
 
     $("#modalForm").modal("show");
 }

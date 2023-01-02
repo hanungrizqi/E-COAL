@@ -7,6 +7,7 @@ $(document).ready(function () {
     })
 
     callSeam();
+    setTime();
 })
 
 function callSeam() {
@@ -49,14 +50,16 @@ function getTotalTonase() {
     $("#txt_totalTonase").val(tonase);
 }
 
-var now = new Date();
-now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-document.getElementById('txt_jam').value = now.toISOString().slice(0, 16);
+function setTime() {
+    var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById('txt_jam').value = now.toISOString().slice(0, 16);
+}
 
 function submmit() {
     var get = settingModel.get();
     var obj = {
-        ID_OUT_ROM: $("#txt_seam").val(),
+        //ID_OUT_ROM: $("#txt_seam").val(),
         ID_IN_SITU_SEAM: $("#txt_seam").val(),
         JAM: $("#txt_jam").val(),
         GRADE: get.grade,
@@ -97,7 +100,10 @@ function submmit() {
                             $("#notif_success").show();
 
                             $("#txt_noUnitDt").val("");
+
                             callSeam();
+                            getAvaliableTonase($("#txt_seam").val());
+                            setTime();
                         } else {
                             alert(result.Error);
                         }
@@ -143,7 +149,7 @@ function getAvaliableTonase(id_inSitu) {
 
 
 function Reset() {
-    $("#txt_jam").val("");
+    //$("#txt_jam").val("");
     $("#txt_seam").val("");
     $("#txt_grade").val("");
     $("#txt_noUnitDt").val("");

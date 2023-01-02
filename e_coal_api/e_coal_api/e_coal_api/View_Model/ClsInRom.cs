@@ -41,7 +41,7 @@ namespace e_coal_api.View_Model
         {
             TBL_T_IN_ROM tbl = new TBL_T_IN_ROM();
             tbl.LOCATION = LOCATION;
-            tbl.JAM = DateTime.Now;
+            tbl.JAM = JAM;
             tbl.ID_IN_SITU_SEAM = ID_IN_SITU_SEAM;
             tbl.GRADE = GRADE;
             tbl.LOADER = LOADER;
@@ -49,7 +49,7 @@ namespace e_coal_api.View_Model
             tbl.BERAT_TARA_UNIT_KG = BERAT_TARA_UNIT_KG;
             tbl.BERAT_BRUTO_UNIT_KG = BERAT_BRUTO_UNIT_KG;
             tbl.TOTAL_TONASE = TOTAL_TONASE;
-            //tbl.TANGGAL = TANGGAL;
+            tbl.TANGGAL = JAM;
             tbl.DISTRICT = DISTRICT;
             tbl.INPUT_DATE = DateTime.Now;
             tbl.INPUT_BY = INPUT_BY;

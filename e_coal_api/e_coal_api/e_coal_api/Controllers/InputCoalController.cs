@@ -74,7 +74,7 @@ namespace e_coal_api.Controllers
                 ClsInRom clsInRom = new ClsInRom();
                 var data = clsInRom.c_getSeamInSitu();
 
-                return Ok(new { Status = true, Data = data });
+                return Ok(new { Status = true, Data = data, Total = data.Count() });
             }
             catch (Exception e)
             {

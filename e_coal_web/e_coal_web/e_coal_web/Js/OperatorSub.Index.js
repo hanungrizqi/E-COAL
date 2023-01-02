@@ -64,6 +64,7 @@ $(document).ready(function () {
         ]
     }).data("kendoGrid");
 
+    $("#txt_district").val($("#hd_district").val());
 })
 
 $("#txt_subcont").kendoDropDownList({
@@ -144,31 +145,29 @@ $("#txt_department").kendoDropDownList({
     }
 });
 
-$("#txt_district").kendoDropDownList({
-    dataTextField: "DSTRCT_CODE",
-    dataValueField: "DSTRCT_CODE",
-    dataSource: {
-        type: "json",
-        transport: {
-            read: {
-                url: $("#hd_path").val() + "api/Masters/getListDistrict",
-                contentType: "application/json",
-                type: "GET",
-                cache: false
-            }
-        },
-        schema: {
-            data: "Data",
-            total: "Total"
-        }
-    },
-    optionLabel: "Pilih",
-    select: function (e) {
-        var dataItem = this.dataItem(e.item.index());
-        /*settingModel.set("id_department", dataItem.id);*/
-        /*getListDepartment();*/
-    }
-});
+//$("#txt_district").kendoDropDownList({
+//    dataTextField: "DSTRCT_CODE",
+//    dataValueField: "DSTRCT_CODE",
+//    dataSource: {
+//        type: "json",
+//        transport: {
+//            read: {
+//                url: $("#hd_path").val() + "api/Masters/getListDistrict",
+//                contentType: "application/json",
+//                type: "GET",
+//                cache: false
+//            }
+//        },
+//        schema: {
+//            data: "Data",
+//            total: "Total"
+//        }
+//    },
+//    optionLabel: "Pilih",
+//    select: function (e) {
+//        var dataItem = this.dataItem(e.item.index());
+//    }
+//});
 
 function submmit() {
     var obj = {
@@ -178,8 +177,8 @@ function submmit() {
         ID_JABATAN: $("#txt_jabatan").val(),
         DEPT_CODE: $("#txt_department").val(),
         DISTRICT: $("#txt_district").val(),
-        TGL_MASUK: $("#txt_tglmasuk").val()
-
+        TGL_MASUK: $("#txt_tglmasuk").val(),
+        INPUT_BY: $("#hd_userLogin").val()
     }
     console.log(obj);
     $.ajax({

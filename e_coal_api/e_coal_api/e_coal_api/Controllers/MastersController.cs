@@ -664,7 +664,7 @@ namespace e_coal_api.Controllers
         {
             try
             {
-                var data = db.TBL_M_USERs.Where(x => x.ID == ID);
+                var data = db.TBL_M_USERs.Where(x => x.ID == ID).FirstOrDefault();
 
                 return Ok(new { Remarks = true, Data = data, Message = "Berhasil Edit Data" });
             }

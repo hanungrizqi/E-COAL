@@ -7,6 +7,7 @@ $(document).ready(function () {
     })
 
     callSeam();
+    setTime();
 })
 
 $("#txt_lokasi").kendoDropDownList({
@@ -104,9 +105,11 @@ function getTotalTonase() {
     $("#txt_totalTonase").val(tonase);
 }
 
-var now = new Date();
-now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-document.getElementById('txt_jam').value = now.toISOString().slice(0, 16);
+function setTime() {
+    var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById('txt_jam').value = now.toISOString().slice(0, 16);
+}
 
 function submmit() {
     var get = settingModel.get();
@@ -157,6 +160,8 @@ function submmit() {
 
                             //run get seam lg untuk mendapatkan data terbaru karena seam yg ditampilkan hanya yg tonase lebih dari 0
                             callSeam();
+                            getAvaliableTonase($("#txt_seam").val());
+                            setTime();
                         } else {
                             alert(result.Error);
                         }
@@ -171,7 +176,7 @@ function submmit() {
 
 function Reset() {
     $("#txt_lokasi").val("");
-    $("#txt_jam").val("");
+    //$("#txt_jam").val("");
     $("#txt_seam").val("");
     $("#txt_grade").val("");
     $("#txt_loader").val("");
