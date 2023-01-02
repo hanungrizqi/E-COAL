@@ -14,20 +14,6 @@
       <Column Name="INITIAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_M_OPERATOR_EX" Member="TBL_M_OPERATOR_EXes">
-    <Type Name="TBL_M_OPERATOR_EX">
-      <Column Name="NRP" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="TGL_MASUK" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.VW_DEPT" Member="VW_DEPTs">
     <Type Name="VW_DEPT">
       <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
@@ -208,6 +194,20 @@
       <Column Name="GAR_MIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="GAR_MAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_OPERATOR_EX" Member="TBL_M_OPERATOR_EXes">
+    <Type Name="TBL_M_OPERATOR_EX">
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SUBCONT_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_JABATAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TGL_MASUK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">

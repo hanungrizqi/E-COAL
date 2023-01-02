@@ -33,6 +33,11 @@ namespace e_coal_api.View_Model
             var data = db.cufn_getAlatByPekerjanSeam(ID_PEKERJAAN, ID_SEAM).FirstOrDefault();
             return data;
         }*/
+        public IQueryable<TBL_M_OPERATOR_EX> getListOperatorSub()
+        {
+            var data = db.TBL_M_OPERATOR_EXes.ToList().AsQueryable();
+            return data;
+        }
 
         public void submitOperator()
         {
