@@ -54,6 +54,8 @@ $(document).ready(function () {
             },
         ]
     }).data("kendoGrid");
+
+    $("#txtDistrict").val($("#hd_district").val());
 })
 
 $("#txtIDProfile").kendoDropDownList({
@@ -82,14 +84,14 @@ $("#txtIDProfile").kendoDropDownList({
     }
 });
 
-$("#txtDistrict").kendoDropDownList({
-    dataTextField: "DSTRCT_CODE",
-    dataValueField: "DSTRCT_CODE",
+$("#txtNRP").kendoComboBox({
+    dataTextField: "EMPLOYEE_DESC",
+    dataValueField: "EMPLOYEE_ID",
     dataSource: {
         type: "json",
         transport: {
             read: {
-                url: $("#hd_path").val() + "api/Masters/getListDistrict",
+                url: $("#hd_path").val() + "api/Masters/getListEmployee?district=" + $("#hd_district").val(),
                 contentType: "application/json",
                 type: "GET",
                 cache: false
@@ -100,13 +102,39 @@ $("#txtDistrict").kendoDropDownList({
             total: "Total"
         }
     },
-    optionLabel: "Pilih",
+    filter: "contains",
     select: function (e) {
         var dataItem = this.dataItem(e.item.index());
         /*settingModel.set("id_department", dataItem.id);*/
         /*getListDepartment();*/
     }
 });
+
+//$("#txtDistrict").kendoDropDownList({
+//    dataTextField: "DSTRCT_CODE",
+//    dataValueField: "DSTRCT_CODE",
+//    dataSource: {
+//        type: "json",
+//        transport: {
+//            read: {
+//                url: $("#hd_path").val() + "api/Masters/getListDistrict",
+//                contentType: "application/json",
+//                type: "GET",
+//                cache: false
+//            }
+//        },
+//        schema: {
+//            data: "Data",
+//            total: "Total"
+//        }
+//    },
+//    filter: "contains",
+//    select: function (e) {
+//        var dataItem = this.dataItem(e.item.index());
+//        /*settingModel.set("id_department", dataItem.id);*/
+//        /*getListDepartment();*/
+//    }
+//});
 
 function Save() {
     var obj = {
@@ -229,7 +257,7 @@ function AddNew() {
     $("#txtIDUser").val("");
     $("#txtNRP").val("");
     $("#txtIDProfile").data("kendoDropDownList").value(-1);
-    $("#txtDistrict").data("kendoDropDownList").value(-1);
+    //$("#txtDistrict").data("kendoDropDownList").value(-1);
     /*$("#txt_seam").data("kendoDropDownList").value(-1);*/
 
     $("#modalForm").modal("show");

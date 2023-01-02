@@ -143,6 +143,7 @@ function submmit() {
                     data: JSON.stringify(obj),
                     success: function (result) {
                         if (result.Status == true) {
+                            //set notif success
                             $("#id_toRom").empty();
                             $("#vol_tonase").empty();
                             $("#id_toRom").append($("#txt_seam").val());
@@ -150,7 +151,11 @@ function submmit() {
                             $("#notif_success").show();
                             $("#id_toRom").css("color", "green");
                             $("#vol_tonase").css("color", "green");
+
+                            //reset textbox no unit dt
                             $("#txt_noUnitDt").val("");
+
+                            //run get seam lg untuk mendapatkan data terbaru karena seam yg ditampilkan hanya yg tonase lebih dari 0
                             callSeam();
                         } else {
                             alert(result.Error);

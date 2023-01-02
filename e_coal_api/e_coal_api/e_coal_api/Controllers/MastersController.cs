@@ -673,6 +673,24 @@ namespace e_coal_api.Controllers
                 return Ok(new { Remarks = false, Message = "Gagal Edit", error = e.ToString() });
             }
         }
+
+        [HttpGet]
+        [Route("api/Masters/getListEmployee")]
+        public IHttpActionResult getListEmployee(string district)
+        {
+            try
+            {
+                ClsUser clsUser = new ClsUser();
+                clsUser.DISTRICT = district;
+                var data = clsUser.getListEmployee();
+
+                return Ok(new { Remarks = true, Data = data, Total = data.Count()});
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, error = e.ToString() });
+            }
+        }
         #endregion
 
         #region Departmen

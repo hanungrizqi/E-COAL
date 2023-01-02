@@ -48,7 +48,7 @@ namespace e_coal_api.View_Model
             tbl.BERAT_TARA_UNIT_KG = BERAT_TARA_UNIT_KG;
             tbl.BERAT_BRUTO_UNIT_KG = BERAT_BRUTO_UNIT_KG;
             tbl.TOTAL_TONASE = TOTAL_TONASE;
-            tbl.TANGGAL = TANGGAL;
+            //tbl.TANGGAL = TANGGAL;
             tbl.DISTRICT = DISTRICT;
             tbl.INPUT_DATE = DateTime.Now;
             tbl.INPUT_BY = INPUT_BY;

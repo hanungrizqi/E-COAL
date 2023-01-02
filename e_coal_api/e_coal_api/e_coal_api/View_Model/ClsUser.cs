@@ -51,5 +51,11 @@ namespace e_coal_api.View_Model
             db.TBL_M_USERs.DeleteOnSubmit(query);
             db.SubmitChanges();
         }
+
+        public IQueryable<cufn_getEmployeeResult> getListEmployee()
+        {
+            var data = db.cufn_getEmployee(DISTRICT);
+            return data;
+        }
     }
 }

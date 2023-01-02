@@ -365,6 +365,12 @@ namespace e_coal_api.Models
 		{
 			return this.CreateMethodCallQuery<cufn_getListDoneRequestResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cufn_getEmployee", IsComposable=true)]
+		public IQueryable<cufn_getEmployeeResult> cufn_getEmployee([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(5)")] string district)
+		{
+			return this.CreateMethodCallQuery<cufn_getEmployeeResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), district);
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_PROFILE")]
@@ -6069,6 +6075,68 @@ namespace e_coal_api.Models
 				if ((this._REQUEST_COAL != value))
 				{
 					this._REQUEST_COAL = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cufn_getEmployeeResult
+	{
+		
+		private string _EMPLOYEE_ID;
+		
+		private string _NAME;
+		
+		private string _EMPLOYEE_DESC;
+		
+		public cufn_getEmployeeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string EMPLOYEE_ID
+		{
+			get
+			{
+				return this._EMPLOYEE_ID;
+			}
+			set
+			{
+				if ((this._EMPLOYEE_ID != value))
+				{
+					this._EMPLOYEE_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(100)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_DESC", DbType="VarChar(203)")]
+		public string EMPLOYEE_DESC
+		{
+			get
+			{
+				return this._EMPLOYEE_DESC;
+			}
+			set
+			{
+				if ((this._EMPLOYEE_DESC != value))
+				{
+					this._EMPLOYEE_DESC = value;
 				}
 			}
 		}

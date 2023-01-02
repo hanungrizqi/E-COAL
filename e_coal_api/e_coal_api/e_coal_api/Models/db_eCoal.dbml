@@ -393,4 +393,12 @@
       <Column Name="REQUEST_COAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.cufn_getEmployee" Method="cufn_getEmployee" IsComposable="true">
+    <Parameter Name="district" Type="System.String" DbType="VarChar(5)" />
+    <ElementType Name="cufn_getEmployeeResult">
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EMPLOYEE_DESC" Type="System.String" DbType="VarChar(203)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
