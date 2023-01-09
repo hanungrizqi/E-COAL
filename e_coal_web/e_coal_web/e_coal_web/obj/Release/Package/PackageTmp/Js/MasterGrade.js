@@ -157,7 +157,7 @@ function AddNew() {
     $("#txtGrade").val("");
     $("#txtGarMin").val("");
     $("#txtGarMax").val("");
-    $("#txtDistrict").data("kendoDropDownList").value(-1);
+    /*$("#txtDistrict").data("kendoDropDownList").value(-1);*/
 
     $("#modalForm").modal("show");
 }

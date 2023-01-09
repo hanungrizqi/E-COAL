@@ -20,6 +20,7 @@ namespace e_coal_api.View_Model
         public DateTime TANGGAL { get; set; }
         public string INPUT_DATE { get; set; }
         public string INPUT_BY { get; set; }
+        public int STATUS { get; set; }
 
 
         public TBL_M_GRADE getGar()
@@ -29,7 +30,12 @@ namespace e_coal_api.View_Model
         }
 
         public void submmitInSitu()
-        {
+        {                 
+            if (COAL_CONDITION == "Anomali")
+            {
+                STATUS = 0;
+            }
+
             TBL_T_IN_SITU tbl = new TBL_T_IN_SITU();
             tbl.ID_IN_SITU = ID_IN_SITU;
             tbl.ID_SEAM = ID_SEAM;
@@ -41,6 +47,7 @@ namespace e_coal_api.View_Model
             tbl.INPUT_DATE = DateTime.Now;
             tbl.INPUT_BY = INPUT_BY;
             tbl.FLAG = false;
+            tbl.STATUS = STATUS;
             db.TBL_T_IN_SITUs.InsertOnSubmit(tbl);
             db.SubmitChanges();
         }

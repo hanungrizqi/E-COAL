@@ -54,6 +54,8 @@ $(document).ready(function () {
             },
         ]
     }).data("kendoGrid");
+
+    /*$("#txtDistrict").val($("#hd_district").val());*/
 })
 
 $("#txtIDProfile").kendoDropDownList({
@@ -82,14 +84,14 @@ $("#txtIDProfile").kendoDropDownList({
     }
 });
 
-$("#txtDistrict").kendoDropDownList({
-    dataTextField: "DSTRCT_CODE",
-    dataValueField: "DSTRCT_CODE",
+$("#txtNRP").kendoComboBox({
+    dataTextField: "EMPLOYEE_DESC",
+    dataValueField: "EMPLOYEE_ID",
     dataSource: {
         type: "json",
         transport: {
             read: {
-                url: $("#hd_path").val() + "api/Masters/getListDistrict",
+                url: $("#hd_path").val() + "api/Masters/getListEmployee?district=" + $("#hd_district").val(),
                 contentType: "application/json",
                 type: "GET",
                 cache: false
@@ -100,13 +102,39 @@ $("#txtDistrict").kendoDropDownList({
             total: "Total"
         }
     },
-    optionLabel: "Pilih",
+    filter: "contains",
     select: function (e) {
         var dataItem = this.dataItem(e.item.index());
         /*settingModel.set("id_department", dataItem.id);*/
         /*getListDepartment();*/
     }
 });
+
+//$("#txtDistrict").kendoDropDownList({
+//    dataTextField: "DSTRCT_CODE",
+//    dataValueField: "DSTRCT_CODE",
+//    dataSource: {
+//        type: "json",
+//        transport: {
+//            read: {
+//                url: $("#hd_path").val() + "api/Masters/getListDistrict",
+//                contentType: "application/json",
+//                type: "GET",
+//                cache: false
+//            }
+//        },
+//        schema: {
+//            data: "Data",
+//            total: "Total"
+//        }
+//    },
+//    filter: "contains",
+//    select: function (e) {
+//        var dataItem = this.dataItem(e.item.index());
+//        /*settingModel.set("id_department", dataItem.id);*/
+//        /*getListDepartment();*/
+//    }
+//});
 
 function Save() {
     var obj = {
@@ -199,17 +227,17 @@ function Edit(ID) {
         /*data: JSON.stringify(empObj),*/
         dataType: "json",
         contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            console.log(result.Data[0].ID_PROFILE);
+        success: function (result) {            
             //console.log(result.Data[0].customer_id);
             if (result.Remarks == true) {
-                /*$("#hd_id").val(id);*/
-                //settingModel.ds_grid_dataSource.read();
+                console.log(result.Data);
                 $("#txtIDUser").val(ID);
-                $("#txtNRP").val(result.Data[0].NRP);
-                $("#txtIDProfile").val(result.Data[0].ID_PROFILE);
-                $("#txtDistrict").val(result.Data[0].DISTRICT);
-                
+                $("#txtNRP").data("kendoComboBox").value(result.Data.NRP);
+                $("#txtIDProfile").data("kendoDropDownList").value(result.Data.ID_PROFILE);
+                $("#txtDistrict").val(result.Data.DISTRICT);
+
+                console.log($("#txtNRP").val());
+                console.log($("#txtIDProfile").val());
             }
             else {
                 alert(result.Message);
@@ -227,10 +255,14 @@ function AddNew() {
     $("#lblTitle").text("Add New User Master");
 
     $("#txtIDUser").val("");
-    $("#txtNRP").val("");
+    $("#txtNRP").data("kendoComboBox").value("");
     $("#txtIDProfile").data("kendoDropDownList").value(-1);
-    $("#txtDistrict").data("kendoDropDownList").value(-1);
-    /*$("#txt_seam").data("kendoDropDownList").value(-1);*/
+    $("#txtDistrict").val($("#hd_district").val());
+
+    //console.log($("#txtIDUser").val());
+    //console.log($("#txtNRP").val());
+    //console.log($("#txtIDProfile").val());
+    //console.log($("#txtDistrict").val());
 
     $("#modalForm").modal("show");
 }

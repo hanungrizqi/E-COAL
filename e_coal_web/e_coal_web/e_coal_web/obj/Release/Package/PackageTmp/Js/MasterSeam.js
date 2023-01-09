@@ -50,6 +50,32 @@ $(document).ready(function () {
     }).data("kendoGrid");
 })
 
+$("#txtGrade").kendoDropDownList({
+    dataTextField: "GRADE",
+    dataValueField: "GRADE",
+    dataSource: {
+        type: "json",
+        transport: {
+            read: {
+                url: $("#hd_path").val() + "api/Masters/getListGradeForSeam",
+                contentType: "application/json",
+                type: "GET",
+                cache: false
+            }
+        },
+        schema: {
+            data: "Data",
+            total: "Total"
+        }
+    },
+    optionLabel: "Pilih",
+    select: function (e) {
+        var dataItem = this.dataItem(e.item.index());
+        /*settingModel.set("id_department", dataItem.id);*/
+        /*getListDepartment();*/
+    }
+});
+
 function Save() {
     var obj = {
         id: $("#txtIDSeam").val(),

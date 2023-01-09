@@ -67,19 +67,19 @@ function setKondisiCoal() {
             $("#txt_kondisiCoal").val("Anomali");
         }
     } else if (get.GRADE == "B") {
-        if (parseInt(garActual) >= parseInt(get.GAR_MIN) && parseInt(garActual) < parseInt(get.GAR_MAX)) {
+        if (parseInt(garActual) >= parseInt(get.GAR_MIN) && parseInt(garActual) <= parseInt(get.GAR_MAX)) {
             $("#txt_kondisiCoal").val("Normal");
         } else {
             $("#txt_kondisiCoal").val("Anomali");
         }
     } else if (get.GRADE == "C") {
-        if (parseInt(garActual) >= parseInt(get.GAR_MIN) && parseInt(garActual) < parseInt(get.GAR_MAX)) {
+        if (parseInt(garActual) >= parseInt(get.GAR_MIN) && parseInt(garActual) <= parseInt(get.GAR_MAX)) {
             $("#txt_kondisiCoal").val("Normal");
         } else {
             $("#txt_kondisiCoal").val("Anomali");
         }
     } else if (get.GRADE == "Reject") {
-        if (parseInt(garActual) < parseInt(get.GAR_MIN)) {
+        if (parseInt(garActual) <= parseInt(get.GAR_MIN)) {
             $("#txt_kondisiCoal").val("Normal");
         } else {
             $("#txt_kondisiCoal").val("Anomali");
@@ -133,7 +133,7 @@ function submmit() {
                     }
 
                     $("#notif_success").show();
-                    Reset();
+                    Reset(true);
                 } else {
                     alert(result.Error);
                 }
@@ -142,7 +142,7 @@ function submmit() {
     }
 }
 
-function Reset() {
+function Reset(isInput) {
     $("#txt_estimasiGar").val("");
     $("#txt_garActual").val("");
     $("#txt_kondisiCoal").val("");
@@ -153,8 +153,11 @@ function Reset() {
     settingModel.set("grade", "");
     settingModel.set("total_tonase_seam", "");
 
-    $("#id_inSitu").empty();
-    $("#vol_tonase").empty();
+    if (isInput != true) {
+        $("#id_inSitu").empty();
+        $("#vol_tonase").empty();
+        $("#notif_success").hide();
+    }
 
     settingModel.set("GRADE", "");
     settingModel.set("GAR_MIN", "");

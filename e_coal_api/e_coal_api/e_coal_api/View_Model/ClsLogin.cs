@@ -31,8 +31,8 @@ namespace e_coal_api.View_Model
                 nrp = username;
             }
 
-            //status_login = CheckValidLogin();
-            status_login = true;
+            status_login = CheckValidLogin();
+            //status_login = true;
 
             if (status_login == false)
             {
