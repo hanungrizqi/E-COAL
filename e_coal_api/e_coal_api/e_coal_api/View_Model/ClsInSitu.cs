@@ -30,10 +30,10 @@ namespace e_coal_api.View_Model
         }
 
         public void submmitInSitu()
-        {                 
-            if (COAL_CONDITION == "Anomali")
+        {
+            if (COAL_CONDITION == "Normal")
             {
-                STATUS = 0;
+                STATUS = 1;
             }
 
             TBL_T_IN_SITU tbl = new TBL_T_IN_SITU();

@@ -13,6 +13,7 @@ namespace e_coal_api.Controllers
     {
         db_eCoalDataContext db = new db_eCoalDataContext();
 
+        #region Get Date
         [HttpGet]
         [Route("api/Dashboard/getDate")]
         public IHttpActionResult getDate()
@@ -47,7 +48,9 @@ namespace e_coal_api.Controllers
         //        return Ok(new { Status = false, Error = e.ToString() });
         //    }
         //}
+        #endregion
 
+        #region get Chart
         [HttpGet]
         [Route("api/Dashboard/getChart")]
         public IHttpActionResult getChart(string district)
@@ -64,6 +67,7 @@ namespace e_coal_api.Controllers
                 return Ok(new { Status = false, Error = e.ToString() });
             }
         }
+        #endregion
 
         #region getinsitu
         [HttpGet]
@@ -159,7 +163,7 @@ namespace e_coal_api.Controllers
         }
         #endregion
 
-        #region getinoutrom
+        #region getCGVinROM
         [HttpGet]
         [Route("api/Dashboard/getCGVInROM")]
         public IHttpActionResult getCGVInROM(string district)

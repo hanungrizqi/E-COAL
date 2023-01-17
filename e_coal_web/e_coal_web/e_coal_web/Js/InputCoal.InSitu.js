@@ -104,7 +104,16 @@ function submmit() {
         , TOTAL_TONASE: $("#txt_totalTonase").val()
         , TANGGAL: $("#txt_tanggal").val()
         , INPUT_BY: $("#hd_userLogin").val()
+        , STATUS: $("#txtStatus").val()
     }
+
+    //var statusIn = $("#txtStatus").val();
+    //if (obj.COAL_CONDITION == 'Normal') {
+    //    statusIn == 1;
+    //} else {
+    //    statusIn == 0;
+    //}
+
     //console.log(obj);
     if (obj.ID_SEAM == "Pilih" || obj.GRADE == "" || obj.GAR_ACTUAL == "" || obj.COAL_CONDITION == "" || obj.TOTAL_TONASE == "" || obj.TANGGAL == "") {
         alert("Lengkapi Data!!");
@@ -125,9 +134,11 @@ function submmit() {
                     $("#vol_tonase").append($("#txt_totalTonase").val());
 
                     if ($("#txt_kondisiCoal").val() == "Normal") {
+                        /*$("txtStatus").val(1);*/
                         $("#id_inSitu").css("color", "green");
                         $("#vol_tonase").css("color", "green");
                     } else {
+                        /*$("txtStatus").val(0);*/
                         $("#id_inSitu").css("color", "red");
                         $("#vol_tonase").css("color", "red");
                     }
@@ -149,6 +160,7 @@ function Reset(isInput) {
     $("#txt_totalTonase").val("");
     $("#txt_tanggal").val("");
     $("#txt_seam").data("kendoDropDownList").value(-1);
+    /*$("#txtStatus").val("");*/
 
     settingModel.set("grade", "");
     settingModel.set("total_tonase_seam", "");

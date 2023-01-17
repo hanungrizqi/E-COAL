@@ -68,21 +68,6 @@
       <Column Name="UPLOAD_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBL_T_IN_SITU" Member="TBL_T_IN_SITUs">
-    <Type Name="TBL_T_IN_SITU">
-      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="GAR_ACTUAL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FLAG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_T_IN_ROM" Member="TBL_T_IN_ROMs">
     <Type Name="TBL_T_IN_ROM">
       <Column Name="ID_TO_ROM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -210,6 +195,22 @@
       <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_T_IN_SITU" Member="TBL_T_IN_SITUs">
+    <Type Name="TBL_T_IN_SITU">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_SEAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="GAR_ACTUAL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="COAL_CONDITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.cufn_getAlatByPekerjanSeam" Method="cufn_getAlatByPekerjanSeam" IsComposable="true">
     <Parameter Name="PEKERJAAN" Parameter="pEKERJAAN" Type="System.Int32" DbType="Int" />
     <Parameter Name="SEAM" Parameter="sEAM" Type="System.Int32" DbType="Int" />
@@ -282,13 +283,6 @@
       <Column Name="TOTAL_TONASE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="TO_ROM_TONASE" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
       <Column Name="TONASE_TERSEDIA" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.cufn_getSeamInSitu" Method="cufn_getSeamInSitu" IsComposable="true">
-    <ElementType Name="cufn_getSeamInSituResult">
-      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="AVALIABLE_TONASE" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.cufn_getAvaliableTonaseInRom" Method="cufn_getAvaliableTonaseInRom" IsComposable="true">
@@ -399,6 +393,14 @@
       <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="EMPLOYEE_DESC" Type="System.String" DbType="VarChar(203)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_getSeamInSitu" Method="cufn_getSeamInSitu" IsComposable="true">
+    <ElementType Name="cufn_getSeamInSituResult">
+      <Column Name="ID_IN_SITU" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GRADE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="AVALIABLE_TONASE" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
